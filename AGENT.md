@@ -126,6 +126,22 @@ Run these every morning and before each intraday check. All are public informati
    politically connected businesses need documentary evidence (filings, notifications); if it cannot be
    verified, it is not a thesis. Trading on non-public information is illegal; only act on published facts.
 
+## Politically connected or story-driven small caps: checklist before any thesis
+
+Worked example: CIAN Agro (BSE:CIANAGRO), promoter is a Union minister's son, up 20x in 2025 on the
+ethanol policy, then down 60% from the high. Public information made it findable; the checklist kept it out.
+
+- Liquidity: at least 25 crore a day of turnover and no circuit band tighter than 10%. A 5% band means a
+  stop cannot be honoured on a lock-down day.
+- Trend: only when above the 50 day average and not more than 15% above the 20 day; a completed parabolic
+  move that is unwinding is not a momentum entry.
+- Quality: standalone versus consolidated profit, share of "other income", operating cash flow, promoter
+  pledge (over 25% is a red flag), institutional holding, exchange surveillance history (ASM/GSM).
+- Catalyst: a dated policy or corporate event, not the connection itself. For ethanol: the supply-year
+  price and tender (October-November), blending roadmap announcements, OMC allocations.
+- Headline risk: opposition allegations or probes cut both ways; size accordingly or stay out.
+- Only published facts. Ownership from filings, policy from notifications. Never non-public information.
+
 ## Discretionary theses: rules
 
 - One thesis per catalyst. The text must name the event, the expected outcome and why the market has not

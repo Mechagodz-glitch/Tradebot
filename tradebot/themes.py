@@ -27,6 +27,9 @@ DEFAULT_THEMES: dict[str, list[str]] = {
     "it_export": ["NSE:TCS", "NSE:INFY", "NSE:HCLTECH", "NSE:WIPRO", "NSE:TECHM", "NSE:LTIM", "NSE:PERSISTENT", "NSE:COFORGE", "NSE:MPHASIS"],
     "upstream_oil": ["NSE:ONGC", "NSE:OIL"],
     "shipping_tankers": ["NSE:GESHIP", "NSE:SCI", "NSE:SEAMEC"],
+    # politically connected ethanol / flex-fuel chain (CIAN Agro: promoter Nikhil Gadkari; Manas Agro is its subsidiary)
+    "ethanol_flexfuel": ["BSE:CIANAGRO", "NSE:PRAJIND", "NSE:GULPOLY", "NSE:GLOBUSSPR", "NSE:BCLIND", "NSE:TRIVENI", "NSE:BALRAMCHIN",
+                         "NSE:DALMIASUG", "NSE:MARUTI", "NSE:HEROMOTOCO"],
     "crude_importers_losers": ["NSE:HINDPETRO", "NSE:BPCL", "NSE:IOC", "NSE:INDIGO", "NSE:ASIANPAINT", "NSE:BERGEPAINT", "NSE:PIDILITIND",
                                "NSE:APOLLOTYRE"],
     "gold_silver": ["NSE:GOLDBEES", "NSE:SILVERBEES", "NSE:HINDZINC"],
