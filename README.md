@@ -168,6 +168,16 @@ equity by the day's turnover through Kite batch quotes and writes `data/universe
 `risk.allowed_symbols.in` and `strategy.universe.in` both point at that file (`file:data/universe/in.json`),
 so the whole liquid market is tradeable and scanned, not a hand-picked list. Rebuild it weekly.
 
+## News and themes
+
+`tradebot news --match "sugar,Adani" --hours 36` aggregates the Economic Times, Business Standard, Mint,
+Zerodha Pulse and Google News India business feeds (no credentials) and filters headlines by keyword;
+`tradebot news -q "Jio IPO date"` runs a Google News India search. `tradebot themes` reports 1d/5d/20d
+returns and volume versus the 20 day average for actor, policy and macro baskets (Adani, Reliance,
+sugar/ethanol, toll roads, textile exporters, pharma, IT, upstream oil, tankers, gold/silver, exchanges,
+NSE IPO stakeholders, defence, PSU banks); `--members` lists every constituent. Baskets can be extended
+with a `themes.yaml` at the project root.
+
 ## Theses (discretionary positions)
 
 News- and event-driven positions are recorded as theses so the app, not memory, enforces the exit:
@@ -226,6 +236,8 @@ tradebot/
   hours.py         exchange session calendar (NSE, US; crypto 24x7)
   strategy.py      rule-based strategies producing explained, executable plans
   universe.py      liquidity-screened universes (file-based symbol lists)
+  news.py          RSS news retrieval (Indian market feeds, Google News India)
+  themes.py        actor / policy / macro basket tracker
   engine.py        TradingEngine: the one entry point used by CLI and API
   cli.py           Typer CLI
   data/            market data providers + registry with fallback

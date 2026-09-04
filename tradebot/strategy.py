@@ -135,7 +135,8 @@ class TrendStrategy:
         if not universe:
             raise TradebotError(f"strategy universe for market {market.value} is empty", code="config_error")
         acct = broker.account(market)
-        positions = {p.symbol: p for p in broker.positions(market) if abs(p.qty) > 1e-12}
+        managed = self.engine.thesis_symbols(broker.name)  # discretionary theses own these; do not touch or double up
+        positions = {p.symbol: p for p in broker.positions(market) if abs(p.qty) > 1e-12 and p.symbol not in managed}
         insts = [self.engine.instrument(s, market) for s in universe]
         quotes = self.engine.data.quote_many(insts)
         rows = [self._row(s, market, positions, quotes) for s in universe]
@@ -167,8 +168,8 @@ class TrendStrategy:
         slots = cfg.max_positions - len(held_after)
         deployable = acct.cash + sum(o.notional for o in orders if o.side == Side.SELL) - acct.equity * cfg.cash_buffer_fraction
         for sym in targets:
-            if sym in held_after or sym in exiting:
-                continue  # never re-enter a name being exited in the same cycle
+            if sym in held_after or sym in exiting or sym in managed:
+                continue  # never re-enter a name being exited in the same cycle; never double up on a thesis
             if slots <= 0:
                 notes.append(f"{sym}: in uptrend but no free slot (max_positions={cfg.max_positions})")
                 continue
@@ -191,6 +192,8 @@ class TrendStrategy:
             slots -= 1
         if not ranked:
             notes.append(f"no eligible symbol ({sum(1 for r in rows if r.uptrend)} in uptrend, none passing the quality filters)")
+        if managed:
+            notes.append(f"thesis-managed, left to `thesis check`: {', '.join(sorted(managed))}")
         return Plan(strategy=self.name, venue=broker.name, market=market, equity=acct.equity, cash=acct.cash,
                     signals=rows, orders=orders, notes=notes)
 

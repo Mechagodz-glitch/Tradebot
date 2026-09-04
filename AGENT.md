@@ -47,6 +47,8 @@ tradebot --json strategy run --market in --venue kite --execute   # places the p
 tradebot --json thesis open NSE:X --venue kite --size 3000 --stop 5 --target 10 --expires 2026-09-16 --text "..." [--execute]
 tradebot --json thesis list | thesis check [--execute] | thesis enter <id> | thesis close <id> --reason "..."
 tradebot --json universe build --market in | universe show --market in --limit 30   # turnover-ranked names
+tradebot --json news --match "Adani,sugar,NSE IPO" --hours 36 | news -q "Jio IPO date"      # feeds / Google News India
+tradebot --json themes | themes -n adani -n sugar_ethanol --members                       # basket returns and volume
 ```
 
 Equivalent HTTP calls exist for every command (see README). Use the API when running the agent as a
@@ -103,6 +105,26 @@ symbols in `risk.allowed_symbols.in` and to the NSE session (09:15 to 15:30 IST,
 5. Every 1 to 2 hours and around 15:10 IST: `thesis check --execute` and `strategy run --execute`.
    Re-read the news between checks; a thesis whose premise broke is closed with `thesis close <id> --reason`.
 6. End of day: `account`, `positions`, `thesis list`, `journal`; summarise for the human with every order's reason.
+
+## Research pass: follow the money, not just the headlines
+
+Run these every morning and before each intraday check. All are public information.
+
+1. `tradebot news --match "<actors and themes>" --hours 36` over the market feeds, then `tradebot news -q "<topic>"`
+   for anything that needs depth. Actors to track: Adani group, Reliance/Jio, LIC, SBI, Tata, government
+   policy (Cabinet/CCEA decisions, DGFT notifications, GST council, MoRTH/NHAI, sugar and ethanol orders),
+   SEBI orders, RBI actions. Look for: large capex or acquisition announcements, promoter or insider buying,
+   bulk and block deals, stake sales, regulatory approvals (IPO observation letters), policy U-turns.
+2. `tradebot themes` to see which baskets moved and on what volume; `tradebot themes -n <theme> --members` to
+   find the lagging member of a moving basket (the better entry) and the name carrying unusual volume.
+3. `tradebot universe show --limit 40` for the day's turnover leaders: unusual volume is where information is
+   being acted on. Find the reason before trading it.
+4. Macro map: what is stressed (crude, rupee, FII flows, rates) and who is on the right side of it.
+   Crude up and rupee weak: upstream oil, tanker shipping, exporters with dollar revenue (textiles, pharma,
+   IT), commodity exchanges; losers are OMCs, aviation, paints, tyres, importers.
+5. Verify every premise from a primary or two independent sources before it becomes a thesis. Claims about
+   politically connected businesses need documentary evidence (filings, notifications); if it cannot be
+   verified, it is not a thesis. Trading on non-public information is illegal; only act on published facts.
 
 ## Discretionary theses: rules
 

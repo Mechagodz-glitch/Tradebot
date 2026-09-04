@@ -564,6 +564,64 @@ def thesis_close(thesis_id: str, reason: str = typer.Option("manual close", "--r
     _handle(lambda: _out(_engine().close_thesis(thesis_id, reason=reason, execute=True).model_dump(mode="json"), lambda d: _thesis_table([d])))
 
 
+@app.command()
+def news(query: Optional[str] = typer.Option(None, "--query", "-q", help="Google News (India) search, e.g. 'Adani' or 'sugar import'"),
+         match: Optional[str] = typer.Option(None, "--match", help="comma separated keywords to filter feed headlines"),
+         hours: int = typer.Option(36), limit: int = typer.Option(40),
+         feeds: Optional[str] = typer.Option(None, help="comma separated feed names (default all): google_business,et_markets,bs_markets,mint_markets,pulse")):
+    """Headlines from Indian market feeds, or a Google News search. No credentials needed."""
+    def run():
+        from .news import scan_headlines, search_news
+        if query:
+            rows = search_news(query, hours=hours, limit=limit)
+        else:
+            rows = scan_headlines(match=[m.strip() for m in match.split(",")] if match else None,
+                                  feeds=[f.strip() for f in feeds.split(",")] if feeds else None, hours=hours, limit=limit)
+        def table(rows):
+            t = Table(title=f"news: {query or (match or 'all feeds')} (last {hours}h)")
+            for c in ("published", "source", "title"):
+                t.add_column(c)
+            for r in rows:
+                t.add_row((r["published"] or "")[:16], escape(str(r["source"])[:18]), escape(r["title"][:110]))
+            console.print(t)
+        _out(rows, table)
+    _handle(run)
+
+
+@app.command()
+def themes(name: Optional[list[str]] = typer.Option(None, "--name", "-n", help="theme(s); default all"), market: Market = typer.Option(Market.IN),
+           members: bool = typer.Option(False, "--members", help="show every member, not just basket summaries")):
+    """Where is money moving: returns and volume for actor / policy / macro baskets."""
+    def run():
+        from .themes import theme_report
+        rows = theme_report(_engine(), name or None, market)
+        def table(rows):
+            t = Table(title="theme baskets")
+            for c in ("theme", "n", "avg 1d%", "avg 5d%", "avg 20d%", "max vol/avg20"):
+                t.add_column(c, justify="right")
+            for r in sorted(rows, key=lambda r: -(r.get("avg_d1") or -999)):
+                if r.get("error"):
+                    t.add_row(r["theme"], "-", f"[red]{r['error']}[/red]", "", "", "")
+                    continue
+                t.add_row(r["theme"], str(r["n"]), *(f"{v:+.2f}" if v is not None else "-" for v in (r["avg_d1"], r["avg_d5"], r["avg_d20"])),
+                          f"{r['max_vol_ratio']:.1f}x" if r.get("max_vol_ratio") else "-")
+            console.print(t)
+            if members:
+                for r in rows:
+                    m = Table(title=f"{r['theme']}")
+                    for c in ("symbol", "last", "1d%", "5d%", "20d%", "vol/avg20", "src"):
+                        m.add_column(c, justify="right")
+                    for x in sorted(r["members"], key=lambda x: -(x.get("d1") or -999)):
+                        if "error" in x:
+                            m.add_row(x["symbol"], f"[red]{escape(x['error'][:40])}[/red]", "", "", "", "", "")
+                            continue
+                        m.add_row(x["symbol"], _fmt(x["last"]), *(f"{v:+.2f}" if v is not None else "-" for v in (x["d1"], x["d5"], x["d20"])),
+                                  f"{x['vol_ratio']:.1f}x" if x.get("vol_ratio") else "-", x["source"])
+                    console.print(m)
+        _out(rows, table)
+    _handle(run)
+
+
 universe_app = typer.Typer(help="Build and inspect liquidity-screened universes.", no_args_is_help=True)
 app.add_typer(universe_app, name="universe")
 

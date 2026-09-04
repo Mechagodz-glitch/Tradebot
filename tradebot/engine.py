@@ -322,6 +322,10 @@ class TradingEngine:
                                         text=f"thesis {t.id} closed: {reason}", data={"thesis_id": t.id, "pnl": t.realized_pnl}))
         return self.store.save_thesis(t)
 
+    def thesis_symbols(self, venue: Optional[str] = None) -> set[str]:
+        """Symbols currently managed by a pending or open thesis; the systematic strategy leaves these alone."""
+        return {t.symbol for t in self.store.list_theses(statuses=[ThesisStatus.PENDING.value, ThesisStatus.OPEN.value], venue=venue)}
+
     def theses(self, all_: bool = False, venue: Optional[str] = None) -> list[Thesis]:
         statuses = None if all_ else [ThesisStatus.PLANNED.value, ThesisStatus.PENDING.value, ThesisStatus.OPEN.value]
         return self.store.list_theses(statuses=statuses, venue=venue)

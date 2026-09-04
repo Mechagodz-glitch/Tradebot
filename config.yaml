@@ -52,7 +52,7 @@ strategy:
     in: file:data/universe/in.json   # scan the whole liquid market, not a hand-picked list
     us: [AAPL, MSFT, NVDA, AMZN, GOOGL, META, JPM, V, XOM, UNH]
     crypto: [BTC-USD, ETH-USD, SOL-USD, XRP-USD, LTC-USD]
-  max_positions: 3
+  max_positions: 2            # systematic sleeve; discretionary theses are managed separately
   position_fraction: 0.30     # of equity per position
   cash_buffer_fraction: 0.05
   stop_loss_pct: 3.0

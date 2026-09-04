@@ -80,3 +80,25 @@ def test_insufficient_budget_note(engine, settings):
     make_series(engine.data.fake, "NSE:AAA", [5000 + i * 50 for i in range(60)])   # trending, but one share costs more than the budget
     plan = TrendStrategy(engine).plan(Market.IN, "paper")
     assert plan.orders == [] and any("less than one unit" in n for n in plan.notes)
+
+
+def test_strategy_ignores_thesis_managed_positions(engine, settings, prices):
+    from tradebot.models import ThesisRequest
+    settings.strategy.universe = {"in": ["NSE:AAA", "NSE:BBB"]}
+    settings.strategy.max_positions = 2
+    settings.paper.starting_cash["in"] = 10_000
+    settings.risk.max_order_notional["INR"] = 4_000
+    settings.risk.max_position_notional["INR"] = 4_500
+    fake = engine.data.fake
+    make_series(fake, "NSE:AAA", [100 + i for i in range(60)])
+    make_series(fake, "NSE:BBB", [200 + i * 0.5 for i in range(60)])
+    t = engine.open_thesis(ThesisRequest(symbol="NSE:AAA", text="event", size_notional=2_000, stop_pct=5), execute=True)
+    assert t.status.value == "open"
+    strat = TrendStrategy(engine)
+    plan = strat.plan(Market.IN, "paper")
+    # AAA is thesis-managed: not counted, not sold, not bought again; BBB fills the free slot
+    assert [o.symbol for o in plan.orders] == ["NSE:BBB"]
+    assert any("thesis-managed" in n for n in plan.notes)
+    fake.prices["NSE:AAA"] = 120.0  # far below SMA20: a strategy position would be sold, a thesis one is left alone
+    plan2 = strat.plan(Market.IN, "paper")
+    assert all(o.symbol != "NSE:AAA" for o in plan2.orders)
