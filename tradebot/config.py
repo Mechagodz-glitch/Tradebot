@@ -55,7 +55,7 @@ class KiteConfig(BaseModel):
 
 class DataConfig(BaseModel):
     us: list[str] = Field(default_factory=lambda: ["nasdaq", "alpaca"])
-    in_: list[str] = Field(default_factory=lambda: ["groww", "upstox"], alias="in")
+    in_: list[str] = Field(default_factory=lambda: ["kite", "groww", "upstox"], alias="in")
     crypto: list[str] = Field(default_factory=lambda: ["coinbase", "kraken", "ccxt"])
     cache_dir: str = "data/cache"
     quote_ttl_seconds: float = 2.0

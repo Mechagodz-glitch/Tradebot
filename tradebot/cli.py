@@ -364,16 +364,39 @@ def reset_paper(market: Optional[Market] = typer.Option(None), yes: bool = typer
     _handle(run)
 
 
+def _upsert_env(path, key: str, value: str) -> None:
+    """Set KEY=value in a dotenv file, replacing an existing line or appending. Mode 600."""
+    from pathlib import Path
+    p = Path(path)
+    lines = p.read_text().splitlines() if p.exists() else []
+    lines = [ln for ln in lines if not ln.startswith(f"{key}=")]
+    lines.append(f"{key}={value}")
+    p.write_text("\n".join(lines) + "\n")
+    try:
+        p.chmod(0o600)
+    except OSError:
+        pass
+
+
 @app.command("kite-login")
-def kite_login(request_token: Optional[str] = typer.Argument(None)):
+def kite_login(request_token: Optional[str] = typer.Argument(None),
+               save: bool = typer.Option(False, "--save", help="Write KITE_ACCESS_TOKEN into .env instead of printing it")):
     """Zerodha login: print the login URL, then exchange the request_token for an access token."""
     def run():
         eng = _engine()
         kite = eng.brokers.get("kite")
         if not request_token:
-            _out({"login_url": kite.login_url(), "next": "log in, copy request_token from the redirect URL, run: tradebot kite-login <request_token>"})
+            _out({"login_url": kite.login_url(),
+                  "next": "log in, copy request_token from the redirect URL, run: tradebot kite-login <request_token> --save"})
+            return
+        tok = kite.exchange_token(request_token)
+        if save:
+            from pathlib import Path
+            env_path = Path(eng.settings.root) / ".env"
+            _upsert_env(env_path, "KITE_ACCESS_TOKEN", tok)
+            _out({"access_token": "<saved>", "saved_to": str(env_path),
+                  "next": "run: tradebot doctor --no-data   (token is valid until about 6am IST tomorrow)"})
         else:
-            tok = kite.exchange_token(request_token)
             _out({"access_token": tok, "next": "export KITE_ACCESS_TOKEN=<token> (valid until ~6am IST next day)"})
     _handle(run)
 

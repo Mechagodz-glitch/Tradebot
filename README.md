@@ -7,7 +7,7 @@ handles market data, risk checks, order routing, persistence and reporting.
 | Market | Symbol form | Currency | Public data (no keys) | Live venues |
 |---|---|---|---|---|
 | US equities (`us`) | `AAPL` | USD | Nasdaq quotes and daily candles | Alpaca (paper and live) |
-| Indian equities (`in`) | `NSE:RELIANCE` | INR | Groww quotes, Upstox candles and instrument master | Zerodha Kite Connect |
+| Indian equities (`in`) | `NSE:RELIANCE` | INR | Groww quotes, Upstox candles and instrument master; Kite quotes with depth when connected | Zerodha Kite Connect |
 | Crypto (`crypto`) | `BTC-USD` | USD (or any quote ccy) | Coinbase Exchange, Kraken, any CCXT exchange | Alpaca (crypto), any CCXT exchange, Coinbase/Kraken via CCXT |
 
 The built-in `paper` venue works for all three markets with no credentials. It fills at live bid/ask

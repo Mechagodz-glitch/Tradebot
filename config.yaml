@@ -26,7 +26,7 @@ risk:
 data:
   # provider order per market; first that works wins
   us: [nasdaq, alpaca]
-  in: [groww, upstox]
+  in: [kite, groww, upstox]     # kite is skipped until KITE_ACCESS_TOKEN is set
   crypto: [coinbase, kraken, ccxt]
   cache_dir: data/cache
   quote_ttl_seconds: 2

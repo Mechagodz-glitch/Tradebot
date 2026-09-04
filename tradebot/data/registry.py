@@ -13,6 +13,7 @@ from .base import MarketDataProvider
 from .ccxt_data import CcxtData
 from .coinbase import CoinbaseData
 from .groww import GrowwData
+from .kite_data import KiteData
 from .kraken import KrakenData
 from .nasdaq import NasdaqData
 from .upstox import UpstoxData
@@ -23,6 +24,7 @@ PROVIDERS: dict[str, type[MarketDataProvider]] = {
     "ccxt": CcxtData,
     "nasdaq": NasdaqData,
     "alpaca": AlpacaData,
+    "kite": KiteData,
     "groww": GrowwData,
     "upstox": UpstoxData,
 }
