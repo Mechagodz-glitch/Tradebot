@@ -7,7 +7,7 @@ default_venue: paper          # paper | alpaca | kite | ccxt
 live_trading_enabled: false
 
 paper:
-  starting_cash: { us: 100000, in: 1000000, crypto: 100000 }   # USD, INR, USD
+  starting_cash: { us: 100000, in: 10000, crypto: 100000 }   # USD, INR, USD (INR mirrors the funded Zerodha account)
   slippage_bps: 5           # applied to market / stop fills, adverse direction
   fee_bps: { us: 0, in: 3, crypto: 40 }
   allow_short: false
@@ -15,11 +15,14 @@ paper:
 risk:
   kill_switch_file: data/KILL
   allowed_markets: [us, in, crypto]
-  allowed_symbols: null      # null = any; or a list like [BTC-USD, AAPL]
+  # per-market whitelist; markets not listed allow any symbol. Live Indian orders are limited to the strategy universe.
+  allowed_symbols:
+    in: [NSE:RELIANCE, NSE:HDFCBANK, NSE:ICICIBANK, NSE:INFY, NSE:TCS, NSE:SBIN, NSE:ITC, NSE:BHARTIARTL, NSE:KOTAKBANK, NSE:LT]
+  allow_outside_hours: false # live venues reject orders outside the exchange session
   blocked_symbols: []
-  max_order_notional: { USD: 5000, INR: 200000 }
-  max_position_notional: { USD: 20000, INR: 1000000 }
-  max_daily_loss: { USD: 1000, INR: 50000 }
+  max_order_notional: { USD: 5000, INR: 4000 }        # INR: at most 40% of the 10k account per order
+  max_position_notional: { USD: 20000, INR: 4500 }    # INR: one name can never exceed ~45% of the account
+  max_daily_loss: { USD: 1000, INR: 400 }             # INR: 4% of the account, then only exits are allowed
   max_open_orders: 20
   max_orders_per_minute: 10
 
@@ -42,6 +45,23 @@ ccxt:
 kite:
   product: CNC               # CNC (delivery) or MIS (intraday)
   exchange: NSE
+
+strategy:
+  name: trend                 # long-only trend following on daily candles (see README "Strategy")
+  universe:
+    in: [NSE:RELIANCE, NSE:HDFCBANK, NSE:ICICIBANK, NSE:INFY, NSE:TCS, NSE:SBIN, NSE:ITC, NSE:BHARTIARTL, NSE:KOTAKBANK, NSE:LT]
+    us: [AAPL, MSFT, NVDA, AMZN, GOOGL, META, JPM, V, XOM, UNH]
+    crypto: [BTC-USD, ETH-USD, SOL-USD, XRP-USD, LTC-USD]
+  max_positions: 3
+  position_fraction: 0.30     # of equity per position
+  cash_buffer_fraction: 0.05
+  stop_loss_pct: 3.0
+  fast_sma: 20
+  slow_sma: 50
+  momentum_days: 20
+  min_history: 55
+  entry_limit_offset_bps: 15  # marketable limit: bounded slippage instead of a bare market order
+  exit_order_type: market
 
 api_host: 127.0.0.1
 api_port: 8787

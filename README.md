@@ -138,6 +138,51 @@ environment where one exists. Public market data through CCXT needs no keys.
 | Nasdaq quote API, Groww, Upstox candles | yes | used as free data sources |
 | Yahoo Finance | rate limited (429) | not used |
 
+## Strategy
+
+`tradebot strategy plan --market in` computes signals and the orders the built-in strategy would place;
+`tradebot strategy run --market in --venue kite --execute` places them. Without `--execute` the run is a
+risk-checked dry run that sends nothing. Every proposed order carries the rule that produced it, and that
+text becomes the order's journal reason.
+
+The default strategy is **trend**, long-only trend following on daily candles:
+
+- Universe: `strategy.universe` per market (default: ten liquid Nifty 50 names for `in`).
+- Entry: live price above the 20-day SMA, which is above the 50-day SMA, and 20-day momentum positive.
+  Candidates are ranked by momentum; the top `max_positions` (default 3) are held.
+- Sizing: `position_fraction` of equity per name (default 30%), whole shares, capped by the risk limits,
+  never touching the last `cash_buffer_fraction` (5%) of equity. Entries are marketable limit orders at
+  the live price plus `entry_limit_offset_bps` (15 bps) so slippage is bounded.
+- Exit: price below the 20-day SMA (trend break) or below entry by `stop_loss_pct` (3%). Exits are
+  market orders. A name that stays in an uptrend but slips in the ranking is held, not churned.
+- A name being exited is never re-entered in the same cycle.
+
+Equity of 10,000 INR therefore means at most three positions of roughly 3,000 INR each, with a
+per-name stop of about 90 INR and a daily loss limit (`risk.max_daily_loss`) of 400 INR.
+
+## Live trading runbook (Zerodha)
+
+Zerodha's access token expires every morning, so each trading day starts with a human login.
+
+1. Around 08:30 IST open the Kite login URL (`tradebot kite-login` prints it), log in, and pass the
+   `request_token` from the redirect URL to `tradebot kite-login <token> --save`.
+2. `tradebot doctor --no-data` must show `broker:kite` ok and `session:in` open (from 09:15 IST).
+3. `tradebot account --venue kite` to confirm funds.
+4. After the opening auction settles (about 09:30 IST): `tradebot strategy plan --market in --venue kite`
+   to review, then `tradebot strategy run --market in --venue kite --execute` to place.
+5. Re-run `strategy run` a few times during the session and once around 15:10 IST so stops and trend
+   breaks are acted on the same day. Orders use product CNC (delivery), so nothing is auto squared off.
+6. `tradebot journal` and `tradebot account --venue kite` for the end-of-day record.
+
+Live orders are refused unless `live_trading_enabled: true` (or `TRADEBOT_LIVE=1`), the exchange session
+is open, the symbol is in `risk.allowed_symbols.in`, and the notional limits pass.
+
+When running under Claude Code on the web, the container is ephemeral: `.env` and `data/tradebot.db`
+do not survive a container restart. Kite remains the source of truth for live positions; the local
+journal and equity curve are lost. For an always-on deployment run Tradebot on a persistent machine
+and drive it over the HTTP API. `.claude/hooks/session-start.sh` re-creates the virtualenv
+automatically in a fresh web container.
+
 ## Layout
 
 ```
@@ -147,6 +192,8 @@ tradebot/
   config.py        config.yaml + .env loader
   store.py         SQLite persistence (orders, fills, positions, accounts, equity, journal)
   risk.py          pre-trade risk engine
+  hours.py         exchange session calendar (NSE, US; crypto 24x7)
+  strategy.py      rule-based strategies producing explained, executable plans
   engine.py        TradingEngine: the one entry point used by CLI and API
   cli.py           Typer CLI
   data/            market data providers + registry with fallback

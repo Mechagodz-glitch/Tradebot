@@ -40,6 +40,10 @@ tradebot --json positions            |  tradebot --json account --market crypto
 tradebot --json sync
 tradebot --json journal --limit 50   |  tradebot --json note "thesis: ..." --symbol AAPL
 tradebot --json kill                 |  tradebot --json kill --off
+tradebot --json hours                                    # session open/closed per market
+tradebot --json strategy plan --market in --venue kite   # signals + proposed orders, sends nothing
+tradebot --json strategy run --market in --venue kite    # risk-checked dry run
+tradebot --json strategy run --market in --venue kite --execute   # places the plan
 ```
 
 Equivalent HTTP calls exist for every command (see README). Use the API when running the agent as a
@@ -65,11 +69,12 @@ long-lived process; use the CLI for one-shot actions.
 
 | Limit | USD | INR |
 |---|---|---|
-| Max order notional | 5,000 | 200,000 |
-| Max resulting position notional | 20,000 | 1,000,000 |
-| Max daily loss before only reducing orders are allowed | 1,000 | 50,000 |
+| Max order notional | 5,000 | 4,000 |
+| Max resulting position notional | 20,000 | 4,500 |
+| Max daily loss before only reducing orders are allowed | 1,000 | 400 |
 
-Plus at most 20 open orders and 10 orders per minute per venue. Size orders accordingly before sending;
+Plus at most 20 open orders and 10 orders per minute per venue. Live Indian orders are also limited to the
+symbols in `risk.allowed_symbols.in` and to the NSE session (09:15 to 15:30 IST, weekdays). Size orders accordingly before sending;
 `--dry-run` confirms.
 
 ## Suggested loop for a strategy session
@@ -80,6 +85,14 @@ Plus at most 20 open orders and 10 orders per minute per venue. Size orders acco
 4. `buy`/`sell` with `--reason` and `--strategy`; `--dry-run` if size is near a limit.
 5. `sync`, then `positions` to confirm state.
 6. `note` a short summary of what was done and why.
+
+## Live day routine (Zerodha)
+
+1. Ask the human for the Kite request token; `kite-login <token> --save`; `doctor --no-data`.
+2. `account --venue kite` to confirm funds. Do not proceed if funds are missing.
+3. From about 09:30 IST: `strategy plan --market in --venue kite`, review, then `strategy run ... --execute`.
+4. Repeat `strategy run --execute` every 1 to 2 hours and once around 15:10 IST for stops and trend breaks.
+5. End of day: `account`, `positions`, `journal`; summarise for the human.
 
 ## Never
 

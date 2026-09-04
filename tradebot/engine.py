@@ -11,6 +11,7 @@ from .brokers import BrokerRegistry
 from .config import Settings, load_settings
 from .data import MarketData
 from .errors import BrokerError, NotFound, RiskRejected
+from .hours import market_session
 from .models import (
     Account, Candle, CheckResult, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, Position, Quote, Side, utcnow,
 )
@@ -223,6 +224,9 @@ class TradingEngine:
         checks.append(CheckResult(name="kill_switch", ok=not self.risk.kill_switch_active(),
                                   detail="active" if self.risk.kill_switch_active() else "inactive"))
         checks.append(CheckResult(name="live_trading", ok=True, detail="ENABLED" if self.settings.live_trading_enabled else "disabled (paper only)"))
+        for m in Market:
+            sess = market_session(m)
+            checks.append(CheckResult(name=f"session:{m.value}", ok=True, detail=("OPEN, " + sess["detail"]) if sess["open"] else sess["detail"]))
         if include_data:
             checks.extend(self.data.check_all())
         for name in self.brokers.names():

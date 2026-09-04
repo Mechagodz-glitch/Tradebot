@@ -29,7 +29,8 @@ class PaperConfig(BaseModel):
 class RiskConfig(BaseModel):
     kill_switch_file: str = "data/KILL"
     allowed_markets: list[str] = Field(default_factory=lambda: ["us", "in", "crypto"])
-    allowed_symbols: Optional[list[str]] = None  # None = any
+    allowed_symbols: Optional[list[str] | dict[str, list[str]]] = None  # None = any; list = global; dict = per market
+    allow_outside_hours: bool = False  # live venues: reject orders when the exchange session is closed
     blocked_symbols: list[str] = Field(default_factory=list)
     max_order_notional: dict[str, float] = Field(default_factory=lambda: {"USD": 5_000, "INR": 200_000})
     max_position_notional: dict[str, float] = Field(default_factory=lambda: {"USD": 20_000, "INR": 1_000_000})
@@ -53,6 +54,26 @@ class KiteConfig(BaseModel):
     exchange: str = "NSE"
 
 
+class StrategyConfig(BaseModel):
+    name: str = "trend"
+    universe: dict[str, list[str]] = Field(default_factory=lambda: {
+        "in": ["NSE:RELIANCE", "NSE:HDFCBANK", "NSE:ICICIBANK", "NSE:INFY", "NSE:TCS", "NSE:SBIN", "NSE:ITC",
+               "NSE:BHARTIARTL", "NSE:KOTAKBANK", "NSE:LT"],
+        "us": ["AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "JPM", "V", "XOM", "UNH"],
+        "crypto": ["BTC-USD", "ETH-USD", "SOL-USD", "XRP-USD", "LTC-USD"],
+    })
+    max_positions: int = 3
+    position_fraction: float = 0.30      # of account equity per position
+    cash_buffer_fraction: float = 0.05   # never deploy the last 5% of equity
+    stop_loss_pct: float = 3.0           # exit if price < avg entry * (1 - pct/100)
+    fast_sma: int = 20
+    slow_sma: int = 50
+    momentum_days: int = 20
+    min_history: int = 55
+    entry_limit_offset_bps: float = 15.0 # buy limit = reference * (1 + bps/1e4): marketable, bounded slippage
+    exit_order_type: str = "market"
+
+
 class DataConfig(BaseModel):
     us: list[str] = Field(default_factory=lambda: ["nasdaq", "alpaca"])
     in_: list[str] = Field(default_factory=lambda: ["kite", "groww", "upstox"], alias="in")
@@ -73,6 +94,7 @@ class Settings(BaseModel):
     paper: PaperConfig = Field(default_factory=PaperConfig)
     risk: RiskConfig = Field(default_factory=RiskConfig)
     data: DataConfig = Field(default_factory=DataConfig)
+    strategy: StrategyConfig = Field(default_factory=StrategyConfig)
     alpaca: AlpacaConfig = Field(default_factory=AlpacaConfig)
     ccxt: CcxtConfig = Field(default_factory=CcxtConfig)
     kite: KiteConfig = Field(default_factory=KiteConfig)

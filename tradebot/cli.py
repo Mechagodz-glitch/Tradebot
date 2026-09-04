@@ -9,6 +9,7 @@ from typing import Optional
 
 import typer
 from rich.console import Console
+from rich.markup import escape
 from rich.table import Table
 
 from .errors import TradebotError
@@ -235,7 +236,7 @@ def _orders_table(rows):
         color = {"filled": "green", "rejected": "red", "canceled": "yellow", "expired": "yellow"}.get(status, "cyan")
         t.add_row(r["id"], r["venue"], r["symbol"], r["side"], _fmt(r["qty"], 6), r["order_type"], _fmt(r["limit_price"]),
                   _fmt(r["stop_price"]), f"[{color}]{status}[/{color}]", _fmt(r["filled_qty"], 6), _fmt(r["avg_fill_price"]),
-                  r["created_at"][:19], (r.get("reject_reason") or r.get("reason") or "")[:60])
+                  r["created_at"][:19], escape((r.get("reject_reason") or r.get("reason") or "")[:60]))
     console.print(t)
     if not rows:
         console.print("(no orders)")
@@ -334,7 +335,7 @@ def journal(limit: int = typer.Option(30), kind: Optional[str] = typer.Option(No
             for c in ("ts", "kind", "venue", "symbol", "order", "text"):
                 t.add_column(c)
             for r in reversed(rows):
-                t.add_row(r["ts"][:19], r["kind"], r.get("venue") or "", r.get("symbol") or "", r.get("order_id") or "", r["text"])
+                t.add_row(r["ts"][:19], r["kind"], r.get("venue") or "", r.get("symbol") or "", r.get("order_id") or "", escape(r["text"]))
             console.print(t)
         _out(rows, table)
     _handle(run)
@@ -399,6 +400,80 @@ def kite_login(request_token: Optional[str] = typer.Argument(None),
         else:
             _out({"access_token": tok, "next": "export KITE_ACCESS_TOKEN=<token> (valid until ~6am IST next day)"})
     _handle(run)
+
+
+strategy_app = typer.Typer(help="Rule-based strategy: show the plan, or run it.", no_args_is_help=True)
+app.add_typer(strategy_app, name="strategy")
+
+
+def _plan_tables(plan: dict):
+    t = Table(title=f"{plan['strategy']} signals | {plan['venue']} {plan['market']} | equity {_fmt(plan['equity'])} cash {_fmt(plan['cash'])}")
+    for c in ("symbol", "last", "src", "sma_fast", "sma_slow", "mom%", "uptrend", "held", "avg", "pnl%", "note"):
+        t.add_column(c, justify="right")
+    for r in plan["signals"]:
+        t.add_row(r["symbol"], _fmt(r["last"]), r["price_source"], _fmt(r["sma_fast"]), _fmt(r["sma_slow"]),
+                  f"{r['momentum'] * 100:+.2f}" if r["momentum"] is not None else "-",
+                  "[green]yes[/green]" if r["uptrend"] else "no", _fmt(r["held_qty"], 6), _fmt(r["avg_price"]),
+                  f"{r['pnl_pct']:+.2f}" if r["pnl_pct"] is not None else "-", r["note"])
+    console.print(t)
+    o = Table(title="proposed orders")
+    for c in ("symbol", "side", "qty", "type", "limit", "notional", "reason"):
+        o.add_column(c)
+    for it in plan["orders"]:
+        o.add_row(it["symbol"], it["side"], _fmt(it["qty"], 6), it["order_type"], _fmt(it["limit_price"]), _fmt(it["notional"]), escape(it["reason"]))
+    console.print(o)
+    if not plan["orders"]:
+        console.print("(no orders proposed)")
+    for n in plan["notes"]:
+        console.print(f"[yellow]note[/yellow] {n}")
+
+
+@strategy_app.command("plan")
+def strategy_plan(market: Market = typer.Option(Market.IN), venue: Optional[str] = typer.Option(None),
+                  name: Optional[str] = typer.Option(None, "--name", help="strategy name (default from config)")):
+    """Compute signals and the orders the strategy would place now. Sends nothing."""
+    def run():
+        from .strategy import get_strategy
+        eng = _engine()
+        plan = get_strategy(eng, name).plan(market, venue)
+        _out(plan.model_dump(mode="json"), _plan_tables)
+    _handle(run)
+
+
+@strategy_app.command("run")
+def strategy_run(market: Market = typer.Option(Market.IN), venue: Optional[str] = typer.Option(None),
+                 name: Optional[str] = typer.Option(None, "--name"),
+                 execute: bool = typer.Option(False, "--execute", help="Actually place the orders (default: risk-check only)")):
+    """Compute the plan and place its orders (risk-checked dry run unless --execute)."""
+    def run():
+        from .strategy import get_strategy
+        eng = _engine()
+        strat = get_strategy(eng, name)
+        plan = strat.plan(market, venue)
+        results = strat.execute(plan, dry_run=not execute)
+        eng.note(f"[{strat.name}] {'executed' if execute else 'dry run'} on {plan.venue}/{plan.market.value}: "
+                 f"{len(plan.orders)} orders, {sum(1 for r in results if r['status'] in ('filled', 'accepted', 'new'))} accepted",
+                 data={"results": results, "notes": plan.notes})
+        out = {"plan": plan.model_dump(mode="json"), "executed": execute, "results": results}
+        def table(d):
+            _plan_tables(d["plan"])
+            t = Table(title="execution results" + ("" if d["executed"] else " (dry run)"))
+            for c in ("symbol", "side", "qty", "status", "order", "avg fill", "detail"):
+                t.add_column(c)
+            for r in d["results"]:
+                color = {"filled": "green", "accepted": "cyan", "new": "cyan", "rejected": "red"}.get(r["status"], "white")
+                t.add_row(r["symbol"], r["side"], _fmt(r["qty"], 6), f"[{color}]{r['status']}[/{color}]", r["order_id"] or "",
+                          _fmt(r["avg_fill_price"]), escape((r["detail"] or "")[:90]))
+            console.print(t)
+        _out(out, table)
+    _handle(run)
+
+
+@app.command()
+def hours():
+    """Show whether each market session is open and when it next opens."""
+    from .hours import market_session
+    _out([market_session(m) for m in Market])
 
 
 @app.command()

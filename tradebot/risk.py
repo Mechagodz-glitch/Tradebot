@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Optional
 
 from .errors import RiskRejected
+from .hours import market_session
 from .models import Account, Instrument, OrderRequest, OrderType, Position, Quote, Side
 
 
@@ -36,8 +37,16 @@ class RiskEngine:
                                code="live_trading_disabled")
         if inst.market.value not in cfg.allowed_markets:
             raise RiskRejected(f"market {inst.market.value} is not in allowed_markets", code="market_not_allowed")
-        if cfg.allowed_symbols is not None and inst.symbol not in {s.upper() for s in cfg.allowed_symbols}:
-            raise RiskRejected(f"{inst.symbol} is not in allowed_symbols", code="symbol_not_allowed")
+        allowed = cfg.allowed_symbols
+        if isinstance(allowed, dict):
+            allowed = allowed.get(inst.market.value)
+        if allowed is not None and inst.symbol not in {s.upper() for s in allowed}:
+            raise RiskRejected(f"{inst.symbol} is not in allowed_symbols for market {inst.market.value}", code="symbol_not_allowed")
+        if venue_live and not cfg.allow_outside_hours:
+            sess = market_session(inst.market)
+            if not sess["open"]:
+                raise RiskRejected(f"{inst.market.value} market is closed ({sess['detail']}); set risk.allow_outside_hours to override",
+                                   code="market_closed", details=sess)
         if inst.symbol in {s.upper() for s in cfg.blocked_symbols}:
             raise RiskRejected(f"{inst.symbol} is blocked", code="symbol_blocked")
         if open_orders >= cfg.max_open_orders:
