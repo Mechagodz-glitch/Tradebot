@@ -44,6 +44,9 @@ tradebot --json hours                                    # session open/closed p
 tradebot --json strategy plan --market in --venue kite   # signals + proposed orders, sends nothing
 tradebot --json strategy run --market in --venue kite    # risk-checked dry run
 tradebot --json strategy run --market in --venue kite --execute   # places the plan
+tradebot --json thesis open NSE:X --venue kite --size 3000 --stop 5 --target 10 --expires 2026-09-16 --text "..." [--execute]
+tradebot --json thesis list | thesis check [--execute] | thesis enter <id> | thesis close <id> --reason "..."
+tradebot --json universe build --market in | universe show --market in --limit 30   # turnover-ranked names
 ```
 
 Equivalent HTTP calls exist for every command (see README). Use the API when running the agent as a
@@ -90,9 +93,27 @@ symbols in `risk.allowed_symbols.in` and to the NSE session (09:15 to 15:30 IST,
 
 1. Ask the human for the Kite request token; `kite-login <token> --save`; `doctor --no-data`.
 2. `account --venue kite` to confirm funds. Do not proceed if funds are missing.
-3. From about 09:30 IST: `strategy plan --market in --venue kite`, review, then `strategy run ... --execute`.
-4. Repeat `strategy run --execute` every 1 to 2 hours and once around 15:10 IST for stops and trend breaks.
-5. End of day: `account`, `positions`, `journal`; summarise for the human.
+3. Research pass (the intelligence layer's job): news, scheduled events (index changes, IPOs, policy,
+   results, regulatory), and unusual-volume names from `universe show`. Turn each view into a thesis with a
+   stop, a target, an expiry and a confidence: `thesis open SYMBOL --venue kite --size N --stop S --target T
+   --expires DATE --confidence C --text "..."`. Size by confidence: roughly 15% of equity at 0.5, up to 30%
+   at 0.65+. Never more than `risk.max_position_notional`.
+4. From about 09:30 IST: `thesis check --execute` (resolves pending entries), `thesis enter <id>` for planned
+   theses, then `strategy plan --market in --venue kite`, review, `strategy run ... --execute`.
+5. Every 1 to 2 hours and around 15:10 IST: `thesis check --execute` and `strategy run --execute`.
+   Re-read the news between checks; a thesis whose premise broke is closed with `thesis close <id> --reason`.
+6. End of day: `account`, `positions`, `thesis list`, `journal`; summarise for the human with every order's reason.
+
+## Discretionary theses: rules
+
+- One thesis per catalyst. The text must name the event, the expected outcome and why the market has not
+  priced it. If that cannot be written in two sentences, there is no thesis.
+- Do not chase a name that moved more than ~10% on the catalyst day at many times normal volume; look for the
+  lagging beneficiary instead.
+- Verify the premise (e.g. the company actually holds the stake the headline claims). IFCI rallied on the NSE
+  IPO story in September 2026 despite having sold its NSE stake in 2019.
+- Stops are 4 to 6% for large caps and 6 to 8% for volatile mid caps; targets 1.5 to 2 times the stop.
+- Expiry is the catalyst date plus a day or two, never open ended.
 
 ## Never
 

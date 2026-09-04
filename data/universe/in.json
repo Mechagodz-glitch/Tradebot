@@ -1,0 +1,4980 @@
+{
+ "market": "in",
+ "built_at": "2026-09-04T22:09:16.714988+00:00",
+ "min_turnover_cr": 25.0,
+ "max_price": 4500.0,
+ "scanned": 2631,
+ "count": 552,
+ "symbols": [
+  "NSE:SWIGGY",
+  "NSE:IFCI",
+  "NSE:BSE",
+  "NSE:RELIANCE",
+  "NSE:LUMINO",
+  "NSE:TEJASNET",
+  "NSE:NIACL",
+  "NSE:PCJEWELLER",
+  "NSE:HDFCBANK",
+  "NSE:JINDWORLD",
+  "NSE:HBLENGINE",
+  "NSE:DHOOTTRANS",
+  "NSE:ICICIBANK",
+  "NSE:ATHERENERG",
+  "NSE:ANGELONE",
+  "NSE:GROWW",
+  "NSE:PAYTM",
+  "NSE:GLAND",
+  "NSE:MCX",
+  "NSE:PWL",
+  "NSE:IDEA",
+  "NSE:PINELABS",
+  "NSE:WOCKPHARMA",
+  "NSE:LALITHAA",
+  "NSE:LENSKART",
+  "NSE:SBIN",
+  "NSE:TATASTEEL",
+  "NSE:PFC",
+  "NSE:RESPONIND",
+  "NSE:BHARTIARTL",
+  "NSE:INFY",
+  "NSE:RRKABEL",
+  "NSE:BAJFINANCE",
+  "NSE:SKIPPER",
+  "NSE:TCS",
+  "NSE:KALYANKJIL",
+  "NSE:ETERNAL",
+  "NSE:LT",
+  "NSE:AFFLE",
+  "NSE:MEESHO",
+  "NSE:AXISBANK",
+  "NSE:ANTELOPUS",
+  "NSE:M&M",
+  "NSE:HINDUNILVR",
+  "NSE:JAYNECOIND",
+  "NSE:INDOMIM",
+  "NSE:SHRIRAMFIN",
+  "NSE:KAYNES",
+  "NSE:LICHSGFIN",
+  "NSE:PURVA",
+  "NSE:KOTAKBANK",
+  "NSE:SAIL",
+  "NSE:HINDALCO",
+  "NSE:MILKYMIST",
+  "NSE:SILVERBEES",
+  "NSE:BEL",
+  "NSE:HAVELLS",
+  "NSE:HDFCLIFE",
+  "NSE:WELCORP",
+  "NSE:RBLBANK",
+  "NSE:ADANIENT",
+  "NSE:SBILIFE",
+  "NSE:BHARATFORG",
+  "NSE:GRASIM",
+  "NSE:PRABHA",
+  "NSE:TMCV",
+  "NSE:VAML",
+  "NSE:HCLTECH",
+  "NSE:RML",
+  "NSE:JIOFIN",
+  "NSE:HINDZINC",
+  "NSE:ANANTRAJ",
+  "NSE:TITAGARH",
+  "NSE:LIQUIDBEES",
+  "NSE:GOLDBEES",
+  "NSE:ACMESOLAR",
+  "NSE:BHEL",
+  "NSE:COALINDIA",
+  "NSE:SUZLON",
+  "NSE:ITC",
+  "NSE:CUPID",
+  "NSE:GVT&D",
+  "NSE:WELENT",
+  "NSE:NTPC",
+  "NSE:INOXINDIA",
+  "NSE:MVELECTRO",
+  "NSE:ASHOKLEY",
+  "NSE:PAISALO",
+  "NSE:LICI",
+  "NSE:SAMMAANCAP",
+  "NSE:COFORGE",
+  "NSE:ADANIPORTS",
+  "NSE:LIQUIDCASE",
+  "NSE:APLAPOLLO",
+  "NSE:POWERGRID",
+  "NSE:CGCL",
+  "NSE:HDFCAMC",
+  "NSE:NATIONALUM",
+  "NSE:MOTISONS",
+  "NSE:MOREPENLAB",
+  "NSE:LAURUSLABS",
+  "NSE:HINDCOPPER",
+  "NSE:ADANIENSOL",
+  "NSE:ADANIPOWER",
+  "NSE:CGPOWER",
+  "NSE:BANKBARODA",
+  "NSE:TECHM",
+  "NSE:RECLTD",
+  "NSE:MAZDOCK",
+  "NSE:HEG",
+  "NSE:FINCABLES",
+  "NSE:CIPLA",
+  "NSE:LUPIN",
+  "NSE:NAM-INDIA",
+  "NSE:BDL",
+  "NSE:TVSMOTOR",
+  "NSE:APOLLO",
+  "NSE:GICRE",
+  "NSE:HSCL",
+  "NSE:MARSONS",
+  "NSE:MUTHOOTFIN",
+  "NSE:VBL",
+  "NSE:INOXWIND",
+  "NSE:TRENT",
+  "NSE:TBZ",
+  "NSE:VEDL",
+  "NSE:SYMBIOTEC",
+  "NSE:OLAELEC",
+  "NSE:CDSL",
+  "NSE:SHREEJISPG",
+  "NSE:KERNEX",
+  "NSE:AVALON",
+  "NSE:BALRAMCHIN",
+  "NSE:WELSPUNLIV",
+  "NSE:EDELWEISS",
+  "NSE:CANBK",
+  "NSE:BALAMINES",
+  "NSE:UNIONBANK",
+  "NSE:TEMPSENS",
+  "NSE:SUNPHARMA",
+  "NSE:JSWSTEEL",
+  "NSE:BEML",
+  "NSE:WAAREEENER",
+  "NSE:GESHIP",
+  "NSE:FEDERALBNK",
+  "NSE:TATAPOWER",
+  "NSE:BRIGADE",
+  "NSE:JSWENERGY",
+  "NSE:RAYMOND",
+  "NSE:RBZJEWEL",
+  "NSE:IEX",
+  "NSE:IIFL",
+  "NSE:NESTLEIND",
+  "NSE:CHENNPETRO",
+  "NSE:RATNAVEER",
+  "NSE:RVNL",
+  "NSE:IDFCFIRSTB",
+  "NSE:SPLPETRO",
+  "NSE:INDUSINDBK",
+  "NSE:REDINGTON",
+  "NSE:PNB",
+  "NSE:DLF",
+  "NSE:KIRIINDUS",
+  "NSE:IGL",
+  "NSE:XTRANET",
+  "NSE:SUNSHINE",
+  "NSE:TMPV",
+  "NSE:ONGC",
+  "NSE:ICICIGI",
+  "NSE:BIOCON",
+  "NSE:URBANCO",
+  "NSE:HIKAL",
+  "NSE:WIPRO",
+  "NSE:GMMPFAUDLR",
+  "NSE:MAHABANK",
+  "NSE:ZEEL",
+  "NSE:TFCILTD",
+  "NSE:RADHIKAJWE",
+  "NSE:VOGL",
+  "NSE:HYUNDAI",
+  "NSE:SBICARD",
+  "NSE:LODHA",
+  "NSE:MAXHEALTH",
+  "NSE:NEWGEN",
+  "NSE:MOTHERSON",
+  "NSE:GODREJCP",
+  "NSE:HINDPETRO",
+  "NSE:NMDC",
+  "NSE:OBEROIRLTY",
+  "NSE:INDHOTEL",
+  "NSE:EXIDEIND",
+  "NSE:DMART",
+  "NSE:PNBHOUSING",
+  "NSE:SKYWAYS",
+  "NSE:JYOTICNC",
+  "NSE:IOLCP",
+  "NSE:FCL",
+  "NSE:GUJENERGY",
+  "NSE:PREMIERENE",
+  "NSE:TATACONSUM",
+  "NSE:CYIENTDLM",
+  "NSE:LTF",
+  "NSE:MANORAMA",
+  "NSE:CROMPTON",
+  "NSE:COLPAL",
+  "NSE:JINDALSTEL",
+  "NSE:DIFFNKG",
+  "NSE:PIIND",
+  "NSE:DEEPINDS",
+  "NSE:ASIANPAINT",
+  "NSE:UPL",
+  "NSE:GLENMARK",
+  "NSE:63MOONS",
+  "NSE:VISL",
+  "NSE:SHANTIGEAR",
+  "NSE:ADANIGREEN",
+  "NSE:GRANULES",
+  "NSE:M&MFIN",
+  "NSE:PIDILITIND",
+  "NSE:ASTRAL",
+  "NSE:ENGINERSIN",
+  "NSE:LCL",
+  "NSE:COCHINSHIP",
+  "NSE:EXICOM",
+  "NSE:AUROPHARMA",
+  "NSE:CARTRADE",
+  "NSE:THERMAX",
+  "NSE:TDPOWERSYS",
+  "NSE:PRESTIGE",
+  "NSE:EPL",
+  "NSE:RADICO",
+  "NSE:SBCL",
+  "NSE:JISLJALEQS",
+  "NSE:ASTERDM",
+  "NSE:GMRAIRPORT",
+  "NSE:DYCL",
+  "NSE:SRF",
+  "NSE:SAILIFE",
+  "NSE:DELHIVERY",
+  "NSE:BLUESTONE",
+  "NSE:VIYASH",
+  "NSE:ABCAPITAL",
+  "NSE:BAJAJFINSV",
+  "NSE:TATATECH",
+  "NSE:AUGMONT",
+  "NSE:NIFTYBEES",
+  "NSE:ASTRAMICRO",
+  "NSE:AEGISLOG",
+  "NSE:RAIN",
+  "NSE:MANIPALHOS",
+  "NSE:SHANKESH",
+  "NSE:LEAPIND",
+  "NSE:USHAMART",
+  "NSE:GENUSPOWER",
+  "NSE:MFSL",
+  "NSE:ICICIAMC",
+  "NSE:MARICO",
+  "NSE:MOTILALOFS",
+  "NSE:SYRMA",
+  "NSE:VMM",
+  "NSE:ANTHEM",
+  "NSE:POLICYBZR",
+  "NSE:ENRIN",
+  "NSE:KIRLOSENG",
+  "NSE:SKYGOLD",
+  "NSE:MAHSEAMLES",
+  "NSE:CASTROLIND",
+  "NSE:BODALCHEM",
+  "NSE:RKFORGE",
+  "NSE:PARAS",
+  "NSE:UJJIVANSFB",
+  "NSE:TATSILV",
+  "NSE:GRAPHITE",
+  "NSE:GRSE",
+  "NSE:MASTERTR",
+  "NSE:CPPLUS",
+  "NSE:BALUFORGE",
+  "NSE:OMAXE",
+  "NSE:BALKRISIND",
+  "NSE:NAUKRI",
+  "NSE:GRAVITA",
+  "NSE:TATAELXSI",
+  "NSE:NYKAA",
+  "NSE:KPITTECH",
+  "NSE:YESBANK",
+  "NSE:UNOMINDA",
+  "NSE:SIEMENS",
+  "NSE:INDIANB",
+  "NSE:LIQUID1",
+  "NSE:MEDANTA",
+  "NSE:360ONE",
+  "NSE:MANAPPURAM",
+  "NSE:MOLBIO",
+  "NSE:SHIPROCKET",
+  "NSE:GAIL",
+  "NSE:KFINTECH",
+  "NSE:JSWINFRA",
+  "NSE:TATAGOLD",
+  "NSE:DRREDDY",
+  "NSE:BAJAJCON",
+  "NSE:IRFC",
+  "NSE:KTKBANK",
+  "NSE:CMPDI",
+  "NSE:DABUR",
+  "NSE:SONACOMS",
+  "NSE:ACE",
+  "NSE:AUBANK",
+  "NSE:KRN",
+  "NSE:SBIFUNDS",
+  "NSE:LGEINDIA",
+  "NSE:SHANTIGOLD",
+  "NSE:SHILPAMED",
+  "NSE:CUB",
+  "NSE:BLUESTARCO",
+  "NSE:AZAD",
+  "NSE:TATACHEM",
+  "NSE:OIL",
+  "NSE:GODREJPROP",
+  "NSE:CARERATING",
+  "NSE:VIKRAMSOLR",
+  "NSE:EBGNG",
+  "NSE:PATANJALI",
+  "NSE:JMFINANCIL",
+  "NSE:ALEMBICLTD",
+  "NSE:SBC",
+  "NSE:INDUSTOWER",
+  "NSE:PFOCUS",
+  "NSE:IOC",
+  "NSE:PARADEEP",
+  "NSE:ZYDUSLIFE",
+  "NSE:BPCL",
+  "NSE:KSHINTL",
+  "NSE:CAPLIPOINT",
+  "NSE:SETFGOLD",
+  "NSE:SETL",
+  "NSE:SILVERIETF",
+  "NSE:WHEELS",
+  "NSE:JSL",
+  "NSE:FORTIS",
+  "NSE:MANALIPETC",
+  "NSE:CCAVENUE",
+  "NSE:IXIGO",
+  "NSE:AWL",
+  "NSE:CONCOR",
+  "NSE:PPLPHARMA",
+  "NSE:AEROFLEX",
+  "NSE:PGEL",
+  "NSE:MMTC",
+  "NSE:GOLDIETF",
+  "NSE:VOLTAS",
+  "NSE:MARKSANS",
+  "NSE:LIQUIDIETF",
+  "NSE:LALPATHLAB",
+  "NSE:SJS",
+  "NSE:MRPL",
+  "NSE:SCI",
+  "NSE:EMCURE",
+  "NSE:UNITDSPR",
+  "NSE:ALOKINDS",
+  "NSE:SAGILITY",
+  "NSE:IONEXCHANG",
+  "NSE:FMGOETZE",
+  "NSE:NUVOCO",
+  "NSE:PHOENIXLTD",
+  "NSE:TORNTPOWER",
+  "NSE:HDFCSILVER",
+  "NSE:RAYMONDREL",
+  "NSE:AIAENG",
+  "NSE:RAMBHAJO",
+  "NSE:TATACAP",
+  "NSE:JPPOWER",
+  "NSE:SUPREMEIND",
+  "NSE:INDGN",
+  "NSE:BANDHANBNK",
+  "NSE:TATACOMM",
+  "NSE:NUVAMA",
+  "NSE:ICICIPRULI",
+  "NSE:HONASA",
+  "NSE:KANSAINER",
+  "NSE:JSLL",
+  "NSE:ACUTAAS",
+  "NSE:FIVESTAR",
+  "NSE:RATEGAIN",
+  "NSE:EMAMILTD",
+  "NSE:GNFC",
+  "NSE:JINDRILL",
+  "NSE:HCC",
+  "NSE:TIINDIA",
+  "NSE:KWIL",
+  "NSE:CEMPRO",
+  "NSE:BAJAJHIND",
+  "NSE:IDBI",
+  "NSE:MANYAVAR",
+  "NSE:UBL",
+  "NSE:BUILDPRO",
+  "NSE:JUBLPHARMA",
+  "NSE:RELIGARE",
+  "NSE:RGL",
+  "NSE:BELRISE",
+  "NSE:ELGIEQUIP",
+  "NSE:VISHNU",
+  "NSE:HDFCGOLD",
+  "NSE:MSUMI",
+  "NSE:UNIVCABLES",
+  "NSE:AEQUS",
+  "NSE:CHOICEIN",
+  "NSE:TEXRAIL",
+  "NSE:MAITHANALL",
+  "NSE:TEMBO",
+  "NSE:SHADOWFAX",
+  "NSE:GCSL",
+  "NSE:ABFRL",
+  "NSE:BANKINDIA",
+  "NSE:SOUTHBANK",
+  "NSE:VEDPOWER",
+  "NSE:PETRONET",
+  "NSE:LLOYDSENGG",
+  "NSE:SENCO",
+  "NSE:SUNTV",
+  "NSE:PRECWIRE",
+  "NSE:MANINDS",
+  "NSE:NAZARA",
+  "NSE:AARTIPHARM",
+  "NSE:HAPPSTMNDS",
+  "NSE:VINCOFE",
+  "NSE:KAJARIACER",
+  "NSE:MPHASIS",
+  "NSE:NH",
+  "NSE:HERITGFOOD",
+  "NSE:RPEL",
+  "NSE:WABAG",
+  "NSE:IKS",
+  "NSE:SANSERA",
+  "NSE:AARTIIND",
+  "NSE:CARBORUNIV",
+  "NSE:LIQUIDADD",
+  "NSE:INNOVACAP",
+  "NSE:GOKEX",
+  "NSE:BLEL",
+  "NSE:MODEFENCE",
+  "NSE:NATCOPHARM",
+  "NSE:LEMONTREE",
+  "NSE:CYIENT",
+  "NSE:ATALREAL",
+  "NSE:MARINE",
+  "NSE:SSWL",
+  "NSE:HINDOILEXP",
+  "NSE:CAMS",
+  "NSE:HORIZONIND",
+  "NSE:V2RETAIL",
+  "NSE:NIFTYBETF",
+  "NSE:SYNCOMF",
+  "NSE:CLEANMAX",
+  "NSE:DEVYANI",
+  "NSE:QUESS",
+  "NSE:INTELLECT",
+  "NSE:PVP",
+  "NSE:QPOWER",
+  "NSE:DEEPAKNTR",
+  "NSE:CEIGALL",
+  "NSE:AETHER",
+  "NSE:POONAWALLA",
+  "NSE:KARURVYSYA",
+  "NSE:ITCHOTELS",
+  "NSE:NORTHARC",
+  "NSE:LIQUID",
+  "NSE:GANECOS",
+  "NSE:AMBUJACEM",
+  "NSE:KISSHT",
+  "NSE:RENUKA",
+  "NSE:SUDEEPPHRM",
+  "NSE:ACI",
+  "NSE:KNRCON",
+  "NSE:NCC",
+  "NSE:SIGACHI",
+  "NSE:BSOFT",
+  "NSE:KEC",
+  "NSE:CREDITACC",
+  "NSE:JAINREC",
+  "NSE:POWERMECH",
+  "NSE:ECLERX",
+  "NSE:DEEPAKFERT",
+  "NSE:MGL",
+  "NSE:ARE&M",
+  "NSE:THELEELA",
+  "NSE:SCHNEIDER",
+  "NSE:OLECTRA",
+  "NSE:APTUS",
+  "NSE:NHPC",
+  "NSE:YATHARTH",
+  "NSE:LIQUIDETF",
+  "NSE:ZENTEC",
+  "NSE:KMEW",
+  "NSE:JUBLFOOD",
+  "NSE:TENNIND",
+  "NSE:PARACABLES",
+  "NSE:SINDHUTRAD",
+  "NSE:IREDA",
+  "NSE:RPOWER",
+  "NSE:LASERPOWER",
+  "NSE:POLYMED",
+  "NSE:ARTEMISMED",
+  "NSE:AXISCADES",
+  "NSE:SEDEMAC",
+  "NSE:ITBEES",
+  "NSE:IRCTC",
+  "NSE:TI",
+  "NSE:MANKIND",
+  "NSE:EMMVEE",
+  "NSE:GMDCLTD",
+  "NSE:J&KBANK",
+  "NSE:CORDELIA",
+  "NSE:FUSION",
+  "NSE:EMIL",
+  "NSE:GABRIEL",
+  "NSE:ICIL",
+  "NSE:COROMANDEL",
+  "NSE:SUPRIYA",
+  "NSE:FIRSTCRY",
+  "NSE:ATGL",
+  "NSE:UNIPARTS",
+  "NSE:LLOYDSENT",
+  "NSE:GOLDETF",
+  "NSE:ROSSTECH",
+  "NSE:UNIMECH",
+  "NSE:SARDAEN",
+  "NSE:LLOYDSME",
+  "NSE:JINDALSAW",
+  "NSE:ANANDRATHI",
+  "NSE:PNGJL",
+  "NSE:COHANCE",
+  "NSE:JKLAKSHMI",
+  "NSE:JTLIND",
+  "NSE:TIMETECHNO",
+  "NSE:JNPR",
+  "NSE:PVRINOX",
+  "NSE:JWL",
+  "NSE:AKUMS",
+  "NSE:LIQUIDPLUS",
+  "NSE:RBA",
+  "NSE:ELLEN",
+  "NSE:WELSPLSOL",
+  "NSE:THOMASCOOK",
+  "NSE:HDBFS",
+  "NSE:BLUEJET",
+  "NSE:SHAILY",
+  "NSE:SOLARA",
+  "NSE:FSL",
+  "NSE:GUJTHEM",
+  "NSE:MOSCHIP",
+  "NSE:CLEAN",
+  "NSE:VGUARD"
+ ],
+ "rows": [
+  {
+   "symbol": "NSE:SWIGGY",
+   "name": "SWIGGY LIMITED",
+   "last": 276.1,
+   "volume": 184369387.0,
+   "turnover_cr": 5111.83,
+   "instrument_token": 6928897
+  },
+  {
+   "symbol": "NSE:IFCI",
+   "name": "IFCI LTD",
+   "last": 101.38,
+   "volume": 407352536.0,
+   "turnover_cr": 4196.95,
+   "instrument_token": 381697
+  },
+  {
+   "symbol": "NSE:BSE",
+   "name": "BSE LIMITED",
+   "last": 3409.8,
+   "volume": 7975058.0,
+   "turnover_cr": 2739.58,
+   "instrument_token": 5013761
+  },
+  {
+   "symbol": "NSE:RELIANCE",
+   "name": "RELIANCE INDUSTRIES LTD",
+   "last": 1322.0,
+   "volume": 13031534.0,
+   "turnover_cr": 1728.35,
+   "instrument_token": 738561
+  },
+  {
+   "symbol": "NSE:LUMINO",
+   "name": "LUMINO INDUSTRIES LIMITED",
+   "last": 114.5,
+   "volume": 139069849.0,
+   "turnover_cr": 1622.67,
+   "instrument_token": 195974145
+  },
+  {
+   "symbol": "NSE:TEJASNET",
+   "name": "TEJAS NETWORKS LIMITED",
+   "last": 614.15,
+   "volume": 26085952.0,
+   "turnover_cr": 1589.83,
+   "instrument_token": 5409537
+  },
+  {
+   "symbol": "NSE:NIACL",
+   "name": "THE NEW INDIA ASSU CO LTD",
+   "last": 229.91,
+   "volume": 66928665.0,
+   "turnover_cr": 1492.98,
+   "instrument_token": 102145
+  },
+  {
+   "symbol": "NSE:PCJEWELLER",
+   "name": "PC JEWELLER LTD",
+   "last": 11.86,
+   "volume": 1088942848.0,
+   "turnover_cr": 1242.48,
+   "instrument_token": 7455745
+  },
+  {
+   "symbol": "NSE:HDFCBANK",
+   "name": "HDFC BANK LTD",
+   "last": 712.1,
+   "volume": 14488024.0,
+   "turnover_cr": 1033.81,
+   "instrument_token": 341249
+  },
+  {
+   "symbol": "NSE:JINDWORLD",
+   "name": "JINDAL WORLDWIDE LTD",
+   "last": 57.51,
+   "volume": 188275533.0,
+   "turnover_cr": 1023.84,
+   "instrument_token": 5284353
+  },
+  {
+   "symbol": "NSE:HBLENGINE",
+   "name": "HBL ENGINEERING LTD",
+   "last": 695.75,
+   "volume": 14312325.0,
+   "turnover_cr": 1012.25,
+   "instrument_token": 3575297
+  },
+  {
+   "symbol": "NSE:DHOOTTRANS",
+   "name": "DHOOT TRANSMISSION LTD",
+   "last": 1615.7,
+   "volume": 6047122.0,
+   "turnover_cr": 981.43,
+   "instrument_token": 195725569
+  },
+  {
+   "symbol": "NSE:ICICIBANK",
+   "name": "ICICI BANK LTD.",
+   "last": 1423.2,
+   "volume": 6693889.0,
+   "turnover_cr": 956.68,
+   "instrument_token": 1270529
+  },
+  {
+   "symbol": "NSE:ATHERENERG",
+   "name": "ATHER ENERGY LIMITED",
+   "last": 1584.0,
+   "volume": 5585636.0,
+   "turnover_cr": 888.63,
+   "instrument_token": 193957121
+  },
+  {
+   "symbol": "NSE:ANGELONE",
+   "name": "ANGEL ONE LIMITED",
+   "last": 299.8,
+   "volume": 29274355.0,
+   "turnover_cr": 882.5,
+   "instrument_token": 82945
+  },
+  {
+   "symbol": "NSE:GROWW",
+   "name": "BILLIONBRAINS GARAGE VN L",
+   "last": 194.0,
+   "volume": 44702306.0,
+   "turnover_cr": 867.4,
+   "instrument_token": 194510337
+  },
+  {
+   "symbol": "NSE:PAYTM",
+   "name": "ONE 97 COMMUNICATIONS LTD",
+   "last": 1659.5,
+   "volume": 5191803.0,
+   "turnover_cr": 866.69,
+   "instrument_token": 1716481
+  },
+  {
+   "symbol": "NSE:GLAND",
+   "name": "GLAND PHARMA LIMITED",
+   "last": 2932.4,
+   "volume": 2977808.0,
+   "turnover_cr": 864.42,
+   "instrument_token": 303617
+  },
+  {
+   "symbol": "NSE:MCX",
+   "name": "MULTI COMMODITY EXCHANGE",
+   "last": 3275.4,
+   "volume": 2485731.0,
+   "turnover_cr": 803.78,
+   "instrument_token": 7982337
+  },
+  {
+   "symbol": "NSE:PWL",
+   "name": "PHYSICSWALLAH LIMITED",
+   "last": 126.42,
+   "volume": 62160413.0,
+   "turnover_cr": 788.07,
+   "instrument_token": 194489089
+  },
+  {
+   "symbol": "NSE:IDEA",
+   "name": "VODAFONE IDEA LIMITED",
+   "last": 15.02,
+   "volume": 525960563.0,
+   "turnover_cr": 786.84,
+   "instrument_token": 3677697
+  },
+  {
+   "symbol": "NSE:PINELABS",
+   "name": "PINE LABS LIMITED",
+   "last": 166.37,
+   "volume": 46587163.0,
+   "turnover_cr": 765.29,
+   "instrument_token": 194513921
+  },
+  {
+   "symbol": "NSE:WOCKPHARMA",
+   "name": "WOCKHARDT LIMITED",
+   "last": 2088.7,
+   "volume": 3557646.0,
+   "turnover_cr": 732.57,
+   "instrument_token": 1921537
+  },
+  {
+   "symbol": "NSE:LALITHAA",
+   "name": "LALITHAA JEWELLERY MART L",
+   "last": 306.7,
+   "volume": 23781731.0,
+   "turnover_cr": 705.15,
+   "instrument_token": 195932417
+  },
+  {
+   "symbol": "NSE:LENSKART",
+   "name": "LENSKART SOLUTIONS LTD",
+   "last": 684.9,
+   "volume": 10188245.0,
+   "turnover_cr": 698.55,
+   "instrument_token": 194458881
+  },
+  {
+   "symbol": "NSE:SBIN",
+   "name": "STATE BANK OF INDIA",
+   "last": 1016.1,
+   "volume": 6724566.0,
+   "turnover_cr": 686.95,
+   "instrument_token": 779521
+  },
+  {
+   "symbol": "NSE:TATASTEEL",
+   "name": "TATA STEEL LIMITED",
+   "last": 188.79,
+   "volume": 36500951.0,
+   "turnover_cr": 683.81,
+   "instrument_token": 895745
+  },
+  {
+   "symbol": "NSE:PFC",
+   "name": "POWER FIN CORP LTD.",
+   "last": 355.6,
+   "volume": 19206290.0,
+   "turnover_cr": 678.48,
+   "instrument_token": 3660545
+  },
+  {
+   "symbol": "NSE:RESPONIND",
+   "name": "RESPONSIVE INDUSTRIES LTD",
+   "last": 154.9,
+   "volume": 40184929.0,
+   "turnover_cr": 677.28,
+   "instrument_token": 5202689
+  },
+  {
+   "symbol": "NSE:BHARTIARTL",
+   "name": "BHARTI AIRTEL LIMITED",
+   "last": 1840.0,
+   "volume": 3614328.0,
+   "turnover_cr": 670.44,
+   "instrument_token": 2714625
+  },
+  {
+   "symbol": "NSE:INFY",
+   "name": "INFOSYS LIMITED",
+   "last": 1130.0,
+   "volume": 5881388.0,
+   "turnover_cr": 665.83,
+   "instrument_token": 408065
+  },
+  {
+   "symbol": "NSE:RRKABEL",
+   "name": "R R KABEL LIMITED",
+   "last": 2454.1,
+   "volume": 2596720.0,
+   "turnover_cr": 640.11,
+   "instrument_token": 4752897
+  },
+  {
+   "symbol": "NSE:BAJFINANCE",
+   "name": "BAJAJ FINANCE LIMITED",
+   "last": 1060.5,
+   "volume": 5952048.0,
+   "turnover_cr": 628.57,
+   "instrument_token": 81153
+  },
+  {
+   "symbol": "NSE:SKIPPER",
+   "name": "SKIPPER LIMITED",
+   "last": 591.1,
+   "volume": 10118419.0,
+   "turnover_cr": 597.01,
+   "instrument_token": 2413569
+  },
+  {
+   "symbol": "NSE:TCS",
+   "name": "TATA CONSULTANCY SERV LT",
+   "last": 2304.0,
+   "volume": 2564322.0,
+   "turnover_cr": 595.1,
+   "instrument_token": 2953217
+  },
+  {
+   "symbol": "NSE:KALYANKJIL",
+   "name": "KALYAN JEWELLERS IND LTD",
+   "last": 598.8,
+   "volume": 9662044.0,
+   "turnover_cr": 578.42,
+   "instrument_token": 756481
+  },
+  {
+   "symbol": "NSE:ETERNAL",
+   "name": "ETERNAL LIMITED",
+   "last": 322.75,
+   "volume": 17824027.0,
+   "turnover_cr": 576.75,
+   "instrument_token": 1304833
+  },
+  {
+   "symbol": "NSE:LT",
+   "name": "LARSEN & TOUBRO LTD.",
+   "last": 3964.1,
+   "volume": 1319056.0,
+   "turnover_cr": 525.3,
+   "instrument_token": 2939649
+  },
+  {
+   "symbol": "NSE:AFFLE",
+   "name": "AFFLE 3I LIMITED",
+   "last": 1616.5,
+   "volume": 3213241.0,
+   "turnover_cr": 516.05,
+   "instrument_token": 2903809
+  },
+  {
+   "symbol": "NSE:MEESHO",
+   "name": "MEESHO LIMITED",
+   "last": 209.0,
+   "volume": 22949812.0,
+   "turnover_cr": 487.84,
+   "instrument_token": 194618625
+  },
+  {
+   "symbol": "NSE:AXISBANK",
+   "name": "AXIS BANK LIMITED",
+   "last": 1273.0,
+   "volume": 3810611.0,
+   "turnover_cr": 485.64,
+   "instrument_token": 1510401
+  },
+  {
+   "symbol": "NSE:ANTELOPUS",
+   "name": "ANTELOPUS SELAN ENRGY LTD",
+   "last": 957.15,
+   "volume": 4816181.0,
+   "turnover_cr": 480.52,
+   "instrument_token": 3481089
+  },
+  {
+   "symbol": "NSE:M&M",
+   "name": "MAHINDRA & MAHINDRA LTD",
+   "last": 3170.0,
+   "volume": 1489449.0,
+   "turnover_cr": 471.98,
+   "instrument_token": 519937
+  },
+  {
+   "symbol": "NSE:HINDUNILVR",
+   "name": "HINDUSTAN UNILEVER LTD.",
+   "last": 1973.4,
+   "volume": 2247162.0,
+   "turnover_cr": 443.38,
+   "instrument_token": 356865
+  },
+  {
+   "symbol": "NSE:JAYNECOIND",
+   "name": "JAYASWAL NECO INDUSTR LTD",
+   "last": 89.04,
+   "volume": 49840056.0,
+   "turnover_cr": 441.18,
+   "instrument_token": 596737
+  },
+  {
+   "symbol": "NSE:INDOMIM",
+   "name": "INDO-MIM LIMITED",
+   "last": 971.5,
+   "volume": 4512815.0,
+   "turnover_cr": 435.74,
+   "instrument_token": 195661057
+  },
+  {
+   "symbol": "NSE:SHRIRAMFIN",
+   "name": "SHRIRAM FINANCE LIMITED",
+   "last": 1041.0,
+   "volume": 4135730.0,
+   "turnover_cr": 431.17,
+   "instrument_token": 1102337
+  },
+  {
+   "symbol": "NSE:KAYNES",
+   "name": "KAYNES TECHNOLOGY IND LTD",
+   "last": 3598.0,
+   "volume": 1211084.0,
+   "turnover_cr": 430.04,
+   "instrument_token": 3095553
+  },
+  {
+   "symbol": "NSE:LICHSGFIN",
+   "name": "LIC HOUSING FINANCE LTD",
+   "last": 562.05,
+   "volume": 7126780.0,
+   "turnover_cr": 406.11,
+   "instrument_token": 511233
+  },
+  {
+   "symbol": "NSE:PURVA",
+   "name": "PURAVANKARA LIMITED",
+   "last": 230.72,
+   "volume": 17390475.0,
+   "turnover_cr": 400.09,
+   "instrument_token": 3820033
+  },
+  {
+   "symbol": "NSE:KOTAKBANK",
+   "name": "KOTAK MAHINDRA BANK LTD",
+   "last": 424.5,
+   "volume": 9408316.0,
+   "turnover_cr": 398.97,
+   "instrument_token": 492033
+  },
+  {
+   "symbol": "NSE:SAIL",
+   "name": "STEEL AUTHORITY OF INDIA",
+   "last": 196.8,
+   "volume": 19094202.0,
+   "turnover_cr": 377.49,
+   "instrument_token": 758529
+  },
+  {
+   "symbol": "NSE:HINDALCO",
+   "name": "HINDALCO  INDUSTRIES  LTD",
+   "last": 1011.0,
+   "volume": 3682428.0,
+   "turnover_cr": 373.39,
+   "instrument_token": 348929
+  },
+  {
+   "symbol": "NSE:MILKYMIST",
+   "name": "MILKY MIST DAIRY FOOD L",
+   "last": 252.43,
+   "volume": 14599282.0,
+   "turnover_cr": 370.4,
+   "instrument_token": 195909633
+  },
+  {
+   "symbol": "NSE:SILVERBEES",
+   "name": "NIPPONAMC - NETFSILVER",
+   "last": 222.78,
+   "volume": 16085668.0,
+   "turnover_cr": 358.07,
+   "instrument_token": 2068481
+  },
+  {
+   "symbol": "NSE:BEL",
+   "name": "BHARAT ELECTRONICS LTD",
+   "last": 405.35,
+   "volume": 8354982.0,
+   "turnover_cr": 342.24,
+   "instrument_token": 98049
+  },
+  {
+   "symbol": "NSE:HAVELLS",
+   "name": "HAVELLS INDIA LIMITED",
+   "last": 1154.0,
+   "volume": 2840527.0,
+   "turnover_cr": 329.19,
+   "instrument_token": 2513665
+  },
+  {
+   "symbol": "NSE:HDFCLIFE",
+   "name": "HDFC LIFE INS CO LTD",
+   "last": 546.4,
+   "volume": 6016219.0,
+   "turnover_cr": 326.6,
+   "instrument_token": 119553
+  },
+  {
+   "symbol": "NSE:WELCORP",
+   "name": "WELSPUN CORP LIMITED",
+   "last": 2590.6,
+   "volume": 1247810.0,
+   "turnover_cr": 326.05,
+   "instrument_token": 3026177
+  },
+  {
+   "symbol": "NSE:RBLBANK",
+   "name": "RBL BANK LIMITED",
+   "last": 414.35,
+   "volume": 7858699.0,
+   "turnover_cr": 325.22,
+   "instrument_token": 4708097
+  },
+  {
+   "symbol": "NSE:ADANIENT",
+   "name": "ADANI ENTERPRISES LIMITED",
+   "last": 2938.0,
+   "volume": 1060844.0,
+   "turnover_cr": 311.3,
+   "instrument_token": 6401
+  },
+  {
+   "symbol": "NSE:SBILIFE",
+   "name": "SBI LIFE INSURANCE CO LTD",
+   "last": 1775.0,
+   "volume": 1720166.0,
+   "turnover_cr": 302.22,
+   "instrument_token": 5582849
+  },
+  {
+   "symbol": "NSE:BHARATFORG",
+   "name": "BHARAT FORGE LTD",
+   "last": 1956.0,
+   "volume": 1526364.0,
+   "turnover_cr": 300.76,
+   "instrument_token": 108033
+  },
+  {
+   "symbol": "NSE:GRASIM",
+   "name": "GRASIM INDUSTRIES LTD",
+   "last": 3322.0,
+   "volume": 892704.0,
+   "turnover_cr": 296.13,
+   "instrument_token": 315393
+  },
+  {
+   "symbol": "NSE:PRABHA",
+   "name": "PRABHA ENERGY LIMITED",
+   "last": 230.6,
+   "volume": 11908766.0,
+   "turnover_cr": 289.84,
+   "instrument_token": 7714305
+  },
+  {
+   "symbol": "NSE:TMCV",
+   "name": "TATA MOTORS LIMITED",
+   "last": 458.2,
+   "volume": 6245264.0,
+   "turnover_cr": 288.73,
+   "instrument_token": 194504193
+  },
+  {
+   "symbol": "NSE:VAML",
+   "name": "VEDANTA ALUMINIUM METAL L",
+   "last": 437.75,
+   "volume": 6641767.0,
+   "turnover_cr": 288.54,
+   "instrument_token": 192044545
+  },
+  {
+   "symbol": "NSE:HCLTECH",
+   "name": "HCL TECHNOLOGIES LTD",
+   "last": 1293.4,
+   "volume": 2210569.0,
+   "turnover_cr": 288.45,
+   "instrument_token": 1850625
+  },
+  {
+   "symbol": "NSE:RML",
+   "name": "RANE (MADRAS) LIMITED",
+   "last": 1295.9,
+   "volume": 2195205.0,
+   "turnover_cr": 284.19,
+   "instrument_token": 3065601
+  },
+  {
+   "symbol": "NSE:JIOFIN",
+   "name": "JIO FIN SERVICES LTD",
+   "last": 239.5,
+   "volume": 11860254.0,
+   "turnover_cr": 283.96,
+   "instrument_token": 4644609
+  },
+  {
+   "symbol": "NSE:HINDZINC",
+   "name": "HINDUSTAN ZINC LIMITED",
+   "last": 601.0,
+   "volume": 4650039.0,
+   "turnover_cr": 277.78,
+   "instrument_token": 364545
+  },
+  {
+   "symbol": "NSE:ANANTRAJ",
+   "name": "ANANT RAJ LIMITED",
+   "last": 625.45,
+   "volume": 4215356.0,
+   "turnover_cr": 267.31,
+   "instrument_token": 3486721
+  },
+  {
+   "symbol": "NSE:TITAGARH",
+   "name": "TITAGARH RAIL SYSTEMS LTD",
+   "last": 871.85,
+   "volume": 3001183.0,
+   "turnover_cr": 264.22,
+   "instrument_token": 3945985
+  },
+  {
+   "symbol": "NSE:LIQUIDBEES",
+   "name": "NIP IND ETF LIQUID BEES",
+   "last": 1000.0,
+   "volume": 2607097.0,
+   "turnover_cr": 260.71,
+   "instrument_token": 2817537
+  },
+  {
+   "symbol": "NSE:GOLDBEES",
+   "name": "NIP IND ETF GOLD BEES",
+   "last": 127.17,
+   "volume": 20415178.0,
+   "turnover_cr": 259.72,
+   "instrument_token": 3693569
+  },
+  {
+   "symbol": "NSE:ACMESOLAR",
+   "name": "ACME SOLAR HOLDINGS LTD",
+   "last": 418.0,
+   "volume": 6203953.0,
+   "turnover_cr": 258.98,
+   "instrument_token": 6927617
+  },
+  {
+   "symbol": "NSE:BHEL",
+   "name": "BHEL",
+   "last": 431.1,
+   "volume": 5925391.0,
+   "turnover_cr": 257.06,
+   "instrument_token": 112129
+  },
+  {
+   "symbol": "NSE:COALINDIA",
+   "name": "COAL INDIA LTD",
+   "last": 415.35,
+   "volume": 6126850.0,
+   "turnover_cr": 253.87,
+   "instrument_token": 5215745
+  },
+  {
+   "symbol": "NSE:SUZLON",
+   "name": "SUZLON ENERGY LIMITED",
+   "last": 45.35,
+   "volume": 55366085.0,
+   "turnover_cr": 252.03,
+   "instrument_token": 3076609
+  },
+  {
+   "symbol": "NSE:ITC",
+   "name": "ITC LTD",
+   "last": 264.1,
+   "volume": 9519153.0,
+   "turnover_cr": 251.99,
+   "instrument_token": 424961
+  },
+  {
+   "symbol": "NSE:CUPID",
+   "name": "CUPID LIMITED",
+   "last": 283.15,
+   "volume": 8434946.0,
+   "turnover_cr": 239.27,
+   "instrument_token": 4741121
+  },
+  {
+   "symbol": "NSE:GVT&D",
+   "name": "GE VERNOVA T&D INDIA LTD",
+   "last": 4306.3,
+   "volume": 549760.0,
+   "turnover_cr": 238.84,
+   "instrument_token": 4296449
+  },
+  {
+   "symbol": "NSE:WELENT",
+   "name": "WELSPUN ENTERPRISES LTD.",
+   "last": 813.6,
+   "volume": 2915318.0,
+   "turnover_cr": 234.77,
+   "instrument_token": 2976257
+  },
+  {
+   "symbol": "NSE:NTPC",
+   "name": "NTPC LTD",
+   "last": 332.5,
+   "volume": 7032282.0,
+   "turnover_cr": 233.63,
+   "instrument_token": 2977281
+  },
+  {
+   "symbol": "NSE:INOXINDIA",
+   "name": "INOX INDIA LIMITED",
+   "last": 2247.8,
+   "volume": 1027233.0,
+   "turnover_cr": 232.99,
+   "instrument_token": 5275393
+  },
+  {
+   "symbol": "NSE:MVELECTRO",
+   "name": "MV ELECTROSYSTEMS LIMITED",
+   "last": 729.7,
+   "volume": 3173336.0,
+   "turnover_cr": 232.38,
+   "instrument_token": 195685633
+  },
+  {
+   "symbol": "NSE:ASHOKLEY",
+   "name": "ASHOK LEYLAND LTD",
+   "last": 169.0,
+   "volume": 13509881.0,
+   "turnover_cr": 230.44,
+   "instrument_token": 54273
+  },
+  {
+   "symbol": "NSE:PAISALO",
+   "name": "PAISALO DIGITAL LIMITED",
+   "last": 74.1,
+   "volume": 31201929.0,
+   "turnover_cr": 227.99,
+   "instrument_token": 6519809
+  },
+  {
+   "symbol": "NSE:LICI",
+   "name": "LIFE INSURA CORP OF INDIA",
+   "last": 415.35,
+   "volume": 5411741.0,
+   "turnover_cr": 225.85,
+   "instrument_token": 2426881
+  },
+  {
+   "symbol": "NSE:SAMMAANCAP",
+   "name": "SAMMAAN CAPITAL LIMITED",
+   "last": 158.39,
+   "volume": 13853349.0,
+   "turnover_cr": 219.56,
+   "instrument_token": 7712001
+  },
+  {
+   "symbol": "NSE:COFORGE",
+   "name": "COFORGE LIMITED",
+   "last": 1972.8,
+   "volume": 1108102.0,
+   "turnover_cr": 218.94,
+   "instrument_token": 2955009
+  },
+  {
+   "symbol": "NSE:ADANIPORTS",
+   "name": "ADANI PORT & SEZ LTD",
+   "last": 1707.3,
+   "volume": 1281968.0,
+   "turnover_cr": 218.89,
+   "instrument_token": 3861249
+  },
+  {
+   "symbol": "NSE:LIQUIDCASE",
+   "name": "ZERODHAAMC - LIQUIDCASE",
+   "last": 115.8,
+   "volume": 18435860.0,
+   "turnover_cr": 213.47,
+   "instrument_token": 5568001
+  },
+  {
+   "symbol": "NSE:APLAPOLLO",
+   "name": "APL APOLLO TUBES LTD",
+   "last": 2250.0,
+   "volume": 955928.0,
+   "turnover_cr": 212.37,
+   "instrument_token": 6599681
+  },
+  {
+   "symbol": "NSE:POWERGRID",
+   "name": "POWER GRID CORP. LTD.",
+   "last": 266.0,
+   "volume": 7967122.0,
+   "turnover_cr": 212.05,
+   "instrument_token": 3834113
+  },
+  {
+   "symbol": "NSE:CGCL",
+   "name": "CAPRI GLOBAL CAPITAL LTD",
+   "last": 279.9,
+   "volume": 7594713.0,
+   "turnover_cr": 209.9,
+   "instrument_token": 5204225
+  },
+  {
+   "symbol": "NSE:HDFCAMC",
+   "name": "HDFC AMC LIMITED",
+   "last": 2458.3,
+   "volume": 844970.0,
+   "turnover_cr": 209.3,
+   "instrument_token": 1086465
+  },
+  {
+   "symbol": "NSE:NATIONALUM",
+   "name": "NATIONAL ALUMINIUM CO LTD",
+   "last": 374.1,
+   "volume": 5517970.0,
+   "turnover_cr": 207.02,
+   "instrument_token": 1629185
+  },
+  {
+   "symbol": "NSE:MOTISONS",
+   "name": "MOTISONS JEWELLERS LTD",
+   "last": 16.48,
+   "volume": 123701270.0,
+   "turnover_cr": 204.48,
+   "instrument_token": 5321729
+  },
+  {
+   "symbol": "NSE:MOREPENLAB",
+   "name": "MOREPEN LAB. LTD",
+   "last": 113.74,
+   "volume": 17563502.0,
+   "turnover_cr": 201.72,
+   "instrument_token": 578305
+  },
+  {
+   "symbol": "NSE:LAURUSLABS",
+   "name": "LAURUS LABS LIMITED",
+   "last": 1840.0,
+   "volume": 1075943.0,
+   "turnover_cr": 199.12,
+   "instrument_token": 4923905
+  },
+  {
+   "symbol": "NSE:HINDCOPPER",
+   "name": "HINDUSTAN COPPER LTD",
+   "last": 521.65,
+   "volume": 3802351.0,
+   "turnover_cr": 197.98,
+   "instrument_token": 4592385
+  },
+  {
+   "symbol": "NSE:ADANIENSOL",
+   "name": "ADANI ENERGY SOLUTION LTD",
+   "last": 1409.6,
+   "volume": 1386991.0,
+   "turnover_cr": 194.61,
+   "instrument_token": 2615553
+  },
+  {
+   "symbol": "NSE:ADANIPOWER",
+   "name": "ADANI POWER LTD",
+   "last": 207.2,
+   "volume": 9328145.0,
+   "turnover_cr": 193.64,
+   "instrument_token": 4451329
+  },
+  {
+   "symbol": "NSE:CGPOWER",
+   "name": "CG POWER AND IND SOL LTD",
+   "last": 891.0,
+   "volume": 2159759.0,
+   "turnover_cr": 193.24,
+   "instrument_token": 194561
+  },
+  {
+   "symbol": "NSE:BANKBARODA",
+   "name": "BANK OF BARODA",
+   "last": 239.0,
+   "volume": 7816984.0,
+   "turnover_cr": 187.69,
+   "instrument_token": 1195009
+  },
+  {
+   "symbol": "NSE:TECHM",
+   "name": "TECH MAHINDRA LIMITED",
+   "last": 1596.9,
+   "volume": 1173518.0,
+   "turnover_cr": 187.46,
+   "instrument_token": 3465729
+  },
+  {
+   "symbol": "NSE:RECLTD",
+   "name": "REC LIMITED",
+   "last": 318.7,
+   "volume": 5894088.0,
+   "turnover_cr": 186.52,
+   "instrument_token": 3930881
+  },
+  {
+   "symbol": "NSE:MAZDOCK",
+   "name": "MAZAGON DOCK SHIPBUIL LTD",
+   "last": 2475.0,
+   "volume": 735425.0,
+   "turnover_cr": 184.89,
+   "instrument_token": 130305
+  },
+  {
+   "symbol": "NSE:HEG",
+   "name": "HEG LTD",
+   "last": 728.25,
+   "volume": 2565950.0,
+   "turnover_cr": 184.81,
+   "instrument_token": 342017
+  },
+  {
+   "symbol": "NSE:FINCABLES",
+   "name": "FINOLEX CABLES LTD",
+   "last": 1220.2,
+   "volume": 1492429.0,
+   "turnover_cr": 184.49,
+   "instrument_token": 265729
+  },
+  {
+   "symbol": "NSE:CIPLA",
+   "name": "CIPLA LTD",
+   "last": 1385.0,
+   "volume": 1326180.0,
+   "turnover_cr": 183.58,
+   "instrument_token": 177665
+  },
+  {
+   "symbol": "NSE:LUPIN",
+   "name": "LUPIN LIMITED",
+   "last": 2110.0,
+   "volume": 862828.0,
+   "turnover_cr": 182.66,
+   "instrument_token": 2672641
+  },
+  {
+   "symbol": "NSE:NAM-INDIA",
+   "name": "NIPPON L I A M LTD",
+   "last": 1159.9,
+   "volume": 1522876.0,
+   "turnover_cr": 177.29,
+   "instrument_token": 91393
+  },
+  {
+   "symbol": "NSE:BDL",
+   "name": "BHARAT DYNAMICS LIMITED",
+   "last": 1255.0,
+   "volume": 1391949.0,
+   "turnover_cr": 177.23,
+   "instrument_token": 548865
+  },
+  {
+   "symbol": "NSE:TVSMOTOR",
+   "name": "TVS MOTOR COMPANY  LTD",
+   "last": 4133.1,
+   "volume": 424571.0,
+   "turnover_cr": 176.35,
+   "instrument_token": 2170625
+  },
+  {
+   "symbol": "NSE:APOLLO",
+   "name": "APOLLO MICRO SYSTEMS LTD",
+   "last": 388.9,
+   "volume": 4500219.0,
+   "turnover_cr": 174.74,
+   "instrument_token": 290305
+  },
+  {
+   "symbol": "NSE:GICRE",
+   "name": "GENERAL INS CORP OF INDIA",
+   "last": 358.45,
+   "volume": 4931565.0,
+   "turnover_cr": 174.71,
+   "instrument_token": 70913
+  },
+  {
+   "symbol": "NSE:HSCL",
+   "name": "HIMADRI SPECIALITY CHEM L",
+   "last": 671.05,
+   "volume": 2597175.0,
+   "turnover_cr": 173.57,
+   "instrument_token": 3669505
+  },
+  {
+   "symbol": "NSE:MARSONS",
+   "name": "MARSONS LIMITED",
+   "last": 137.56,
+   "volume": 12724657.0,
+   "turnover_cr": 172.55,
+   "instrument_token": 194914817
+  },
+  {
+   "symbol": "NSE:MUTHOOTFIN",
+   "name": "MUTHOOT FINANCE LIMITED",
+   "last": 2913.8,
+   "volume": 583485.0,
+   "turnover_cr": 171.28,
+   "instrument_token": 6054401
+  },
+  {
+   "symbol": "NSE:VBL",
+   "name": "VARUN BEVERAGES LIMITED",
+   "last": 407.6,
+   "volume": 4144842.0,
+   "turnover_cr": 169.36,
+   "instrument_token": 4843777
+  },
+  {
+   "symbol": "NSE:INOXWIND",
+   "name": "INOX WIND LIMITED",
+   "last": 74.4,
+   "volume": 22688206.0,
+   "turnover_cr": 169.23,
+   "instrument_token": 2010113
+  },
+  {
+   "symbol": "NSE:TRENT",
+   "name": "TRENT LTD",
+   "last": 2853.0,
+   "volume": 577393.0,
+   "turnover_cr": 165.16,
+   "instrument_token": 502785
+  },
+  {
+   "symbol": "NSE:TBZ",
+   "name": "TRIB BHIMJI ZAVERI LTD",
+   "last": 480.85,
+   "volume": 3486401.0,
+   "turnover_cr": 164.67,
+   "instrument_token": 6921473
+  },
+  {
+   "symbol": "NSE:VEDL",
+   "name": "VEDANTA LIMITED",
+   "last": 272.1,
+   "volume": 5992724.0,
+   "turnover_cr": 162.77,
+   "instrument_token": 784129
+  },
+  {
+   "symbol": "NSE:SYMBIOTEC",
+   "name": "SYMBIOTEC PHARMALAB LTD",
+   "last": 1078.25,
+   "volume": 1509878.0,
+   "turnover_cr": 162.22,
+   "instrument_token": 195964161
+  },
+  {
+   "symbol": "NSE:OLAELEC",
+   "name": "OLA ELECTRIC MOBILITY LTD",
+   "last": 38.2,
+   "volume": 42570426.0,
+   "turnover_cr": 162.15,
+   "instrument_token": 6342913
+  },
+  {
+   "symbol": "NSE:CDSL",
+   "name": "CENTRAL DEPO SER (I) LTD",
+   "last": 1394.6,
+   "volume": 1117172.0,
+   "turnover_cr": 156.86,
+   "instrument_token": 5420545
+  },
+  {
+   "symbol": "NSE:SHREEJISPG",
+   "name": "SHREEJI SHIPPING GLOBAL L",
+   "last": 680.15,
+   "volume": 2336669.0,
+   "turnover_cr": 156.07,
+   "instrument_token": 194418689
+  },
+  {
+   "symbol": "NSE:KERNEX",
+   "name": "KERNEX MICROSYS(I) LTD",
+   "last": 1817.0,
+   "volume": 852400.0,
+   "turnover_cr": 155.36,
+   "instrument_token": 3358977
+  },
+  {
+   "symbol": "NSE:AVALON",
+   "name": "AVALON TECHNOLOGIES LTD",
+   "last": 2196.6,
+   "volume": 683759.0,
+   "turnover_cr": 154.33,
+   "instrument_token": 3854849
+  },
+  {
+   "symbol": "NSE:BALRAMCHIN",
+   "name": "BALRAMPUR CHINI MILLS LTD",
+   "last": 690.6,
+   "volume": 2232338.0,
+   "turnover_cr": 154.32,
+   "instrument_token": 87297
+  },
+  {
+   "symbol": "NSE:WELSPUNLIV",
+   "name": "WELSPUN LIVING LIMITED",
+   "last": 208.51,
+   "volume": 7470859.0,
+   "turnover_cr": 154.06,
+   "instrument_token": 2880769
+  },
+  {
+   "symbol": "NSE:EDELWEISS",
+   "name": "EDELWEISS FIN SERV LTD",
+   "last": 136.08,
+   "volume": 11273587.0,
+   "turnover_cr": 153.77,
+   "instrument_token": 3870465
+  },
+  {
+   "symbol": "NSE:CANBK",
+   "name": "CANARA BANK",
+   "last": 125.5,
+   "volume": 12141084.0,
+   "turnover_cr": 153.65,
+   "instrument_token": 2763265
+  },
+  {
+   "symbol": "NSE:BALAMINES",
+   "name": "BALAJI AMINES LIMITED",
+   "last": 2525.2,
+   "volume": 608894.0,
+   "turnover_cr": 153.36,
+   "instrument_token": 3712257
+  },
+  {
+   "symbol": "NSE:UNIONBANK",
+   "name": "UNION BANK OF INDIA",
+   "last": 187.22,
+   "volume": 7910433.0,
+   "turnover_cr": 148.95,
+   "instrument_token": 2752769
+  },
+  {
+   "symbol": "NSE:TEMPSENS",
+   "name": "TEMPSENS INST (INDIA) LTD",
+   "last": 554.8,
+   "volume": 2650794.0,
+   "turnover_cr": 148.65,
+   "instrument_token": 195949057
+  },
+  {
+   "symbol": "NSE:SUNPHARMA",
+   "name": "SUN PHARMACEUTICAL IND L",
+   "last": 1899.0,
+   "volume": 761333.0,
+   "turnover_cr": 144.86,
+   "instrument_token": 857857
+  },
+  {
+   "symbol": "NSE:JSWSTEEL",
+   "name": "JSW STEEL LIMITED",
+   "last": 1325.0,
+   "volume": 1094356.0,
+   "turnover_cr": 144.61,
+   "instrument_token": 3001089
+  },
+  {
+   "symbol": "NSE:BEML",
+   "name": "BEML LIMITED",
+   "last": 2057.8,
+   "volume": 687676.0,
+   "turnover_cr": 143.56,
+   "instrument_token": 101121
+  },
+  {
+   "symbol": "NSE:WAAREEENER",
+   "name": "WAAREE ENERGIES LIMITED",
+   "last": 2635.0,
+   "volume": 547994.0,
+   "turnover_cr": 143.28,
+   "instrument_token": 6632193
+  },
+  {
+   "symbol": "NSE:GESHIP",
+   "name": "THE GE SHPG.LTD",
+   "last": 1369.7,
+   "volume": 1043987.0,
+   "turnover_cr": 142.37,
+   "instrument_token": 3526657
+  },
+  {
+   "symbol": "NSE:FEDERALBNK",
+   "name": "FEDERAL BANK LTD",
+   "last": 343.0,
+   "volume": 4115397.0,
+   "turnover_cr": 141.2,
+   "instrument_token": 261889
+  },
+  {
+   "symbol": "NSE:TATAPOWER",
+   "name": "TATA POWER CO LTD",
+   "last": 368.0,
+   "volume": 3826383.0,
+   "turnover_cr": 140.39,
+   "instrument_token": 877057
+  },
+  {
+   "symbol": "NSE:BRIGADE",
+   "name": "BRIGADE ENTER. LTD",
+   "last": 696.1,
+   "volume": 1980508.0,
+   "turnover_cr": 140.24,
+   "instrument_token": 3887105
+  },
+  {
+   "symbol": "NSE:JSWENERGY",
+   "name": "JSW ENERGY LIMITED",
+   "last": 539.85,
+   "volume": 2598872.0,
+   "turnover_cr": 139.73,
+   "instrument_token": 4574465
+  },
+  {
+   "symbol": "NSE:RAYMOND",
+   "name": "RAYMOND LTD",
+   "last": 740.85,
+   "volume": 1867268.0,
+   "turnover_cr": 139.68,
+   "instrument_token": 731905
+  },
+  {
+   "symbol": "NSE:RBZJEWEL",
+   "name": "RBZ JEWELLERS LIMITED",
+   "last": 200.69,
+   "volume": 6929954.0,
+   "turnover_cr": 138.46,
+   "instrument_token": 5343745
+  },
+  {
+   "symbol": "NSE:IEX",
+   "name": "INDIAN ENERGY EXC LTD",
+   "last": 118.91,
+   "volume": 11547227.0,
+   "turnover_cr": 138.35,
+   "instrument_token": 56321
+  },
+  {
+   "symbol": "NSE:IIFL",
+   "name": "IIFL FINANCE LIMITED",
+   "last": 651.15,
+   "volume": 2119359.0,
+   "turnover_cr": 138.22,
+   "instrument_token": 3023105
+  },
+  {
+   "symbol": "NSE:NESTLEIND",
+   "name": "NESTLE INDIA LIMITED",
+   "last": 1410.5,
+   "volume": 974257.0,
+   "turnover_cr": 137.38,
+   "instrument_token": 4598529
+  },
+  {
+   "symbol": "NSE:CHENNPETRO",
+   "name": "CHENNAI PETROLEUM CORP LT",
+   "last": 1452.2,
+   "volume": 934269.0,
+   "turnover_cr": 135.29,
+   "instrument_token": 524545
+  },
+  {
+   "symbol": "NSE:RATNAVEER",
+   "name": "RATNAVEER PRECISION ENG L",
+   "last": 304.75,
+   "volume": 4493978.0,
+   "turnover_cr": 135.24,
+   "instrument_token": 4716289
+  },
+  {
+   "symbol": "NSE:RVNL",
+   "name": "RAIL VIKAS NIGAM LIMITED",
+   "last": 212.49,
+   "volume": 6287421.0,
+   "turnover_cr": 133.36,
+   "instrument_token": 2445313
+  },
+  {
+   "symbol": "NSE:IDFCFIRSTB",
+   "name": "IDFC FIRST BANK LIMITED",
+   "last": 86.71,
+   "volume": 15288105.0,
+   "turnover_cr": 133.21,
+   "instrument_token": 2863105
+  },
+  {
+   "symbol": "NSE:SPLPETRO",
+   "name": "SUPREME PETROCHEM LIMITED",
+   "last": 771.05,
+   "volume": 1726190.0,
+   "turnover_cr": 132.79,
+   "instrument_token": 2461953
+  },
+  {
+   "symbol": "NSE:INDUSINDBK",
+   "name": "INDUSIND BANK LIMITED",
+   "last": 1008.5,
+   "volume": 1321066.0,
+   "turnover_cr": 132.43,
+   "instrument_token": 1346049
+  },
+  {
+   "symbol": "NSE:REDINGTON",
+   "name": "REDINGTON LIMITED",
+   "last": 371.3,
+   "volume": 3554885.0,
+   "turnover_cr": 131.83,
+   "instrument_token": 3649281
+  },
+  {
+   "symbol": "NSE:PNB",
+   "name": "PUNJAB NATIONAL BANK",
+   "last": 117.0,
+   "volume": 11160741.0,
+   "turnover_cr": 131.18,
+   "instrument_token": 2730497
+  },
+  {
+   "symbol": "NSE:DLF",
+   "name": "DLF LIMITED",
+   "last": 681.9,
+   "volume": 1911967.0,
+   "turnover_cr": 131.07,
+   "instrument_token": 3771393
+  },
+  {
+   "symbol": "NSE:KIRIINDUS",
+   "name": "KIRI INDUSTRIES LIMITED",
+   "last": 559.1,
+   "volume": 2243746.0,
+   "turnover_cr": 129.73,
+   "instrument_token": 4259585
+  },
+  {
+   "symbol": "NSE:IGL",
+   "name": "INDRAPRASTHA GAS LTD",
+   "last": 158.04,
+   "volume": 8174532.0,
+   "turnover_cr": 128.34,
+   "instrument_token": 2883073
+  },
+  {
+   "symbol": "NSE:XTRANET",
+   "name": "XTRANET TECHNOLOGIES LTD",
+   "last": 234.24,
+   "volume": 5584599.0,
+   "turnover_cr": 126.2,
+   "instrument_token": 195663873
+  },
+  {
+   "symbol": "NSE:SUNSHINE",
+   "name": "SUNSHINE PICTURES LIMITED",
+   "last": 441.45,
+   "volume": 2746047.0,
+   "turnover_cr": 125.79,
+   "instrument_token": 195939073
+  },
+  {
+   "symbol": "NSE:TMPV",
+   "name": "TATA MOTORS PASS VEH LTD",
+   "last": 311.5,
+   "volume": 4010174.0,
+   "turnover_cr": 125.48,
+   "instrument_token": 884737
+  },
+  {
+   "symbol": "NSE:ONGC",
+   "name": "OIL AND NATURAL GAS CORP.",
+   "last": 234.65,
+   "volume": 5338085.0,
+   "turnover_cr": 125.22,
+   "instrument_token": 633601
+  },
+  {
+   "symbol": "NSE:ICICIGI",
+   "name": "ICICI LOMBARD GIC LIMITED",
+   "last": 1510.0,
+   "volume": 824875.0,
+   "turnover_cr": 125.01,
+   "instrument_token": 5573121
+  },
+  {
+   "symbol": "NSE:BIOCON",
+   "name": "BIOCON LIMITED.",
+   "last": 397.4,
+   "volume": 3108555.0,
+   "turnover_cr": 124.67,
+   "instrument_token": 2911489
+  },
+  {
+   "symbol": "NSE:URBANCO",
+   "name": "URBAN COMPANY LIMITED",
+   "last": 181.09,
+   "volume": 6940698.0,
+   "turnover_cr": 124.47,
+   "instrument_token": 194325505
+  },
+  {
+   "symbol": "NSE:HIKAL",
+   "name": "HIKAL LIMITED",
+   "last": 222.3,
+   "volume": 5359400.0,
+   "turnover_cr": 122.97,
+   "instrument_token": 2475009
+  },
+  {
+   "symbol": "NSE:WIPRO",
+   "name": "WIPRO LTD",
+   "last": 176.4,
+   "volume": 6882678.0,
+   "turnover_cr": 122.25,
+   "instrument_token": 969473
+  },
+  {
+   "symbol": "NSE:GMMPFAUDLR",
+   "name": "GMM PFAUDLER LIMITED",
+   "last": 1147.9,
+   "volume": 1049404.0,
+   "turnover_cr": 120.29,
+   "instrument_token": 401921
+  },
+  {
+   "symbol": "NSE:MAHABANK",
+   "name": "BANK OF MAHARASHTRA",
+   "last": 85.95,
+   "volume": 13802528.0,
+   "turnover_cr": 119.32,
+   "instrument_token": 2912513
+  },
+  {
+   "symbol": "NSE:ZEEL",
+   "name": "ZEE ENTERTAINMENT ENT LTD",
+   "last": 91.61,
+   "volume": 13036739.0,
+   "turnover_cr": 119.16,
+   "instrument_token": 975873
+  },
+  {
+   "symbol": "NSE:TFCILTD",
+   "name": "TOURISM FINANCE CORP. OF",
+   "last": 143.26,
+   "volume": 8211306.0,
+   "turnover_cr": 118.54,
+   "instrument_token": 887297
+  },
+  {
+   "symbol": "NSE:RADHIKAJWE",
+   "name": "RADHIKA JEWELTECH LIMITED",
+   "last": 83.16,
+   "volume": 14544177.0,
+   "turnover_cr": 118.0,
+   "instrument_token": 2647809
+  },
+  {
+   "symbol": "NSE:VOGL",
+   "name": "VEDANTA OIL AND GAS LTD",
+   "last": 38.02,
+   "volume": 30917507.0,
+   "turnover_cr": 117.58,
+   "instrument_token": 192094209
+  },
+  {
+   "symbol": "NSE:HYUNDAI",
+   "name": "HYUNDAI MOTOR INDIA LTD",
+   "last": 2205.0,
+   "volume": 531330.0,
+   "turnover_cr": 116.45,
+   "instrument_token": 6616065
+  },
+  {
+   "symbol": "NSE:SBICARD",
+   "name": "SBI CARDS & PAY SER LTD",
+   "last": 658.25,
+   "volume": 1752698.0,
+   "turnover_cr": 116.06,
+   "instrument_token": 4600577
+  },
+  {
+   "symbol": "NSE:LODHA",
+   "name": "LODHA DEVELOPERS LIMITED",
+   "last": 1222.0,
+   "volume": 948334.0,
+   "turnover_cr": 115.94,
+   "instrument_token": 824321
+  },
+  {
+   "symbol": "NSE:MAXHEALTH",
+   "name": "MAX HEALTHCARE INS LTD",
+   "last": 984.8,
+   "volume": 1167047.0,
+   "turnover_cr": 115.74,
+   "instrument_token": 5728513
+  },
+  {
+   "symbol": "NSE:NEWGEN",
+   "name": "NEWGEN SOFTWARE TECH LTD",
+   "last": 524.8,
+   "volume": 2160906.0,
+   "turnover_cr": 115.1,
+   "instrument_token": 297985
+  },
+  {
+   "symbol": "NSE:MOTHERSON",
+   "name": "SAMVRDHNA MTHRSN INTL LTD",
+   "last": 160.7,
+   "volume": 7139764.0,
+   "turnover_cr": 115.05,
+   "instrument_token": 1076225
+  },
+  {
+   "symbol": "NSE:GODREJCP",
+   "name": "GODREJ CONSUMER PRODUCTS",
+   "last": 878.0,
+   "volume": 1306185.0,
+   "turnover_cr": 114.26,
+   "instrument_token": 2585345
+  },
+  {
+   "symbol": "NSE:HINDPETRO",
+   "name": "HINDUSTAN PETROLEUM CORP",
+   "last": 356.5,
+   "volume": 3155139.0,
+   "turnover_cr": 112.76,
+   "instrument_token": 359937
+  },
+  {
+   "symbol": "NSE:NMDC",
+   "name": "NMDC LTD.",
+   "last": 84.7,
+   "volume": 13224234.0,
+   "turnover_cr": 111.98,
+   "instrument_token": 3924993
+  },
+  {
+   "symbol": "NSE:OBEROIRLTY",
+   "name": "OBEROI REALTY LIMITED",
+   "last": 1875.6,
+   "volume": 585940.0,
+   "turnover_cr": 111.62,
+   "instrument_token": 5181953
+  },
+  {
+   "symbol": "NSE:INDHOTEL",
+   "name": "THE INDIAN HOTELS CO. LTD",
+   "last": 720.0,
+   "volume": 1528492.0,
+   "turnover_cr": 110.42,
+   "instrument_token": 387073
+  },
+  {
+   "symbol": "NSE:EXIDEIND",
+   "name": "EXIDE INDUSTRIES LTD",
+   "last": 424.35,
+   "volume": 2581393.0,
+   "turnover_cr": 109.17,
+   "instrument_token": 173057
+  },
+  {
+   "symbol": "NSE:DMART",
+   "name": "AVENUE SUPERMARTS LIMITED",
+   "last": 3770.0,
+   "volume": 288600.0,
+   "turnover_cr": 108.58,
+   "instrument_token": 5097729
+  },
+  {
+   "symbol": "NSE:PNBHOUSING",
+   "name": "PNB HOUSING FIN LTD.",
+   "last": 1166.0,
+   "volume": 923575.0,
+   "turnover_cr": 108.54,
+   "instrument_token": 4840449
+  },
+  {
+   "symbol": "NSE:SKYWAYS",
+   "name": "SKYWAYS AIR SERVICES LTD",
+   "last": 122.72,
+   "volume": 8338807.0,
+   "turnover_cr": 107.55,
+   "instrument_token": 195962881
+  },
+  {
+   "symbol": "NSE:JYOTICNC",
+   "name": "JYOTI CNC AUTOMATION LTD",
+   "last": 1003.9,
+   "volume": 1051995.0,
+   "turnover_cr": 106.98,
+   "instrument_token": 5461505
+  },
+  {
+   "symbol": "NSE:IOLCP",
+   "name": "IOL CHEM AND PHARMA LTD",
+   "last": 199.95,
+   "volume": 5291531.0,
+   "turnover_cr": 105.92,
+   "instrument_token": 5225729
+  },
+  {
+   "symbol": "NSE:FCL",
+   "name": "FINEOTEX CHEMICAL LIMITED",
+   "last": 51.51,
+   "volume": 20692198.0,
+   "turnover_cr": 105.49,
+   "instrument_token": 1586689
+  },
+  {
+   "symbol": "NSE:GUJENERGY",
+   "name": "GUJARAT ENERGY LIMITED",
+   "last": 263.59,
+   "volume": 3952971.0,
+   "turnover_cr": 104.75,
+   "instrument_token": 2713345
+  },
+  {
+   "symbol": "NSE:PREMIERENE",
+   "name": "PREMIER ENERGIES LIMITED",
+   "last": 1002.0,
+   "volume": 1046394.0,
+   "turnover_cr": 104.63,
+   "instrument_token": 6412545
+  },
+  {
+   "symbol": "NSE:TATACONSUM",
+   "name": "TATA CONSUMER PRODUCT LTD",
+   "last": 1010.0,
+   "volume": 1030689.0,
+   "turnover_cr": 104.41,
+   "instrument_token": 878593
+  },
+  {
+   "symbol": "NSE:CYIENTDLM",
+   "name": "CYIENT DLM LIMITED",
+   "last": 856.95,
+   "volume": 1201568.0,
+   "turnover_cr": 104.36,
+   "instrument_token": 4399873
+  },
+  {
+   "symbol": "NSE:LTF",
+   "name": "L&T FINANCE LIMITED",
+   "last": 314.0,
+   "volume": 3279672.0,
+   "turnover_cr": 103.96,
+   "instrument_token": 6386689
+  },
+  {
+   "symbol": "NSE:MANORAMA",
+   "name": "MANORAMA INDUSTRIES LTD",
+   "last": 1993.4,
+   "volume": 521970.0,
+   "turnover_cr": 103.96,
+   "instrument_token": 2618113
+  },
+  {
+   "symbol": "NSE:CROMPTON",
+   "name": "CROMPT GREA CON ELEC LTD",
+   "last": 232.4,
+   "volume": 4443658.0,
+   "turnover_cr": 103.71,
+   "instrument_token": 4376065
+  },
+  {
+   "symbol": "NSE:COLPAL",
+   "name": "COLGATE PALMOLIVE LTD.",
+   "last": 1829.2,
+   "volume": 562995.0,
+   "turnover_cr": 103.65,
+   "instrument_token": 3876097
+  },
+  {
+   "symbol": "NSE:JINDALSTEL",
+   "name": "JINDAL STEEL LIMITED",
+   "last": 1165.0,
+   "volume": 893053.0,
+   "turnover_cr": 103.42,
+   "instrument_token": 1723649
+  },
+  {
+   "symbol": "NSE:DIFFNKG",
+   "name": "DIFFUSION ENGINEERS LTD",
+   "last": 474.9,
+   "volume": 2072376.0,
+   "turnover_cr": 103.06,
+   "instrument_token": 6572033
+  },
+  {
+   "symbol": "NSE:PIIND",
+   "name": "PI INDUSTRIES LTD",
+   "last": 2465.0,
+   "volume": 415878.0,
+   "turnover_cr": 102.94,
+   "instrument_token": 6191105
+  },
+  {
+   "symbol": "NSE:DEEPINDS",
+   "name": "DEEP INDUSTRIES LIMITED",
+   "last": 786.45,
+   "volume": 1324171.0,
+   "turnover_cr": 102.86,
+   "instrument_token": 842753
+  },
+  {
+   "symbol": "NSE:ASIANPAINT",
+   "name": "ASIAN PAINTS LIMITED",
+   "last": 2527.3,
+   "volume": 399368.0,
+   "turnover_cr": 101.25,
+   "instrument_token": 60417
+  },
+  {
+   "symbol": "NSE:UPL",
+   "name": "UPL LIMITED",
+   "last": 582.15,
+   "volume": 1730115.0,
+   "turnover_cr": 101.16,
+   "instrument_token": 2889473
+  },
+  {
+   "symbol": "NSE:GLENMARK",
+   "name": "GLENMARK PHARMACEUTICALS",
+   "last": 2437.2,
+   "volume": 412728.0,
+   "turnover_cr": 100.54,
+   "instrument_token": 1895937
+  },
+  {
+   "symbol": "NSE:63MOONS",
+   "name": "63 MOONS TECHNOLOGIES LTD",
+   "last": 876.5,
+   "volume": 1136718.0,
+   "turnover_cr": 100.35,
+   "instrument_token": 3038209
+  },
+  {
+   "symbol": "NSE:VISL",
+   "name": "VEDANTA IRON AND STEEL L",
+   "last": 35.39,
+   "volume": 28223582.0,
+   "turnover_cr": 100.31,
+   "instrument_token": 192074241
+  },
+  {
+   "symbol": "NSE:SHANTIGEAR",
+   "name": "SHANTHI GEARS LTD",
+   "last": 621.75,
+   "volume": 1612281.0,
+   "turnover_cr": 100.15,
+   "instrument_token": 787969
+  },
+  {
+   "symbol": "NSE:ADANIGREEN",
+   "name": "ADANI GREEN ENERGY LTD",
+   "last": 1301.3,
+   "volume": 768437.0,
+   "turnover_cr": 99.61,
+   "instrument_token": 912129
+  },
+  {
+   "symbol": "NSE:GRANULES",
+   "name": "GRANULES INDIA LIMITED",
+   "last": 848.3,
+   "volume": 1172635.0,
+   "turnover_cr": 99.47,
+   "instrument_token": 3039233
+  },
+  {
+   "symbol": "NSE:M&MFIN",
+   "name": "M&M FIN. SERVICES LTD",
+   "last": 373.65,
+   "volume": 2628655.0,
+   "turnover_cr": 98.9,
+   "instrument_token": 3400961
+  },
+  {
+   "symbol": "NSE:PIDILITIND",
+   "name": "PIDILITE INDUSTRIES LTD",
+   "last": 1629.5,
+   "volume": 605836.0,
+   "turnover_cr": 98.81,
+   "instrument_token": 681985
+  },
+  {
+   "symbol": "NSE:ASTRAL",
+   "name": "ASTRAL LIMITED",
+   "last": 1492.9,
+   "volume": 658868.0,
+   "turnover_cr": 98.48,
+   "instrument_token": 3691009
+  },
+  {
+   "symbol": "NSE:ENGINERSIN",
+   "name": "ENGINEERS INDIA LTD",
+   "last": 279.45,
+   "volume": 3490446.0,
+   "turnover_cr": 98.37,
+   "instrument_token": 1256193
+  },
+  {
+   "symbol": "NSE:LCL",
+   "name": "LOHIA CORP LIMITED",
+   "last": 581.5,
+   "volume": 1628313.0,
+   "turnover_cr": 95.21,
+   "instrument_token": 195659777
+  },
+  {
+   "symbol": "NSE:COCHINSHIP",
+   "name": "COCHIN SHIPYARD LIMITED",
+   "last": 1499.1,
+   "volume": 630573.0,
+   "turnover_cr": 95.19,
+   "instrument_token": 5506049
+  },
+  {
+   "symbol": "NSE:EXICOM",
+   "name": "EXICOM TELE SYSTEMS LTD",
+   "last": 177.85,
+   "volume": 5389417.0,
+   "turnover_cr": 94.79,
+   "instrument_token": 5874433
+  },
+  {
+   "symbol": "NSE:AUROPHARMA",
+   "name": "AUROBINDO PHARMA LTD",
+   "last": 1653.1,
+   "volume": 573938.0,
+   "turnover_cr": 94.72,
+   "instrument_token": 70401
+  },
+  {
+   "symbol": "NSE:CARTRADE",
+   "name": "CARTRADE TECH LIMITED",
+   "last": 3000.2,
+   "volume": 315551.0,
+   "turnover_cr": 94.66,
+   "instrument_token": 1384193
+  },
+  {
+   "symbol": "NSE:THERMAX",
+   "name": "THERMAX LTD",
+   "last": 3637.6,
+   "volume": 258180.0,
+   "turnover_cr": 94.51,
+   "instrument_token": 889601
+  },
+  {
+   "symbol": "NSE:TDPOWERSYS",
+   "name": "TD POWER SYSTEMS LTD.",
+   "last": 740.1,
+   "volume": 1283741.0,
+   "turnover_cr": 94.18,
+   "instrument_token": 6445569
+  },
+  {
+   "symbol": "NSE:PRESTIGE",
+   "name": "PRESTIGE ESTATE LTD",
+   "last": 1587.0,
+   "volume": 588022.0,
+   "turnover_cr": 94.15,
+   "instrument_token": 5197313
+  },
+  {
+   "symbol": "NSE:EPL",
+   "name": "EPL LIMITED",
+   "last": 247.1,
+   "volume": 3718253.0,
+   "turnover_cr": 92.0,
+   "instrument_token": 251137
+  },
+  {
+   "symbol": "NSE:RADICO",
+   "name": "RADICO KHAITAN LTD",
+   "last": 4494.0,
+   "volume": 205308.0,
+   "turnover_cr": 91.97,
+   "instrument_token": 2813441
+  },
+  {
+   "symbol": "NSE:SBCL",
+   "name": "SHIVALIK BIMETAL CON. LTD",
+   "last": 1121.1,
+   "volume": 810275.0,
+   "turnover_cr": 91.9,
+   "instrument_token": 1191937
+  },
+  {
+   "symbol": "NSE:JISLJALEQS",
+   "name": "JAIN IRRIGATION SYSTEMS",
+   "last": 30.87,
+   "volume": 29548721.0,
+   "turnover_cr": 91.72,
+   "instrument_token": 2661633
+  },
+  {
+   "symbol": "NSE:ASTERDM",
+   "name": "ASTER DM QUALITY CARE LTD",
+   "last": 785.75,
+   "volume": 1157850.0,
+   "turnover_cr": 91.16,
+   "instrument_token": 386049
+  },
+  {
+   "symbol": "NSE:GMRAIRPORT",
+   "name": "GMR AIRPORTS LIMITED",
+   "last": 97.45,
+   "volume": 9286457.0,
+   "turnover_cr": 90.38,
+   "instrument_token": 3463169
+  },
+  {
+   "symbol": "NSE:DYCL",
+   "name": "DYNAMIC CABLES LIMITED",
+   "last": 487.9,
+   "volume": 1789647.0,
+   "turnover_cr": 90.34,
+   "instrument_token": 2666753
+  },
+  {
+   "symbol": "NSE:SRF",
+   "name": "SRF LTD",
+   "last": 2547.0,
+   "volume": 352418.0,
+   "turnover_cr": 90.19,
+   "instrument_token": 837889
+  },
+  {
+   "symbol": "NSE:SAILIFE",
+   "name": "SAI LIFE SCIENCES LIMITED",
+   "last": 1584.3,
+   "volume": 561938.0,
+   "turnover_cr": 89.64,
+   "instrument_token": 7126785
+  },
+  {
+   "symbol": "NSE:DELHIVERY",
+   "name": "DELHIVERY LIMITED",
+   "last": 457.9,
+   "volume": 1936111.0,
+   "turnover_cr": 89.24,
+   "instrument_token": 2457345
+  },
+  {
+   "symbol": "NSE:BLUESTONE",
+   "name": "BLUESTONE JEWEL LFSTL LTD",
+   "last": 842.75,
+   "volume": 1065449.0,
+   "turnover_cr": 88.92,
+   "instrument_token": 194378497
+  },
+  {
+   "symbol": "NSE:VIYASH",
+   "name": "VIYASH SCIENTIFIC LIMITED",
+   "last": 265.85,
+   "volume": 3313584.0,
+   "turnover_cr": 87.8,
+   "instrument_token": 3659777
+  },
+  {
+   "symbol": "NSE:ABCAPITAL",
+   "name": "ADITYA BIRLA CAPITAL LTD.",
+   "last": 404.9,
+   "volume": 2167785.0,
+   "turnover_cr": 87.7,
+   "instrument_token": 5533185
+  },
+  {
+   "symbol": "NSE:BAJAJFINSV",
+   "name": "BAJAJ FINSERV LTD.",
+   "last": 1970.0,
+   "volume": 437793.0,
+   "turnover_cr": 86.64,
+   "instrument_token": 4268801
+  },
+  {
+   "symbol": "NSE:TATATECH",
+   "name": "TATA TECHNOLOGIES LIMITED",
+   "last": 800.0,
+   "volume": 1067933.0,
+   "turnover_cr": 86.6,
+   "instrument_token": 5195009
+  },
+  {
+   "symbol": "NSE:AUGMONT",
+   "name": "AUGMONT ENTERPRISES LTD",
+   "last": 901.5,
+   "volume": 942895.0,
+   "turnover_cr": 86.46,
+   "instrument_token": 195955457
+  },
+  {
+   "symbol": "NSE:NIFTYBEES",
+   "name": "NIP IND ETF NIFTY BEES",
+   "last": 273.27,
+   "volume": 3162846.0,
+   "turnover_cr": 86.45,
+   "instrument_token": 2707457
+  },
+  {
+   "symbol": "NSE:ASTRAMICRO",
+   "name": "ASTRA MICROWAVE LTD",
+   "last": 1729.0,
+   "volume": 502645.0,
+   "turnover_cr": 86.31,
+   "instrument_token": 2974209
+  },
+  {
+   "symbol": "NSE:AEGISLOG",
+   "name": "AEGIS LOGISTICS LIMITED",
+   "last": 1270.2,
+   "volume": 665965.0,
+   "turnover_cr": 86.11,
+   "instrument_token": 10241
+  },
+  {
+   "symbol": "NSE:RAIN",
+   "name": "RAIN INDUSTRIES LIMITED",
+   "last": 215.72,
+   "volume": 4009182.0,
+   "turnover_cr": 85.91,
+   "instrument_token": 3926273
+  },
+  {
+   "symbol": "NSE:MANIPALHOS",
+   "name": "MANIPAL HEALTH ENTERPRI L",
+   "last": 725.2,
+   "volume": 1177059.0,
+   "turnover_cr": 85.85,
+   "instrument_token": 195675393
+  },
+  {
+   "symbol": "NSE:SHANKESH",
+   "name": "SHANKESH JEWELLERS LTD",
+   "last": 98.92,
+   "volume": 8474688.0,
+   "turnover_cr": 85.45,
+   "instrument_token": 195937793
+  },
+  {
+   "symbol": "NSE:LEAPIND",
+   "name": "LEAP INDIA LIMITED",
+   "last": 150.26,
+   "volume": 5589910.0,
+   "turnover_cr": 85.16,
+   "instrument_token": 195717889
+  },
+  {
+   "symbol": "NSE:USHAMART",
+   "name": "USHA MARTIN LTD.",
+   "last": 514.15,
+   "volume": 1631592.0,
+   "turnover_cr": 84.91,
+   "instrument_token": 2263041
+  },
+  {
+   "symbol": "NSE:GENUSPOWER",
+   "name": "GENUS POWER INFRASTRU LTD",
+   "last": 337.8,
+   "volume": 2486451.0,
+   "turnover_cr": 84.73,
+   "instrument_token": 3047681
+  },
+  {
+   "symbol": "NSE:MFSL",
+   "name": "MAX FINANCIAL SERV LTD",
+   "last": 1548.4,
+   "volume": 543214.0,
+   "turnover_cr": 84.44,
+   "instrument_token": 548353
+  },
+  {
+   "symbol": "NSE:ICICIAMC",
+   "name": "ICICI PRUDENTIAL AMC LTD",
+   "last": 2970.9,
+   "volume": 281169.0,
+   "turnover_cr": 83.72,
+   "instrument_token": 194664193
+  },
+  {
+   "symbol": "NSE:MARICO",
+   "name": "MARICO LIMITED",
+   "last": 815.15,
+   "volume": 1021459.0,
+   "turnover_cr": 83.56,
+   "instrument_token": 1041153
+  },
+  {
+   "symbol": "NSE:MOTILALOFS",
+   "name": "MOTILAL OSWAL FIN LTD",
+   "last": 1037.0,
+   "volume": 807197.0,
+   "turnover_cr": 83.37,
+   "instrument_token": 3826433
+  },
+  {
+   "symbol": "NSE:SYRMA",
+   "name": "SYRMA SGS TECHNOLOGY LTD",
+   "last": 1457.3,
+   "volume": 569018.0,
+   "turnover_cr": 83.04,
+   "instrument_token": 2763009
+  },
+  {
+   "symbol": "NSE:VMM",
+   "name": "VISHAL MEGA MART LIMITED",
+   "last": 106.14,
+   "volume": 7783965.0,
+   "turnover_cr": 82.99,
+   "instrument_token": 7160065
+  },
+  {
+   "symbol": "NSE:ANTHEM",
+   "name": "ANTHEM BIOSCIENCES LTD",
+   "last": 934.05,
+   "volume": 872940.0,
+   "turnover_cr": 82.11,
+   "instrument_token": 194018561
+  },
+  {
+   "symbol": "NSE:POLICYBZR",
+   "name": "PB FINTECH LIMITED",
+   "last": 1836.0,
+   "volume": 445054.0,
+   "turnover_cr": 82.03,
+   "instrument_token": 1703937
+  },
+  {
+   "symbol": "NSE:ENRIN",
+   "name": "SIEMENS ENERGY INDIA LTD",
+   "last": 3115.7,
+   "volume": 262111.0,
+   "turnover_cr": 82.0,
+   "instrument_token": 193758977
+  },
+  {
+   "symbol": "NSE:KIRLOSENG",
+   "name": "KIRLOSKAR OIL ENG LTD",
+   "last": 2201.9,
+   "volume": 365394.0,
+   "turnover_cr": 81.57,
+   "instrument_token": 5359617
+  },
+  {
+   "symbol": "NSE:SKYGOLD",
+   "name": "SKY GOLD AND DIAMONDS LTD",
+   "last": 781.45,
+   "volume": 1069790.0,
+   "turnover_cr": 81.13,
+   "instrument_token": 3489537
+  },
+  {
+   "symbol": "NSE:MAHSEAMLES",
+   "name": "MAHARASHTRA SEAMLESS LTD",
+   "last": 688.1,
+   "volume": 1179393.0,
+   "turnover_cr": 80.76,
+   "instrument_token": 534529
+  },
+  {
+   "symbol": "NSE:CASTROLIND",
+   "name": "CASTROL INDIA LIMITED",
+   "last": 190.27,
+   "volume": 4231930.0,
+   "turnover_cr": 80.05,
+   "instrument_token": 320001
+  },
+  {
+   "symbol": "NSE:BODALCHEM",
+   "name": "BODAL CHEMICALS LTD",
+   "last": 155.62,
+   "volume": 5050468.0,
+   "turnover_cr": 78.53,
+   "instrument_token": 6404353
+  },
+  {
+   "symbol": "NSE:RKFORGE",
+   "name": "RAMKRISHNA FORGINGS LTD",
+   "last": 700.85,
+   "volume": 1116062.0,
+   "turnover_cr": 78.53,
+   "instrument_token": 2921217
+  },
+  {
+   "symbol": "NSE:PARAS",
+   "name": "PARAS DEF AND SPCE TECH L",
+   "last": 1414.9,
+   "volume": 552173.0,
+   "turnover_cr": 78.53,
+   "instrument_token": 1513217
+  },
+  {
+   "symbol": "NSE:UJJIVANSFB",
+   "name": "UJJIVAN SMALL FINANC BANK",
+   "last": 64.43,
+   "volume": 12168369.0,
+   "turnover_cr": 78.1,
+   "instrument_token": 3898369
+  },
+  {
+   "symbol": "NSE:TATSILV",
+   "name": "TATAAML-TATSILV",
+   "last": 22.62,
+   "volume": 34470366.0,
+   "turnover_cr": 77.94,
+   "instrument_token": 5485569
+  },
+  {
+   "symbol": "NSE:GRAPHITE",
+   "name": "GRAPHITE INDIA LTD",
+   "last": 733.6,
+   "volume": 1066661.0,
+   "turnover_cr": 77.87,
+   "instrument_token": 151553
+  },
+  {
+   "symbol": "NSE:GRSE",
+   "name": "GARDEN REACH SHIP&ENG LTD",
+   "last": 2533.2,
+   "volume": 299818.0,
+   "turnover_cr": 76.19,
+   "instrument_token": 1401601
+  },
+  {
+   "symbol": "NSE:MASTERTR",
+   "name": "MASTER TRUST LIMITED",
+   "last": 89.16,
+   "volume": 8360812.0,
+   "turnover_cr": 76.15,
+   "instrument_token": 6924033
+  },
+  {
+   "symbol": "NSE:CPPLUS",
+   "name": "ADITYA INFOTECH LIMITED",
+   "last": 3704.6,
+   "volume": 202259.0,
+   "turnover_cr": 75.18,
+   "instrument_token": 194267649
+  },
+  {
+   "symbol": "NSE:BALUFORGE",
+   "name": "BALU FORGE INDUSTRIES LTD",
+   "last": 574.1,
+   "volume": 1304593.0,
+   "turnover_cr": 75.04,
+   "instrument_token": 6043393
+  },
+  {
+   "symbol": "NSE:OMAXE",
+   "name": "OMAXE LIMITED",
+   "last": 136.38,
+   "volume": 5607789.0,
+   "turnover_cr": 75.03,
+   "instrument_token": 3802369
+  },
+  {
+   "symbol": "NSE:BALKRISIND",
+   "name": "BALKRISHNA IND. LTD",
+   "last": 2284.6,
+   "volume": 324489.0,
+   "turnover_cr": 74.22,
+   "instrument_token": 85761
+  },
+  {
+   "symbol": "NSE:NAUKRI",
+   "name": "INFO EDGE (I) LTD",
+   "last": 1319.8,
+   "volume": 556306.0,
+   "turnover_cr": 73.68,
+   "instrument_token": 3520257
+  },
+  {
+   "symbol": "NSE:GRAVITA",
+   "name": "GRAVITA INDIA LIMITED",
+   "last": 1661.6,
+   "volume": 442686.0,
+   "turnover_cr": 73.01,
+   "instrument_token": 5256705
+  },
+  {
+   "symbol": "NSE:TATAELXSI",
+   "name": "TATA ELXSI LIMITED",
+   "last": 3558.0,
+   "volume": 203529.0,
+   "turnover_cr": 73.0,
+   "instrument_token": 873217
+  },
+  {
+   "symbol": "NSE:NYKAA",
+   "name": "FSN E COMMERCE VENTURES",
+   "last": 332.5,
+   "volume": 2156326.0,
+   "turnover_cr": 72.04,
+   "instrument_token": 1675521
+  },
+  {
+   "symbol": "NSE:KPITTECH",
+   "name": "KPIT TECHNOLOGIES LIMITED",
+   "last": 575.45,
+   "volume": 1239906.0,
+   "turnover_cr": 72.0,
+   "instrument_token": 2478849
+  },
+  {
+   "symbol": "NSE:YESBANK",
+   "name": "YES BANK LIMITED",
+   "last": 22.5,
+   "volume": 31739702.0,
+   "turnover_cr": 71.48,
+   "instrument_token": 3050241
+  },
+  {
+   "symbol": "NSE:UNOMINDA",
+   "name": "UNO MINDA LIMITED",
+   "last": 1249.7,
+   "volume": 574742.0,
+   "turnover_cr": 71.42,
+   "instrument_token": 3623425
+  },
+  {
+   "symbol": "NSE:SIEMENS",
+   "name": "SIEMENS LTD",
+   "last": 3977.0,
+   "volume": 177116.0,
+   "turnover_cr": 70.89,
+   "instrument_token": 806401
+  },
+  {
+   "symbol": "NSE:INDIANB",
+   "name": "INDIAN BANK",
+   "last": 879.7,
+   "volume": 786614.0,
+   "turnover_cr": 69.62,
+   "instrument_token": 3663105
+  },
+  {
+   "symbol": "NSE:LIQUID1",
+   "name": "KOTAKMAMC - KOTAKLIQ",
+   "last": 1121.43,
+   "volume": 616507.0,
+   "turnover_cr": 69.14,
+   "instrument_token": 3571201
+  },
+  {
+   "symbol": "NSE:MEDANTA",
+   "name": "GLOBAL HEALTH LIMITED",
+   "last": 1469.8,
+   "volume": 470026.0,
+   "turnover_cr": 69.14,
+   "instrument_token": 3060737
+  },
+  {
+   "symbol": "NSE:360ONE",
+   "name": "360 ONE WAM LIMITED",
+   "last": 1137.0,
+   "volume": 603451.0,
+   "turnover_cr": 68.83,
+   "instrument_token": 3343617
+  },
+  {
+   "symbol": "NSE:MANAPPURAM",
+   "name": "MANAPPURAM FINANCE LTD",
+   "last": 339.7,
+   "volume": 2017457.0,
+   "turnover_cr": 68.71,
+   "instrument_token": 4879617
+  },
+  {
+   "symbol": "NSE:MOLBIO",
+   "name": "MOLBIO DIAGNOSTICS LTD",
+   "last": 1160.5,
+   "volume": 594273.0,
+   "turnover_cr": 68.09,
+   "instrument_token": 195724289
+  },
+  {
+   "symbol": "NSE:SHIPROCKET",
+   "name": "SHIPROCKET LIMITED",
+   "last": 135.92,
+   "volume": 4989875.0,
+   "turnover_cr": 67.87,
+   "instrument_token": 195912193
+  },
+  {
+   "symbol": "NSE:GAIL",
+   "name": "GAIL (INDIA) LTD",
+   "last": 173.4,
+   "volume": 3878219.0,
+   "turnover_cr": 67.12,
+   "instrument_token": 1207553
+  },
+  {
+   "symbol": "NSE:KFINTECH",
+   "name": "KFIN TECHNOLOGIES LIMITED",
+   "last": 928.9,
+   "volume": 715524.0,
+   "turnover_cr": 67.02,
+   "instrument_token": 3419905
+  },
+  {
+   "symbol": "NSE:JSWINFRA",
+   "name": "JSW INFRASTRUCTURE LTD",
+   "last": 333.0,
+   "volume": 2001532.0,
+   "turnover_cr": 66.94,
+   "instrument_token": 4869121
+  },
+  {
+   "symbol": "NSE:TATAGOLD",
+   "name": "TATAAML-TATAGOLD",
+   "last": 14.94,
+   "volume": 44264152.0,
+   "turnover_cr": 66.13,
+   "instrument_token": 5478657
+  },
+  {
+   "symbol": "NSE:DRREDDY",
+   "name": "DR. REDDY S LABORATORIES",
+   "last": 1151.0,
+   "volume": 568461.0,
+   "turnover_cr": 65.94,
+   "instrument_token": 225537
+  },
+  {
+   "symbol": "NSE:BAJAJCON",
+   "name": "BAJAJ CONSUMER CARE LTD",
+   "last": 517.55,
+   "volume": 1279757.0,
+   "turnover_cr": 65.72,
+   "instrument_token": 4999937
+  },
+  {
+   "symbol": "NSE:IRFC",
+   "name": "INDIAN RAILWAY FIN CORP L",
+   "last": 83.4,
+   "volume": 7883831.0,
+   "turnover_cr": 65.7,
+   "instrument_token": 519425
+  },
+  {
+   "symbol": "NSE:KTKBANK",
+   "name": "KARNATAKA BANK LIMITED",
+   "last": 340.1,
+   "volume": 1919012.0,
+   "turnover_cr": 65.46,
+   "instrument_token": 2061825
+  },
+  {
+   "symbol": "NSE:CMPDI",
+   "name": "CENTRAL MINE P N D INST L",
+   "last": 243.92,
+   "volume": 2694037.0,
+   "turnover_cr": 65.19,
+   "instrument_token": 194964737
+  },
+  {
+   "symbol": "NSE:DABUR",
+   "name": "DABUR INDIA LTD",
+   "last": 380.9,
+   "volume": 1702061.0,
+   "turnover_cr": 64.8,
+   "instrument_token": 197633
+  },
+  {
+   "symbol": "NSE:SONACOMS",
+   "name": "SONA BLW PRECISION FRGS L",
+   "last": 789.0,
+   "volume": 816762.0,
+   "turnover_cr": 64.64,
+   "instrument_token": 1199105
+  },
+  {
+   "symbol": "NSE:ACE",
+   "name": "ACTION CONST EQUIP LTD",
+   "last": 1125.4,
+   "volume": 557111.0,
+   "turnover_cr": 64.53,
+   "instrument_token": 3478273
+  },
+  {
+   "symbol": "NSE:AUBANK",
+   "name": "AU SMALL FINANCE BANK LTD",
+   "last": 1065.0,
+   "volume": 602949.0,
+   "turnover_cr": 64.43,
+   "instrument_token": 5436929
+  },
+  {
+   "symbol": "NSE:KRN",
+   "name": "KRN HEAT EXCHANGE N REF L",
+   "last": 1578.7,
+   "volume": 408862.0,
+   "turnover_cr": 64.42,
+   "instrument_token": 6564609
+  },
+  {
+   "symbol": "NSE:SBIFUNDS",
+   "name": "SBI FUNDS MANAGEMENT LTD",
+   "last": 562.1,
+   "volume": 1143214.0,
+   "turnover_cr": 64.25,
+   "instrument_token": 195628289
+  },
+  {
+   "symbol": "NSE:LGEINDIA",
+   "name": "LG ELECTRONICS INDIA LTD",
+   "last": 1640.7,
+   "volume": 387555.0,
+   "turnover_cr": 63.75,
+   "instrument_token": 194614529
+  },
+  {
+   "symbol": "NSE:SHANTIGOLD",
+   "name": "SHANTI GOLD INTERNATION L",
+   "last": 256.34,
+   "volume": 2489253.0,
+   "turnover_cr": 63.5,
+   "instrument_token": 194048513
+  },
+  {
+   "symbol": "NSE:SHILPAMED",
+   "name": "SHILPA MEDICARE LTD",
+   "last": 964.15,
+   "volume": 652726.0,
+   "turnover_cr": 62.9,
+   "instrument_token": 4544513
+  },
+  {
+   "symbol": "NSE:CUB",
+   "name": "CITY UNION BANK LTD",
+   "last": 236.01,
+   "volume": 2621193.0,
+   "turnover_cr": 62.86,
+   "instrument_token": 1459457
+  },
+  {
+   "symbol": "NSE:BLUESTARCO",
+   "name": "BLUE STAR LIMITED",
+   "last": 1484.0,
+   "volume": 419549.0,
+   "turnover_cr": 62.57,
+   "instrument_token": 2127617
+  },
+  {
+   "symbol": "NSE:AZAD",
+   "name": "AZAD ENGINEERING LIMITED",
+   "last": 2777.3,
+   "volume": 224210.0,
+   "turnover_cr": 62.49,
+   "instrument_token": 5351681
+  },
+  {
+   "symbol": "NSE:TATACHEM",
+   "name": "TATA CHEMICALS LTD",
+   "last": 625.1,
+   "volume": 991042.0,
+   "turnover_cr": 62.23,
+   "instrument_token": 871681
+  },
+  {
+   "symbol": "NSE:OIL",
+   "name": "OIL INDIA LTD",
+   "last": 488.3,
+   "volume": 1259478.0,
+   "turnover_cr": 61.62,
+   "instrument_token": 4464129
+  },
+  {
+   "symbol": "NSE:GODREJPROP",
+   "name": "GODREJ PROPERTIES LTD",
+   "last": 1982.0,
+   "volume": 307319.0,
+   "turnover_cr": 61.3,
+   "instrument_token": 4576001
+  },
+  {
+   "symbol": "NSE:CARERATING",
+   "name": "CARE RATINGS LIMITED",
+   "last": 1738.2,
+   "volume": 354155.0,
+   "turnover_cr": 61.14,
+   "instrument_token": 7452929
+  },
+  {
+   "symbol": "NSE:VIKRAMSOLR",
+   "name": "VIKRAM SOLAR LIMITED",
+   "last": 168.45,
+   "volume": 3550735.0,
+   "turnover_cr": 60.89,
+   "instrument_token": 194419969
+  },
+  {
+   "symbol": "NSE:EBGNG",
+   "name": "GNG ELECTRONICS LIMITED",
+   "last": 601.25,
+   "volume": 1005022.0,
+   "turnover_cr": 60.81,
+   "instrument_token": 194012673
+  },
+  {
+   "symbol": "NSE:PATANJALI",
+   "name": "PATANJALI FOODS LIMITED",
+   "last": 342.5,
+   "volume": 1749871.0,
+   "turnover_cr": 60.04,
+   "instrument_token": 4359425
+  },
+  {
+   "symbol": "NSE:JMFINANCIL",
+   "name": "JM FINANCIAL LIMITED",
+   "last": 132.06,
+   "volume": 4507470.0,
+   "turnover_cr": 59.82,
+   "instrument_token": 3491073
+  },
+  {
+   "symbol": "NSE:ALEMBICLTD",
+   "name": "ALEMBIC LIMITED",
+   "last": 111.41,
+   "volume": 5309246.0,
+   "turnover_cr": 59.76,
+   "instrument_token": 20225
+  },
+  {
+   "symbol": "NSE:SBC",
+   "name": "SBC EXPORTS LIMITED",
+   "last": 45.76,
+   "volume": 13241116.0,
+   "turnover_cr": 59.72,
+   "instrument_token": 1738753
+  },
+  {
+   "symbol": "NSE:INDUSTOWER",
+   "name": "INDUS TOWERS LIMITED",
+   "last": 376.8,
+   "volume": 1578193.0,
+   "turnover_cr": 59.51,
+   "instrument_token": 7458561
+  },
+  {
+   "symbol": "NSE:PFOCUS",
+   "name": "PRIME FOCUS LIMITED",
+   "last": 307.0,
+   "volume": 1960283.0,
+   "turnover_cr": 58.89,
+   "instrument_token": 3454977
+  },
+  {
+   "symbol": "NSE:IOC",
+   "name": "INDIAN OIL CORP LTD",
+   "last": 137.6,
+   "volume": 4277697.0,
+   "turnover_cr": 58.75,
+   "instrument_token": 415745
+  },
+  {
+   "symbol": "NSE:PARADEEP",
+   "name": "PARADEEP PHOSPHATES LTD",
+   "last": 157.0,
+   "volume": 3778120.0,
+   "turnover_cr": 58.74,
+   "instrument_token": 2493697
+  },
+  {
+   "symbol": "NSE:ZYDUSLIFE",
+   "name": "ZYDUS LIFESCIENCES LTD",
+   "last": 1120.0,
+   "volume": 516768.0,
+   "turnover_cr": 58.42,
+   "instrument_token": 2029825
+  },
+  {
+   "symbol": "NSE:BPCL",
+   "name": "BHARAT PETROLEUM CORP  LT",
+   "last": 315.7,
+   "volume": 1834819.0,
+   "turnover_cr": 58.38,
+   "instrument_token": 134657
+  },
+  {
+   "symbol": "NSE:KSHINTL",
+   "name": "KSH INTERNATIONAL LIMITED",
+   "last": 1087.8,
+   "volume": 542413.0,
+   "turnover_cr": 58.19,
+   "instrument_token": 194670849
+  },
+  {
+   "symbol": "NSE:CAPLIPOINT",
+   "name": "CAPLIN POINT LAB LTD.",
+   "last": 2810.8,
+   "volume": 208526.0,
+   "turnover_cr": 58.15,
+   "instrument_token": 999937
+  },
+  {
+   "symbol": "NSE:SETFGOLD",
+   "name": "SBI-ETF GOLD",
+   "last": 131.22,
+   "volume": 4422415.0,
+   "turnover_cr": 58.02,
+   "instrument_token": 4421633
+  },
+  {
+   "symbol": "NSE:SETL",
+   "name": "STANDARD ENGNG TCNLGY LTD",
+   "last": 408.95,
+   "volume": 1430578.0,
+   "turnover_cr": 58.01,
+   "instrument_token": 7443201
+  },
+  {
+   "symbol": "NSE:SILVERIETF",
+   "name": "ICICIPRAMC - ICICISILVE",
+   "last": 232.48,
+   "volume": 2490162.0,
+   "turnover_cr": 57.87,
+   "instrument_token": 2033153
+  },
+  {
+   "symbol": "NSE:WHEELS",
+   "name": "WHEELS INDIA LTD",
+   "last": 1724.9,
+   "volume": 336451.0,
+   "turnover_cr": 57.74,
+   "instrument_token": 964097
+  },
+  {
+   "symbol": "NSE:JSL",
+   "name": "JINDAL STAINLESS LIMITED",
+   "last": 737.85,
+   "volume": 780597.0,
+   "turnover_cr": 57.59,
+   "instrument_token": 2876417
+  },
+  {
+   "symbol": "NSE:FORTIS",
+   "name": "FORTIS HEALTHCARE LTD",
+   "last": 905.0,
+   "volume": 627470.0,
+   "turnover_cr": 57.05,
+   "instrument_token": 3735553
+  },
+  {
+   "symbol": "NSE:MANALIPETC",
+   "name": "MANALI PETROCHEMICALS LT",
+   "last": 86.76,
+   "volume": 6435710.0,
+   "turnover_cr": 56.88,
+   "instrument_token": 3531777
+  },
+  {
+   "symbol": "NSE:CCAVENUE",
+   "name": "AVENUESAI LIMITED",
+   "last": 15.7,
+   "volume": 35876401.0,
+   "turnover_cr": 56.65,
+   "instrument_token": 4159745
+  },
+  {
+   "symbol": "NSE:IXIGO",
+   "name": "LE TRAVENUES TECHNOLOGY L",
+   "last": 166.75,
+   "volume": 3400102.0,
+   "turnover_cr": 56.57,
+   "instrument_token": 6161153
+  },
+  {
+   "symbol": "NSE:AWL",
+   "name": "AWL AGRI BUSINESS LIMITED",
+   "last": 187.29,
+   "volume": 2987354.0,
+   "turnover_cr": 56.2,
+   "instrument_token": 2076161
+  },
+  {
+   "symbol": "NSE:CONCOR",
+   "name": "CONTAINER CORP OF IND LTD",
+   "last": 508.0,
+   "volume": 1107962.0,
+   "turnover_cr": 55.97,
+   "instrument_token": 1215745
+  },
+  {
+   "symbol": "NSE:PPLPHARMA",
+   "name": "PIRAMAL PHARMA LIMITED",
+   "last": 214.22,
+   "volume": 2618467.0,
+   "turnover_cr": 55.83,
+   "instrument_token": 2962177
+  },
+  {
+   "symbol": "NSE:AEROFLEX",
+   "name": "AEROFLEX INDUSTRIES LTD",
+   "last": 537.45,
+   "volume": 1026759.0,
+   "turnover_cr": 55.44,
+   "instrument_token": 4676609
+  },
+  {
+   "symbol": "NSE:PGEL",
+   "name": "PG ELECTROPLAST LTD",
+   "last": 562.3,
+   "volume": 990864.0,
+   "turnover_cr": 55.43,
+   "instrument_token": 6491649
+  },
+  {
+   "symbol": "NSE:MMTC",
+   "name": "MMTC LIMITED",
+   "last": 64.18,
+   "volume": 8443462.0,
+   "turnover_cr": 54.89,
+   "instrument_token": 4596993
+  },
+  {
+   "symbol": "NSE:GOLDIETF",
+   "name": "ICICI PRUDENTIAL GOLD ETF",
+   "last": 131.8,
+   "volume": 4150183.0,
+   "turnover_cr": 54.73,
+   "instrument_token": 5037825
+  },
+  {
+   "symbol": "NSE:VOLTAS",
+   "name": "VOLTAS LTD",
+   "last": 1170.0,
+   "volume": 460619.0,
+   "turnover_cr": 54.32,
+   "instrument_token": 951809
+  },
+  {
+   "symbol": "NSE:MARKSANS",
+   "name": "MARKSANS PHARMA LIMITED",
+   "last": 326.75,
+   "volume": 1654370.0,
+   "turnover_cr": 54.28,
+   "instrument_token": 2708225
+  },
+  {
+   "symbol": "NSE:LIQUIDIETF",
+   "name": "ICICIPRAMC - ICICILIQ",
+   "last": 999.99,
+   "volume": 540668.0,
+   "turnover_cr": 54.07,
+   "instrument_token": 1238529
+  },
+  {
+   "symbol": "NSE:LALPATHLAB",
+   "name": "DR. LAL PATH LABS LTD.",
+   "last": 1877.5,
+   "volume": 288144.0,
+   "turnover_cr": 54.02,
+   "instrument_token": 2983425
+  },
+  {
+   "symbol": "NSE:SJS",
+   "name": "SJS ENTERPRISES LIMITED",
+   "last": 2306.1,
+   "volume": 229418.0,
+   "turnover_cr": 53.62,
+   "instrument_token": 1700609
+  },
+  {
+   "symbol": "NSE:MRPL",
+   "name": "MRPL",
+   "last": 174.83,
+   "volume": 3031271.0,
+   "turnover_cr": 53.37,
+   "instrument_token": 584449
+  },
+  {
+   "symbol": "NSE:SCI",
+   "name": "SHIPPING CORP OF INDIA LT",
+   "last": 295.35,
+   "volume": 1792086.0,
+   "turnover_cr": 53.16,
+   "instrument_token": 780289
+  },
+  {
+   "symbol": "NSE:EMCURE",
+   "name": "EMCURE PHARMACEUTICALS L",
+   "last": 1927.6,
+   "volume": 276608.0,
+   "turnover_cr": 52.97,
+   "instrument_token": 6245889
+  },
+  {
+   "symbol": "NSE:UNITDSPR",
+   "name": "UNITED SPIRITS LIMITED",
+   "last": 1471.7,
+   "volume": 357038.0,
+   "turnover_cr": 52.55,
+   "instrument_token": 2674433
+  },
+  {
+   "symbol": "NSE:ALOKINDS",
+   "name": "ALOK INDUSTRIES LIMITED",
+   "last": 7.83,
+   "volume": 65791332.0,
+   "turnover_cr": 52.44,
+   "instrument_token": 4524801
+  },
+  {
+   "symbol": "NSE:SAGILITY",
+   "name": "SAGILITY LIMITED",
+   "last": 46.82,
+   "volume": 11136928.0,
+   "turnover_cr": 52.18,
+   "instrument_token": 6925313
+  },
+  {
+   "symbol": "NSE:IONEXCHANG",
+   "name": "ION EXCHANGE (INDIA) LTD",
+   "last": 409.2,
+   "volume": 1293430.0,
+   "turnover_cr": 52.18,
+   "instrument_token": 417281
+  },
+  {
+   "symbol": "NSE:FMGOETZE",
+   "name": "FEDERAL-MOGUL GOETZE (IND",
+   "last": 501.45,
+   "volume": 1030188.0,
+   "turnover_cr": 52.0,
+   "instrument_token": 304641
+  },
+  {
+   "symbol": "NSE:NUVOCO",
+   "name": "NUVOCO VISTAS CORP LTD",
+   "last": 352.15,
+   "volume": 1482368.0,
+   "turnover_cr": 51.89,
+   "instrument_token": 1389057
+  },
+  {
+   "symbol": "NSE:PHOENIXLTD",
+   "name": "THE PHOENIX MILLS LTD",
+   "last": 1942.0,
+   "volume": 263929.0,
+   "turnover_cr": 51.44,
+   "instrument_token": 3725313
+  },
+  {
+   "symbol": "NSE:TORNTPOWER",
+   "name": "TORRENT POWER LTD",
+   "last": 1299.1,
+   "volume": 398524.0,
+   "turnover_cr": 51.37,
+   "instrument_token": 3529217
+  },
+  {
+   "symbol": "NSE:HDFCSILVER",
+   "name": "HDFCAMC - HDFCSILVER",
+   "last": 222.7,
+   "volume": 2287210.0,
+   "turnover_cr": 50.94,
+   "instrument_token": 2784257
+  },
+  {
+   "symbol": "NSE:RAYMONDREL",
+   "name": "RAYMOND REALTY LIMITED",
+   "last": 529.15,
+   "volume": 936640.0,
+   "turnover_cr": 50.81,
+   "instrument_token": 194189057
+  },
+  {
+   "symbol": "NSE:AIAENG",
+   "name": "AIA ENGINEERING LIMITED",
+   "last": 4231.2,
+   "volume": 117943.0,
+   "turnover_cr": 50.13,
+   "instrument_token": 3350017
+  },
+  {
+   "symbol": "NSE:RAMBHAJO",
+   "name": "ADVIT JEWELS LIMITED",
+   "last": 268.68,
+   "volume": 1915247.0,
+   "turnover_cr": 50.08,
+   "instrument_token": 195130113
+  },
+  {
+   "symbol": "NSE:TATACAP",
+   "name": "TATA CAPITAL LIMITED",
+   "last": 375.05,
+   "volume": 1331842.0,
+   "turnover_cr": 49.89,
+   "instrument_token": 194371841
+  },
+  {
+   "symbol": "NSE:JPPOWER",
+   "name": "JAIPRAKASH POWER VEN. LTD",
+   "last": 16.29,
+   "volume": 30695821.0,
+   "turnover_cr": 49.76,
+   "instrument_token": 3011329
+  },
+  {
+   "symbol": "NSE:SUPREMEIND",
+   "name": "SUPREME INDUSTRIES LTD",
+   "last": 3475.0,
+   "volume": 139232.0,
+   "turnover_cr": 48.73,
+   "instrument_token": 860929
+  },
+  {
+   "symbol": "NSE:INDGN",
+   "name": "INDEGENE LIMITED",
+   "last": 601.5,
+   "volume": 804735.0,
+   "turnover_cr": 48.63,
+   "instrument_token": 6065409
+  },
+  {
+   "symbol": "NSE:BANDHANBNK",
+   "name": "BANDHAN BANK LIMITED",
+   "last": 164.95,
+   "volume": 2928918.0,
+   "turnover_cr": 48.44,
+   "instrument_token": 579329
+  },
+  {
+   "symbol": "NSE:TATACOMM",
+   "name": "TATA COMMUNICATIONS LTD",
+   "last": 1756.1,
+   "volume": 276930.0,
+   "turnover_cr": 48.35,
+   "instrument_token": 952577
+  },
+  {
+   "symbol": "NSE:NUVAMA",
+   "name": "NUVAMA WEALTH MANAGE LTD",
+   "last": 1815.6,
+   "volume": 263032.0,
+   "turnover_cr": 48.18,
+   "instrument_token": 4792577
+  },
+  {
+   "symbol": "NSE:ICICIPRULI",
+   "name": "ICICI PRU LIFE INS CO LTD",
+   "last": 494.55,
+   "volume": 962782.0,
+   "turnover_cr": 47.94,
+   "instrument_token": 4774913
+  },
+  {
+   "symbol": "NSE:HONASA",
+   "name": "HONASA CONSUMER LIMITED",
+   "last": 471.05,
+   "volume": 996548.0,
+   "turnover_cr": 47.75,
+   "instrument_token": 5072129
+  },
+  {
+   "symbol": "NSE:KANSAINER",
+   "name": "KANSAI NEROLAC PAINTS LTD",
+   "last": 194.2,
+   "volume": 2465067.0,
+   "turnover_cr": 47.71,
+   "instrument_token": 306177
+  },
+  {
+   "symbol": "NSE:JSLL",
+   "name": "JEENA SIKHO LIFECARE LTD",
+   "last": 516.3,
+   "volume": 921231.0,
+   "turnover_cr": 47.71,
+   "instrument_token": 194077441
+  },
+  {
+   "symbol": "NSE:ACUTAAS",
+   "name": "ACUTAAS CHEMICALS LIMITED",
+   "last": 3168.5,
+   "volume": 149850.0,
+   "turnover_cr": 47.68,
+   "instrument_token": 1427969
+  },
+  {
+   "symbol": "NSE:FIVESTAR",
+   "name": "FIVE-STAR BUS FIN LTD",
+   "last": 523.05,
+   "volume": 915369.0,
+   "turnover_cr": 47.57,
+   "instrument_token": 3080193
+  },
+  {
+   "symbol": "NSE:RATEGAIN",
+   "name": "RATEGAIN TRAVEL TECHN LTD",
+   "last": 851.15,
+   "volume": 551109.0,
+   "turnover_cr": 47.31,
+   "instrument_token": 1837313
+  },
+  {
+   "symbol": "NSE:EMAMILTD",
+   "name": "EMAMI LIMITED",
+   "last": 366.05,
+   "volume": 1293997.0,
+   "turnover_cr": 47.19,
+   "instrument_token": 3460353
+  },
+  {
+   "symbol": "NSE:GNFC",
+   "name": "GUJ NAR VAL FER & CHEM L",
+   "last": 596.7,
+   "volume": 791924.0,
+   "turnover_cr": 46.98,
+   "instrument_token": 300545
+  },
+  {
+   "symbol": "NSE:JINDRILL",
+   "name": "JINDAL DRILLING IND. LTD",
+   "last": 663.05,
+   "volume": 708720.0,
+   "turnover_cr": 46.98,
+   "instrument_token": 3552001
+  },
+  {
+   "symbol": "NSE:HCC",
+   "name": "HINDUSTAN CONSTRUCTION CO",
+   "last": 22.98,
+   "volume": 20266993.0,
+   "turnover_cr": 46.84,
+   "instrument_token": 352001
+  },
+  {
+   "symbol": "NSE:TIINDIA",
+   "name": "TUBE INVEST OF INDIA LTD",
+   "last": 2698.0,
+   "volume": 173117.0,
+   "turnover_cr": 46.71,
+   "instrument_token": 79873
+  },
+  {
+   "symbol": "NSE:KWIL",
+   "name": "KWALITY WALL'S (INDIA) L",
+   "last": 42.12,
+   "volume": 11043010.0,
+   "turnover_cr": 46.6,
+   "instrument_token": 194802177
+  },
+  {
+   "symbol": "NSE:CEMPRO",
+   "name": "CEMINDIA PROJECTS LIMITED",
+   "last": 1297.4,
+   "volume": 359470.0,
+   "turnover_cr": 46.47,
+   "instrument_token": 1439233
+  },
+  {
+   "symbol": "NSE:BAJAJHIND",
+   "name": "BAJAJ HINDUSTHAN SUGAR LT",
+   "last": 21.86,
+   "volume": 21280859.0,
+   "turnover_cr": 46.29,
+   "instrument_token": 78849
+  },
+  {
+   "symbol": "NSE:IDBI",
+   "name": "IDBI BANK LIMITED",
+   "last": 90.63,
+   "volume": 5012839.0,
+   "turnover_cr": 45.68,
+   "instrument_token": 377857
+  },
+  {
+   "symbol": "NSE:MANYAVAR",
+   "name": "VEDANT FASHIONS LIMITED",
+   "last": 594.2,
+   "volume": 775723.0,
+   "turnover_cr": 45.68,
+   "instrument_token": 2090753
+  },
+  {
+   "symbol": "NSE:UBL",
+   "name": "UNITED BREWERIES LTD",
+   "last": 1279.4,
+   "volume": 352868.0,
+   "turnover_cr": 45.6,
+   "instrument_token": 4278529
+  },
+  {
+   "symbol": "NSE:BUILDPRO",
+   "name": "SHANKARA BUILDPRO LIMITED",
+   "last": 1298.2,
+   "volume": 351369.0,
+   "turnover_cr": 45.58,
+   "instrument_token": 194712065
+  },
+  {
+   "symbol": "NSE:JUBLPHARMA",
+   "name": "JUBILANT PHARMOVA LTD",
+   "last": 924.5,
+   "volume": 498346.0,
+   "turnover_cr": 45.56,
+   "instrument_token": 931073
+  },
+  {
+   "symbol": "NSE:RELIGARE",
+   "name": "RELIGARE ENTER. LTD.",
+   "last": 257.08,
+   "volume": 1795582.0,
+   "turnover_cr": 45.35,
+   "instrument_token": 3857409
+  },
+  {
+   "symbol": "NSE:RGL",
+   "name": "RENAISSANCE GLOBAL LTD",
+   "last": 149.26,
+   "volume": 3035236.0,
+   "turnover_cr": 44.74,
+   "instrument_token": 3873025
+  },
+  {
+   "symbol": "NSE:BELRISE",
+   "name": "BELRISE INDUSTRIES LTD",
+   "last": 236.86,
+   "volume": 1873911.0,
+   "turnover_cr": 44.32,
+   "instrument_token": 193818113
+  },
+  {
+   "symbol": "NSE:ELGIEQUIP",
+   "name": "ELGI EQUIPMENTS LTD",
+   "last": 642.1,
+   "volume": 691967.0,
+   "turnover_cr": 44.16,
+   "instrument_token": 239873
+  },
+  {
+   "symbol": "NSE:VISHNU",
+   "name": "VISHNU CHEMICALS LIMITED",
+   "last": 702.0,
+   "volume": 623372.0,
+   "turnover_cr": 44.12,
+   "instrument_token": 1768449
+  },
+  {
+   "symbol": "NSE:HDFCGOLD",
+   "name": "HDFC GOLD ETF",
+   "last": 131.45,
+   "volume": 3350795.0,
+   "turnover_cr": 44.06,
+   "instrument_token": 5003009
+  },
+  {
+   "symbol": "NSE:MSUMI",
+   "name": "MOTHERSON SUMI WRNG IND L",
+   "last": 36.52,
+   "volume": 12064648.0,
+   "turnover_cr": 44.0,
+   "instrument_token": 2200577
+  },
+  {
+   "symbol": "NSE:UNIVCABLES",
+   "name": "UNIVERSAL CABLES LTD",
+   "last": 1576.3,
+   "volume": 278353.0,
+   "turnover_cr": 43.96,
+   "instrument_token": 923393
+  },
+  {
+   "symbol": "NSE:AEQUS",
+   "name": "AEQUS LIMITED",
+   "last": 242.18,
+   "volume": 1802739.0,
+   "turnover_cr": 43.9,
+   "instrument_token": 194619905
+  },
+  {
+   "symbol": "NSE:CHOICEIN",
+   "name": "CHOICE INTERNATIONAL LTD",
+   "last": 760.95,
+   "volume": 567061.0,
+   "turnover_cr": 43.61,
+   "instrument_token": 2269697
+  },
+  {
+   "symbol": "NSE:TEXRAIL",
+   "name": "TEXMACO RAIL & ENG. LTD.",
+   "last": 115.99,
+   "volume": 3746637.0,
+   "turnover_cr": 43.5,
+   "instrument_token": 5587969
+  },
+  {
+   "symbol": "NSE:MAITHANALL",
+   "name": "MAITHAN ALLOYS LTD",
+   "last": 1090.55,
+   "volume": 400161.0,
+   "turnover_cr": 43.25,
+   "instrument_token": 6281729
+  },
+  {
+   "symbol": "NSE:TEMBO",
+   "name": "TEMBO GLOBAL IND LTD",
+   "last": 58.47,
+   "volume": 7416209.0,
+   "turnover_cr": 43.21,
+   "instrument_token": 838401
+  },
+  {
+   "symbol": "NSE:SHADOWFAX",
+   "name": "SHADOWFAX TECHNOLOGIES L",
+   "last": 259.55,
+   "volume": 1649661.0,
+   "turnover_cr": 42.81,
+   "instrument_token": 194936065
+  },
+  {
+   "symbol": "NSE:GCSL",
+   "name": "GRETEX CORPORATE SERVICES",
+   "last": 595.15,
+   "volume": 726731.0,
+   "turnover_cr": 42.74,
+   "instrument_token": 194300417
+  },
+  {
+   "symbol": "NSE:ABFRL",
+   "name": "ADITYA BIRLA FASHION & RT",
+   "last": 52.97,
+   "volume": 8157673.0,
+   "turnover_cr": 42.69,
+   "instrument_token": 7707649
+  },
+  {
+   "symbol": "NSE:BANKINDIA",
+   "name": "BANK OF INDIA",
+   "last": 145.0,
+   "volume": 2902558.0,
+   "turnover_cr": 42.1,
+   "instrument_token": 1214721
+  },
+  {
+   "symbol": "NSE:SOUTHBANK",
+   "name": "THE SOUTH INDIAN BANK LTD",
+   "last": 47.29,
+   "volume": 8819050.0,
+   "turnover_cr": 42.04,
+   "instrument_token": 1522689
+  },
+  {
+   "symbol": "NSE:VEDPOWER",
+   "name": "VEDANTA POWER LIMITED",
+   "last": 34.2,
+   "volume": 12242508.0,
+   "turnover_cr": 41.98,
+   "instrument_token": 192132609
+  },
+  {
+   "symbol": "NSE:PETRONET",
+   "name": "PETRONET LNG LIMITED",
+   "last": 288.1,
+   "volume": 1412952.0,
+   "turnover_cr": 41.0,
+   "instrument_token": 2905857
+  },
+  {
+   "symbol": "NSE:LLOYDSENGG",
+   "name": "LLOYDS ENGG WORK LIMITED",
+   "last": 84.21,
+   "volume": 4801657.0,
+   "turnover_cr": 40.87,
+   "instrument_token": 4557057
+  },
+  {
+   "symbol": "NSE:SENCO",
+   "name": "SENCO GOLD LIMITED",
+   "last": 358.65,
+   "volume": 1141834.0,
+   "turnover_cr": 40.81,
+   "instrument_token": 4421377
+  },
+  {
+   "symbol": "NSE:SUNTV",
+   "name": "SUN TV NETWORK LIMITED",
+   "last": 470.9,
+   "volume": 846938.0,
+   "turnover_cr": 40.3,
+   "instrument_token": 3431425
+  },
+  {
+   "symbol": "NSE:PRECWIRE",
+   "name": "PRECISION WIRES INDIA LTD",
+   "last": 472.8,
+   "volume": 830119.0,
+   "turnover_cr": 40.21,
+   "instrument_token": 695553
+  },
+  {
+   "symbol": "NSE:MANINDS",
+   "name": "MAN INDUSTRIES (I) LTD.",
+   "last": 788.55,
+   "volume": 505736.0,
+   "turnover_cr": 40.19,
+   "instrument_token": 3042305
+  },
+  {
+   "symbol": "NSE:NAZARA",
+   "name": "NAZARA TECHNOLOGIES LTD",
+   "last": 368.65,
+   "volume": 1088812.0,
+   "turnover_cr": 40.0,
+   "instrument_token": 764673
+  },
+  {
+   "symbol": "NSE:AARTIPHARM",
+   "name": "AARTI PHARMALABS LIMITED",
+   "last": 858.8,
+   "volume": 463265.0,
+   "turnover_cr": 39.94,
+   "instrument_token": 3550209
+  },
+  {
+   "symbol": "NSE:HAPPSTMNDS",
+   "name": "HAPPIEST MINDS TECHNO LTD",
+   "last": 354.0,
+   "volume": 1122676.0,
+   "turnover_cr": 39.8,
+   "instrument_token": 12289
+  },
+  {
+   "symbol": "NSE:VINCOFE",
+   "name": "VINTAGE COFFEE N BVRGS L",
+   "last": 170.65,
+   "volume": 2286890.0,
+   "turnover_cr": 39.78,
+   "instrument_token": 6613761
+  },
+  {
+   "symbol": "NSE:KAJARIACER",
+   "name": "KAJARIA CERAMICS LTD",
+   "last": 1239.6,
+   "volume": 319639.0,
+   "turnover_cr": 39.71,
+   "instrument_token": 462849
+  },
+  {
+   "symbol": "NSE:MPHASIS",
+   "name": "MPHASIS LIMITED",
+   "last": 2422.0,
+   "volume": 160732.0,
+   "turnover_cr": 39.36,
+   "instrument_token": 1152769
+  },
+  {
+   "symbol": "NSE:NH",
+   "name": "NARAYANA HRUDAYALAYA LTD.",
+   "last": 1858.5,
+   "volume": 210266.0,
+   "turnover_cr": 39.32,
+   "instrument_token": 3031041
+  },
+  {
+   "symbol": "NSE:HERITGFOOD",
+   "name": "HERITAGE FOODS LTD",
+   "last": 382.35,
+   "volume": 1034903.0,
+   "turnover_cr": 39.25,
+   "instrument_token": 1177089
+  },
+  {
+   "symbol": "NSE:RPEL",
+   "name": "RAGHAV PRODUCTIVITY ENH L",
+   "last": 1807.2,
+   "volume": 209791.0,
+   "turnover_cr": 38.92,
+   "instrument_token": 6332161
+  },
+  {
+   "symbol": "NSE:WABAG",
+   "name": "VA TECH WABAG LTD",
+   "last": 2005.3,
+   "volume": 193647.0,
+   "turnover_cr": 38.91,
+   "instrument_token": 5168129
+  },
+  {
+   "symbol": "NSE:IKS",
+   "name": "INVENTURUS KNOWLEDGE SO L",
+   "last": 1759.9,
+   "volume": 220451.0,
+   "turnover_cr": 38.84,
+   "instrument_token": 7200001
+  },
+  {
+   "symbol": "NSE:SANSERA",
+   "name": "SANSERA ENGINEERING LTD",
+   "last": 3782.6,
+   "volume": 101677.0,
+   "turnover_cr": 38.44,
+   "instrument_token": 1472257
+  },
+  {
+   "symbol": "NSE:AARTIIND",
+   "name": "AARTI INDUSTRIES LTD",
+   "last": 492.05,
+   "volume": 767774.0,
+   "turnover_cr": 38.11,
+   "instrument_token": 1793
+  },
+  {
+   "symbol": "NSE:CARBORUNIV",
+   "name": "CARBORUNDUM UNIVERSAL LTD",
+   "last": 1130.6,
+   "volume": 338864.0,
+   "turnover_cr": 38.06,
+   "instrument_token": 152321
+  },
+  {
+   "symbol": "NSE:LIQUIDADD",
+   "name": "DSPAMC - LIQUIDADD",
+   "last": 1143.51,
+   "volume": 332115.0,
+   "turnover_cr": 37.98,
+   "instrument_token": 5992193
+  },
+  {
+   "symbol": "NSE:INNOVACAP",
+   "name": "INNOVA CAPTAB LIMITED",
+   "last": 1175.4,
+   "volume": 321751.0,
+   "turnover_cr": 37.7,
+   "instrument_token": 5391873
+  },
+  {
+   "symbol": "NSE:GOKEX",
+   "name": "GOKALDAS EXPORTS LTD.",
+   "last": 789.2,
+   "volume": 472178.0,
+   "turnover_cr": 37.28,
+   "instrument_token": 3015169
+  },
+  {
+   "symbol": "NSE:BLEL",
+   "name": "BEHARI LAL ENGINEERING L",
+   "last": 453.15,
+   "volume": 823610.0,
+   "turnover_cr": 37.2,
+   "instrument_token": 195914497
+  },
+  {
+   "symbol": "NSE:MODEFENCE",
+   "name": "MOTILALAMC - MODEFENCE",
+   "last": 107.14,
+   "volume": 3442112.0,
+   "turnover_cr": 37.05,
+   "instrument_token": 6385665
+  },
+  {
+   "symbol": "NSE:NATCOPHARM",
+   "name": "NATCO PHARMA LTD.",
+   "last": 828.65,
+   "volume": 445370.0,
+   "turnover_cr": 37.04,
+   "instrument_token": 1003009
+  },
+  {
+   "symbol": "NSE:LEMONTREE",
+   "name": "LEMON TREE HOTELS LTD",
+   "last": 104.95,
+   "volume": 3464757.0,
+   "turnover_cr": 36.53,
+   "instrument_token": 667137
+  },
+  {
+   "symbol": "NSE:CYIENT",
+   "name": "CYIENT LIMITED",
+   "last": 1101.8,
+   "volume": 327209.0,
+   "turnover_cr": 36.45,
+   "instrument_token": 1471489
+  },
+  {
+   "symbol": "NSE:ATALREAL",
+   "name": "ATAL REALTECH LIMITED",
+   "last": 26.22,
+   "volume": 13883610.0,
+   "turnover_cr": 36.25,
+   "instrument_token": 4006145
+  },
+  {
+   "symbol": "NSE:MARINE",
+   "name": "MARINE ELECTRICAL (I) LTD",
+   "last": 432.15,
+   "volume": 826123.0,
+   "turnover_cr": 35.92,
+   "instrument_token": 339969
+  },
+  {
+   "symbol": "NSE:SSWL",
+   "name": "STEEL STRIPS WHEELS LTD.",
+   "last": 361.85,
+   "volume": 1006017.0,
+   "turnover_cr": 35.84,
+   "instrument_token": 3028225
+  },
+  {
+   "symbol": "NSE:HINDOILEXP",
+   "name": "HINDUSTAN OIL EXPLORATION",
+   "last": 185.0,
+   "volume": 1959249.0,
+   "turnover_cr": 35.81,
+   "instrument_token": 359169
+  },
+  {
+   "symbol": "NSE:CAMS",
+   "name": "COMPUTER AGE MNGT SER LTD",
+   "last": 748.8,
+   "volume": 469646.0,
+   "turnover_cr": 35.29,
+   "instrument_token": 87553
+  },
+  {
+   "symbol": "NSE:HORIZONIND",
+   "name": "HORIZON INDUSTRIAL PRKS L",
+   "last": 55.13,
+   "volume": 6411837.0,
+   "turnover_cr": 35.18,
+   "instrument_token": 195931137
+  },
+  {
+   "symbol": "NSE:V2RETAIL",
+   "name": "V2 RETAIL LIMITED",
+   "last": 216.5,
+   "volume": 1628077.0,
+   "turnover_cr": 35.02,
+   "instrument_token": 3780097
+  },
+  {
+   "symbol": "NSE:NIFTYBETF",
+   "name": "BFAM - NIFTYBETF",
+   "last": 246.65,
+   "volume": 1413872.0,
+   "turnover_cr": 34.86,
+   "instrument_token": 5621505
+  },
+  {
+   "symbol": "NSE:SYNCOMF",
+   "name": "SYNCOM FORMU (I) LTD",
+   "last": 20.58,
+   "volume": 16788160.0,
+   "turnover_cr": 34.63,
+   "instrument_token": 3069953
+  },
+  {
+   "symbol": "NSE:CLEANMAX",
+   "name": "CLEAN MAX ENVIRO EN SOL L",
+   "last": 1347.9,
+   "volume": 256257.0,
+   "turnover_cr": 34.31,
+   "instrument_token": 194606849
+  },
+  {
+   "symbol": "NSE:DEVYANI",
+   "name": "DEVYANI INTERNATIONAL LTD",
+   "last": 139.28,
+   "volume": 2432975.0,
+   "turnover_cr": 34.2,
+   "instrument_token": 1375489
+  },
+  {
+   "symbol": "NSE:QUESS",
+   "name": "QUESS CORP LIMITED",
+   "last": 354.75,
+   "volume": 974018.0,
+   "turnover_cr": 34.2,
+   "instrument_token": 4532225
+  },
+  {
+   "symbol": "NSE:INTELLECT",
+   "name": "INTELLECT DESIGN ARENA",
+   "last": 686.65,
+   "volume": 491572.0,
+   "turnover_cr": 34.07,
+   "instrument_token": 1517057
+  },
+  {
+   "symbol": "NSE:PVP",
+   "name": "PVP VENTURES LIMITED",
+   "last": 67.94,
+   "volume": 5145513.0,
+   "turnover_cr": 33.98,
+   "instrument_token": 1026561
+  },
+  {
+   "symbol": "NSE:QPOWER",
+   "name": "QUALITY POWER ELEC EQUP L",
+   "last": 1495.3,
+   "volume": 228191.0,
+   "turnover_cr": 33.83,
+   "instrument_token": 7606017
+  },
+  {
+   "symbol": "NSE:DEEPAKNTR",
+   "name": "DEEPAK NITRITE LTD",
+   "last": 1712.4,
+   "volume": 196070.0,
+   "turnover_cr": 33.72,
+   "instrument_token": 5105409
+  },
+  {
+   "symbol": "NSE:CEIGALL",
+   "name": "CEIGALL INDIA LIMITED",
+   "last": 355.8,
+   "volume": 949597.0,
+   "turnover_cr": 33.68,
+   "instrument_token": 6333953
+  },
+  {
+   "symbol": "NSE:AETHER",
+   "name": "AETHER INDUSTRIES LIMITED",
+   "last": 1625.6,
+   "volume": 205632.0,
+   "turnover_cr": 33.61,
+   "instrument_token": 2511361
+  },
+  {
+   "symbol": "NSE:POONAWALLA",
+   "name": "POONAWALLA FINCORP LTD",
+   "last": 468.45,
+   "volume": 713159.0,
+   "turnover_cr": 33.54,
+   "instrument_token": 2919169
+  },
+  {
+   "symbol": "NSE:KARURVYSYA",
+   "name": "KARUR VYSYA BANK LTD",
+   "last": 348.85,
+   "volume": 955056.0,
+   "turnover_cr": 33.48,
+   "instrument_token": 470529
+  },
+  {
+   "symbol": "NSE:ITCHOTELS",
+   "name": "ITC HOTELS LIMITED",
+   "last": 161.23,
+   "volume": 2050484.0,
+   "turnover_cr": 33.17,
+   "instrument_token": 7488257
+  },
+  {
+   "symbol": "NSE:NORTHARC",
+   "name": "NORTHERN ARC CAPITAL LTD",
+   "last": 302.15,
+   "volume": 1089238.0,
+   "turnover_cr": 32.94,
+   "instrument_token": 6509057
+  },
+  {
+   "symbol": "NSE:LIQUID",
+   "name": "MIRAEAMC - LIQUID",
+   "last": 999.99,
+   "volume": 328991.0,
+   "turnover_cr": 32.9,
+   "instrument_token": 4498433
+  },
+  {
+   "symbol": "NSE:GANECOS",
+   "name": "GANESHA ECOSPHERE LIMITED",
+   "last": 999.9,
+   "volume": 331101.0,
+   "turnover_cr": 32.8,
+   "instrument_token": 1777665
+  },
+  {
+   "symbol": "NSE:AMBUJACEM",
+   "name": "AMBUJA CEMENTS LTD",
+   "last": 405.0,
+   "volume": 807422.0,
+   "turnover_cr": 32.77,
+   "instrument_token": 325121
+  },
+  {
+   "symbol": "NSE:KISSHT",
+   "name": "ONEMI TECHNOLOGY SOL LTD",
+   "last": 309.3,
+   "volume": 1041438.0,
+   "turnover_cr": 32.38,
+   "instrument_token": 195403265
+  },
+  {
+   "symbol": "NSE:RENUKA",
+   "name": "SHREE RENUKA SUGARS LTD",
+   "last": 24.04,
+   "volume": 13578560.0,
+   "turnover_cr": 32.32,
+   "instrument_token": 3078657
+  },
+  {
+   "symbol": "NSE:SUDEEPPHRM",
+   "name": "SUDEEP PHARMA LIMITED",
+   "last": 1329.3,
+   "volume": 242835.0,
+   "turnover_cr": 32.31,
+   "instrument_token": 194569985
+  },
+  {
+   "symbol": "NSE:ACI",
+   "name": "ARCHEAN CHEMICAL IND LTD",
+   "last": 504.2,
+   "volume": 640010.0,
+   "turnover_cr": 32.26,
+   "instrument_token": 3078145
+  },
+  {
+   "symbol": "NSE:KNRCON",
+   "name": "KNR CONSTRU LTD.",
+   "last": 124.66,
+   "volume": 2626704.0,
+   "turnover_cr": 32.19,
+   "instrument_token": 3912449
+  },
+  {
+   "symbol": "NSE:NCC",
+   "name": "NCC LIMITED",
+   "last": 149.7,
+   "volume": 2168692.0,
+   "turnover_cr": 32.09,
+   "instrument_token": 593665
+  },
+  {
+   "symbol": "NSE:SIGACHI",
+   "name": "SIGACHI INDUSTRIES LTD",
+   "last": 34.74,
+   "volume": 9215095.0,
+   "turnover_cr": 31.77,
+   "instrument_token": 1705729
+  },
+  {
+   "symbol": "NSE:BSOFT",
+   "name": "BIRLASOFT LIMITED",
+   "last": 289.35,
+   "volume": 1083783.0,
+   "turnover_cr": 31.64,
+   "instrument_token": 1790465
+  },
+  {
+   "symbol": "NSE:KEC",
+   "name": "KEC INTL. LIMITED",
+   "last": 408.55,
+   "volume": 777483.0,
+   "turnover_cr": 31.63,
+   "instrument_token": 3394561
+  },
+  {
+   "symbol": "NSE:CREDITACC",
+   "name": "CREDITACCESS GRAMEEN LTD",
+   "last": 1443.1,
+   "volume": 217925.0,
+   "turnover_cr": 31.59,
+   "instrument_token": 1131777
+  },
+  {
+   "symbol": "NSE:JAINREC",
+   "name": "JAIN RESOURCE RECYCLING L",
+   "last": 277.95,
+   "volume": 1135766.0,
+   "turnover_cr": 31.55,
+   "instrument_token": 194366465
+  },
+  {
+   "symbol": "NSE:POWERMECH",
+   "name": "POWER MECH PROJECTS LTD.",
+   "last": 2306.1,
+   "volume": 135843.0,
+   "turnover_cr": 31.55,
+   "instrument_token": 2681089
+  },
+  {
+   "symbol": "NSE:ECLERX",
+   "name": "ECLERX SERVICES LTD",
+   "last": 1905.7,
+   "volume": 163141.0,
+   "turnover_cr": 31.49,
+   "instrument_token": 3885825
+  },
+  {
+   "symbol": "NSE:DEEPAKFERT",
+   "name": "DEEPAK FERTILIZERS & PETR",
+   "last": 1362.1,
+   "volume": 229112.0,
+   "turnover_cr": 31.44,
+   "instrument_token": 211713
+  },
+  {
+   "symbol": "NSE:MGL",
+   "name": "MAHANAGAR GAS LTD.",
+   "last": 1096.6,
+   "volume": 288338.0,
+   "turnover_cr": 31.44,
+   "instrument_token": 4488705
+  },
+  {
+   "symbol": "NSE:ARE&M",
+   "name": "AMARA RAJA ENERGY MOB LTD",
+   "last": 864.2,
+   "volume": 363791.0,
+   "turnover_cr": 31.41,
+   "instrument_token": 25601
+  },
+  {
+   "symbol": "NSE:THELEELA",
+   "name": "LEELA PALACES HOTEL LTD",
+   "last": 554.05,
+   "volume": 561774.0,
+   "turnover_cr": 31.35,
+   "instrument_token": 193795585
+  },
+  {
+   "symbol": "NSE:SCHNEIDER",
+   "name": "SCHNEIDER ELECTRIC INFRA",
+   "last": 1232.4,
+   "volume": 255402.0,
+   "turnover_cr": 31.14,
+   "instrument_token": 7995905
+  },
+  {
+   "symbol": "NSE:OLECTRA",
+   "name": "OLECTRA GREENTECH LIMITED",
+   "last": 1229.0,
+   "volume": 251277.0,
+   "turnover_cr": 31.14,
+   "instrument_token": 2723073
+  },
+  {
+   "symbol": "NSE:APTUS",
+   "name": "APTUS VALUE HSG FIN I LTD",
+   "last": 258.85,
+   "volume": 1203338.0,
+   "turnover_cr": 31.12,
+   "instrument_token": 1391361
+  },
+  {
+   "symbol": "NSE:NHPC",
+   "name": "NHPC LTD",
+   "last": 76.25,
+   "volume": 4059538.0,
+   "turnover_cr": 31.01,
+   "instrument_token": 4454401
+  },
+  {
+   "symbol": "NSE:YATHARTH",
+   "name": "YATHARTH HOSP & TRA C S L",
+   "last": 991.1,
+   "volume": 314144.0,
+   "turnover_cr": 30.91,
+   "instrument_token": 4540929
+  },
+  {
+   "symbol": "NSE:LIQUIDETF",
+   "name": "DSP LIQUID ETF",
+   "last": 999.99,
+   "volume": 308648.0,
+   "turnover_cr": 30.86,
+   "instrument_token": 493313
+  },
+  {
+   "symbol": "NSE:ZENTEC",
+   "name": "ZEN TECHNOLOGIES LIMITED",
+   "last": 1801.4,
+   "volume": 169326.0,
+   "turnover_cr": 30.77,
+   "instrument_token": 1922049
+  },
+  {
+   "symbol": "NSE:KMEW",
+   "name": "KNOWLEDGE MARINE & EN W L",
+   "last": 3033.4,
+   "volume": 98630.0,
+   "turnover_cr": 30.24,
+   "instrument_token": 6933505
+  },
+  {
+   "symbol": "NSE:JUBLFOOD",
+   "name": "JUBILANT FOODWORKS LTD",
+   "last": 482.7,
+   "volume": 624576.0,
+   "turnover_cr": 30.21,
+   "instrument_token": 4632577
+  },
+  {
+   "symbol": "NSE:TENNIND",
+   "name": "TENNECO CLEAN AIR INDIA L",
+   "last": 517.55,
+   "volume": 581989.0,
+   "turnover_cr": 30.11,
+   "instrument_token": 194529281
+  },
+  {
+   "symbol": "NSE:PARACABLES",
+   "name": "PARAMOUNT COMM LTD",
+   "last": 65.51,
+   "volume": 4472304.0,
+   "turnover_cr": 30.06,
+   "instrument_token": 3571457
+  },
+  {
+   "symbol": "NSE:SINDHUTRAD",
+   "name": "SINDHU TRADE LINKS LTD",
+   "last": 25.28,
+   "volume": 11832177.0,
+   "turnover_cr": 29.98,
+   "instrument_token": 4315905
+  },
+  {
+   "symbol": "NSE:IREDA",
+   "name": "INDIAN RENEWABLE ENERGY",
+   "last": 113.64,
+   "volume": 2627200.0,
+   "turnover_cr": 29.93,
+   "instrument_token": 5186817
+  },
+  {
+   "symbol": "NSE:RPOWER",
+   "name": "RELIANCE POWER LTD.",
+   "last": 22.08,
+   "volume": 13517969.0,
+   "turnover_cr": 29.93,
+   "instrument_token": 3906305
+  },
+  {
+   "symbol": "NSE:LASERPOWER",
+   "name": "LASER POWER & INFRA LTD",
+   "last": 295.65,
+   "volume": 999119.0,
+   "turnover_cr": 29.72,
+   "instrument_token": 195616257
+  },
+  {
+   "symbol": "NSE:POLYMED",
+   "name": "POLY MEDICURE LIMITED",
+   "last": 1702.5,
+   "volume": 171700.0,
+   "turnover_cr": 29.62,
+   "instrument_token": 6583809
+  },
+  {
+   "symbol": "NSE:ARTEMISMED",
+   "name": "ARTEMIS MED SERVICE LTD",
+   "last": 332.8,
+   "volume": 885338.0,
+   "turnover_cr": 29.59,
+   "instrument_token": 4329729
+  },
+  {
+   "symbol": "NSE:AXISCADES",
+   "name": "AXISCADES TECH LTD",
+   "last": 1711.6,
+   "volume": 168634.0,
+   "turnover_cr": 29.23,
+   "instrument_token": 2415617
+  },
+  {
+   "symbol": "NSE:SEDEMAC",
+   "name": "SEDEMAC MECHATRONICS LTD",
+   "last": 2814.4,
+   "volume": 102621.0,
+   "turnover_cr": 29.23,
+   "instrument_token": 194855169
+  },
+  {
+   "symbol": "NSE:ITBEES",
+   "name": "NIP IND ETF IT",
+   "last": 34.09,
+   "volume": 8504508.0,
+   "turnover_cr": 29.12,
+   "instrument_token": 4885505
+  },
+  {
+   "symbol": "NSE:IRCTC",
+   "name": "INDIAN RAIL TOUR CORP LTD",
+   "last": 476.05,
+   "volume": 603706.0,
+   "turnover_cr": 28.75,
+   "instrument_token": 3484417
+  },
+  {
+   "symbol": "NSE:TI",
+   "name": "TILAKNAGAR INDUSTRIES LTD",
+   "last": 535.1,
+   "volume": 540041.0,
+   "turnover_cr": 28.71,
+   "instrument_token": 4914177
+  },
+  {
+   "symbol": "NSE:MANKIND",
+   "name": "MANKIND PHARMA LIMITED",
+   "last": 2327.9,
+   "volume": 122389.0,
+   "turnover_cr": 28.65,
+   "instrument_token": 3937281
+  },
+  {
+   "symbol": "NSE:EMMVEE",
+   "name": "EMMVEE PHOTOVOLTAIC PWR L",
+   "last": 325.2,
+   "volume": 873378.0,
+   "turnover_cr": 28.43,
+   "instrument_token": 194490369
+  },
+  {
+   "symbol": "NSE:GMDCLTD",
+   "name": "GUJARAT MINERAL DEV CORP",
+   "last": 562.95,
+   "volume": 503162.0,
+   "turnover_cr": 28.43,
+   "instrument_token": 1332225
+  },
+  {
+   "symbol": "NSE:J&KBANK",
+   "name": "J & K BANK LTD.",
+   "last": 150.02,
+   "volume": 1883250.0,
+   "turnover_cr": 28.43,
+   "instrument_token": 1442049
+  },
+  {
+   "symbol": "NSE:CORDELIA",
+   "name": "WATERWAYS LEISURE TOUR L",
+   "last": 103.9,
+   "volume": 2698667.0,
+   "turnover_cr": 28.42,
+   "instrument_token": 195113729
+  },
+  {
+   "symbol": "NSE:FUSION",
+   "name": "FUSION FINANCE LIMITED",
+   "last": 203.19,
+   "volume": 1385863.0,
+   "turnover_cr": 28.27,
+   "instrument_token": 3054593
+  },
+  {
+   "symbol": "NSE:EMIL",
+   "name": "ELECTRONICS MART IND LTD",
+   "last": 173.74,
+   "volume": 1637322.0,
+   "turnover_cr": 28.21,
+   "instrument_token": 2951681
+  },
+  {
+   "symbol": "NSE:GABRIEL",
+   "name": "GABRIEL INDIA LTD",
+   "last": 1353.2,
+   "volume": 208239.0,
+   "turnover_cr": 27.89,
+   "instrument_token": 277761
+  },
+  {
+   "symbol": "NSE:ICIL",
+   "name": "INDO COUNT INDUSTRIES LTD",
+   "last": 449.8,
+   "volume": 621520.0,
+   "turnover_cr": 27.88,
+   "instrument_token": 3068673
+  },
+  {
+   "symbol": "NSE:COROMANDEL",
+   "name": "COROMANDEL INTERNTL. LTD",
+   "last": 1938.8,
+   "volume": 143726.0,
+   "turnover_cr": 27.86,
+   "instrument_token": 189185
+  },
+  {
+   "symbol": "NSE:SUPRIYA",
+   "name": "SUPRIYA LIFESCIENCE LTD",
+   "last": 852.85,
+   "volume": 324059.0,
+   "turnover_cr": 27.84,
+   "instrument_token": 1891841
+  },
+  {
+   "symbol": "NSE:FIRSTCRY",
+   "name": "BRAINBEES SOLUTIONS LTD",
+   "last": 180.16,
+   "volume": 1541167.0,
+   "turnover_cr": 27.66,
+   "instrument_token": 6352385
+  },
+  {
+   "symbol": "NSE:ATGL",
+   "name": "ADANI TOTAL GAS LIMITED",
+   "last": 612.35,
+   "volume": 445851.0,
+   "turnover_cr": 27.42,
+   "instrument_token": 1552897
+  },
+  {
+   "symbol": "NSE:UNIPARTS",
+   "name": "UNIPARTS INDIA LIMITED",
+   "last": 874.05,
+   "volume": 311978.0,
+   "turnover_cr": 27.28,
+   "instrument_token": 3342593
+  },
+  {
+   "symbol": "NSE:LLOYDSENT",
+   "name": "LLOYDS ENTERPRISES LTD",
+   "last": 74.23,
+   "volume": 3684805.0,
+   "turnover_cr": 27.11,
+   "instrument_token": 6606593
+  },
+  {
+   "symbol": "NSE:GOLDETF",
+   "name": "MIRAEAMC - MAGOLDETF",
+   "last": 149.46,
+   "volume": 1811520.0,
+   "turnover_cr": 27.07,
+   "instrument_token": 3657217
+  },
+  {
+   "symbol": "NSE:ROSSTECH",
+   "name": "ROSSELL TECHSYS LIMITED",
+   "last": 1150.5,
+   "volume": 234989.0,
+   "turnover_cr": 26.96,
+   "instrument_token": 7002369
+  },
+  {
+   "symbol": "NSE:UNIMECH",
+   "name": "UNIMECH AEROSPACE N MFG L",
+   "last": 1502.7,
+   "volume": 179849.0,
+   "turnover_cr": 26.89,
+   "instrument_token": 7413761
+  },
+  {
+   "symbol": "NSE:SARDAEN",
+   "name": "SARDA ENERGY & MIN LTD",
+   "last": 508.55,
+   "volume": 526969.0,
+   "turnover_cr": 26.88,
+   "instrument_token": 4546049
+  },
+  {
+   "symbol": "NSE:LLOYDSME",
+   "name": "LLOYDS METALS N ENERGY L",
+   "last": 1823.0,
+   "volume": 146092.0,
+   "turnover_cr": 26.75,
+   "instrument_token": 4432129
+  },
+  {
+   "symbol": "NSE:JINDALSAW",
+   "name": "JINDAL SAW LIMITED",
+   "last": 305.3,
+   "volume": 868641.0,
+   "turnover_cr": 26.69,
+   "instrument_token": 774145
+  },
+  {
+   "symbol": "NSE:ANANDRATHI",
+   "name": "ANAND RATHI WEALTH LTD",
+   "last": 2215.9,
+   "volume": 119776.0,
+   "turnover_cr": 26.52,
+   "instrument_token": 1829121
+  },
+  {
+   "symbol": "NSE:PNGJL",
+   "name": "P N GADGIL JEWELLERS LTD",
+   "last": 609.05,
+   "volume": 436673.0,
+   "turnover_cr": 26.51,
+   "instrument_token": 6479873
+  },
+  {
+   "symbol": "NSE:COHANCE",
+   "name": "COHANCE LIFESCIENCES LTD",
+   "last": 456.6,
+   "volume": 572792.0,
+   "turnover_cr": 26.43,
+   "instrument_token": 4593921
+  },
+  {
+   "symbol": "NSE:JKLAKSHMI",
+   "name": "JK LAKSHMI CEMENT LTD",
+   "last": 515.7,
+   "volume": 512153.0,
+   "turnover_cr": 26.41,
+   "instrument_token": 3453697
+  },
+  {
+   "symbol": "NSE:JTLIND",
+   "name": "JTL INDUSTRIES LIMITED",
+   "last": 91.67,
+   "volume": 2884117.0,
+   "turnover_cr": 26.36,
+   "instrument_token": 1865473
+  },
+  {
+   "symbol": "NSE:TIMETECHNO",
+   "name": "TIME TECHNOPLAST LTD.",
+   "last": 188.49,
+   "volume": 1385822.0,
+   "turnover_cr": 26.3,
+   "instrument_token": 3764993
+  },
+  {
+   "symbol": "NSE:JNPR",
+   "name": "JUNIPER GREEN ENERGY LTD",
+   "last": 265.1,
+   "volume": 983254.0,
+   "turnover_cr": 26.2,
+   "instrument_token": 195688449
+  },
+  {
+   "symbol": "NSE:PVRINOX",
+   "name": "PVR INOX LIMITED",
+   "last": 1227.2,
+   "volume": 213587.0,
+   "turnover_cr": 26.12,
+   "instrument_token": 3365633
+  },
+  {
+   "symbol": "NSE:JWL",
+   "name": "JUPITER WAGONS LIMITED",
+   "last": 243.24,
+   "volume": 1056588.0,
+   "turnover_cr": 25.95,
+   "instrument_token": 5177345
+  },
+  {
+   "symbol": "NSE:AKUMS",
+   "name": "AKUMS DRUGS AND PHARMA L",
+   "last": 765.75,
+   "volume": 338753.0,
+   "turnover_cr": 25.79,
+   "instrument_token": 6327041
+  },
+  {
+   "symbol": "NSE:LIQUIDPLUS",
+   "name": "MIRAEAMC - LIQUIDPLUS",
+   "last": 1102.01,
+   "volume": 233686.0,
+   "turnover_cr": 25.75,
+   "instrument_token": 6931201
+  },
+  {
+   "symbol": "NSE:RBA",
+   "name": "RESTAURANT BRAND ASIA LTD",
+   "last": 97.15,
+   "volume": 2606009.0,
+   "turnover_cr": 25.72,
+   "instrument_token": 382465
+  },
+  {
+   "symbol": "NSE:ELLEN",
+   "name": "ELLENBARRIE INDUS GASES L",
+   "last": 331.85,
+   "volume": 759237.0,
+   "turnover_cr": 25.47,
+   "instrument_token": 194192129
+  },
+  {
+   "symbol": "NSE:WELSPLSOL",
+   "name": "WELSPUN SPECIALTY SOL L",
+   "last": 59.55,
+   "volume": 4319775.0,
+   "turnover_cr": 25.37,
+   "instrument_token": 195320577
+  },
+  {
+   "symbol": "NSE:THOMASCOOK",
+   "name": "THOMAS COOK (INDIA) LTD",
+   "last": 111.65,
+   "volume": 2297803.0,
+   "turnover_cr": 25.37,
+   "instrument_token": 891137
+  },
+  {
+   "symbol": "NSE:HDBFS",
+   "name": "HDB FINANCIAL SERVICES L",
+   "last": 682.7,
+   "volume": 366577.0,
+   "turnover_cr": 25.35,
+   "instrument_token": 193989633
+  },
+  {
+   "symbol": "NSE:BLUEJET",
+   "name": "BLUE JET HEALTHCARE LTD",
+   "last": 569.8,
+   "volume": 442380.0,
+   "turnover_cr": 25.35,
+   "instrument_token": 5039617
+  },
+  {
+   "symbol": "NSE:SHAILY",
+   "name": "SHAILY ENG PLASTICS LTD",
+   "last": 3278.3,
+   "volume": 77257.0,
+   "turnover_cr": 25.3,
+   "instrument_token": 2234113
+  },
+  {
+   "symbol": "NSE:SOLARA",
+   "name": "SOLARA ACTIVE PHA SCI LTD",
+   "last": 639.15,
+   "volume": 396998.0,
+   "turnover_cr": 25.27,
+   "instrument_token": 940033
+  },
+  {
+   "symbol": "NSE:FSL",
+   "name": "FIRSTSOURCE SOLU. LTD.",
+   "last": 264.4,
+   "volume": 942732.0,
+   "turnover_cr": 25.24,
+   "instrument_token": 3661825
+  },
+  {
+   "symbol": "NSE:GUJTHEM",
+   "name": "GUJARAT THEMIS BIOSYN LTD",
+   "last": 411.35,
+   "volume": 605159.0,
+   "turnover_cr": 25.15,
+   "instrument_token": 7611137
+  },
+  {
+   "symbol": "NSE:MOSCHIP",
+   "name": "MOSCHIP TECHNOLOGIES LTD",
+   "last": 212.22,
+   "volume": 1176516.0,
+   "turnover_cr": 25.06,
+   "instrument_token": 7541505
+  },
+  {
+   "symbol": "NSE:CLEAN",
+   "name": "CLEAN SCIENCE & TECH LTD",
+   "last": 836.15,
+   "volume": 297191.0,
+   "turnover_cr": 25.03,
+   "instrument_token": 1292545
+  },
+  {
+   "symbol": "NSE:VGUARD",
+   "name": "V-GUARD IND LTD.",
+   "last": 335.4,
+   "volume": 751013.0,
+   "turnover_cr": 25.02,
+   "instrument_token": 3932673
+  }
+ ]
+}

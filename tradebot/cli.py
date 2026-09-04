@@ -342,9 +342,13 @@ def journal(limit: int = typer.Option(30), kind: Optional[str] = typer.Option(No
 
 
 @app.command()
-def note(text: str, symbol: Optional[str] = typer.Option(None)):
-    """Add a free-text note to the journal (e.g. a thesis or observation)."""
-    _handle(lambda: _out(_engine().note(text, symbol).model_dump(mode="json")))
+def note(text: str, symbol: Optional[str] = typer.Option(None), kind: str = typer.Option("note", help="note | thesis"),
+         data: Optional[str] = typer.Option(None, help="JSON object with structured fields (direction, confidence, size, stop, target...)")):
+    """Add a note or a structured thesis to the journal."""
+    def run():
+        payload = json.loads(data) if data else None
+        _out(_engine().note(text, symbol, payload, kind=kind).model_dump(mode="json"))
+    _handle(run)
 
 
 @app.command()
@@ -408,14 +412,19 @@ app.add_typer(strategy_app, name="strategy")
 
 def _plan_tables(plan: dict):
     t = Table(title=f"{plan['strategy']} signals | {plan['venue']} {plan['market']} | equity {_fmt(plan['equity'])} cash {_fmt(plan['cash'])}")
-    for c in ("symbol", "last", "src", "sma_fast", "sma_slow", "mom%", "uptrend", "held", "avg", "pnl%", "note"):
+    for c in ("symbol", "last", "src", "sma_fast", "sma_slow", "mom%", "uptrend", "eligible", "turnover", "held", "avg", "pnl%", "note"):
         t.add_column(c, justify="right")
-    for r in plan["signals"]:
+    shown = [r for r in plan["signals"] if r["uptrend"] or r["held_qty"]] if len(plan["signals"]) > 40 else plan["signals"]
+    shown = sorted(shown, key=lambda r: -(r["momentum"] or 0))[:40]
+    for r in shown:
         t.add_row(r["symbol"], _fmt(r["last"]), r["price_source"], _fmt(r["sma_fast"]), _fmt(r["sma_slow"]),
                   f"{r['momentum'] * 100:+.2f}" if r["momentum"] is not None else "-",
-                  "[green]yes[/green]" if r["uptrend"] else "no", _fmt(r["held_qty"], 6), _fmt(r["avg_price"]),
-                  f"{r['pnl_pct']:+.2f}" if r["pnl_pct"] is not None else "-", r["note"])
+                  "[green]yes[/green]" if r["uptrend"] else "no", "[green]yes[/green]" if r.get("eligible") else "no",
+                  _fmt(r.get("turnover_cr"), 0), _fmt(r["held_qty"], 6), _fmt(r["avg_price"]),
+                  f"{r['pnl_pct']:+.2f}" if r["pnl_pct"] is not None else "-", escape(r["note"]))
     console.print(t)
+    if len(plan["signals"]) > len(shown):
+        console.print(f"(showing {len(shown)} of {len(plan['signals'])} scanned; uptrend or held names only, by momentum)")
     o = Table(title="proposed orders")
     for c in ("symbol", "side", "qty", "type", "limit", "notional", "reason"):
         o.add_column(c)
@@ -466,6 +475,124 @@ def strategy_run(market: Market = typer.Option(Market.IN), venue: Optional[str] 
                           _fmt(r["avg_fill_price"]), escape((r["detail"] or "")[:90]))
             console.print(t)
         _out(out, table)
+    _handle(run)
+
+
+thesis_app = typer.Typer(help="Discretionary theses: positions with an enforced stop, target and expiry.", no_args_is_help=True)
+app.add_typer(thesis_app, name="thesis")
+
+
+def _thesis_table(rows):
+    t = Table(title="theses")
+    for c in ("id", "status", "venue", "symbol", "size", "qty", "entry", "stop%", "target%", "conf", "expires", "text"):
+        t.add_column(c)
+    for r in rows:
+        color = {"open": "green", "pending": "cyan", "planned": "yellow", "closed": "white", "canceled": "red"}.get(r["status"], "white")
+        t.add_row(r["id"], f"[{color}]{r['status']}[/{color}]", r["venue"], r["symbol"], _fmt(r["size_notional"]), _fmt(r["qty"], 6),
+                  _fmt(r["entry_price"]), f"{r['stop_pct']:g}", f"{r['target_pct']:g}" if r["target_pct"] else "-", f"{r['confidence']:.2f}",
+                  (r["expires_at"] or "")[:10], escape(r["text"][:70]))
+    console.print(t)
+    if not rows:
+        console.print("(no theses)")
+
+
+@thesis_app.command("open")
+def thesis_open(symbol: str, text: str = typer.Option(..., "--text", help="The thesis: catalyst, expected outcome, why"),
+                size: float = typer.Option(..., "--size", help="Notional to deploy, in the market currency"),
+                stop: float = typer.Option(5.0, "--stop", help="Stop loss percent below entry"),
+                target: Optional[float] = typer.Option(None, "--target", help="Take profit percent above entry"),
+                expires: Optional[datetime] = typer.Option(None, "--expires", help="Close on/after this date (UTC), e.g. 2026-09-16"),
+                confidence: float = typer.Option(0.5, "--confidence", min=0.0, max=1.0),
+                venue: Optional[str] = typer.Option(None), market: Optional[Market] = typer.Option(None),
+                tag: list[str] = typer.Option([], "--tag"),
+                execute: bool = typer.Option(False, "--execute", help="Place the entry order now (default: record only)")):
+    """Record a thesis and optionally enter it with a marketable limit order."""
+    def run():
+        from .models import ThesisRequest
+        from datetime import timezone
+        exp = expires.replace(tzinfo=timezone.utc) if expires and expires.tzinfo is None else expires
+        req = ThesisRequest(symbol=symbol, text=text, size_notional=size, stop_pct=stop, target_pct=target, expires_at=exp,
+                            confidence=confidence, venue=venue, market=market, tags=tag)
+        t = _engine().open_thesis(req, execute=execute)
+        _out(t.model_dump(mode="json"), lambda d: _thesis_table([d]))
+    _handle(run)
+
+
+@thesis_app.command("enter")
+def thesis_enter(thesis_id: str):
+    """Send the entry order for a planned thesis."""
+    def run():
+        eng = _engine()
+        t = eng.store.get_thesis(thesis_id)
+        if not t:
+            raise ValueError(f"thesis {thesis_id} not found")
+        _out(eng.enter_thesis(t).model_dump(mode="json"), lambda d: _thesis_table([d]))
+    _handle(run)
+
+
+@thesis_app.command("list")
+def thesis_list(all_: bool = typer.Option(False, "--all", help="Include closed and canceled"), venue: Optional[str] = typer.Option(None)):
+    """List theses (open, pending and planned by default)."""
+    _handle(lambda: _out([t.model_dump(mode="json") for t in _engine().theses(all_, venue)], _thesis_table))
+
+
+@thesis_app.command("check")
+def thesis_check(execute: bool = typer.Option(False, "--execute", help="Actually close theses whose stop/target/expiry is hit"),
+                 venue: Optional[str] = typer.Option(None)):
+    """Evaluate open theses against live prices; close the ones that hit stop, target or expiry."""
+    def run():
+        rows = _engine().check_theses(execute=execute, venue=venue)
+        def table(rows):
+            t = Table(title="thesis check" + ("" if execute else " (dry run)"))
+            for c in ("id", "symbol", "status", "last", "entry", "pnl%", "stop", "target", "action", "detail"):
+                t.add_column(c)
+            for r in rows:
+                pnl = r.get("pnl_pct")
+                t.add_row(r["id"], r["symbol"], r["status"], _fmt(r.get("last")), _fmt(r.get("entry")),
+                          f"[{'green' if (pnl or 0) >= 0 else 'red'}]{pnl:+.2f}[/]" if pnl is not None else "-",
+                          _fmt(r.get("stop")), _fmt(r.get("target")), r.get("action") or "", escape(r.get("detail") or ""))
+            console.print(t)
+            if not rows:
+                console.print("(no open theses)")
+        _out(rows, table)
+    _handle(run)
+
+
+@thesis_app.command("close")
+def thesis_close(thesis_id: str, reason: str = typer.Option("manual close", "--reason")):
+    """Close a thesis now (market order for the held quantity)."""
+    _handle(lambda: _out(_engine().close_thesis(thesis_id, reason=reason, execute=True).model_dump(mode="json"), lambda d: _thesis_table([d])))
+
+
+universe_app = typer.Typer(help="Build and inspect liquidity-screened universes.", no_args_is_help=True)
+app.add_typer(universe_app, name="universe")
+
+
+@universe_app.command("build")
+def universe_build(market: Market = typer.Option(Market.IN), min_turnover_cr: float = typer.Option(25.0, help="min daily turnover, crore INR"),
+                   max_price: Optional[float] = typer.Option(None, help="drop shares priced above this")):
+    """Screen every NSE equity by turnover (needs a Kite token) and write data/universe/in.json."""
+    def run():
+        from .universe import build_in_universe
+        if market != Market.IN:
+            raise ValueError("only the Indian market universe builder is implemented")
+        out = build_in_universe(_engine(), min_turnover_cr, max_price)
+        _out({k: v for k, v in out.items() if k != "rows"} | {"top": out["rows"][:15]})
+    _handle(run)
+
+
+@universe_app.command("show")
+def universe_show(market: Market = typer.Option(Market.IN), limit: int = typer.Option(50)):
+    """Show the saved universe."""
+    def run():
+        import json
+        from pathlib import Path
+        eng = _engine()
+        p = Path(eng.settings.root) / f"data/universe/{market.value}.json"
+        if not p.exists():
+            raise ValueError(f"{p} not found; run: tradebot universe build")
+        d = json.loads(p.read_text())
+        _out({k: v for k, v in d.items() if k != "rows"} | {"rows": d["rows"][:limit]})
     _handle(run)
 
 

@@ -156,6 +156,33 @@ The default strategy is **trend**, long-only trend following on daily candles:
 - Exit: price below the 20-day SMA (trend break) or below entry by `stop_loss_pct` (3%). Exits are
   market orders. A name that stays in an uptrend but slips in the ranking is held, not churned.
 - A name being exited is never re-entered in the same cycle.
+- Quality filters for broad universes: skip names more than `max_extension_pct` (15%) above the fast SMA,
+  with momentum above `max_momentum_pct` (40%) or below `min_momentum_pct` (3%), priced under `min_price`
+  (50), with turnover under `min_turnover_cr` (50 crore), or whose slow SMA is not rising. This keeps
+  parabolic small caps out of the systematic sleeve.
+
+### Universe
+
+`tradebot universe build --market in --min-turnover-cr 25 --max-price 4500` screens every NSE cash
+equity by the day's turnover through Kite batch quotes and writes `data/universe/in.json`.
+`risk.allowed_symbols.in` and `strategy.universe.in` both point at that file (`file:data/universe/in.json`),
+so the whole liquid market is tradeable and scanned, not a hand-picked list. Rebuild it weekly.
+
+## Theses (discretionary positions)
+
+News- and event-driven positions are recorded as theses so the app, not memory, enforces the exit:
+
+```bash
+tradebot thesis open NSE:SWIGGY --venue kite --size 3000 --stop 5 --target 10 --expires 2026-09-18 \
+    --confidence 0.58 --text "MSCI deletion selling done; expect rebound" [--execute]
+tradebot thesis list [--all]        # planned / pending / open, or everything
+tradebot thesis enter <id>          # send the entry for a planned thesis (marketable limit)
+tradebot thesis check [--execute]   # close theses whose stop, target or expiry is hit
+tradebot thesis close <id> --reason "..."
+```
+
+Sizing is a notional in the market currency, rounded down to whole shares. Entry is a marketable limit
+at last + 15 bps. Only long theses are supported. Every step is journaled with kind `thesis`.
 
 Equity of 10,000 INR therefore means at most three positions of roughly 3,000 INR each, with a
 per-name stop of about 90 INR and a daily loss limit (`risk.max_daily_loss`) of 400 INR.
@@ -168,11 +195,15 @@ Zerodha's access token expires every morning, so each trading day starts with a 
    `request_token` from the redirect URL to `tradebot kite-login <token> --save`.
 2. `tradebot doctor --no-data` must show `broker:kite` ok and `session:in` open (from 09:15 IST).
 3. `tradebot account --venue kite` to confirm funds.
-4. After the opening auction settles (about 09:30 IST): `tradebot strategy plan --market in --venue kite`
-   to review, then `tradebot strategy run --market in --venue kite --execute` to place.
-5. Re-run `strategy run` a few times during the session and once around 15:10 IST so stops and trend
-   breaks are acted on the same day. Orders use product CNC (delivery), so nothing is auto squared off.
-6. `tradebot journal` and `tradebot account --venue kite` for the end-of-day record.
+4. Morning research: scan the news for scheduled catalysts and unusual-volume names, then record or
+   update theses (`tradebot thesis open ...`). Planned theses are entered after the opening auction
+   settles (about 09:30 IST) with `tradebot thesis enter <id>`.
+5. Systematic sleeve: `tradebot strategy plan --market in --venue kite` to review, then
+   `tradebot strategy run --market in --venue kite --execute` to place.
+6. During the session and around 15:10 IST: `tradebot thesis check --execute` and
+   `tradebot strategy run ... --execute` so stops, targets, expiries and trend breaks are acted on the
+   same day. Orders use product CNC (delivery), so nothing is auto squared off.
+7. `tradebot journal` and `tradebot account --venue kite` for the end-of-day record.
 
 Live orders are refused unless `live_trading_enabled: true` (or `TRADEBOT_LIVE=1`), the exchange session
 is open, the symbol is in `risk.allowed_symbols.in`, and the notional limits pass.
@@ -194,6 +225,7 @@ tradebot/
   risk.py          pre-trade risk engine
   hours.py         exchange session calendar (NSE, US; crypto 24x7)
   strategy.py      rule-based strategies producing explained, executable plans
+  universe.py      liquidity-screened universes (file-based symbol lists)
   engine.py        TradingEngine: the one entry point used by CLI and API
   cli.py           Typer CLI
   data/            market data providers + registry with fallback

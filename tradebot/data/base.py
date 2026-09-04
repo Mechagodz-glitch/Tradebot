@@ -55,6 +55,16 @@ class MarketDataProvider(ABC):
     def candles(self, inst: Instrument, interval: str = "1d", limit: int = 100,
                 start: Optional[datetime] = None, end: Optional[datetime] = None) -> list[Candle]: ...
 
+    def quote_many(self, insts: list[Instrument]) -> dict[str, Quote]:
+        """Batch quotes. Default: one call per instrument; providers with batch endpoints override."""
+        out: dict[str, Quote] = {}
+        for inst in insts:
+            try:
+                out[inst.symbol] = self.quote(inst)
+            except Exception:  # noqa: BLE001
+                continue
+        return out
+
     def ping(self) -> tuple[bool, str, int]:
         """Connectivity check. Returns (ok, detail, latency_ms)."""
         t0 = time.time()

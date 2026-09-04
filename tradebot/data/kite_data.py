@@ -6,6 +6,8 @@ through to the Upstox provider."""
 
 from __future__ import annotations
 
+import threading
+import time
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
@@ -16,6 +18,9 @@ from .base import MarketDataProvider
 INTERVALS = {"1m": "minute", "5m": "5minute", "15m": "15minute", "30m": "30minute", "1h": "60minute", "1d": "day"}
 BARS_PER_DAY = {"1m": 375, "5m": 75, "15m": 25, "30m": 13, "1h": 7, "1d": 1}
 IST = timezone(timedelta(hours=5, minutes=30))
+_HIST_LOCK = threading.Lock()
+_HIST_LAST = [0.0]
+HIST_MIN_INTERVAL = 0.35  # Kite allows 3 historical requests per second
 
 
 class KiteData(MarketDataProvider):
@@ -61,6 +66,35 @@ class KiteData(MarketDataProvider):
         q = self.quote(Instrument(symbol="NSE:RELIANCE", market=Market.IN, base="RELIANCE", currency="INR", exchange="NSE"))
         return f"RELIANCE last={q.last} bid={q.bid} ask={q.ask}"
 
+    def _to_quote(self, inst: Instrument, d: dict) -> Quote:
+        depth = d.get("depth") or {}
+        buy = (depth.get("buy") or [{}])[0]
+        sell = (depth.get("sell") or [{}])[0]
+        ohlc = d.get("ohlc") or {}
+        return Quote(symbol=inst.symbol, market=Market.IN, currency="INR", last=float(d["last_price"]),
+                     bid=self._f(buy.get("price")) or None, ask=self._f(sell.get("price")) or None,
+                     open=self._f(ohlc.get("open")), high=self._f(ohlc.get("high")), low=self._f(ohlc.get("low")),
+                     prev_close=self._f(ohlc.get("close")), volume=self._f(d.get("volume")),
+                     ts=self._ts(d.get("last_trade_time") or d.get("timestamp")), source=self.name)
+
+    def quote_many(self, insts: list[Instrument]) -> dict[str, Quote]:
+        out: dict[str, Quote] = {}
+        by_key = {self._key(i): i for i in insts}
+        keys = list(by_key)
+        for i in range(0, len(keys), 500):
+            try:
+                data = self.kite.quote(keys[i:i + 500])
+            except Exception as e:  # noqa: BLE001
+                raise DataError(f"kite: {e}") from e
+            for key, d in data.items():
+                inst = by_key.get(key)
+                if inst is None or not d.get("last_price"):
+                    continue
+                if d.get("instrument_token"):
+                    self._tokens[key] = int(d["instrument_token"])
+                out[inst.symbol] = self._to_quote(inst, d)
+        return out
+
     def quote(self, inst: Instrument) -> Quote:
         key = self._key(inst)
         try:
@@ -72,15 +106,7 @@ class KiteData(MarketDataProvider):
             raise DataError(f"kite: no quote for {inst.symbol}")
         if d.get("instrument_token"):
             self._tokens[key] = int(d["instrument_token"])
-        depth = d.get("depth") or {}
-        buy = (depth.get("buy") or [{}])[0]
-        sell = (depth.get("sell") or [{}])[0]
-        ohlc = d.get("ohlc") or {}
-        return Quote(symbol=inst.symbol, market=Market.IN, currency="INR", last=float(d["last_price"]),
-                     bid=self._f(buy.get("price")) or None, ask=self._f(sell.get("price")) or None,
-                     open=self._f(ohlc.get("open")), high=self._f(ohlc.get("high")), low=self._f(ohlc.get("low")),
-                     prev_close=self._f(ohlc.get("close")), volume=self._f(d.get("volume")),
-                     ts=self._ts(d.get("last_trade_time") or d.get("timestamp")), source=self.name)
+        return self._to_quote(inst, d)
 
     def candles(self, inst: Instrument, interval: str = "1d", limit: int = 100,
                 start: Optional[datetime] = None, end: Optional[datetime] = None) -> list[Candle]:
@@ -95,6 +121,11 @@ class KiteData(MarketDataProvider):
         end = end or utcnow()
         if start is None:
             start = end - timedelta(days=int(limit / BARS_PER_DAY[interval] * 1.6) + 3)
+        with _HIST_LOCK:
+            wait = HIST_MIN_INTERVAL - (time.time() - _HIST_LAST[0])
+            if wait > 0:
+                time.sleep(wait)
+            _HIST_LAST[0] = time.time()
         try:
             rows = self.kite.historical_data(token, start.astimezone(IST).replace(tzinfo=None),
                                              end.astimezone(IST).replace(tzinfo=None), INTERVALS[interval])

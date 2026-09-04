@@ -15,7 +15,7 @@ from .. import __version__
 from ..config import load_settings
 from ..engine import TradingEngine
 from ..errors import NotFound, RiskRejected, TradebotError
-from ..models import Market, OrderRequest
+from ..models import Market, OrderRequest, ThesisRequest
 
 app = FastAPI(title="tradebot", version=__version__)
 app.mount("/static", StaticFiles(directory=str(Path(__file__).parent / "static")), name="static")
@@ -164,6 +164,26 @@ class KillReq(BaseModel):
 @app.post("/kill", dependencies=[Depends(auth)])
 def kill(req: KillReq):
     return {"kill_switch_active": engine().set_kill_switch(req.on)}
+
+
+@app.get("/theses", dependencies=[Depends(auth)])
+def theses(all: bool = False, venue: Optional[str] = None):
+    return engine().theses(all, venue)
+
+
+@app.post("/theses", dependencies=[Depends(auth)], status_code=201)
+def open_thesis(req: ThesisRequest, execute: bool = False):
+    return engine().open_thesis(req, execute=execute)
+
+
+@app.post("/theses/check", dependencies=[Depends(auth)])
+def check_theses(execute: bool = False, venue: Optional[str] = None):
+    return engine().check_theses(execute=execute, venue=venue)
+
+
+@app.delete("/theses/{thesis_id}", dependencies=[Depends(auth)])
+def close_thesis(thesis_id: str, reason: str = "manual close"):
+    return engine().close_thesis(thesis_id, reason=reason, execute=True)
 
 
 @app.get("/", response_class=HTMLResponse, include_in_schema=False)

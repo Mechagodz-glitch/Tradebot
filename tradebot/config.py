@@ -29,7 +29,7 @@ class PaperConfig(BaseModel):
 class RiskConfig(BaseModel):
     kill_switch_file: str = "data/KILL"
     allowed_markets: list[str] = Field(default_factory=lambda: ["us", "in", "crypto"])
-    allowed_symbols: Optional[list[str] | dict[str, list[str]]] = None  # None = any; list = global; dict = per market
+    allowed_symbols: Optional[list[str] | dict[str, list[str] | str]] = None  # None = any; list = global; dict = per market; 'file:path' allowed
     allow_outside_hours: bool = False  # live venues: reject orders when the exchange session is closed
     blocked_symbols: list[str] = Field(default_factory=list)
     max_order_notional: dict[str, float] = Field(default_factory=lambda: {"USD": 5_000, "INR": 200_000})
@@ -56,7 +56,7 @@ class KiteConfig(BaseModel):
 
 class StrategyConfig(BaseModel):
     name: str = "trend"
-    universe: dict[str, list[str]] = Field(default_factory=lambda: {
+    universe: dict[str, list[str] | str] = Field(default_factory=lambda: {
         "in": ["NSE:RELIANCE", "NSE:HDFCBANK", "NSE:ICICIBANK", "NSE:INFY", "NSE:TCS", "NSE:SBIN", "NSE:ITC",
                "NSE:BHARTIARTL", "NSE:KOTAKBANK", "NSE:LT"],
         "us": ["AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "JPM", "V", "XOM", "UNH"],
@@ -72,6 +72,13 @@ class StrategyConfig(BaseModel):
     min_history: int = 55
     entry_limit_offset_bps: float = 15.0 # buy limit = reference * (1 + bps/1e4): marketable, bounded slippage
     exit_order_type: str = "market"
+    # quality filters (matter when the universe is the whole market rather than a curated list)
+    max_extension_pct: float = 15.0      # skip if price is more than this far above SMA(fast): parabolic, poor entry
+    max_momentum_pct: float = 40.0       # skip if N-day momentum exceeds this: blow-off risk
+    min_momentum_pct: float = 3.0        # require a real trend, not noise
+    min_price: float = 50.0              # skip penny / micro-priced names
+    min_turnover_cr: float = 50.0        # daily turnover floor (crore) when the universe file carries turnover
+    require_rising_slow_sma: bool = True # SMA(slow) today must be above SMA(slow) 10 sessions ago
 
 
 class DataConfig(BaseModel):

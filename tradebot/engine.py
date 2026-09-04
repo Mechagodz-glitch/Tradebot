@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 import os
 from datetime import datetime, timedelta
 from typing import Optional
@@ -13,7 +14,8 @@ from .data import MarketData
 from .errors import BrokerError, NotFound, RiskRejected
 from .hours import market_session
 from .models import (
-    Account, Candle, CheckResult, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, Position, Quote, Side, utcnow,
+    Account, Candle, CheckResult, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, OrderType, Position, Quote,
+    Side, Thesis, ThesisRequest, ThesisStatus, TimeInForce, utcnow,
 )
 from .risk import RiskEngine
 from .store import Store
@@ -204,8 +206,125 @@ class TradingEngine:
     def journal(self, limit: int = 50, kind: Optional[str] = None, symbol: Optional[str] = None) -> list[JournalEntry]:
         return self.store.list_journal(limit=limit, kind=kind, symbol=self.instrument(symbol).symbol if symbol else None)
 
-    def note(self, text: str, symbol: Optional[str] = None, data: Optional[dict] = None) -> JournalEntry:
-        return self.store.journal(JournalEntry(kind="note", symbol=self.instrument(symbol).symbol if symbol else None, text=text, data=data))
+    def note(self, text: str, symbol: Optional[str] = None, data: Optional[dict] = None, kind: str = "note") -> JournalEntry:
+        if kind not in ("note", "thesis"):
+            raise BrokerError(f"invalid note kind {kind!r}; use note or thesis", code="invalid")
+        return self.store.journal(JournalEntry(kind=kind, symbol=self.instrument(symbol).symbol if symbol else None, text=text, data=data))
+
+    # ---- theses: discretionary positions with enforced stop / target / expiry -------------
+    def open_thesis(self, req: ThesisRequest, execute: bool = False) -> Thesis:
+        if req.direction != "long":
+            raise BrokerError("only long theses are supported (no shorting)", code="invalid")
+        venue = self.venue(req.venue)
+        inst = self.instrument(req.symbol, req.market)
+        t = Thesis(id=self.store.new_id(), venue=venue.name, symbol=inst.symbol, market=inst.market, currency=inst.currency,
+                   text=req.text, confidence=req.confidence, size_notional=req.size_notional, stop_pct=req.stop_pct,
+                   target_pct=req.target_pct, expires_at=req.expires_at, tags=req.tags)
+        self.store.save_thesis(t)
+        self.store.journal(JournalEntry(kind="thesis", venue=venue.name, symbol=inst.symbol,
+                                        text=f"thesis {t.id} {'opened' if execute else 'planned'}: {req.text}",
+                                        data={"thesis_id": t.id, "size": req.size_notional, "stop_pct": req.stop_pct,
+                                              "target_pct": req.target_pct, "confidence": req.confidence,
+                                              "expires_at": req.expires_at.isoformat() if req.expires_at else None}))
+        if execute:
+            self.enter_thesis(t)
+        return t
+
+    def enter_thesis(self, t: Thesis) -> Thesis:
+        if t.status not in (ThesisStatus.PLANNED,):
+            raise BrokerError(f"thesis {t.id} is {t.status.value}; cannot enter", code="invalid")
+        inst = self.instrument(t.symbol, t.market)
+        q = self.data.quote(inst, use_cache=False)
+        limit = round(q.last * (1 + 15.0 / 10_000), 2)
+        qty = t.size_notional / limit
+        qty = math.floor(qty * 1e6) / 1e6 if inst.market == Market.CRYPTO else float(math.floor(qty))
+        if qty <= 0:
+            raise BrokerError(f"size {t.size_notional} buys less than one unit of {t.symbol} at {q.last}", code="size_too_small")
+        order = self.place_order(OrderRequest(symbol=t.symbol, side=Side.BUY, qty=qty, order_type=OrderType.LIMIT, limit_price=limit,
+                                              tif=TimeInForce.GTC if inst.market == Market.CRYPTO else TimeInForce.DAY,
+                                              venue=t.venue, market=t.market, reason=f"[thesis {t.id}] {t.text}", strategy="thesis"))
+        t.entry_order_id = order.id
+        self._apply_entry(t, order)
+        return self.store.save_thesis(t)
+
+    def _apply_entry(self, t: Thesis, order: Order) -> None:
+        if order.status == OrderStatus.FILLED:
+            t.qty, t.entry_price, t.status = order.filled_qty, order.avg_fill_price, ThesisStatus.OPEN
+        elif order.status.is_open:
+            t.status = ThesisStatus.PENDING
+        else:
+            t.status = ThesisStatus.CANCELED
+            t.close_reason = f"entry {order.status.value}: {order.reject_reason or ''}".strip()
+            t.closed_at = utcnow()
+
+    def check_theses(self, execute: bool = False, venue: Optional[str] = None) -> list[dict]:
+        out = []
+        for t in self.store.list_theses(statuses=[ThesisStatus.PENDING.value, ThesisStatus.OPEN.value], venue=venue):
+            row = {"id": t.id, "symbol": t.symbol, "venue": t.venue, "status": t.status.value, "action": None, "detail": ""}
+            if t.status == ThesisStatus.PENDING and t.entry_order_id:
+                order = self.order(t.entry_order_id, refresh=True)
+                self._apply_entry(t, order)
+                self.store.save_thesis(t)
+                row["status"] = t.status.value
+                row["detail"] = f"entry order {order.status.value}"
+                if t.status != ThesisStatus.OPEN:
+                    out.append(row)
+                    continue
+            try:
+                q = self.data.quote(self.instrument(t.symbol, t.market), use_cache=False)
+            except Exception as e:  # noqa: BLE001
+                row["detail"] = f"no quote: {e}"
+                out.append(row)
+                continue
+            pnl_pct = (q.last / t.entry_price - 1) * 100 if t.entry_price else None
+            row.update({"last": q.last, "entry": t.entry_price, "pnl_pct": pnl_pct, "stop": t.stop_price(), "target": t.target_price()})
+            reason = None
+            if pnl_pct is not None and pnl_pct <= -t.stop_pct:
+                reason = f"stop: {pnl_pct:.2f}% <= -{t.stop_pct}%"
+            elif t.target_pct and pnl_pct is not None and pnl_pct >= t.target_pct:
+                reason = f"target: {pnl_pct:.2f}% >= +{t.target_pct}%"
+            elif t.expires_at and utcnow() >= t.expires_at:
+                reason = f"expired {t.expires_at.date()} (pnl {pnl_pct:+.2f}%)"
+            if reason:
+                row["action"] = "close" if execute else "would close"
+                row["detail"] = reason
+                if execute:
+                    self.close_thesis(t.id, reason=reason, execute=True)
+                    row["status"] = ThesisStatus.CLOSED.value
+            out.append(row)
+        return out
+
+    def close_thesis(self, thesis_id: str, reason: str = "manual close", execute: bool = True) -> Thesis:
+        t = self.store.get_thesis(thesis_id)
+        if not t:
+            raise NotFound(f"thesis {thesis_id} not found")
+        if t.status in (ThesisStatus.CLOSED, ThesisStatus.CANCELED):
+            raise BrokerError(f"thesis {t.id} already {t.status.value}", code="invalid")
+        if t.status == ThesisStatus.PENDING and t.entry_order_id:
+            try:
+                self.cancel_order(t.entry_order_id)
+            except Exception:  # noqa: BLE001
+                pass
+            t.status, t.close_reason, t.closed_at = ThesisStatus.CANCELED, reason, utcnow()
+            return self.store.save_thesis(t)
+        if t.status == ThesisStatus.PLANNED or not execute or t.qty <= 0:
+            t.status, t.close_reason, t.closed_at = ThesisStatus.CANCELED if t.status == ThesisStatus.PLANNED else ThesisStatus.CLOSED, reason, utcnow()
+            return self.store.save_thesis(t)
+        order = self.place_order(OrderRequest(symbol=t.symbol, side=Side.SELL, qty=t.qty, venue=t.venue, market=t.market,
+                                              tif=TimeInForce.GTC if t.market == Market.CRYPTO else TimeInForce.DAY,
+                                              reason=f"[thesis {t.id}] exit: {reason}", strategy="thesis"))
+        t.exit_order_id = order.id
+        t.exit_price = order.avg_fill_price
+        if order.status == OrderStatus.FILLED and t.entry_price:
+            t.realized_pnl = (order.avg_fill_price - t.entry_price) * t.qty - order.fees
+        t.status, t.close_reason, t.closed_at = ThesisStatus.CLOSED, reason, utcnow()
+        self.store.journal(JournalEntry(kind="thesis", venue=t.venue, symbol=t.symbol, order_id=order.id,
+                                        text=f"thesis {t.id} closed: {reason}", data={"thesis_id": t.id, "pnl": t.realized_pnl}))
+        return self.store.save_thesis(t)
+
+    def theses(self, all_: bool = False, venue: Optional[str] = None) -> list[Thesis]:
+        statuses = None if all_ else [ThesisStatus.PLANNED.value, ThesisStatus.PENDING.value, ThesisStatus.OPEN.value]
+        return self.store.list_theses(statuses=statuses, venue=venue)
 
     def set_kill_switch(self, on: bool) -> bool:
         path = self.settings.resolve(self.settings.risk.kill_switch_file)

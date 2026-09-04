@@ -6,6 +6,7 @@ from typing import Optional
 
 from .errors import RiskRejected
 from .hours import market_session
+from .universe import load_symbol_list
 from .models import Account, Instrument, OrderRequest, OrderType, Position, Quote, Side
 
 
@@ -40,6 +41,8 @@ class RiskEngine:
         allowed = cfg.allowed_symbols
         if isinstance(allowed, dict):
             allowed = allowed.get(inst.market.value)
+        if allowed is not None:
+            allowed = load_symbol_list(allowed, self.settings.root)
         if allowed is not None and inst.symbol not in {s.upper() for s in allowed}:
             raise RiskRejected(f"{inst.symbol} is not in allowed_symbols for market {inst.market.value}", code="symbol_not_allowed")
         if venue_live and not cfg.allow_outside_hours:

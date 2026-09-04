@@ -220,3 +220,59 @@ class CheckResult(BaseModel):
     ok: bool
     detail: str = ""
     latency_ms: Optional[int] = None
+
+
+class ThesisStatus(str, Enum):
+    PLANNED = "planned"    # recorded, no order sent yet
+    PENDING = "pending"    # entry order resting at the venue
+    OPEN = "open"          # position on, stop/target/expiry enforced by `thesis check`
+    CLOSED = "closed"
+    CANCELED = "canceled"
+
+
+class ThesisRequest(BaseModel):
+    symbol: str
+    text: str
+    size_notional: float = Field(gt=0)
+    stop_pct: float = Field(default=5.0, gt=0)
+    target_pct: Optional[float] = Field(default=None, gt=0)
+    expires_at: Optional[datetime] = None
+    confidence: float = Field(default=0.5, ge=0, le=1)
+    venue: Optional[str] = None
+    market: Optional[Market] = None
+    direction: str = "long"
+    entry_limit_offset_bps: float = 15.0
+    tags: list[str] = Field(default_factory=list)
+
+
+class Thesis(BaseModel):
+    id: str
+    created_at: datetime = Field(default_factory=utcnow)
+    updated_at: datetime = Field(default_factory=utcnow)
+    venue: str
+    symbol: str
+    market: Market
+    currency: str
+    direction: str = "long"
+    text: str
+    confidence: float = 0.5
+    size_notional: float
+    stop_pct: float
+    target_pct: Optional[float] = None
+    expires_at: Optional[datetime] = None
+    status: ThesisStatus = ThesisStatus.PLANNED
+    entry_order_id: Optional[str] = None
+    qty: float = 0.0
+    entry_price: Optional[float] = None
+    exit_order_id: Optional[str] = None
+    exit_price: Optional[float] = None
+    closed_at: Optional[datetime] = None
+    close_reason: Optional[str] = None
+    realized_pnl: Optional[float] = None
+    tags: list[str] = Field(default_factory=list)
+
+    def stop_price(self) -> Optional[float]:
+        return self.entry_price * (1 - self.stop_pct / 100) if self.entry_price else None
+
+    def target_price(self) -> Optional[float]:
+        return self.entry_price * (1 + self.target_pct / 100) if self.entry_price and self.target_pct else None

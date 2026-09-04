@@ -73,6 +73,25 @@ class MarketData:
                 errors.append(f"{p.name}: {e}")
         raise DataError(f"all providers failed for {inst.symbol}", details={"errors": errors})
 
+    def quote_many(self, insts: list[Instrument]) -> dict[str, Quote]:
+        """Quotes for many instruments of one market: batch through the first provider, fall back per symbol."""
+        if not insts:
+            return {}
+        market = insts[0].market
+        out: dict[str, Quote] = {}
+        for p in self.providers_for(market):
+            missing = [i for i in insts if i.symbol not in out]
+            if not missing:
+                break
+            try:
+                out.update(p.quote_many(missing))
+            except Exception:  # noqa: BLE001
+                continue
+        now = time.time()
+        for sym, q in out.items():
+            self._quote_cache[f"{sym}|"] = (now, q)
+        return out
+
     def candles(self, inst: Instrument, interval: str = "1d", limit: int = 100, start: Optional[datetime] = None,
                 end: Optional[datetime] = None, provider: Optional[str] = None) -> tuple[list[Candle], str]:
         providers = [self.provider(provider)] if provider else self.providers_for(inst.market, want_candles=True)

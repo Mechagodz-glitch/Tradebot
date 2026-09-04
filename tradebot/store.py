@@ -34,6 +34,8 @@ from .models import (
     OrderType,
     Position,
     Side,
+    Thesis,
+    ThesisStatus,
     TimeInForce,
     utcnow,
 )
@@ -169,6 +171,43 @@ class JournalRow(Base):
     def to_model(self) -> JournalEntry:
         return JournalEntry(id=self.id, ts=_aware(self.ts), kind=self.kind, venue=self.venue, symbol=self.symbol,
                             order_id=self.order_id, text=self.text, data=self.data)
+
+
+class ThesisRow(Base):
+    __tablename__ = "theses"
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    venue: Mapped[str] = mapped_column(String(32), index=True)
+    symbol: Mapped[str] = mapped_column(String(64), index=True)
+    market: Mapped[str] = mapped_column(String(8))
+    currency: Mapped[str] = mapped_column(String(8))
+    direction: Mapped[str] = mapped_column(String(8), default="long")
+    text: Mapped[str] = mapped_column(Text)
+    confidence: Mapped[float] = mapped_column(Float, default=0.5)
+    size_notional: Mapped[float] = mapped_column(Float)
+    stop_pct: Mapped[float] = mapped_column(Float)
+    target_pct: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    expires_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    status: Mapped[str] = mapped_column(String(16), index=True)
+    entry_order_id: Mapped[Optional[str]] = mapped_column(String(36), nullable=True)
+    qty: Mapped[float] = mapped_column(Float, default=0.0)
+    entry_price: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    exit_order_id: Mapped[Optional[str]] = mapped_column(String(36), nullable=True)
+    exit_price: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    closed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    close_reason: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    realized_pnl: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    tags: Mapped[Optional[list]] = mapped_column(JSON, nullable=True)
+
+    def to_model(self) -> Thesis:
+        return Thesis(id=self.id, created_at=_aware(self.created_at), updated_at=_aware(self.updated_at), venue=self.venue,
+                      symbol=self.symbol, market=Market(self.market), currency=self.currency, direction=self.direction,
+                      text=self.text, confidence=self.confidence, size_notional=self.size_notional, stop_pct=self.stop_pct,
+                      target_pct=self.target_pct, expires_at=_aware(self.expires_at), status=ThesisStatus(self.status),
+                      entry_order_id=self.entry_order_id, qty=self.qty, entry_price=self.entry_price,
+                      exit_order_id=self.exit_order_id, exit_price=self.exit_price, closed_at=_aware(self.closed_at),
+                      close_reason=self.close_reason, realized_pnl=self.realized_pnl, tags=self.tags or [])
 
 
 class Store:
@@ -355,6 +394,39 @@ class Store:
                 q = q.where(JournalRow.symbol == symbol)
             if since:
                 q = q.where(JournalRow.ts >= since)
+            return [r.to_model() for r in s.scalars(q)]
+
+    # ---- theses -----------------------------------------------------------
+    def save_thesis(self, t: Thesis) -> Thesis:
+        t.updated_at = utcnow()
+        with self.session() as s:
+            row = s.get(ThesisRow, t.id)
+            if row is None:
+                row = ThesisRow(id=t.id, created_at=t.created_at)
+                s.add(row)
+            for k in ("updated_at", "venue", "symbol", "currency", "direction", "text", "confidence", "size_notional", "stop_pct",
+                      "target_pct", "expires_at", "entry_order_id", "qty", "entry_price", "exit_order_id", "exit_price",
+                      "closed_at", "close_reason", "realized_pnl", "tags"):
+                setattr(row, k, getattr(t, k))
+            row.market = t.market.value
+            row.status = t.status.value
+            s.commit()
+        return t
+
+    def get_thesis(self, thesis_id: str) -> Optional[Thesis]:
+        with self.session() as s:
+            row = s.get(ThesisRow, thesis_id)
+            if row is None:
+                row = s.scalar(select(ThesisRow).where(ThesisRow.id.like(f"{thesis_id}%")))
+            return row.to_model() if row else None
+
+    def list_theses(self, statuses: Optional[Iterable[str]] = None, venue: Optional[str] = None, limit: int = 200) -> list[Thesis]:
+        with self.session() as s:
+            q = select(ThesisRow).order_by(ThesisRow.created_at.desc()).limit(limit)
+            if statuses:
+                q = q.where(ThesisRow.status.in_(list(statuses)))
+            if venue:
+                q = q.where(ThesisRow.venue == venue)
             return [r.to_model() for r in s.scalars(q)]
 
     def orders_in_last(self, seconds: int, venue: Optional[str] = None) -> int:

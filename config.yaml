@@ -17,7 +17,7 @@ risk:
   allowed_markets: [us, in, crypto]
   # per-market whitelist; markets not listed allow any symbol. Live Indian orders are limited to the strategy universe.
   allowed_symbols:
-    in: [NSE:RELIANCE, NSE:HDFCBANK, NSE:ICICIBANK, NSE:INFY, NSE:TCS, NSE:SBIN, NSE:ITC, NSE:BHARTIARTL, NSE:KOTAKBANK, NSE:LT]
+    in: file:data/universe/in.json   # 552 NSE names with >= 25 cr daily turnover; rebuild: tradebot universe build
   allow_outside_hours: false # live venues reject orders outside the exchange session
   blocked_symbols: []
   max_order_notional: { USD: 5000, INR: 4000 }        # INR: at most 40% of the 10k account per order
@@ -49,7 +49,7 @@ kite:
 strategy:
   name: trend                 # long-only trend following on daily candles (see README "Strategy")
   universe:
-    in: [NSE:RELIANCE, NSE:HDFCBANK, NSE:ICICIBANK, NSE:INFY, NSE:TCS, NSE:SBIN, NSE:ITC, NSE:BHARTIARTL, NSE:KOTAKBANK, NSE:LT]
+    in: file:data/universe/in.json   # scan the whole liquid market, not a hand-picked list
     us: [AAPL, MSFT, NVDA, AMZN, GOOGL, META, JPM, V, XOM, UNH]
     crypto: [BTC-USD, ETH-USD, SOL-USD, XRP-USD, LTC-USD]
   max_positions: 3

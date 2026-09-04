@@ -77,6 +77,6 @@ def test_dry_run_sends_nothing(engine, settings):
 def test_insufficient_budget_note(engine, settings):
     settings.strategy.universe = {"in": ["NSE:AAA"]}
     settings.paper.starting_cash["in"] = 10_000
-    make_series(engine.data.fake, "NSE:AAA", [5000 + i for i in range(60)])   # one share costs more than the budget
+    make_series(engine.data.fake, "NSE:AAA", [5000 + i * 50 for i in range(60)])   # trending, but one share costs more than the budget
     plan = TrendStrategy(engine).plan(Market.IN, "paper")
     assert plan.orders == [] and any("less than one unit" in n for n in plan.notes)
