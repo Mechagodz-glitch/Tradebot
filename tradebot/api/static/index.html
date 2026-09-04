@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tradebot Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 rx=%273%27 fill=%27%2358a6ff%27/%3E%3C/svg%3E">
+<script src="/static/chart.umd.min.js"></script>
+<style>
+  :root { --bg:#0f1115; --panel:#171a21; --line:#262b36; --text:#e6e8ee; --muted:#8b93a7; --green:#3fb950; --red:#f85149; --accent:#58a6ff; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.45 -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+  header { display:flex; align-items:center; gap:16px; padding:14px 20px; border-bottom:1px solid var(--line); }
+  header h1 { font-size:16px; margin:0; font-weight:600; }
+  header .status { color:var(--muted); font-size:12px; }
+  header select, header input, header button { background:var(--panel); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 8px; font:inherit; }
+  header button { cursor:pointer; }
+  main { display:grid; grid-template-columns: repeat(12, 1fr); gap:14px; padding:16px 20px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; min-width:0; }
+  .card h2 { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:0 0 10px; font-weight:600; }
+  .span3 { grid-column: span 3; } .span4 { grid-column: span 4; } .span6 { grid-column: span 6; } .span8 { grid-column: span 8; } .span12 { grid-column: span 12; }
+  .kpi { font-size:22px; font-weight:600; } .kpi small { font-size:12px; color:var(--muted); font-weight:400; margin-left:6px; }
+  .pos { color:var(--green); } .neg { color:var(--red); }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  th { color:var(--muted); font-weight:500; } td.num, th.num { text-align:right; font-variant-numeric: tabular-nums; }
+  .wrap { overflow-x:auto; }
+  .tag { display:inline-block; padding:1px 7px; border-radius:10px; font-size:11px; background:#232838; }
+  .tag.filled { color:var(--green);} .tag.rejected { color:var(--red);} .tag.accepted, .tag.new { color:var(--accent);} .tag.canceled, .tag.expired { color:var(--muted);}
+  .muted { color:var(--muted); }
+  canvas { max-height: 260px; }
+  @media (max-width: 1000px) { .span3,.span4,.span6,.span8 { grid-column: span 12; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Tradebot</h1>
+  <label class="muted">venue <select id="venue"><option value="paper">paper</option><option value="alpaca">alpaca</option><option value="kite">kite</option><option value="ccxt">ccxt</option></select></label>
+  <label class="muted">market <select id="market"><option value="crypto">crypto</option><option value="us">us</option><option value="in">in</option></select></label>
+  <input id="token" placeholder="API token (if set)" style="width:180px">
+  <button id="refresh">Refresh</button>
+  <button id="sync">Sync</button>
+  <span class="status" id="status">loading...</span>
+</header>
+<main>
+  <div class="card span3"><h2>Equity</h2><div class="kpi" id="k-equity">-</div><div class="muted" id="k-ccy"></div></div>
+  <div class="card span3"><h2>Cash</h2><div class="kpi" id="k-cash">-</div></div>
+  <div class="card span3"><h2>Total P&amp;L</h2><div class="kpi" id="k-pnl">-</div><div class="muted" id="k-pnl-pct"></div></div>
+  <div class="card span3"><h2>Day P&amp;L</h2><div class="kpi" id="k-day">-</div><div class="muted" id="k-unreal"></div></div>
+
+  <div class="card span8"><h2>Equity curve</h2><canvas id="equity"></canvas></div>
+  <div class="card span4"><h2>Quote</h2>
+    <div style="display:flex; gap:8px; margin-bottom:8px"><input id="qsym" placeholder="BTC-USD / AAPL / NSE:RELIANCE" style="flex:1; background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 8px"><button id="qbtn">Get</button></div>
+    <div id="qout" class="muted">Enter a symbol</div>
+    <canvas id="qchart" style="margin-top:10px"></canvas>
+  </div>
+
+  <div class="card span6"><h2>Positions</h2><div class="wrap"><table id="positions"><thead><tr><th>symbol</th><th class="num">qty</th><th class="num">avg</th><th class="num">mark</th><th class="num">value</th><th class="num">unrealized</th></tr></thead><tbody></tbody></table></div></div>
+  <div class="card span6"><h2>Journal</h2><div class="wrap" style="max-height:300px; overflow:auto"><table id="journal"><thead><tr><th>time</th><th>kind</th><th>symbol</th><th>text</th></tr></thead><tbody></tbody></table></div></div>
+
+  <div class="card span12"><h2>Orders</h2><div class="wrap"><table id="orders"><thead><tr><th>time</th><th>id</th><th>symbol</th><th>side</th><th class="num">qty</th><th>type</th><th class="num">limit</th><th class="num">stop</th><th>status</th><th class="num">filled</th><th class="num">avg fill</th><th>reason</th></tr></thead><tbody></tbody></table></div></div>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const fmt = (v, d=2) => v == null ? '-' : Number(v).toLocaleString(undefined, {maximumFractionDigits: Math.abs(v) < 1 ? 6 : d, minimumFractionDigits: Math.abs(v) < 1 ? 0 : d});
+const cls = (v) => v > 0 ? 'pos' : v < 0 ? 'neg' : '';
+let equityChart, quoteChart;
+function headers() { const t = $('#token').value.trim(); return t ? {Authorization: 'Bearer ' + t} : {}; }
+async function api(path, opts={}) {
+  const r = await fetch(path, {...opts, headers: {'Content-Type':'application/json', ...headers(), ...(opts.headers||{})}});
+  if (!r.ok) { let m = r.statusText; try { const j = await r.json(); m = j.message || JSON.stringify(j); } catch(e){} throw new Error(m); }
+  return r.json();
+}
+function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+async function refresh() {
+  const venue = $('#venue').value, market = $('#market').value;
+  $('#status').textContent = 'refreshing...';
+  try {
+    const [acct, positions, orders, journal, equity] = await Promise.all([
+      api(`/account?venue=${venue}&market=${market}`), api(`/positions?venue=${venue}&market=${market}`),
+      api(`/orders?venue=${venue}&limit=50`), api(`/journal?limit=40`), api(`/equity?venue=${venue}&market=${market}&limit=1000`)
+    ]);
+    const a = acct[0] || {};
+    if (a.error) { $('#status').textContent = 'account error: ' + a.error; }
+    $('#k-equity').textContent = fmt(a.equity); $('#k-ccy').textContent = a.currency || '';
+    $('#k-cash').textContent = fmt(a.cash);
+    const pnl = a.total_pnl; $('#k-pnl').textContent = fmt(pnl); $('#k-pnl').className = 'kpi ' + cls(pnl);
+    $('#k-pnl-pct').textContent = (pnl != null && a.starting_cash) ? (100*pnl/a.starting_cash).toFixed(2) + '% since start' : '';
+    $('#k-day').textContent = fmt(a.day_pnl); $('#k-day').className = 'kpi ' + cls(a.day_pnl);
+    $('#k-unreal').textContent = 'unrealized ' + fmt(a.unrealized_pnl) + ' / realized ' + fmt(a.realized_pnl);
+
+    $('#positions tbody').innerHTML = positions.map(p => `<tr><td>${esc(p.symbol)}</td><td class="num">${fmt(p.qty,6)}</td><td class="num">${fmt(p.avg_price)}</td><td class="num">${fmt(p.market_price)}</td><td class="num">${fmt(p.market_value)}</td><td class="num ${cls(p.unrealized_pnl)}">${fmt(p.unrealized_pnl)}</td></tr>`).join('') || '<tr><td colspan="6" class="muted">no open positions</td></tr>';
+    $('#orders tbody').innerHTML = orders.map(o => `<tr><td>${esc(o.created_at.slice(0,19).replace('T',' '))}</td><td>${esc(o.id)}</td><td>${esc(o.symbol)}</td><td>${esc(o.side)}</td><td class="num">${fmt(o.qty,6)}</td><td>${esc(o.order_type)}</td><td class="num">${fmt(o.limit_price)}</td><td class="num">${fmt(o.stop_price)}</td><td><span class="tag ${esc(o.status)}">${esc(o.status)}</span></td><td class="num">${fmt(o.filled_qty,6)}</td><td class="num">${fmt(o.avg_fill_price)}</td><td class="muted">${esc(o.reject_reason || o.reason || '')}</td></tr>`).join('') || '<tr><td colspan="12" class="muted">no orders</td></tr>';
+    $('#journal tbody').innerHTML = journal.map(j => `<tr><td>${esc(j.ts.slice(0,19).replace('T',' '))}</td><td>${esc(j.kind)}</td><td>${esc(j.symbol||'')}</td><td>${esc(j.text)}</td></tr>`).join('') || '<tr><td colspan="4" class="muted">empty</td></tr>';
+
+    const labels = equity.map(e => e.ts.slice(0,16).replace('T',' ')), data = equity.map(e => e.equity);
+    if (typeof Chart === 'undefined') { /* chart library unavailable; tables still work */ }
+    else if (!equityChart) {
+      equityChart = new Chart($('#equity'), {type:'line', data:{labels, datasets:[{label:'equity', data, borderColor:'#58a6ff', backgroundColor:'rgba(88,166,255,.12)', fill:true, tension:.2, pointRadius:0}]},
+        options:{responsive:true, plugins:{legend:{display:false}}, scales:{x:{ticks:{color:'#8b93a7', maxTicksLimit:8}, grid:{color:'#262b36'}}, y:{ticks:{color:'#8b93a7'}, grid:{color:'#262b36'}}}}});
+    } else if (equityChart) { equityChart.data.labels = labels; equityChart.data.datasets[0].data = data; equityChart.update(); }
+    $('#status').textContent = 'updated ' + new Date().toLocaleTimeString() + (equity.length ? '' : ' (run sync to record equity points)');
+  } catch (e) { $('#status').textContent = 'error: ' + e.message; }
+}
+async function getQuote() {
+  const s = $('#qsym').value.trim(); if (!s) return;
+  $('#qout').textContent = 'loading...';
+  try {
+    const [q, c] = await Promise.all([api(`/quote/${encodeURIComponent(s)}`), api(`/candles/${encodeURIComponent(s)}?interval=1d&limit=60`)]);
+    const chg = q.prev_close ? ((q.last/q.prev_close-1)*100) : null;
+    $('#qout').innerHTML = `<div class="kpi">${fmt(q.last)} <small>${esc(q.currency)} via ${esc(q.source)}</small></div><div class="muted">bid ${fmt(q.bid)} ask ${fmt(q.ask)} ${chg!=null?`<span class="${cls(chg)}">${chg.toFixed(2)}%</span>`:''}</div>`;
+    const labels = c.candles.map(x => x.ts.slice(0,10)), data = c.candles.map(x => x.close);
+    if (typeof Chart === 'undefined') { }
+    else if (!quoteChart) {
+      quoteChart = new Chart($('#qchart'), {type:'line', data:{labels, datasets:[{data, borderColor:'#3fb950', pointRadius:0, tension:.2}]},
+        options:{plugins:{legend:{display:false}}, scales:{x:{ticks:{color:'#8b93a7', maxTicksLimit:6}, grid:{color:'#262b36'}}, y:{ticks:{color:'#8b93a7'}, grid:{color:'#262b36'}}}}});
+    } else if (quoteChart) { quoteChart.data.labels = labels; quoteChart.data.datasets[0].data = data; quoteChart.update(); }
+  } catch (e) { $('#qout').textContent = 'error: ' + e.message; }
+}
+$('#refresh').onclick = refresh; $('#venue').onchange = refresh; $('#market').onchange = refresh;
+$('#sync').onclick = async () => { $('#status').textContent = 'syncing...'; try { await api('/sync?venue=' + $('#venue').value, {method:'POST'}); } catch(e) { $('#status').textContent = 'sync error: ' + e.message; return; } refresh(); };
+$('#qbtn').onclick = getQuote; $('#qsym').addEventListener('keydown', e => { if (e.key === 'Enter') getQuote(); });
+refresh(); setInterval(refresh, 30000);
+</script>
+</body>
+</html>

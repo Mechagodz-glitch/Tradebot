@@ -1,0 +1,47 @@
+# Tradebot configuration. Secrets live in .env, never here.
+db_path: data/tradebot.db
+default_venue: paper          # paper | alpaca | kite | ccxt
+
+# Hard gate. Live venues (alpaca live, kite, ccxt) refuse orders unless this is true
+# (or TRADEBOT_LIVE=1 is exported). Alpaca paper is NOT considered live.
+live_trading_enabled: false
+
+paper:
+  starting_cash: { us: 100000, in: 1000000, crypto: 100000 }   # USD, INR, USD
+  slippage_bps: 5           # applied to market / stop fills, adverse direction
+  fee_bps: { us: 0, in: 3, crypto: 40 }
+  allow_short: false
+
+risk:
+  kill_switch_file: data/KILL
+  allowed_markets: [us, in, crypto]
+  allowed_symbols: null      # null = any; or a list like [BTC-USD, AAPL]
+  blocked_symbols: []
+  max_order_notional: { USD: 5000, INR: 200000 }
+  max_position_notional: { USD: 20000, INR: 1000000 }
+  max_daily_loss: { USD: 1000, INR: 50000 }
+  max_open_orders: 20
+  max_orders_per_minute: 10
+
+data:
+  # provider order per market; first that works wins
+  us: [nasdaq, alpaca]
+  in: [groww, upstox]
+  crypto: [coinbase, kraken, ccxt]
+  cache_dir: data/cache
+  quote_ttl_seconds: 2
+
+alpaca:
+  paper: true                # ALPACA_PAPER=false to hit the live endpoint
+
+ccxt:
+  exchange: kraken           # any ccxt id: kraken, coinbase, okx, kucoin, delta, bitget, gemini ...
+  sandbox: false
+  default_type: spot
+
+kite:
+  product: CNC               # CNC (delivery) or MIS (intraday)
+  exchange: NSE
+
+api_host: 127.0.0.1
+api_port: 8787
