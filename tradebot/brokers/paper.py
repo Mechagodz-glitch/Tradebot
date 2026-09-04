@@ -28,6 +28,7 @@ from ..symbols import parse_symbol
 from .base import Broker
 
 EPS = 1e-12
+MAX_SPREAD_FRACTION = 0.01  # ignore bid/ask wider than 1% of last
 
 
 def apply_fill(pos_qty: float, pos_avg: float, side: Side, qty: float, price: float) -> tuple[float, float, float]:
@@ -157,6 +158,8 @@ class PaperBroker(Broker):
     def _fill_price(self, order: Order, q: Quote) -> Optional[float]:
         buy = order.side == Side.BUY
         ref = (q.ask if buy else q.bid) or q.last
+        if q.bid and q.ask and q.last and (q.ask - q.bid) > q.last * MAX_SPREAD_FRACTION:
+            ref = q.last  # book is implausibly wide (thin after-hours feed); do not fill at a bad touch
         if ref is None or ref <= 0:
             return None
         slip = self.settings.paper.slippage_bps / 10_000.0

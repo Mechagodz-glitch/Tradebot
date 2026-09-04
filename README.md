@@ -109,7 +109,7 @@ through to the next. Quotes are cached for `quote_ttl_seconds` (default 2s).
 
 **Paper** (default): nothing to do. Starting cash: 100,000 USD (us), 1,000,000 INR (in), 100,000 USD (crypto).
 
-**Alpaca** (US stocks and crypto): create a free account at alpaca.markets, generate paper API keys,
+**Alpaca** (US stocks and crypto, verified): create a free account at alpaca.markets, generate paper API keys,
 set `ALPACA_API_KEY` and `ALPACA_SECRET_KEY`. Paper trading is the default and is not gated by the live
 switch. Set `ALPACA_PAPER=false` plus `live_trading_enabled: true` to trade live. Also unlocks Alpaca
 market data (IEX feed, intraday candles) as a US and crypto data provider.
@@ -163,6 +163,10 @@ AGENT.md           operating contract for the AI layer that drives this tool
 - Nasdaq and Groww are unofficial public endpoints and may change without notice. Configure Alpaca
   (US) or Kite (India) for supported feeds.
 - Shorting is disabled in paper by default (`paper.allow_short`).
-- The live adapters (Alpaca, Kite, CCXT) are implemented against the vendors' documented APIs and
-  unit-tested for the gating logic, but they have not been exercised against a funded account from
-  this environment because no credentials were available.
+- The Alpaca adapter has been verified end to end against a paper account (market buy, fill refresh,
+  position mapping, close). Alpaca deducts its crypto fee in kind, so a 0.001 BTC buy yields a slightly
+  smaller position; `close` sells the exact held quantity. The Kite and CCXT adapters are implemented
+  against the vendors' documented APIs and unit-tested for gating logic, but have not been exercised
+  against a real account because no credentials were available.
+- Alpaca's free IEX feed can show a very wide bid/ask outside regular hours. The paper broker ignores a
+  book wider than 1% of the last price and fills off the last trade instead.

@@ -46,9 +46,17 @@ class AlpacaBroker(Broker):
         return f"{inst.base}/{inst.currency}" if inst.market == Market.CRYPTO else inst.symbol
 
     @staticmethod
-    def _canon(sym: str) -> tuple[str, Market]:
+    def _canon(sym: str, asset_class=None) -> tuple[str, Market]:
+        """Map Alpaca symbols back to canonical form. Orders use ``BTC/USD`` but positions report
+        ``BTCUSD`` with asset_class crypto, so split on a known quote currency."""
         if "/" in sym:
             return sym.replace("/", "-"), Market.CRYPTO
+        is_crypto = asset_class is not None and str(getattr(asset_class, "value", asset_class)).lower() == "crypto"
+        if is_crypto:
+            for quote in ("USDT", "USDC", "USD", "BTC"):
+                if sym.endswith(quote) and len(sym) > len(quote):
+                    return f"{sym[:-len(quote)]}-{quote}", Market.CRYPTO
+            return sym, Market.CRYPTO
         return sym, Market.US
 
     def _check(self) -> str:
@@ -66,7 +74,7 @@ class AlpacaBroker(Broker):
     def positions(self, market: Optional[Market] = None, mark: bool = True) -> list[Position]:
         out = []
         for p in self.client.get_all_positions():
-            sym, m = self._canon(p.symbol)
+            sym, m = self._canon(p.symbol, getattr(p, "asset_class", None))
             if market and m != market:
                 continue
             out.append(Position(venue=self.name, symbol=sym, market=m, currency="USD", qty=float(p.qty),

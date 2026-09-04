@@ -38,17 +38,21 @@ class AlpacaData(MarketDataProvider):
         return f"AAPL last={q.last}"
 
     def quote(self, inst: Instrument) -> Quote:
-        from alpaca.data.requests import CryptoLatestQuoteRequest, StockLatestTradeRequest, StockLatestQuoteRequest, CryptoLatestTradeRequest
+        from alpaca.data.requests import CryptoSnapshotRequest, StockSnapshotRequest
         stock, crypto = self._clients()
         sym = self._sym(inst)
         if inst.market == Market.CRYPTO:
-            t = crypto.get_crypto_latest_trade(CryptoLatestTradeRequest(symbol_or_symbols=sym))[sym]
-            q = crypto.get_crypto_latest_quote(CryptoLatestQuoteRequest(symbol_or_symbols=sym))[sym]
+            snap = crypto.get_crypto_snapshot(CryptoSnapshotRequest(symbol_or_symbols=sym))[sym]
         else:
-            t = stock.get_stock_latest_trade(StockLatestTradeRequest(symbol_or_symbols=sym))[sym]
-            q = stock.get_stock_latest_quote(StockLatestQuoteRequest(symbol_or_symbols=sym))[sym]
+            snap = stock.get_stock_snapshot(StockSnapshotRequest(symbol_or_symbols=sym, feed="iex"))[sym]
+        t, q, day, prev = snap.latest_trade, snap.latest_quote, snap.daily_bar, snap.previous_daily_bar
+        if t is None:
+            raise DataError(f"alpaca: no trade data for {inst.symbol}")
         return Quote(symbol=inst.symbol, market=inst.market, currency=inst.currency, last=float(t.price),
-                     bid=float(q.bid_price) or None, ask=float(q.ask_price) or None, ts=t.timestamp, source=self.name)
+                     bid=(float(q.bid_price) or None) if q else None, ask=(float(q.ask_price) or None) if q else None,
+                     open=float(day.open) if day else None, high=float(day.high) if day else None,
+                     low=float(day.low) if day else None, volume=float(day.volume) if day else None,
+                     prev_close=float(prev.close) if prev else None, ts=t.timestamp, source=self.name)
 
     def candles(self, inst: Instrument, interval: str = "1d", limit: int = 100,
                 start: Optional[datetime] = None, end: Optional[datetime] = None) -> list[Candle]:
@@ -62,11 +66,20 @@ class AlpacaData(MarketDataProvider):
         sym = self._sym(inst)
         end = end or utcnow()
         if start is None:
-            approx = {"Min": int(n) * 60, "Hour": int(n) * 3600, "Day": 86400 * int(n), "Week": 604800}[unit]
-            start = end - timedelta(seconds=approx * limit * (3 if inst.market == Market.US else 1.2))
+            seconds_per_bar = {"Min": 60, "Hour": 3600, "Day": 86400, "Week": 604800}[unit] * int(n)
+            span = timedelta(seconds=seconds_per_bar * limit)
+            if inst.market == Market.US:
+                # Equities trade ~6.5h on weekdays and IEX extended-hours bars are sparse: widen the window.
+                start = end - max(span * 4, timedelta(days=4))
+            else:
+                start = end - span * 1.5
+        # Alpaca's `limit` returns the OLDEST bars in the window, so fetch the window (alpaca-py paginates)
+        # and keep the newest `limit` locally.
         if inst.market == Market.CRYPTO:
-            bars = crypto.get_crypto_bars(CryptoBarsRequest(symbol_or_symbols=sym, timeframe=tf, start=start, end=end, limit=limit))
+            bars = crypto.get_crypto_bars(CryptoBarsRequest(symbol_or_symbols=sym, timeframe=tf, start=start, end=end))
         else:
-            bars = stock.get_stock_bars(StockBarsRequest(symbol_or_symbols=sym, timeframe=tf, start=start, end=end, limit=limit, feed="iex"))
+            bars = stock.get_stock_bars(StockBarsRequest(symbol_or_symbols=sym, timeframe=tf, start=start, end=end, feed="iex"))
         rows = bars.data.get(sym, [])
-        return [Candle(ts=b.timestamp, open=b.open, high=b.high, low=b.low, close=b.close, volume=b.volume) for b in rows][-limit:]
+        out = [Candle(ts=b.timestamp, open=b.open, high=b.high, low=b.low, close=b.close, volume=b.volume) for b in rows]
+        out.sort(key=lambda c: c.ts)
+        return out[-limit:]
