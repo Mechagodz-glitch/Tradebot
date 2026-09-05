@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Launcher: runs the project's tradebot CLI without activating the virtualenv.
+# Symlinked into ~/.local/bin by scripts/bootstrap.sh; can also be run as ./scripts/tradebot.
+ROOT="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/.." && pwd)"
+if [ ! -x "$ROOT/.venv/bin/tradebot" ]; then
+  echo "tradebot: virtualenv not found at $ROOT/.venv; run $ROOT/scripts/bootstrap.sh first" >&2
+  exit 1
+fi
+export TRADEBOT_ROOT="${TRADEBOT_ROOT:-$ROOT}"
+exec "$ROOT/.venv/bin/tradebot" "$@"

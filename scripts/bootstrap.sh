@@ -30,9 +30,17 @@ if [ -d data/snapshots ] && ls data/snapshots/*.json >/dev/null 2>&1; then
   tradebot import "$latest" || true
 fi
 
+# make `tradebot` available in any shell without activating the virtualenv
+mkdir -p "$HOME/.local/bin"
+ln -sf "$PWD/scripts/tradebot" "$HOME/.local/bin/tradebot"
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) PATH_NOTE="" ;;
+  *) PATH_NOTE="  (add ~/.local/bin to PATH, e.g.: echo 'export PATH=\"\$HOME/.local/bin:\$PATH\"' >> ~/.bashrc && source ~/.bashrc)" ;;
+esac
+
 echo
-echo "setup complete. next:"
-echo "  source .venv/bin/activate"
+echo "setup complete. 'tradebot' is linked into ~/.local/bin$PATH_NOTE"
+echo "next (from any directory, or use ./scripts/tradebot):"
 echo "  tradebot doctor            # connectivity and credentials"
 echo "  tradebot serve             # dashboard + API at http://127.0.0.1:8787"
 echo "  tradebot themes            # where money is moving"

@@ -17,7 +17,8 @@ persists everything in SQLite.
 ## Quick start
 
 One command on macOS, Linux or WSL (installs `uv` if needed, creates the virtualenv, installs the
-package, creates `.env` from the template and imports the latest committed journal/theses snapshot):
+package, creates `.env` from the template and imports the latest committed journal/theses snapshot, and links a `tradebot` launcher into
+`~/.local/bin` so the command works without activating the virtualenv; `./scripts/tradebot` always works too):
 
 ```bash
 git clone https://github.com/Mechagodz-glitch/Tradebot.git && cd Tradebot && ./scripts/bootstrap.sh
