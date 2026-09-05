@@ -661,6 +661,30 @@ def hours():
     _out([market_session(m) for m in Market])
 
 
+@app.command("export")
+def export_state(out: Optional[str] = typer.Option(None, "--out", help="file path (default data/snapshots/<date>.json)")):
+    """Dump journal, theses, orders, fills and equity curve to JSON."""
+    def run():
+        from pathlib import Path
+        eng = _engine()
+        data = eng.export_state()
+        path = Path(out) if out else Path(eng.settings.root) / "data" / "snapshots" / f"{datetime.utcnow():%Y-%m-%d}.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(data, indent=1, default=str))
+        _out({"written": str(path), "journal": len(data["journal"]), "theses": len(data["theses"]), "orders": len(data["orders"])})
+    _handle(run)
+
+
+@app.command("import")
+def import_state(path: str):
+    """Restore journal entries and theses from an export (idempotent)."""
+    def run():
+        from pathlib import Path
+        data = json.loads(Path(path).read_text())
+        _out(_engine().import_state(data))
+    _handle(run)
+
+
 @app.command()
 def serve(host: Optional[str] = typer.Option(None), port: Optional[int] = typer.Option(None), reload: bool = typer.Option(False)):
     """Run the HTTP API + dashboard."""

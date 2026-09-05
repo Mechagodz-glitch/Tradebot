@@ -16,6 +16,24 @@ persists everything in SQLite.
 
 ## Quick start
 
+One command on macOS, Linux or WSL (installs `uv` if needed, creates the virtualenv, installs the
+package, creates `.env` from the template and imports the latest committed journal/theses snapshot):
+
+```bash
+git clone https://github.com/Mechagodz-glitch/Tradebot.git && cd Tradebot && ./scripts/bootstrap.sh
+```
+
+On Windows PowerShell:
+
+```powershell
+git clone https://github.com/Mechagodz-glitch/Tradebot.git; cd Tradebot
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+uv venv .venv --python 3.11; .venv\Scripts\activate
+uv pip install -e ".[dev]"; copy .env.example .env
+```
+
+Manual equivalent:
+
 ```bash
 uv venv .venv --python 3.11 && . .venv/bin/activate
 uv pip install -e ".[dev]"
@@ -58,6 +76,7 @@ tradebot --json buy AAPL 5 --type limit --limit 300 --tif gtc --reason "buy the 
 | `reset-paper --yes [--market]` | Wipe paper state back to starting cash |
 | `kite-login [REQUEST_TOKEN]` | Zerodha daily login flow |
 | `serve [--host] [--port]` | Run the HTTP API and dashboard |
+| `export [--out FILE]` / `import FILE` | Dump journal, theses, orders, fills and equity to JSON; restore journal and theses from a dump (used to carry state between machines) |
 
 Exit codes: 0 ok, 2 application error (risk rejection, bad symbol, venue error), 3 order rejected by the venue.
 

@@ -1,0 +1,819 @@
+{
+ "exported_at": "2026-09-05T17:21:23.185358+00:00",
+ "version": "0.1.0",
+ "journal": [
+  {
+   "id": 24,
+   "ts": "2026-09-04T23:00:02.158908Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": "BSE:CIANAGRO",
+   "order_id": null,
+   "text": "CIAN Agro Industries & Infrastructure (BSE:CIANAGRO, code 519477; not on NSE). Promoter/MD Nikhil Gadkari (son of MoRTH minister Nitin Gadkari); Manas Agro (run by Sarang Gadkari) is a subsidiary. Verified 5 Sep 2026: last 1,375.95 (-2.8% Fri), 6-month high 2,079.85 (-34%), 52w high 3,633 (-62%), below SMA20 (-3.5%) and SMA50 (-6.9%), 20d +1.2%, 60d -6%. Turnover ~8 cr/day (below 25 cr floor), 5% circuit band (1,307/1,445). Mcap ~3,763 cr, P/E 11.7. FY26 consolidated revenue 2,234 cr (+122%, mostly acquisitions incl. Manas Agro and a sugar/molasses trader), consolidated PAT 65 cr, standalone PAT 0.7 cr. Red flags: 44% of promoter stake pledged, profit reliant on other income, negative operating cash flow, institutional holding <0.2%, long-term ASM stage 4 (Sep 2025). Politics: Congress alleges conflict of interest and demands a Lokpal probe; Gadkari denies. Policy: E100 rules cleared 13 Jun 2026, E85 launched; E20 consumer backlash growing. Decision: NO position. Watch triggers: ethanol price/tender for ESY 2026-27 (Oct-Nov), any E27/E30 roadmap, reclaim of SMA50 on >3x volume, pledge reduction. Would only ever be a tiny, limit-order-only position because of the circuit band.",
+   "data": {
+    "exchange": "BSE",
+    "turnover_cr": 8,
+    "circuit_pct": 5,
+    "pledge_pct": 44,
+    "decision": "watch",
+    "triggers": [
+     "ESY 2026-27 ethanol price",
+     "E27/E30 roadmap",
+     "reclaim SMA50 on volume"
+    ]
+   }
+  },
+  {
+   "id": 23,
+   "ts": "2026-09-04T22:46:54.742625Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Macro diagnosis Sat 5 Sep 2026: (1) US-Iran strikes resumed this week after the July pause; Iran hit US bases, Jordan, Bahrain; Kuwait engaged missiles. Brent ~95; Hormuz disruption expected to persist into year-end (MOL). VLCC rates at record highs (TradeWinds 2 Sep). (2) FII outflows ~2.4 lakh cr YTD (record), DIIs absorbing ~90%; rupee 94.49 after RBI intervention + dollar deposits; forex reserves record USD 740.8 bn. (3) US Aug payrolls +162k vs +55k: Fed hike odds for 15-16 Sep above 50%; US CPI 11 Sep pivotal. (4) Domestic growth fine (FY26 GDP 7.6%, CPI 4.45%). Where money moved Fri: NSE-stake basket +4.1% (NIACL 17x vol), textile exporters +1.3% (Welspun Living +3.9%, +27% 20d, US 60% of revenue, 18% tariff vs 20% for Bangladesh/Vietnam), capital-market names (Angel One +4.8% on 5.5x, MCX +3.3%, BSE +3.1%), Reliance +1.8% (Jio Platforms IPO has SEBI nod; FE: Jio and NSE top a 4.66 lakh cr pipeline). Money leaving: Adani (-5% 20d; SEBI hearings target Hindenburg-linked short sellers, not Adani), toll roads/infra (-6% 20d), crude importers (paints, OMCs, aviation -5% 20d), sugar (-2.7% 5d after the 1 MT duty-free raw sugar import TRQ capped domestic prices; Renuka is the refiner beneficiary but at Rs 24 with thin volume; export ban to 30 Sep; ethanol price for ESY 2026-27 is a later catalyst). Unverified and NOT used: claim that Amit Shah's son owns an ethanol company (no filing or report found; only 2017 Temple Enterprise stories). Decisions: theses Swiggy 2,500 / GIC Re 2,000 / Oil India 2,400 (planned on kite); systematic sleeve 2 slots max, filtered scan leaders KRN, Jyoti CNC, Welspun Living, Shilpa Medicare, MCX; watch GE Shipping (laggard vs record tanker rates) and Reliance (Jio IPO date). Big IPO supply mid-Sep (NSE, Jio) may drain secondary liquidity: keep the 5% cash buffer.",
+   "data": {
+    "brent": 95,
+    "usdinr": 94.49,
+    "fed_hike_odds_pct": 55,
+    "fii_ytd_outflow_lakh_cr": 2.4,
+    "watch": [
+     "NSE:GESHIP",
+     "NSE:RELIANCE",
+     "NSE:RENUKA",
+     "NSE:MCX"
+    ],
+    "avoid": [
+     "NSE:IFCI",
+     "NSE:NIACL",
+     "sugar mills this week",
+     "Adani this week"
+    ]
+   }
+  },
+  {
+   "id": 22,
+   "ts": "2026-09-04T22:46:43.863914Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": null,
+   "text": "thesis 9bfaa74c2640 planned: US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "data": {
+    "thesis_id": "9bfaa74c2640",
+    "size": 2400.0,
+    "stop_pct": 5.0,
+    "target_pct": 8.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-18T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 21,
+   "ts": "2026-09-04T22:46:43.203829Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": null,
+   "text": "thesis 849f600df9e3 planned: SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "data": {
+    "thesis_id": "849f600df9e3",
+    "size": 2000.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.52,
+    "expires_at": "2026-09-16T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 20,
+   "ts": "2026-09-04T22:46:42.520100Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "order_id": null,
+   "text": "thesis 90f5f2db97a0 planned: MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "data": {
+    "thesis_id": "90f5f2db97a0",
+    "size": 2500.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.58,
+    "expires_at": "2026-09-18T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 19,
+   "ts": "2026-09-04T22:22:54.534273Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Research pass Sat 5 Sep 2026 (for Mon 7 Sep). Market: Nifty 23,898 (support 23,800/23,700, resistance 24,000), FPIs net sellers, US-Iran tension and crude in focus; US CPI 11 Sep, India CPI 12 Sep, FOMC 16 Sep. Catalysts: (1) NSE IPO cleared by SEBI 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep; ~30,000 cr OFS at ~5 lakh cr implied valuation. Stakeholders: LIC 10.72%, SBI 3.23% (+4.33% via SBI Caps), GIC Re 1.64% (selling shareholder), NIACL 1.42%, Bank of Baroda small. IFCI sold its stake in 2019 yet ran +23% in a week: avoid. NIACL +17.7% Fri on 17x volume: blow-off risk, avoid chasing. GIC Re +4.5% on 5.5x: preferred vehicle (thesis ba38ba98fb33). LIC flat: low-beta alternative. (2) Swiggy MSCI deletion effective 7 Sep; passive selling absorbed Fri (13x volume, closed +2.5%); Indian-owned status lets Instamart own inventory: rebound thesis 3510983924c4. (3) Tejas Networks +8% Fri on 7x volume, +20% in 20d, catalyst unidentified: leave to the systematic scan. (4) Ather Energy extended after +130% YTD; -3.3% Fri: skip. Systematic scan of 552 liquid names with quality filters: top eligible KRN, JYOTICNC, WELSPUNLIV, SHILPAMED, AEROFLEX, URBANCO, CYIENTDLM, BALAMINES, MCX, LENSKART; recompute Monday on live prices.",
+   "data": {
+    "nse_ipo": {
+     "price_band": "2026-09-11",
+     "opens": "2026-09-15",
+     "listing": "2026-09-25"
+    },
+    "avoid": [
+     "NSE:IFCI",
+     "NSE:NIACL"
+    ],
+    "theses": [
+     "3510983924c4",
+     "ba38ba98fb33"
+    ],
+    "scan_top": [
+     "NSE:KRN",
+     "NSE:JYOTICNC",
+     "NSE:WELSPUNLIV",
+     "NSE:SHILPAMED",
+     "NSE:MCX",
+     "NSE:LENSKART"
+    ]
+   }
+  },
+  {
+   "id": 18,
+   "ts": "2026-09-04T22:20:11.752306Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": null,
+   "text": "thesis ba38ba98fb33 planned: SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue opens ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied valuation) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with only +4.5% on 5.5x volume; less blow-off risk. Ride the news flow into the price band.",
+   "data": {
+    "thesis_id": "ba38ba98fb33",
+    "size": 2500.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-16T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 17,
+   "ts": "2026-09-04T22:20:11.052912Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "order_id": null,
+   "text": "thesis 3510983924c4 planned: MSCI Global Standard deletion effective Mon 7 Sep; forced passive selling (~USD 500m) executed into Fri 4 Sep close, absorbed by domestic block buyers (4% of equity), stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks.",
+   "data": {
+    "thesis_id": "3510983924c4",
+    "size": 3000.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.58,
+    "expires_at": "2026-09-18T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 16,
+   "ts": "2026-09-04T21:59:41.978485Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Plan agreed with Aravind on Fri 2026-09-04 for the first live day, Mon 2026-09-07 on Zerodha (10,000 INR): trend strategy, max 3 positions x ~30% equity, 3% stop, 400 INR daily loss cap, 10-name Nifty universe, CNC delivery, marketable limit entries. Wake-up 09:00 IST for the Kite token; live switch stays off until funds are confirmed that morning. On Friday's data the plan would buy 7 NSE:KOTAKBANK (~2,976 INR) and hold the rest in cash.",
+   "data": null
+  },
+  {
+   "id": 15,
+   "ts": "2026-09-04T21:55:30.417457Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "[trend] dry run on paper/in: 1 orders, 1 accepted",
+   "data": {
+    "results": [
+     {
+      "symbol": "NSE:KOTAKBANK",
+      "side": "buy",
+      "qty": 7.0,
+      "status": "new",
+      "order_id": "dry-run",
+      "avg_fill_price": null,
+      "detail": "dry_run ok: notional 2975.98 INR @ ref 425.14"
+     }
+    ],
+    "notes": []
+   }
+  },
+  {
+   "id": 14,
+   "ts": "2026-09-04T21:41:58.700741Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:RELIANCE",
+   "order_id": null,
+   "text": "REJECTED buy 1 NSE:RELIANCE: live trading is disabled; set live_trading_enabled: true in config.yaml or TRADEBOT_LIVE=1",
+   "data": {
+    "code": "live_trading_disabled",
+    "reason": "gate check"
+   }
+  },
+  {
+   "id": 13,
+   "ts": "2026-09-04T21:30:59.566448Z",
+   "kind": "order",
+   "venue": "alpaca",
+   "symbol": "BTC-USD",
+   "order_id": "dd863a50d74f",
+   "text": "new: sell 0.0009975 BTC-USD market | reason: end of adapter test",
+   "data": {
+    "reason": "end of adapter test",
+    "strategy": null,
+    "risk": {
+     "notional": 79.62370184999999,
+     "reference_price": 79823.26,
+     "reduces_position": true
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 12,
+   "ts": "2026-09-04T21:30:13.340630Z",
+   "kind": "order",
+   "venue": "alpaca",
+   "symbol": "BTC-USD",
+   "order_id": "e781dbcaabb2",
+   "text": "new: buy 0.001 BTC-USD market | reason: validate alpaca paper adapter end to end",
+   "data": {
+    "reason": "validate alpaca paper adapter end to end",
+    "strategy": null,
+    "risk": {
+     "notional": 79.79711,
+     "reference_price": 79797.11,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 11,
+   "ts": "2026-09-04T20:58:23.311447Z",
+   "kind": "risk",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "order_id": null,
+   "text": "REJECTED buy 2 BTC-USD: order notional 159,427.54 USD exceeds max_order_notional 5,000.00",
+   "data": {
+    "code": "order_too_large",
+    "reason": null
+   }
+  },
+  {
+   "id": 10,
+   "ts": "2026-09-04T20:57:07.198354Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "order_id": "bd540089ab65",
+   "text": "filled: sell 2 AAPL market | reason: partial exit",
+   "data": {
+    "reason": "partial exit",
+    "strategy": null,
+    "risk": {
+     "notional": 639.54,
+     "reference_price": 319.77,
+     "reduces_position": true
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 9,
+   "ts": "2026-09-04T20:57:07.196388Z",
+   "kind": "fill",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "order_id": "bd540089ab65",
+   "text": "filled sell 2 AAPL @ 319.6201 USD (fee 0.00)",
+   "data": {
+    "qty": 2.0,
+    "price": 319.62011,
+    "fee": 0.0,
+    "realized": -0.6795799999999872,
+    "source": "nasdaq"
+   }
+  },
+  {
+   "id": 8,
+   "ts": "2026-09-04T20:56:45.171220Z",
+   "kind": "risk",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "order_id": null,
+   "text": "REJECTED buy 1 BTC-USD: order notional 79,709.42 USD exceeds max_order_notional 5,000.00",
+   "data": {
+    "code": "order_too_large",
+    "reason": "should be rejected by risk"
+   }
+  },
+  {
+   "id": 7,
+   "ts": "2026-09-04T20:56:43.953296Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "ETH-USD",
+   "order_id": "56e254729f80",
+   "text": "accepted: buy 0.5 ETH-USD limit @ 2000.0 | reason: resting limit below market",
+   "data": {
+    "reason": "resting limit below market",
+    "strategy": null,
+    "risk": {
+     "notional": 1000.0,
+     "reference_price": 2000.0,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 6,
+   "ts": "2026-09-04T20:56:42.569754Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "NSE:RELIANCE",
+   "order_id": "5c4225271613",
+   "text": "filled: buy 10 NSE:RELIANCE market | reason: smoke test: NSE market buy",
+   "data": {
+    "reason": "smoke test: NSE market buy",
+    "strategy": null,
+    "risk": {
+     "notional": 13220.0,
+     "reference_price": 1322.0,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 5,
+   "ts": "2026-09-04T20:56:42.567706Z",
+   "kind": "fill",
+   "venue": "paper",
+   "symbol": "NSE:RELIANCE",
+   "order_id": "5c4225271613",
+   "text": "filled buy 10 NSE:RELIANCE @ 1322.6610 INR (fee 3.97)",
+   "data": {
+    "qty": 10.0,
+    "price": 1322.6609999999998,
+    "fee": 3.9679829999999994,
+    "realized": 0.0,
+    "source": "groww"
+   }
+  },
+  {
+   "id": 4,
+   "ts": "2026-09-04T20:56:40.862406Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "order_id": "0efcd03735ca",
+   "text": "filled: buy 5 AAPL market | reason: smoke test: US market buy",
+   "data": {
+    "reason": "smoke test: US market buy",
+    "strategy": null,
+    "risk": {
+     "notional": 1658.9134999999999,
+     "reference_price": 331.7827,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 3,
+   "ts": "2026-09-04T20:56:40.860409Z",
+   "kind": "fill",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "order_id": "0efcd03735ca",
+   "text": "filled buy 5 AAPL @ 319.9599 USD (fee 0.00)",
+   "data": {
+    "qty": 5.0,
+    "price": 319.9599,
+    "fee": 0.0,
+    "realized": 0.0,
+    "source": "nasdaq"
+   }
+  },
+  {
+   "id": 2,
+   "ts": "2026-09-04T20:56:37.541028Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "order_id": "4e02bbfc5b4f",
+   "text": "filled: buy 0.02 BTC-USD market | reason: smoke test: crypto market buy",
+   "data": {
+    "reason": "smoke test: crypto market buy",
+    "strategy": null,
+    "risk": {
+     "notional": 1594.4426,
+     "reference_price": 79722.13,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 1,
+   "ts": "2026-09-04T20:56:37.539032Z",
+   "kind": "fill",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "order_id": "4e02bbfc5b4f",
+   "text": "filled buy 0.02 BTC-USD @ 79761.9911 USD (fee 6.38)",
+   "data": {
+    "qty": 0.02,
+    "price": 79761.991065,
+    "fee": 6.380959285199999,
+    "realized": 0.0,
+    "source": "coinbase"
+   }
+  }
+ ],
+ "theses": [
+  {
+   "id": "9bfaa74c2640",
+   "created_at": "2026-09-04T22:46:43.847738Z",
+   "updated_at": "2026-09-04T22:46:43.847766Z",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "confidence": 0.55,
+   "size_notional": 2400.0,
+   "stop_pct": 5.0,
+   "target_pct": 8.0,
+   "expires_at": "2026-09-18T00:00:00Z",
+   "status": "planned",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": null,
+   "close_reason": null,
+   "realized_pnl": null,
+   "tags": [
+    "macro",
+    "crude"
+   ]
+  },
+  {
+   "id": "849f600df9e3",
+   "created_at": "2026-09-04T22:46:43.189514Z",
+   "updated_at": "2026-09-04T22:46:43.189533Z",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "confidence": 0.52,
+   "size_notional": 2000.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-16T00:00:00Z",
+   "status": "planned",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": null,
+   "close_reason": null,
+   "realized_pnl": null,
+   "tags": [
+    "event",
+    "nse-ipo"
+   ]
+  },
+  {
+   "id": "90f5f2db97a0",
+   "created_at": "2026-09-04T22:46:42.504901Z",
+   "updated_at": "2026-09-04T22:46:42.504920Z",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "confidence": 0.58,
+   "size_notional": 2500.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-18T00:00:00Z",
+   "status": "planned",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": null,
+   "close_reason": null,
+   "realized_pnl": null,
+   "tags": [
+    "event",
+    "index-flow"
+   ]
+  },
+  {
+   "id": "ba38ba98fb33",
+   "created_at": "2026-09-04T22:20:11.737995Z",
+   "updated_at": "2026-09-04T22:46:41.824074Z",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue opens ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied valuation) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with only +4.5% on 5.5x volume; less blow-off risk. Ride the news flow into the price band.",
+   "confidence": 0.55,
+   "size_notional": 2500.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-16T00:00:00Z",
+   "status": "canceled",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": "2026-09-04T22:46:41.824033Z",
+   "close_reason": "re-sized after Saturday research pass",
+   "realized_pnl": null,
+   "tags": [
+    "event",
+    "nse-ipo"
+   ]
+  },
+  {
+   "id": "3510983924c4",
+   "created_at": "2026-09-04T22:20:11.038430Z",
+   "updated_at": "2026-09-04T22:46:41.166981Z",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "MSCI Global Standard deletion effective Mon 7 Sep; forced passive selling (~USD 500m) executed into Fri 4 Sep close, absorbed by domestic block buyers (4% of equity), stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks.",
+   "confidence": 0.58,
+   "size_notional": 3000.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-18T00:00:00Z",
+   "status": "canceled",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": "2026-09-04T22:46:41.166937Z",
+   "close_reason": "re-sized after Saturday research pass",
+   "realized_pnl": null,
+   "tags": [
+    "event",
+    "index-flow"
+   ]
+  }
+ ],
+ "orders": [
+  {
+   "id": "dd863a50d74f",
+   "venue": "alpaca",
+   "venue_order_id": "4549c7d1-8d5f-4328-a253-ab90ba910ca8",
+   "symbol": "BTC-USD",
+   "market": "crypto",
+   "currency": "USD",
+   "side": "sell",
+   "qty": 0.0009975,
+   "filled_qty": 0.0009975,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "gtc",
+   "status": "filled",
+   "avg_fill_price": 79799.8,
+   "fees": 0.0,
+   "reason": "end of adapter test",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T21:30:59.510322Z",
+   "updated_at": "2026-09-04T21:31:06.067962Z"
+  },
+  {
+   "id": "e781dbcaabb2",
+   "venue": "alpaca",
+   "venue_order_id": "e27fd226-cfbc-4b8f-9050-3c858cc68ad4",
+   "symbol": "BTC-USD",
+   "market": "crypto",
+   "currency": "USD",
+   "side": "buy",
+   "qty": 0.001,
+   "filled_qty": 0.001,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "gtc",
+   "status": "filled",
+   "avg_fill_price": 79826.023,
+   "fees": 0.0,
+   "reason": "validate alpaca paper adapter end to end",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T21:30:13.288035Z",
+   "updated_at": "2026-09-04T21:30:18.091799Z"
+  },
+  {
+   "id": "bd540089ab65",
+   "venue": "paper",
+   "venue_order_id": null,
+   "symbol": "AAPL",
+   "market": "us",
+   "currency": "USD",
+   "side": "sell",
+   "qty": 2.0,
+   "filled_qty": 2.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 319.62011,
+   "fees": 0.0,
+   "reason": "partial exit",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T20:57:07.177423Z",
+   "updated_at": "2026-09-04T20:57:07.194436Z"
+  },
+  {
+   "id": "56e254729f80",
+   "venue": "paper",
+   "venue_order_id": null,
+   "symbol": "ETH-USD",
+   "market": "crypto",
+   "currency": "USD",
+   "side": "buy",
+   "qty": 0.5,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 2000.0,
+   "stop_price": null,
+   "tif": "gtc",
+   "status": "accepted",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "resting limit below market",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T20:56:43.945974Z",
+   "updated_at": "2026-09-04T20:56:43.945983Z"
+  },
+  {
+   "id": "0efcd03735ca",
+   "venue": "paper",
+   "venue_order_id": null,
+   "symbol": "AAPL",
+   "market": "us",
+   "currency": "USD",
+   "side": "buy",
+   "qty": 5.0,
+   "filled_qty": 5.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 319.9599,
+   "fees": 0.0,
+   "reason": "smoke test: US market buy",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T20:56:40.845402Z",
+   "updated_at": "2026-09-04T20:56:40.858560Z"
+  },
+  {
+   "id": "4e02bbfc5b4f",
+   "venue": "paper",
+   "venue_order_id": null,
+   "symbol": "BTC-USD",
+   "market": "crypto",
+   "currency": "USD",
+   "side": "buy",
+   "qty": 0.02,
+   "filled_qty": 0.02,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 79761.991065,
+   "fees": 6.380959285199999,
+   "reason": "smoke test: crypto market buy",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T20:56:37.523337Z",
+   "updated_at": "2026-09-04T20:56:37.537142Z"
+  }
+ ],
+ "fills": [
+  {
+   "id": "11e82c413b5c",
+   "order_id": "bd540089ab65",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "market": "us",
+   "side": "sell",
+   "qty": 2.0,
+   "price": 319.62011,
+   "fee": 0.0,
+   "ts": "2026-09-04T20:57:07.192417Z"
+  },
+  {
+   "id": "c1bbdc288dde",
+   "order_id": "0efcd03735ca",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "market": "us",
+   "side": "buy",
+   "qty": 5.0,
+   "price": 319.9599,
+   "fee": 0.0,
+   "ts": "2026-09-04T20:56:40.856714Z"
+  },
+  {
+   "id": "a3007805298c",
+   "order_id": "4e02bbfc5b4f",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "market": "crypto",
+   "side": "buy",
+   "qty": 0.02,
+   "price": 79761.991065,
+   "fee": 6.380959285199999,
+   "ts": "2026-09-04T20:56:37.535196Z"
+  }
+ ],
+ "equity": {
+  "paper/us": [
+   {
+    "venue": "paper",
+    "market": "us",
+    "ts": "2026-09-04T20:57:03.822709Z",
+    "cash": 98400.2005,
+    "positions_value": 1599.0,
+    "equity": 99999.2005
+   },
+   {
+    "venue": "paper",
+    "market": "us",
+    "ts": "2026-09-04T20:58:24.429661Z",
+    "cash": 99039.44072000001,
+    "positions_value": 959.3955,
+    "equity": 99998.83622000001
+   }
+  ],
+  "paper/in": [],
+  "paper/crypto": [
+   {
+    "venue": "paper",
+    "market": "crypto",
+    "ts": "2026-09-04T20:57:04.841215Z",
+    "cash": 98398.3792194148,
+    "positions_value": 1594.4768,
+    "equity": 99992.8560194148
+   },
+   {
+    "venue": "paper",
+    "market": "crypto",
+    "ts": "2026-09-04T20:58:24.863380Z",
+    "cash": 98398.3792194148,
+    "positions_value": 1594.2754000000002,
+    "equity": 99992.6546194148
+   }
+  ],
+  "alpaca/us": [],
+  "alpaca/in": [],
+  "alpaca/crypto": [],
+  "kite/us": [],
+  "kite/in": [],
+  "kite/crypto": [],
+  "ccxt/us": [],
+  "ccxt/in": [],
+  "ccxt/crypto": []
+ }
+}

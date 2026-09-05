@@ -330,6 +330,41 @@ class TradingEngine:
         statuses = None if all_ else [ThesisStatus.PLANNED.value, ThesisStatus.PENDING.value, ThesisStatus.OPEN.value]
         return self.store.list_theses(statuses=statuses, venue=venue)
 
+    # ---- state export / import (carry journal and theses between machines) ---------------
+    def export_state(self) -> dict:
+        return {
+            "exported_at": utcnow().isoformat(),
+            "version": __version__,
+            "journal": [j.model_dump(mode="json") for j in self.store.list_journal(limit=100_000)],
+            "theses": [t.model_dump(mode="json") for t in self.store.list_theses(limit=100_000)],
+            "orders": [o.model_dump(mode="json") for o in self.store.list_orders(limit=100_000)],
+            "fills": [f.model_dump(mode="json") for f in self.store.list_fills(limit=100_000)],
+            "equity": {f"{v}/{m.value}": [e.model_dump(mode="json") for e in self.store.equity_curve(v, m, limit=100_000)]
+                       for v in self.brokers.names() for m in Market},
+        }
+
+    def import_state(self, data: dict) -> dict:
+        """Restore journal entries and theses (idempotent: existing ids / identical entries are skipped).
+        Orders and fills are venue history and are not re-created."""
+        existing_theses = {t.id for t in self.store.list_theses(limit=100_000)}
+        added_t = 0
+        for raw in data.get("theses", []):
+            t = Thesis.model_validate(raw)
+            if t.id in existing_theses:
+                continue
+            self.store.save_thesis(t)
+            added_t += 1
+        existing = {(j.ts.isoformat(), j.text) for j in self.store.list_journal(limit=100_000)}
+        added_j = 0
+        for raw in data.get("journal", []):
+            j = JournalEntry.model_validate(raw)
+            if (j.ts.isoformat(), j.text) in existing:
+                continue
+            j.id = None
+            self.store.journal(j)
+            added_j += 1
+        return {"theses_added": added_t, "journal_added": added_j, "exported_at": data.get("exported_at")}
+
     def set_kill_switch(self, on: bool) -> bool:
         path = self.settings.resolve(self.settings.risk.kill_switch_file)
         if on:
