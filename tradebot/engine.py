@@ -14,8 +14,8 @@ from .data import MarketData
 from .errors import BrokerError, NotFound, RiskRejected
 from .hours import market_session
 from .models import (
-    Account, Candle, CheckResult, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, OrderType, Position, Quote,
-    Side, Thesis, ThesisRequest, ThesisStatus, TimeInForce, utcnow,
+    Account, Candle, CheckResult, EquityPoint, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, OrderType, Position,
+    Quote, Side, Thesis, ThesisRequest, ThesisStatus, TimeInForce, utcnow,
 )
 from .risk import RiskEngine
 from .store import Store
@@ -171,10 +171,24 @@ class TradingEngine:
         names = [venue] if venue else [n for n in self.brokers.names() if self.brokers.get(n).available()]
         out = {}
         for n in names:
+            b = self.brokers.get(n)
             try:
-                out[n] = self.brokers.get(n).sync()
+                out[n] = b.sync()
             except Exception as e:  # noqa: BLE001
                 out[n] = {"error": str(e)}
+                continue
+            if b.name == "paper":
+                continue  # the paper broker snapshots its own equity
+            snaps = {}
+            for m in b.markets:
+                try:
+                    a = b.account(m)
+                    self.store.add_equity_point(EquityPoint(venue=b.name, market=m, ts=utcnow(), cash=a.cash,
+                                                             positions_value=a.positions_value, equity=a.equity))
+                    snaps[m.value] = a.equity
+                except Exception:  # noqa: BLE001
+                    continue
+            out[n]["equity"] = snaps
         return out
 
     # ---- reporting ------------------------------------------------------------
