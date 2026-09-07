@@ -20,6 +20,7 @@ from .models import (
 from .risk import RiskEngine
 from .store import Store
 from .symbols import parse_symbol
+from .ticks import round_to_tick
 
 
 class TradingEngine:
@@ -249,7 +250,7 @@ class TradingEngine:
             raise BrokerError(f"thesis {t.id} is {t.status.value}; cannot enter", code="invalid")
         inst = self.instrument(t.symbol, t.market)
         q = self.data.quote(inst, use_cache=False)
-        limit = round(q.last * (1 + 15.0 / 10_000), 2)
+        limit = round_to_tick(q.last * (1 + 15.0 / 10_000), inst.market, Side.BUY)
         qty = t.size_notional / limit
         qty = math.floor(qty * 1e6) / 1e6 if inst.market == Market.CRYPTO else float(math.floor(qty))
         if qty <= 0:

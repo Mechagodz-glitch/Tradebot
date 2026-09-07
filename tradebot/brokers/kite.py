@@ -9,6 +9,7 @@ from ..errors import BrokerError
 from ..models import (
     Account, Instrument, Market, Order, OrderRequest, OrderStatus, OrderType, Position, Side, TimeInForce, utcnow,
 )
+from ..ticks import round_to_tick
 from .base import Broker
 
 STATUS_MAP = {
@@ -118,8 +119,8 @@ class KiteBroker(Broker):
                 variety=k.VARIETY_REGULAR, exchange=inst.exchange or self.settings.kite.exchange, tradingsymbol=inst.base,
                 transaction_type=k.TRANSACTION_TYPE_BUY if req.side == Side.BUY else k.TRANSACTION_TYPE_SELL,
                 quantity=int(req.qty), product=self.settings.kite.product, order_type=otype,
-                price=req.limit_price if req.order_type in (OrderType.LIMIT, OrderType.STOP_LIMIT) else None,
-                trigger_price=req.stop_price if req.order_type in (OrderType.STOP, OrderType.STOP_LIMIT) else None,
+                price=round_to_tick(req.limit_price, Market.IN, req.side) if req.order_type in (OrderType.LIMIT, OrderType.STOP_LIMIT) else None,
+                trigger_price=round_to_tick(req.stop_price, Market.IN) if req.order_type in (OrderType.STOP, OrderType.STOP_LIMIT) else None,
                 validity=validity, tag=(req.strategy or "tradebot")[:20],
             )
         except Exception as e:  # noqa: BLE001

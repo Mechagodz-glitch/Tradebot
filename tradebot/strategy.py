@@ -14,6 +14,7 @@ from pydantic import BaseModel, Field
 
 from .config import StrategyConfig
 from .errors import TradebotError
+from .ticks import round_to_tick
 from .universe import load_symbol_list, load_universe_rows
 from .models import Market, Order, OrderRequest, OrderType, Side, TimeInForce, utcnow
 
@@ -178,13 +179,13 @@ class TrendStrategy:
             max_order = self.engine.settings.risk.max_order_notional.get(r and self.engine.instrument(sym, market).currency)
             if max_order:
                 budget = min(budget, max_order * 0.98)
-            limit = r.last * (1 + cfg.entry_limit_offset_bps / 10_000)
+            limit = round_to_tick(r.last * (1 + cfg.entry_limit_offset_bps / 10_000), market, Side.BUY)
             qty = self._round_qty(budget / limit, market)
             if qty <= 0:
                 notes.append(f"{sym}: budget {budget:.2f} buys less than one unit at {r.last:.2f}")
                 continue
             notional = qty * limit
-            orders.append(PlanItem(symbol=sym, side=Side.BUY, qty=qty, order_type=OrderType.LIMIT, limit_price=round(limit, 2),
+            orders.append(PlanItem(symbol=sym, side=Side.BUY, qty=qty, order_type=OrderType.LIMIT, limit_price=limit,
                                    notional=notional,
                                    reason=f"[trend] entry: close > SMA{cfg.fast_sma} > SMA{cfg.slow_sma}, "
                                           f"{cfg.momentum_days}d momentum {r.momentum * 100:+.2f}% (rank {targets.index(sym) + 1})"))
