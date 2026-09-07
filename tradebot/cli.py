@@ -530,6 +530,13 @@ def thesis_enter(thesis_id: str):
     _handle(run)
 
 
+@thesis_app.command("attach")
+def thesis_attach(thesis_id: str, qty: float = typer.Option(..., "--qty"), entry_price: float = typer.Option(..., "--entry"),
+                  order_id: Optional[str] = typer.Option(None, "--order-id", help="venue order id, if known")):
+    """Mark a planned thesis as open using a fill executed outside the API (manual order)."""
+    _handle(lambda: _out(_engine().attach_thesis(thesis_id, qty, entry_price, order_id).model_dump(mode="json"), lambda d: _thesis_table([d])))
+
+
 @thesis_app.command("list")
 def thesis_list(all_: bool = typer.Option(False, "--all", help="Include closed and canceled"), venue: Optional[str] = typer.Option(None)):
     """List theses (open, pending and planned by default)."""

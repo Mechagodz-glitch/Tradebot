@@ -11,7 +11,7 @@ from . import __version__
 from .brokers import BrokerRegistry
 from .config import Settings, load_settings
 from .data import MarketData
-from .errors import BrokerError, NotFound, RiskRejected
+from .errors import BrokerError, NotFound, RiskRejected, TradebotError
 from .hours import market_session
 from .models import (
     Account, Candle, CheckResult, EquityPoint, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, OrderType, Position,
@@ -271,6 +271,22 @@ class TradingEngine:
             t.close_reason = f"entry {order.status.value}: {order.reject_reason or ''}".strip()
             t.closed_at = utcnow()
 
+    def attach_thesis(self, thesis_id: str, qty: float, entry_price: float, venue_order_id: Optional[str] = None) -> Thesis:
+        """Mark a planned thesis as OPEN using a fill executed outside the API (e.g. manually in the Kite app)."""
+        t = self.store.get_thesis(thesis_id)
+        if not t:
+            raise NotFound(f"thesis {thesis_id} not found")
+        if t.status not in (ThesisStatus.PLANNED, ThesisStatus.PENDING):
+            raise BrokerError(f"thesis {t.id} is {t.status.value}; cannot attach", code="invalid")
+        if qty <= 0 or entry_price <= 0:
+            raise BrokerError("qty and entry_price must be positive", code="invalid")
+        t.qty, t.entry_price, t.status = qty, entry_price, ThesisStatus.OPEN
+        t.entry_order_id = venue_order_id or "manual"
+        self.store.journal(JournalEntry(kind="thesis", venue=t.venue, symbol=t.symbol,
+                                        text=f"thesis {t.id} opened manually: {qty:g} @ {entry_price} ({venue_order_id or 'no order id'})",
+                                        data={"thesis_id": t.id, "qty": qty, "entry_price": entry_price, "manual": True}))
+        return self.store.save_thesis(t)
+
     def check_theses(self, execute: bool = False, venue: Optional[str] = None) -> list[dict]:
         out = []
         for t in self.store.list_theses(statuses=[ThesisStatus.PENDING.value, ThesisStatus.OPEN.value], venue=venue):
@@ -303,8 +319,14 @@ class TradingEngine:
                 row["action"] = "close" if execute else "would close"
                 row["detail"] = reason
                 if execute:
-                    self.close_thesis(t.id, reason=reason, execute=True)
-                    row["status"] = ThesisStatus.CLOSED.value
+                    try:
+                        self.close_thesis(t.id, reason=reason, execute=True)
+                        row["status"] = ThesisStatus.CLOSED.value
+                    except TradebotError as e:
+                        row["action"] = "exit failed"
+                        row["detail"] = f"{reason}; exit failed: {e.message}"
+                        self.store.journal(JournalEntry(kind="risk", venue=t.venue, symbol=t.symbol,
+                                                        text=f"thesis {t.id} exit FAILED ({reason}): {e.message}", data={"thesis_id": t.id}))
             out.append(row)
         return out
 

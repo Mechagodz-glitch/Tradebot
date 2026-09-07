@@ -62,3 +62,29 @@ def test_planned_thesis_then_enter_and_manual_close(engine, settings, prices):
 def test_short_not_supported(engine):
     with pytest.raises(BrokerError):
         engine.open_thesis(ThesisRequest(symbol="AAPL", text="x", size_notional=100, direction="short"))
+
+
+def test_attach_manual_fill_then_check(engine, settings, prices):
+    settings.paper.starting_cash["in"] = 10_000
+    prices["NSE:OIL"] = 486.0
+    t = engine.open_thesis(ThesisRequest(symbol="NSE:OIL", text="crude", size_notional=2_400, stop_pct=5, target_pct=8), execute=False)
+    t = engine.attach_thesis(t.id, qty=4, entry_price=486.58, venue_order_id="260907000123")
+    assert t.status == ThesisStatus.OPEN and t.qty == 4 and t.entry_order_id == "260907000123"
+    with pytest.raises(BrokerError):
+        engine.attach_thesis(t.id, qty=1, entry_price=1)  # already open
+    rows = engine.check_theses()
+    assert rows[0]["stop"] == pytest.approx(486.58 * 0.95) and rows[0]["action"] is None
+
+
+def test_check_reports_failed_exit_instead_of_raising(engine, settings, prices, monkeypatch):
+    settings.paper.starting_cash["in"] = 10_000
+    prices["NSE:OIL"] = 486.0
+    t = engine.open_thesis(ThesisRequest(symbol="NSE:OIL", text="crude", size_notional=2_400, stop_pct=5), execute=True)
+    prices["NSE:OIL"] = 400.0
+    def boom(*a, **k):
+        raise BrokerError("venue rejected: No IPs configured", code="broker_error")
+    monkeypatch.setattr(engine, "place_order", boom)
+    rows = engine.check_theses(execute=True)
+    assert rows[0]["action"] == "exit failed" and "No IPs" in rows[0]["detail"]
+    assert engine.theses()[0].status == ThesisStatus.OPEN
+    assert any("exit FAILED" in j.text for j in engine.journal(limit=5))
