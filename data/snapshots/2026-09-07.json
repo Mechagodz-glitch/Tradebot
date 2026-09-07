@@ -1,7 +1,121 @@
 {
- "exported_at": "2026-09-07T05:01:30.030873+00:00",
+ "exported_at": "2026-09-07T09:41:51.539147+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 35,
+   "ts": "2026-09-07T09:41:50.736753Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Mon 7 Sep 2026 (15:11 IST): first live day. Entries from the user's whitelisted machine at ~10:55 IST: Swiggy 9 @ 277.15, GIC Re 5 @ 351.60, Oil India 4 @ 483.95 (6,188 INR deployed, 3,812 cash). Close: Swiggy 276.50 (-0.23%), GIC Re 349.60 (-0.57%), Oil India 482.10 (-0.38%); equity 9,976.50 (-23.50 INR, -0.24%). Nifty 23,744 (-0.65%), IT -3% on Fed hike bets, US-Iran tension, Brent ~97; NSE IPO GMP ~285; Morgan Stanley sees a multi-quarter upcycle (Sensex 89,000 by Jun 2027). No stop/target hit; all three theses carry to Tuesday. Lessons: (1) Zerodha static-IP rule blocks API orders from the cloud session; execution moved to the user's machine (IPv4 pinned, whitelisted); (2) NSE tick size 0.05 must be respected on limits (fixed); (3) live-venue equity snapshots now recorded so the daily-loss cap applies. Pending: static-IP VPS for API execution; user to push their EOD snapshot.",
+   "data": {
+    "day": 1,
+    "equity_close": 9976.5,
+    "pnl_inr": -23.5,
+    "positions": 3,
+    "cash": 3811.85
+   }
+  },
+  {
+   "id": 34,
+   "ts": "2026-09-07T08:02:18.462225Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check-in: Nifty 23,757 (-0.59%), Sensex -400 at day's low, IT weakest, US-Iran cited; Brent elevated (Julius Baer: crude may take 12 months to normalise). NSE IPO GMP jumped to ~285 without a price band; IFCI +6% again (avoided, no NSE stake); GIC Re lagging the theme at 349.35. Positions: Oil India 486.40 (+0.51%), GIC Re -0.64%, Swiggy -0.40%; total -14 INR (from -27 at 11:30). No stop/target/expiry hit; no premise broken. No action.",
+   "data": {
+    "checkin": "13:30",
+    "pnl_inr": -13.7,
+    "nifty": 23757
+   }
+  },
+  {
+   "id": 33,
+   "ts": "2026-09-07T06:02:02.048128Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:30 IST check-in: Nifty 23,766 (-0.55%), below the 23,800 support flagged this morning; IT -2% on Fed hike bets; Brent ~97; rupee 94.39. Positions: Swiggy 275.25 (-0.69%), GIC Re 350.30 (-0.37%), Oil India 483.40 (-0.11%); total -27 INR. No stop/target/expiry hit; no premise broken. No action.",
+   "data": {
+    "checkin": "11:30",
+    "pnl_inr": -26.7,
+    "nifty": 23766
+   }
+  },
+  {
+   "id": 32,
+   "ts": "2026-09-07T05:25:19.912686Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:58 IST: all three theses entered from the user's machine (IPv4 whitelist working): Swiggy 9 @ 277.15 (2,494), GIC Re 5 @ 351.60 (1,758), Oil India 4 @ 483.95 (1,936); ~6,190 INR deployed, ~3,810 cash. Attached here from Kite positions for monitoring.",
+   "data": {
+    "fills": {
+     "NSE:SWIGGY": [
+      9,
+      277.15
+     ],
+     "NSE:GICRE": [
+      5,
+      351.6
+     ],
+     "NSE:OIL": [
+      4,
+      483.95
+     ]
+    }
+   }
+  },
+  {
+   "id": 31,
+   "ts": "2026-09-07T05:25:17.182126Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": null,
+   "text": "thesis 9bfaa74c2640 opened manually: 4 @ 483.95 (venue-position)",
+   "data": {
+    "thesis_id": "9bfaa74c2640",
+    "qty": 4.0,
+    "entry_price": 483.95,
+    "manual": true
+   }
+  },
+  {
+   "id": 30,
+   "ts": "2026-09-07T05:25:15.400732Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": null,
+   "text": "thesis 849f600df9e3 opened manually: 5 @ 351.6 (venue-position)",
+   "data": {
+    "thesis_id": "849f600df9e3",
+    "qty": 5.0,
+    "entry_price": 351.6,
+    "manual": true
+   }
+  },
+  {
+   "id": 29,
+   "ts": "2026-09-07T05:25:13.551730Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "order_id": null,
+   "text": "thesis 90f5f2db97a0 opened manually: 9 @ 277.15 (venue-position)",
+   "data": {
+    "thesis_id": "90f5f2db97a0",
+    "qty": 9.0,
+    "entry_price": 277.15,
+    "manual": true
+   }
+  },
   {
    "id": 28,
    "ts": "2026-09-07T04:58:29.964232Z",
@@ -493,7 +607,7 @@
   {
    "id": "9bfaa74c2640",
    "created_at": "2026-09-04T22:46:43.847738Z",
-   "updated_at": "2026-09-04T22:46:43.847766Z",
+   "updated_at": "2026-09-07T05:25:17.186236Z",
    "venue": "kite",
    "symbol": "NSE:OIL",
    "market": "in",
@@ -505,10 +619,10 @@
    "stop_pct": 5.0,
    "target_pct": 8.0,
    "expires_at": "2026-09-18T00:00:00Z",
-   "status": "planned",
-   "entry_order_id": null,
-   "qty": 0.0,
-   "entry_price": null,
+   "status": "open",
+   "entry_order_id": "venue-position",
+   "qty": 4.0,
+   "entry_price": 483.95,
    "exit_order_id": null,
    "exit_price": null,
    "closed_at": null,
@@ -522,7 +636,7 @@
   {
    "id": "849f600df9e3",
    "created_at": "2026-09-04T22:46:43.189514Z",
-   "updated_at": "2026-09-04T22:46:43.189533Z",
+   "updated_at": "2026-09-07T05:25:15.404914Z",
    "venue": "kite",
    "symbol": "NSE:GICRE",
    "market": "in",
@@ -534,10 +648,10 @@
    "stop_pct": 5.0,
    "target_pct": 10.0,
    "expires_at": "2026-09-16T00:00:00Z",
-   "status": "planned",
-   "entry_order_id": null,
-   "qty": 0.0,
-   "entry_price": null,
+   "status": "open",
+   "entry_order_id": "venue-position",
+   "qty": 5.0,
+   "entry_price": 351.6,
    "exit_order_id": null,
    "exit_price": null,
    "closed_at": null,
@@ -551,7 +665,7 @@
   {
    "id": "90f5f2db97a0",
    "created_at": "2026-09-04T22:46:42.504901Z",
-   "updated_at": "2026-09-04T22:46:42.504920Z",
+   "updated_at": "2026-09-07T05:25:13.558152Z",
    "venue": "kite",
    "symbol": "NSE:SWIGGY",
    "market": "in",
@@ -563,10 +677,10 @@
    "stop_pct": 5.0,
    "target_pct": 10.0,
    "expires_at": "2026-09-18T00:00:00Z",
-   "status": "planned",
-   "entry_order_id": null,
-   "qty": 0.0,
-   "entry_price": null,
+   "status": "open",
+   "entry_order_id": "venue-position",
+   "qty": 9.0,
+   "entry_price": 277.15,
    "exit_order_id": null,
    "exit_price": null,
    "closed_at": null,
@@ -942,6 +1056,14 @@
     "cash": 10000.0,
     "positions_value": 0.0,
     "equity": 10000.0
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-07T09:41:18.810212Z",
+    "cash": 3811.8500000000004,
+    "positions_value": 6164.65,
+    "equity": 9976.5
    }
   ],
   "kite/crypto": [],
