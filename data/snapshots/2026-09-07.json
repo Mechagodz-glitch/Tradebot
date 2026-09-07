@@ -1,9 +1,19 @@
 {
- "exported_at": "2026-09-07T09:41:51.539147+00:00",
+ "exported_at": "2026-09-07T10:10:55.079635+00:00",
  "version": "0.1.0",
  "journal": [
   {
-   "id": 35,
+   "id": 33,
+   "ts": "2026-09-07T10:06:59.094596Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Mon 7 Sep 2026, first live day on Zerodha (10,000 INR). Entries placed by the user from the laptop at 10:53 IST via 'tradebot thesis enter' over the company OpenVPN (IPv4 egress 3.108.145.229 whitelisted; TRADEBOT_FORCE_IPV4=1). First Swiggy attempt at 10:50 rejected for an off-tick limit (277.27); fixed by commit 1c75c5f (tick rounding), re-entered. Fills (CNC, marketable limit): Swiggy 9 @ 277.15, GIC Re 5 @ 351.60, Oil India 4 @ 483.95; total deployed 5,971 INR, cash 3,811.85. Closes: Swiggy 276.45 (-6.30), GIC Re 349.80 (-9.00), Oil India 487.00 (+12.20); equity 9,996.90, day P&L -3.10, no fees booked yet. Systematic sleeve skipped by user decision. Read-only checks at 11:32/13:32/15:07 IST: no stop/target/expiry hit, no ceasefire, Brent held ~97-100. All three theses open into Tue 8 Sep: Swiggy stop 263.29 / target 304.87 / exp 18 Sep; GIC Re stop 334.02 / target 386.76 / exp 16 Sep; Oil India stop 459.75 / target 522.67 / exp 18 Sep. Tomorrow: Kite login ~09:00 IST (token expires ~6am), VPN up before any order, thesis check at 11:30/13:30/15:10.",
+   "data": null
+  },
+  {
+   "id": 34,
    "ts": "2026-09-07T09:41:50.736753Z",
    "kind": "note",
    "venue": null,
@@ -19,7 +29,7 @@
    }
   },
   {
-   "id": 34,
+   "id": 35,
    "ts": "2026-09-07T08:02:18.462225Z",
    "kind": "note",
    "venue": null,
@@ -33,7 +43,7 @@
    }
   },
   {
-   "id": 33,
+   "id": 36,
    "ts": "2026-09-07T06:02:02.048128Z",
    "kind": "note",
    "venue": null,
@@ -48,6 +58,16 @@
   },
   {
    "id": 32,
+   "ts": "2026-09-07T05:43:10.440676Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:10 IST Mon 7 Sep: systematic trend sleeve skipped today by user decision (plan proposed 34 NSE:MANALIPETC @ 86.85, ~2,953 INR, 14.5% above SMA20; not taken). Day is theses-only: Swiggy 9 @ 277.15, GIC Re 5 @ 351.60, Oil India 4 @ 483.95, all open. Read-only checks scheduled 11:32 / 13:32 / 15:07 IST, EOD 15:36.",
+   "data": null
+  },
+  {
+   "id": 37,
    "ts": "2026-09-07T05:25:19.912686Z",
    "kind": "note",
    "venue": null,
@@ -72,7 +92,7 @@
    }
   },
   {
-   "id": 31,
+   "id": 38,
    "ts": "2026-09-07T05:25:17.182126Z",
    "kind": "thesis",
    "venue": "kite",
@@ -87,7 +107,7 @@
    }
   },
   {
-   "id": 30,
+   "id": 39,
    "ts": "2026-09-07T05:25:15.400732Z",
    "kind": "thesis",
    "venue": "kite",
@@ -102,7 +122,7 @@
    }
   },
   {
-   "id": 29,
+   "id": 40,
    "ts": "2026-09-07T05:25:13.551730Z",
    "kind": "thesis",
    "venue": "kite",
@@ -117,7 +137,64 @@
    }
   },
   {
-   "id": 28,
+   "id": 31,
+   "ts": "2026-09-07T05:24:05.026538Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": "790fb9942759",
+   "text": "filled: buy 4 NSE:OIL limit @ 484.7 | reason: [thesis 9bfaa74c2640] US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "data": {
+    "reason": "[thesis 9bfaa74c2640] US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1938.8,
+     "reference_price": 484.7,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 30,
+   "ts": "2026-09-07T05:23:51.049854Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": "b80389981164",
+   "text": "filled: buy 5 NSE:GICRE limit @ 351.95 | reason: [thesis 849f600df9e3] SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "data": {
+    "reason": "[thesis 849f600df9e3] SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1759.75,
+     "reference_price": 351.95,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 29,
+   "ts": "2026-09-07T05:23:18.367489Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "order_id": "f4310c999354",
+   "text": "filled: buy 9 NSE:SWIGGY limit @ 277.6 | reason: [thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "data": {
+    "reason": "[thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 2498.4,
+     "reference_price": 277.6,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 25,
    "ts": "2026-09-07T04:58:29.964232Z",
    "kind": "note",
    "venue": null,
@@ -130,7 +207,7 @@
    }
   },
   {
-   "id": 27,
+   "id": 26,
    "ts": "2026-09-07T04:56:37.484126Z",
    "kind": "note",
    "venue": null,
@@ -142,7 +219,7 @@
    }
   },
   {
-   "id": 26,
+   "id": 27,
    "ts": "2026-09-07T04:16:39.219267Z",
    "kind": "note",
    "venue": null,
@@ -155,7 +232,7 @@
    }
   },
   {
-   "id": 25,
+   "id": 28,
    "ts": "2026-09-07T03:34:41.961137Z",
    "kind": "note",
    "venue": null,
@@ -169,7 +246,7 @@
    }
   },
   {
-   "id": 24,
+   "id": 1,
    "ts": "2026-09-04T23:00:02.158908Z",
    "kind": "note",
    "venue": null,
@@ -190,7 +267,7 @@
    }
   },
   {
-   "id": 23,
+   "id": 2,
    "ts": "2026-09-04T22:46:54.742625Z",
    "kind": "note",
    "venue": null,
@@ -217,7 +294,7 @@
    }
   },
   {
-   "id": 22,
+   "id": 3,
    "ts": "2026-09-04T22:46:43.863914Z",
    "kind": "thesis",
    "venue": "kite",
@@ -234,7 +311,7 @@
    }
   },
   {
-   "id": 21,
+   "id": 4,
    "ts": "2026-09-04T22:46:43.203829Z",
    "kind": "thesis",
    "venue": "kite",
@@ -251,7 +328,7 @@
    }
   },
   {
-   "id": 20,
+   "id": 5,
    "ts": "2026-09-04T22:46:42.520100Z",
    "kind": "thesis",
    "venue": "kite",
@@ -268,7 +345,7 @@
    }
   },
   {
-   "id": 19,
+   "id": 6,
    "ts": "2026-09-04T22:22:54.534273Z",
    "kind": "note",
    "venue": null,
@@ -300,7 +377,7 @@
    }
   },
   {
-   "id": 18,
+   "id": 7,
    "ts": "2026-09-04T22:20:11.752306Z",
    "kind": "thesis",
    "venue": "kite",
@@ -317,7 +394,7 @@
    }
   },
   {
-   "id": 17,
+   "id": 8,
    "ts": "2026-09-04T22:20:11.052912Z",
    "kind": "thesis",
    "venue": "kite",
@@ -334,7 +411,7 @@
    }
   },
   {
-   "id": 16,
+   "id": 9,
    "ts": "2026-09-04T21:59:41.978485Z",
    "kind": "note",
    "venue": null,
@@ -344,7 +421,7 @@
    "data": null
   },
   {
-   "id": 15,
+   "id": 10,
    "ts": "2026-09-04T21:55:30.417457Z",
    "kind": "note",
    "venue": null,
@@ -367,7 +444,7 @@
    }
   },
   {
-   "id": 14,
+   "id": 11,
    "ts": "2026-09-04T21:41:58.700741Z",
    "kind": "risk",
    "venue": "kite",
@@ -380,7 +457,7 @@
    }
   },
   {
-   "id": 13,
+   "id": 12,
    "ts": "2026-09-04T21:30:59.566448Z",
    "kind": "order",
    "venue": "alpaca",
@@ -399,7 +476,7 @@
    }
   },
   {
-   "id": 12,
+   "id": 13,
    "ts": "2026-09-04T21:30:13.340630Z",
    "kind": "order",
    "venue": "alpaca",
@@ -418,7 +495,7 @@
    }
   },
   {
-   "id": 11,
+   "id": 14,
    "ts": "2026-09-04T20:58:23.311447Z",
    "kind": "risk",
    "venue": "paper",
@@ -431,7 +508,7 @@
    }
   },
   {
-   "id": 10,
+   "id": 15,
    "ts": "2026-09-04T20:57:07.198354Z",
    "kind": "order",
    "venue": "paper",
@@ -450,7 +527,7 @@
    }
   },
   {
-   "id": 9,
+   "id": 16,
    "ts": "2026-09-04T20:57:07.196388Z",
    "kind": "fill",
    "venue": "paper",
@@ -466,7 +543,7 @@
    }
   },
   {
-   "id": 8,
+   "id": 17,
    "ts": "2026-09-04T20:56:45.171220Z",
    "kind": "risk",
    "venue": "paper",
@@ -479,7 +556,7 @@
    }
   },
   {
-   "id": 7,
+   "id": 18,
    "ts": "2026-09-04T20:56:43.953296Z",
    "kind": "order",
    "venue": "paper",
@@ -498,7 +575,7 @@
    }
   },
   {
-   "id": 6,
+   "id": 19,
    "ts": "2026-09-04T20:56:42.569754Z",
    "kind": "order",
    "venue": "paper",
@@ -517,7 +594,7 @@
    }
   },
   {
-   "id": 5,
+   "id": 20,
    "ts": "2026-09-04T20:56:42.567706Z",
    "kind": "fill",
    "venue": "paper",
@@ -533,7 +610,7 @@
    }
   },
   {
-   "id": 4,
+   "id": 21,
    "ts": "2026-09-04T20:56:40.862406Z",
    "kind": "order",
    "venue": "paper",
@@ -552,7 +629,7 @@
    }
   },
   {
-   "id": 3,
+   "id": 22,
    "ts": "2026-09-04T20:56:40.860409Z",
    "kind": "fill",
    "venue": "paper",
@@ -568,7 +645,7 @@
    }
   },
   {
-   "id": 2,
+   "id": 23,
    "ts": "2026-09-04T20:56:37.541028Z",
    "kind": "order",
    "venue": "paper",
@@ -587,7 +664,7 @@
    }
   },
   {
-   "id": 1,
+   "id": 24,
    "ts": "2026-09-04T20:56:37.539032Z",
    "kind": "fill",
    "venue": "paper",
@@ -607,7 +684,7 @@
   {
    "id": "9bfaa74c2640",
    "created_at": "2026-09-04T22:46:43.847738Z",
-   "updated_at": "2026-09-07T05:25:17.186236Z",
+   "updated_at": "2026-09-07T05:24:05.029225Z",
    "venue": "kite",
    "symbol": "NSE:OIL",
    "market": "in",
@@ -620,7 +697,7 @@
    "target_pct": 8.0,
    "expires_at": "2026-09-18T00:00:00Z",
    "status": "open",
-   "entry_order_id": "venue-position",
+   "entry_order_id": "790fb9942759",
    "qty": 4.0,
    "entry_price": 483.95,
    "exit_order_id": null,
@@ -636,7 +713,7 @@
   {
    "id": "849f600df9e3",
    "created_at": "2026-09-04T22:46:43.189514Z",
-   "updated_at": "2026-09-07T05:25:15.404914Z",
+   "updated_at": "2026-09-07T05:23:51.052417Z",
    "venue": "kite",
    "symbol": "NSE:GICRE",
    "market": "in",
@@ -649,7 +726,7 @@
    "target_pct": 10.0,
    "expires_at": "2026-09-16T00:00:00Z",
    "status": "open",
-   "entry_order_id": "venue-position",
+   "entry_order_id": "b80389981164",
    "qty": 5.0,
    "entry_price": 351.6,
    "exit_order_id": null,
@@ -665,7 +742,7 @@
   {
    "id": "90f5f2db97a0",
    "created_at": "2026-09-04T22:46:42.504901Z",
-   "updated_at": "2026-09-07T05:25:13.558152Z",
+   "updated_at": "2026-09-07T05:23:18.370391Z",
    "venue": "kite",
    "symbol": "NSE:SWIGGY",
    "market": "in",
@@ -678,7 +755,7 @@
    "target_pct": 10.0,
    "expires_at": "2026-09-18T00:00:00Z",
    "status": "open",
-   "entry_order_id": "venue-position",
+   "entry_order_id": "f4310c999354",
    "qty": 9.0,
    "entry_price": 277.15,
    "exit_order_id": null,
@@ -694,7 +771,7 @@
   {
    "id": "ba38ba98fb33",
    "created_at": "2026-09-04T22:20:11.737995Z",
-   "updated_at": "2026-09-04T22:46:41.824074Z",
+   "updated_at": "2026-09-05T17:23:12.662760Z",
    "venue": "kite",
    "symbol": "NSE:GICRE",
    "market": "in",
@@ -723,7 +800,7 @@
   {
    "id": "3510983924c4",
    "created_at": "2026-09-04T22:20:11.038430Z",
-   "updated_at": "2026-09-04T22:46:41.166981Z",
+   "updated_at": "2026-09-05T17:23:12.664196Z",
    "venue": "kite",
    "symbol": "NSE:SWIGGY",
    "market": "in",
@@ -752,6 +829,102 @@
  ],
  "orders": [
   {
+   "id": "790fb9942759",
+   "venue": "kite",
+   "venue_order_id": "260907220543060",
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 4.0,
+   "filled_qty": 4.0,
+   "order_type": "limit",
+   "limit_price": 484.7,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 483.95,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-07T05:24:04.911551Z",
+   "updated_at": "2026-09-07T05:24:05.021070Z"
+  },
+  {
+   "id": "b80389981164",
+   "venue": "kite",
+   "venue_order_id": "260907220542264",
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 5.0,
+   "filled_qty": 5.0,
+   "order_type": "limit",
+   "limit_price": 351.95,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 351.6,
+   "fees": 0.0,
+   "reason": "[thesis 849f600df9e3] SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-07T05:23:50.948815Z",
+   "updated_at": "2026-09-07T05:23:51.045452Z"
+  },
+  {
+   "id": "f4310c999354",
+   "venue": "kite",
+   "venue_order_id": "260907220540745",
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 9.0,
+   "filled_qty": 9.0,
+   "order_type": "limit",
+   "limit_price": 277.6,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 277.15,
+   "fees": 0.0,
+   "reason": "[thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-07T05:23:18.261345Z",
+   "updated_at": "2026-09-07T05:23:18.363694Z"
+  },
+  {
+   "id": "89cd8eb22737",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 9.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 277.27,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "strategy": "thesis",
+   "reject_reason": "Tick size for this script is 0.05. Kindly enter price in the multiple of tick size for this script",
+   "client_order_id": null,
+   "created_at": "2026-09-07T05:20:57.939824Z",
+   "updated_at": "2026-09-07T05:20:57.990105Z"
+  },
+  {
    "id": "9ec5ef6718e7",
    "venue": "kite",
    "venue_order_id": null,
@@ -773,7 +946,7 @@
    "reject_reason": "No IPs configured for this app. Add allowed IPs on the Kite developer console. Learn more - https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/static-ip",
    "client_order_id": null,
    "created_at": "2026-09-07T04:55:14.100935Z",
-   "updated_at": "2026-09-07T04:55:14.348651Z"
+   "updated_at": "2026-09-07T05:08:12.837194Z"
   },
   {
    "id": "0214d6c9a930",
@@ -797,7 +970,7 @@
    "reject_reason": "No IPs configured for this app. Add allowed IPs on the Kite developer console. Learn more - https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/static-ip",
    "client_order_id": null,
    "created_at": "2026-09-07T04:55:10.606009Z",
-   "updated_at": "2026-09-07T04:55:10.851633Z"
+   "updated_at": "2026-09-07T05:08:12.843042Z"
   },
   {
    "id": "b277e3a56844",
@@ -821,7 +994,7 @@
    "reject_reason": "No IPs configured for this app. Add allowed IPs on the Kite developer console. Learn more - https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/static-ip",
    "client_order_id": null,
    "created_at": "2026-09-07T04:55:07.128498Z",
-   "updated_at": "2026-09-07T04:55:07.366172Z"
+   "updated_at": "2026-09-07T05:08:12.844381Z"
   },
   {
    "id": "dd863a50d74f",
@@ -845,7 +1018,7 @@
    "reject_reason": null,
    "client_order_id": null,
    "created_at": "2026-09-04T21:30:59.510322Z",
-   "updated_at": "2026-09-04T21:31:06.067962Z"
+   "updated_at": "2026-09-07T05:08:12.845993Z"
   },
   {
    "id": "e781dbcaabb2",
@@ -869,7 +1042,7 @@
    "reject_reason": null,
    "client_order_id": null,
    "created_at": "2026-09-04T21:30:13.288035Z",
-   "updated_at": "2026-09-04T21:30:18.091799Z"
+   "updated_at": "2026-09-07T05:08:12.847539Z"
   },
   {
    "id": "bd540089ab65",
@@ -893,7 +1066,7 @@
    "reject_reason": null,
    "client_order_id": null,
    "created_at": "2026-09-04T20:57:07.177423Z",
-   "updated_at": "2026-09-04T20:57:07.194436Z"
+   "updated_at": "2026-09-07T05:08:12.848987Z"
   },
   {
    "id": "56e254729f80",
@@ -917,7 +1090,7 @@
    "reject_reason": null,
    "client_order_id": null,
    "created_at": "2026-09-04T20:56:43.945974Z",
-   "updated_at": "2026-09-04T20:56:43.945983Z"
+   "updated_at": "2026-09-07T05:08:12.850142Z"
   },
   {
    "id": "0efcd03735ca",
@@ -941,7 +1114,7 @@
    "reject_reason": null,
    "client_order_id": null,
    "created_at": "2026-09-04T20:56:40.845402Z",
-   "updated_at": "2026-09-04T20:56:40.858560Z"
+   "updated_at": "2026-09-07T05:08:12.851479Z"
   },
   {
    "id": "4e02bbfc5b4f",
@@ -965,7 +1138,7 @@
    "reject_reason": null,
    "client_order_id": null,
    "created_at": "2026-09-04T20:56:37.523337Z",
-   "updated_at": "2026-09-04T20:56:37.537142Z"
+   "updated_at": "2026-09-07T05:08:12.852738Z"
   }
  ],
  "fills": [
@@ -1011,18 +1184,10 @@
    {
     "venue": "paper",
     "market": "us",
-    "ts": "2026-09-04T20:57:03.822709Z",
-    "cash": 98400.2005,
-    "positions_value": 1599.0,
-    "equity": 99999.2005
-   },
-   {
-    "venue": "paper",
-    "market": "us",
-    "ts": "2026-09-04T20:58:24.429661Z",
-    "cash": 99039.44072000001,
-    "positions_value": 959.3955,
-    "equity": 99998.83622000001
+    "ts": "2026-09-05T17:31:10.752031Z",
+    "cash": 100000.0,
+    "positions_value": 0.0,
+    "equity": 100000.0
    }
   ],
   "paper/in": [],
@@ -1030,18 +1195,10 @@
    {
     "venue": "paper",
     "market": "crypto",
-    "ts": "2026-09-04T20:57:04.841215Z",
-    "cash": 98398.3792194148,
-    "positions_value": 1594.4768,
-    "equity": 99992.8560194148
-   },
-   {
-    "venue": "paper",
-    "market": "crypto",
-    "ts": "2026-09-04T20:58:24.863380Z",
-    "cash": 98398.3792194148,
-    "positions_value": 1594.2754000000002,
-    "equity": 99992.6546194148
+    "ts": "2026-09-05T17:31:10.757318Z",
+    "cash": 100000.0,
+    "positions_value": 0.0,
+    "equity": 100000.0
    }
   ],
   "alpaca/us": [],
@@ -1052,18 +1209,10 @@
    {
     "venue": "kite",
     "market": "in",
-    "ts": "2026-09-07T04:55:01.572736Z",
-    "cash": 10000.0,
-    "positions_value": 0.0,
-    "equity": 10000.0
-   },
-   {
-    "venue": "kite",
-    "market": "in",
-    "ts": "2026-09-07T09:41:18.810212Z",
+    "ts": "2026-09-07T10:06:28.850060Z",
     "cash": 3811.8500000000004,
-    "positions_value": 6164.65,
-    "equity": 9976.5
+    "positions_value": 6185.049999999999,
+    "equity": 9996.9
    }
   ],
   "kite/crypto": [],
