@@ -14,8 +14,8 @@ from .data import MarketData
 from .errors import BrokerError, NotFound, RiskRejected, TradebotError
 from .hours import market_session
 from .models import (
-    Account, Candle, CheckResult, EquityPoint, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, OrderType, Position,
-    Quote, Side, Thesis, ThesisRequest, ThesisStatus, TimeInForce, utcnow,
+    Account, Candle, CheckResult, EquityPoint, Fill, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, OrderType,
+    Position, Quote, Side, Thesis, ThesisRequest, ThesisStatus, TimeInForce, utcnow,
 )
 from .risk import RiskEngine
 from .store import Store
@@ -271,13 +271,22 @@ class TradingEngine:
             t.close_reason = f"entry {order.status.value}: {order.reject_reason or ''}".strip()
             t.closed_at = utcnow()
 
-    def attach_thesis(self, thesis_id: str, qty: float, entry_price: float, venue_order_id: Optional[str] = None) -> Thesis:
-        """Mark a planned thesis as OPEN using a fill executed outside the API (e.g. manually in the Kite app)."""
+    def attach_thesis(self, thesis_id: str, qty: Optional[float] = None, entry_price: Optional[float] = None,
+                      venue_order_id: Optional[str] = None) -> Thesis:
+        """Mark a planned thesis as OPEN using a fill executed outside this process (another machine, or the Kite app).
+        With qty/entry_price omitted, the venue's current position in the symbol is used."""
         t = self.store.get_thesis(thesis_id)
         if not t:
             raise NotFound(f"thesis {thesis_id} not found")
         if t.status not in (ThesisStatus.PLANNED, ThesisStatus.PENDING):
             raise BrokerError(f"thesis {t.id} is {t.status.value}; cannot attach", code="invalid")
+        if qty is None or entry_price is None:
+            pos = next((p for p in self.venue(t.venue).positions(t.market, mark=False) if p.symbol == t.symbol and abs(p.qty) > 1e-12), None)
+            if pos is None:
+                raise NotFound(f"no {t.symbol} position on {t.venue} to attach", code="not_found")
+            qty = qty if qty is not None else pos.qty
+            entry_price = entry_price if entry_price is not None else pos.avg_price
+            venue_order_id = venue_order_id or "venue-position"
         if qty <= 0 or entry_price <= 0:
             raise BrokerError("qty and entry_price must be positive", code="invalid")
         t.qty, t.entry_price, t.status = qty, entry_price, ThesisStatus.OPEN
@@ -382,14 +391,34 @@ class TradingEngine:
     def import_state(self, data: dict) -> dict:
         """Restore journal entries and theses (idempotent: existing ids / identical entries are skipped).
         Orders and fills are venue history and are not re-created."""
-        existing_theses = {t.id for t in self.store.list_theses(limit=100_000)}
-        added_t = 0
+        existing_theses = {t.id: t for t in self.store.list_theses(limit=100_000)}
+        added_t = updated_t = 0
         for raw in data.get("theses", []):
             t = Thesis.model_validate(raw)
-            if t.id in existing_theses:
+            cur = existing_theses.get(t.id)
+            if cur is None:
+                self.store.save_thesis(t)
+                added_t += 1
+            elif t.updated_at and cur.updated_at and t.updated_at > cur.updated_at:
+                t.updated_at = t.updated_at  # keep the incoming timestamp semantics; save_thesis stamps now
+                self.store.save_thesis(t)
+                updated_t += 1
+        existing_orders = {o.id for o in self.store.list_orders(limit=100_000)}
+        added_o = 0
+        for raw in data.get("orders", []):
+            o = Order.model_validate(raw)
+            if o.id in existing_orders:
                 continue
-            self.store.save_thesis(t)
-            added_t += 1
+            self.store.save_order(o)
+            added_o += 1
+        existing_fills = {f.id for f in self.store.list_fills(limit=100_000)}
+        added_f = 0
+        for raw in data.get("fills", []):
+            f = Fill.model_validate(raw)
+            if f.id in existing_fills:
+                continue
+            self.store.save_fill(f)
+            added_f += 1
         existing = {(j.ts.isoformat(), j.text) for j in self.store.list_journal(limit=100_000)}
         added_j = 0
         for raw in data.get("journal", []):
@@ -399,7 +428,8 @@ class TradingEngine:
             j.id = None
             self.store.journal(j)
             added_j += 1
-        return {"theses_added": added_t, "journal_added": added_j, "exported_at": data.get("exported_at")}
+        return {"theses_added": added_t, "theses_updated": updated_t, "orders_added": added_o, "fills_added": added_f,
+                "journal_added": added_j, "exported_at": data.get("exported_at")}
 
     def set_kill_switch(self, on: bool) -> bool:
         path = self.settings.resolve(self.settings.risk.kill_switch_file)

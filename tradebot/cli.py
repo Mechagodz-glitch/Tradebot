@@ -531,9 +531,9 @@ def thesis_enter(thesis_id: str):
 
 
 @thesis_app.command("attach")
-def thesis_attach(thesis_id: str, qty: float = typer.Option(..., "--qty"), entry_price: float = typer.Option(..., "--entry"),
+def thesis_attach(thesis_id: str, qty: Optional[float] = typer.Option(None, "--qty"), entry_price: Optional[float] = typer.Option(None, "--entry"),
                   order_id: Optional[str] = typer.Option(None, "--order-id", help="venue order id, if known")):
-    """Mark a planned thesis as open using a fill executed outside the API (manual order)."""
+    """Mark a planned thesis as open from a fill made elsewhere. Without --qty/--entry, the venue's current position is used."""
     _handle(lambda: _out(_engine().attach_thesis(thesis_id, qty, entry_price, order_id).model_dump(mode="json"), lambda d: _thesis_table([d])))
 
 
