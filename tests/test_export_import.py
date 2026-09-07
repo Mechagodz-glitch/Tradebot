@@ -18,7 +18,7 @@ def test_export_then_import_into_fresh_db(engine, settings, prices, tmp_path):
     res = eng2.import_state(data)
     assert res["theses_added"] == 1 and res["journal_added"] == len(data["journal"])
     assert eng2.theses()[0].symbol == "NSE:RELIANCE"
-    assert eng2.orders() == []  # venue history is not re-created
+    assert len(eng2.orders()) == 1 and res["orders_added"] == 1  # order history travels with the snapshot
     # idempotent
     res2 = eng2.import_state(data)
     assert res2["theses_added"] == 0 and res2["journal_added"] == 0 and res2["orders_added"] == 0 and res2["exported_at"] == data["exported_at"]
