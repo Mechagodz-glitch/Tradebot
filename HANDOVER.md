@@ -12,22 +12,28 @@ cd ~/personal/Tradebot && git pull && ./scripts/bootstrap.sh
 nano .env          # ALPACA_API_KEY, ALPACA_SECRET_KEY, KITE_API_KEY, KITE_API_SECRET
 ```
 
-Whitelist your IP at https://developers.kite.trade -> Profile (top right) -> IP Whitelist:
+Whitelist your **IPv4** address at https://developers.kite.trade -> Profile (top right) -> IP Whitelist:
 
 ```bash
-curl -s https://ifconfig.me      # this is the address Zerodha will see from this machine
+curl -4 -s https://ifconfig.me   # the -4 matters: this is the IPv4 address Zerodha will see
 ```
 
-Enter it as the primary IP and click Update. Use a connection whose address is stable (office
-static IP, or home broadband that rarely changes). Only one change per week is allowed, so do not
-spend it on a phone hotspot. Read-only calls work from any IP; only order placement is restricted.
-
-Enable live trading on this machine only:
+Do not whitelist an IPv6 address (the long one with colons). Kite's API answers on both protocols,
+and an IPv6 address from an Indian ISP changes often (the suffix is a rotating privacy address and
+the prefix changes on reconnect). Tradebot therefore pins its Kite traffic to IPv4:
 
 ```bash
-echo "TRADEBOT_LIVE=1" >> .env
-tradebot doctor --no-data        # live_trading must say ENABLED; broker:kite ok after step 1 below
+echo "TRADEBOT_FORCE_IPV4=1" >> .env
+echo "TRADEBOT_LIVE=1" >> .env         # live trading on this machine only
+tradebot doctor --no-data              # network: IPv4 only; live_trading: ENABLED
 ```
+
+Enter the IPv4 address as the primary IP and click Update. Use a connection whose address is
+stable: an office static IP is best; home broadband usually keeps its address for days or weeks but
+can change on a router reboot. Only one whitelist change per week is allowed, so do not spend it on a
+phone hotspot. If your router's WAN address starts with 100.64 to 100.127 the ISP shares the public
+address (CGNAT) and it may change without warning; a static IP from the ISP or a VPS is the fix.
+Read-only calls work from any IP; only order placement is restricted.
 
 ## 1. Every trading morning (09:00 to 09:15 IST)
 

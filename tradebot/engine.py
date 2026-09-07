@@ -448,6 +448,7 @@ class TradingEngine:
         checks.append(CheckResult(name="kill_switch", ok=not self.risk.kill_switch_active(),
                                   detail="active" if self.risk.kill_switch_active() else "inactive"))
         checks.append(CheckResult(name="live_trading", ok=True, detail="ENABLED" if self.settings.live_trading_enabled else "disabled (paper only)"))
+        checks.append(CheckResult(name="network", ok=True, detail="IPv4 only (TRADEBOT_FORCE_IPV4)" if os.environ.get("TRADEBOT_FORCE_IPV4", "").lower() in ("1", "true", "yes") else "default (IPv4/IPv6)"))
         for m in Market:
             sess = market_session(m)
             checks.append(CheckResult(name=f"session:{m.value}", ok=True, detail=("OPEN, " + sess["detail"]) if sess["open"] else sess["detail"]))
