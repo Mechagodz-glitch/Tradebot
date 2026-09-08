@@ -134,6 +134,8 @@ class KiteBroker(Broker):
                 price=round_to_tick(req.limit_price, Market.IN, req.side) if req.order_type in (OrderType.LIMIT, OrderType.STOP_LIMIT) else None,
                 trigger_price=round_to_tick(req.stop_price, Market.IN) if req.order_type in (OrderType.STOP, OrderType.STOP_LIMIT) else None,
                 validity=validity, tag=(req.strategy or "tradebot")[:20],
+                # Zerodha requires market protection on API market / SL-M orders; -1 = exchange-guideline automatic
+                market_protection=-1 if req.order_type in (OrderType.MARKET, OrderType.STOP) else None,
             )
         except Exception as e:  # noqa: BLE001
             order.status = OrderStatus.REJECTED
