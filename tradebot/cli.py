@@ -566,9 +566,22 @@ def thesis_check(execute: bool = typer.Option(False, "--execute", help="Actually
 
 
 @thesis_app.command("close")
-def thesis_close(thesis_id: str, reason: str = typer.Option("manual close", "--reason")):
-    """Close a thesis now (market order for the held quantity)."""
-    _handle(lambda: _out(_engine().close_thesis(thesis_id, reason=reason, execute=True).model_dump(mode="json"), lambda d: _thesis_table([d])))
+def thesis_close(thesis_id: str, reason: str = typer.Option("manual close", "--reason"),
+                 record_only: bool = typer.Option(False, "--record-only", help="Mark closed without sending an order (exit done elsewhere)"),
+                 exit_price: Optional[float] = typer.Option(None, "--exit-price", help="With --record-only: the fill price obtained elsewhere")):
+    """Close a thesis now (market order for the held quantity), or record a close executed elsewhere."""
+    def run():
+        eng = _engine()
+        if record_only:
+            t = eng.close_thesis(thesis_id, reason=reason, execute=False)
+            if exit_price and t.entry_price:
+                t.exit_price = exit_price
+                t.realized_pnl = (exit_price - t.entry_price) * t.qty
+                eng.store.save_thesis(t)
+        else:
+            t = eng.close_thesis(thesis_id, reason=reason, execute=True)
+        _out(t.model_dump(mode="json"), lambda d: _thesis_table([d]))
+    _handle(run)
 
 
 @app.command()
