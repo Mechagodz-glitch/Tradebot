@@ -77,8 +77,13 @@ attention, with the exact command.
 
 ```bash
 tradebot sync --venue kite
-tradebot export && git add data/snapshots && git commit -m "snapshot $(date +%F)" && git push
+tradebot export --out data/snapshots/$(date +%F)-laptop.json
+git add data/snapshots && git commit -m "laptop snapshot $(date +%F)" && git push
 ```
+
+The `-laptop` suffix matters: the cloud session writes `data/snapshots/<date>.json`, so a plain `tradebot export`
+would create a conflicting file with the same name. If `git pull` ever reports divergent branches, run
+`git config pull.rebase true` once and pull again.
 
 The snapshot carries your fills, orders and thesis states back to the cloud session, which imports
 it before the next morning's research. If you forget, the cloud session can still read positions
