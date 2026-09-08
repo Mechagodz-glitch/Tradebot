@@ -72,13 +72,25 @@ class KiteBroker(Broker):
         return Account(venue=self.name, market=Market.IN, currency="INR", cash=cash, positions_value=pv, equity=cash + pv,
                        buying_power=avail, unrealized_pnl=sum(p.unrealized_pnl or 0.0 for p in positions))
 
+    def _canon_exchange(self, exchange: str, tradingsymbol: str) -> str:
+        """Zerodha reports demat holdings under whichever exchange last priced them (often BSE) even when
+        bought on NSE. Canonicalise to NSE when the symbol is NSE-listed so theses and the whitelist match."""
+        if exchange == "BSE":
+            try:
+                table = self.data.provider("upstox")._load_instruments("NSE")
+                if tradingsymbol.upper() in table:
+                    return "NSE"
+            except Exception:  # noqa: BLE001
+                pass
+        return exchange
+
     def positions(self, market: Optional[Market] = None, mark: bool = True) -> list[Position]:
         out: dict[str, Position] = {}
         for h in self.kite.holdings():
             qty = float(h.get("quantity", 0)) + float(h.get("t1_quantity", 0))
             if qty == 0:
                 continue
-            sym = f"{h['exchange']}:{h['tradingsymbol']}"
+            sym = f"{self._canon_exchange(h['exchange'], h['tradingsymbol'])}:{h['tradingsymbol']}"
             lp = float(h.get("last_price") or 0)
             out[sym] = Position(venue=self.name, symbol=sym, market=Market.IN, currency="INR", qty=qty,
                                 avg_price=float(h.get("average_price") or 0), market_price=lp or None,
@@ -87,7 +99,7 @@ class KiteBroker(Broker):
             qty = float(p.get("quantity", 0))
             if qty == 0:
                 continue
-            sym = f"{p['exchange']}:{p['tradingsymbol']}"
+            sym = f"{self._canon_exchange(p['exchange'], p['tradingsymbol'])}:{p['tradingsymbol']}"
             lp = float(p.get("last_price") or 0)
             pos = Position(venue=self.name, symbol=sym, market=Market.IN, currency="INR", qty=qty,
                            avg_price=float(p.get("average_price") or 0), market_price=lp or None, market_value=qty * lp,
