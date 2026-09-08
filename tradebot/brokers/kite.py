@@ -63,10 +63,20 @@ class KiteBroker(Broker):
         p = self.kite.profile()
         return f"LIVE user {p.get('user_id')} ({p.get('user_name')}) broker={p.get('broker')}"
 
+    def _holding_sale_proceeds(self) -> float:
+        """Net value of today's delivery (CNC) sales of holdings. Zerodha's funds API credits these only at
+        settlement, so without this the account would look poorer by the sale value for the rest of the day."""
+        total = 0.0
+        for p in self.kite.positions().get("net", []):
+            if p.get("product") == "CNC" and float(p.get("quantity", 0)) < 0:
+                total += float(p.get("sell_value") or 0.0) - float(p.get("buy_value") or 0.0)
+        return total
+
     def account(self, market: Market) -> Account:
         m = self.kite.margins("equity")
-        cash = float(m.get("net", 0.0))
-        avail = float((m.get("available") or {}).get("cash", cash))
+        proceeds = self._holding_sale_proceeds()
+        cash = float(m.get("net", 0.0)) + proceeds
+        avail = float((m.get("available") or {}).get("cash", cash)) + proceeds
         positions = self.positions(market, mark=False)
         pv = sum(p.market_value or 0.0 for p in positions)
         return Account(venue=self.name, market=Market.IN, currency="INR", cash=cash, positions_value=pv, equity=cash + pv,
@@ -99,6 +109,8 @@ class KiteBroker(Broker):
             qty = float(p.get("quantity", 0))
             if qty == 0:
                 continue
+            if qty < 0 and p.get("product") == "CNC":
+                continue  # delivery sale of a holding (already removed from holdings), not a short position
             sym = f"{self._canon_exchange(p['exchange'], p['tradingsymbol'])}:{p['tradingsymbol']}"
             lp = float(p.get("last_price") or 0)
             pos = Position(venue=self.name, symbol=sym, market=Market.IN, currency="INR", qty=qty,
