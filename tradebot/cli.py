@@ -682,7 +682,7 @@ def screen(market: Market = typer.Option(Market.IN), top: int = typer.Option(25,
                           _fmt(r.get("rsi_14"), 0), f"{r['vol_ratio']:.1f}x" if r.get("vol_ratio") else "-",
                           f"{r['dist_52w_high']:.1f}" if r.get("dist_52w_high") is not None else "-", _fmt(r.get("vol_20"), 0), trend,
                           _fmt(r.get("turnover_cr") or r.get("turnover_cr_20d"), 0))
-            console.print(t)
+            console.print(t, width=None if console.is_terminal else max(console.width, 170))
             console.print("[dim]trend: A above SMA20, T SMA20>SMA50, R SMA50 rising. "
                           f"saved: {res.get('saved_to', '-')}[/dim]")
             if rejected:

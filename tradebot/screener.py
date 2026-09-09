@@ -189,7 +189,7 @@ def passes_filters(m: dict, *, min_price: float, min_turnover_cr: float, max_mom
                    max_extension_pct: float, max_rsi: float, min_bars: int) -> Optional[str]:
     """Return the first failing filter's name, or None when the row is eligible."""
     if m.get("error"):
-        return m["error"]
+        return "history" if m["error"].startswith("only ") else m["error"]
     if (m.get("bars") or 0) < min_bars:
         return "history"
     if m.get("beta") is None:
