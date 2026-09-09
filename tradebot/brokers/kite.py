@@ -80,7 +80,8 @@ class KiteBroker(Broker):
         positions = self.positions(market, mark=False)
         pv = sum(p.market_value or 0.0 for p in positions)
         return Account(venue=self.name, market=Market.IN, currency="INR", cash=cash, positions_value=pv, equity=cash + pv,
-                       buying_power=avail, unrealized_pnl=sum(p.unrealized_pnl or 0.0 for p in positions))
+                       buying_power=avail, starting_cash=self.settings.kite.starting_capital,
+                       unrealized_pnl=sum(p.unrealized_pnl or 0.0 for p in positions))
 
     def _canon_exchange(self, exchange: str, tradingsymbol: str) -> str:
         """Zerodha reports demat holdings under whichever exchange last priced them (often BSE) even when

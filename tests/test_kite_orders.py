@@ -74,3 +74,6 @@ def test_sold_holding_is_not_a_short_and_proceeds_count_as_cash(engine, monkeypa
     a = b.account(Market.IN)
     assert a.cash == 3804.6 + 1737.5
     assert a.equity == a.cash + 4 * 498.3 + 9 * 276.0     # ~10,019, not ~6,543
+    assert a.starting_cash is None                        # not configured: no total P&L claim
+    engine.settings.kite.starting_capital = 10_000
+    assert b.account(Market.IN).starting_cash == 10_000   # dashboard shows total P&L = equity - deposits

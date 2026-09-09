@@ -52,6 +52,7 @@ class CcxtConfig(BaseModel):
 class KiteConfig(BaseModel):
     product: str = "CNC"  # CNC delivery, MIS intraday
     exchange: str = "NSE"
+    starting_capital: Optional[float] = None  # net deposits, INR: lets the account report total P&L since start
 
 
 class StrategyConfig(BaseModel):

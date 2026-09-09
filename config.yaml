@@ -45,6 +45,7 @@ ccxt:
 kite:
   product: CNC               # CNC (delivery) or MIS (intraday)
   exchange: NSE
+  starting_capital: 10000    # INR deposited so far; raise it when you add funds (total P&L = equity - this)
 
 strategy:
   name: trend                 # long-only trend following on daily candles (see README "Strategy")
