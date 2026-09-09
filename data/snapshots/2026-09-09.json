@@ -1,7 +1,17 @@
 {
- "exported_at": "2026-09-09T03:38:45.761507+00:00",
+ "exported_at": "2026-09-09T03:39:09.746399+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 55,
+   "ts": "2026-09-09T03:39:09.243806Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Wed 9 Sep 09:10 IST morning brief. Overnight: US destroyed five Iranian tankers (Gulf of Oman/Kharg), Iran fired ~20 ballistic missiles at US base at Al Azraq, Jordan (18 intercepted, no casualties). Brent >99, six-week high, heading for 100. US close: S&P -0.58%, Dow -1.18%; rate-hike odds rising into Fri 11 Sep US CPI (18:00 IST) and FOMC 16 Sep. GIFT Nifty -89 (23,660) -> gap-down open expected; Tue Nifty -0.61%, financials and Reliance dragged; rupee held by RBI. Corporate: Adani Airports raising Rs 9,825 cr primary at USD 18 bn pre-money from Temasek/BlackRock/Alpha Wave/Premji (5.54% by Jul 2027) - validates AEL airport SOTP but announced 7 Sep and AEL flat Mon; Coforge chairman resigned after audit concerns; six mainboard IPOs open today (record), NSE IPO price band targeted Fri 11 Sep (Rs 1,800-2,200 talk). Book: hold Oil India (last 495.4, +2.4%, target 522.67; escalation supportive; take profit early on any ceasefire headline), hold GE Shipping (1383.8, -0.1%; tanker losses + war-risk premia supportive), hold Swiggy (275.7, -0.5%; MSCI flow done, stop 263.29). No new entry today: 3-position cap reached, cash ~4,157, gap-down tape; AEL kept on watch.",
+   "data": null
+  },
   {
    "id": 45,
    "ts": "2026-09-08T09:42:42.042575Z",
