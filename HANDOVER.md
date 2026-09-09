@@ -119,7 +119,7 @@ Entries after about 14:00 IST are not worth making; roll to Tuesday instead.
 
 | Cloud session (Claude) | Your machine |
 |---|---|
-| Morning research: news, themes, unusual volume, macro | Kite login, funds check |
+| Morning research: news, themes, factor screen (`tradebot screen`), unusual volume, macro | Kite login, funds check |
 | Writes/updates theses and journal, pushes snapshot | Pulls snapshot, enters theses, runs the strategy sleeve |
 | Read-only monitoring at 11:30, 13:30, 15:10; alerts you | Runs `thesis check --execute` at those times |
 | End-of-day summary and next-day plan | Exports and pushes the day's snapshot |

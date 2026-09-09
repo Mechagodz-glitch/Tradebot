@@ -642,6 +642,60 @@ def themes(name: Optional[list[str]] = typer.Option(None, "--name", "-n", help="
     _handle(run)
 
 
+@app.command()
+def screen(market: Market = typer.Option(Market.IN), top: int = typer.Option(25, help="rows to show"),
+           symbol: Optional[list[str]] = typer.Option(None, "--symbol", "-s", help="screen only these symbols"),
+           universe: Optional[str] = typer.Option(None, help="file:path override for the universe"),
+           benchmark: Optional[str] = typer.Option(None, help="index proxy for alpha/beta (default NSE:NIFTYBEES / SPY / BTC-USD)"),
+           lookback: int = typer.Option(260, help="daily bars to load"),
+           min_price: float = typer.Option(50.0), min_turnover_cr: float = typer.Option(25.0, help="crore per day"),
+           max_momentum_pct: float = typer.Option(40.0, help="drop 20d movers above this (parabolic)"),
+           max_extension_pct: float = typer.Option(12.0, help="drop names this far above SMA20"),
+           max_rsi: float = typer.Option(78.0), min_bars: int = typer.Option(120),
+           beta_bucket: Optional[str] = typer.Option(None, help="low (<0.8) | mid | high (>1.3)"),
+           refresh: bool = typer.Option(False, "--refresh", help="ignore today's candle cache"),
+           no_save: bool = typer.Option(False, "--no-save", help="do not write data/screens/<date>.json"),
+           rejected: bool = typer.Option(False, "--rejected", help="also list rejected symbols and why")):
+    """Factor screen (1y alpha/beta vs index, momentum, RSI, volume surge, 52w-high distance) ranked for short-term trades."""
+    def run():
+        from .screener import screen as run_screen
+        def progress(done, total, sym):
+            if done % 50 == 0 or done == total:
+                err_console.print(f"[dim]screen {done}/{total} {sym}[/dim]")
+        res = run_screen(_engine(), market, symbols=symbol or None, universe_spec=universe, benchmark=benchmark, lookback=lookback,
+                         min_price=min_price, min_turnover_cr=min_turnover_cr, max_momentum_pct=max_momentum_pct,
+                         max_extension_pct=max_extension_pct, max_rsi=max_rsi, min_bars=min_bars, refresh=refresh, save=not no_save,
+                         progress=None if _state["json"] else progress)
+        rows = res["rows"]
+        if beta_bucket:
+            rows = [r for r in rows if r.get("beta_bucket") == beta_bucket]
+        shown = rows[:top]
+        def table(_):
+            t = Table(title=f"screen {res['market']} vs {res['benchmark']}: {res['eligible']} eligible of {res['scanned']} "
+                            f"(rejected: {', '.join(f'{k} {v}' for k, v in sorted(res['rejected_counts'].items()))})")
+            for c in ("#", "symbol", "last", "score", "alpha1y%", "beta", "5d%", "20d%", "60d%", "rsi", "vol5/20", "%52wH", "vol20%", "trend", "turn cr"):
+                t.add_column(c, justify="right")
+            for r in shown:
+                trend = ("A" if r.get("above_sma20") else "-") + ("T" if r.get("sma20_gt_sma50") else "-") + ("R" if r.get("sma50_rising") else "-")
+                t.add_row(str(r["rank"]), r["symbol"], _fmt(r.get("last")), _fmt(r.get("score"), 1), f"{r['alpha']:+.1f}", f"{r['beta']:.2f}",
+                          *(f"{r[k]:+.1f}" if r.get(k) is not None else "-" for k in ("ret_5", "ret_20", "ret_60")),
+                          _fmt(r.get("rsi_14"), 0), f"{r['vol_ratio']:.1f}x" if r.get("vol_ratio") else "-",
+                          f"{r['dist_52w_high']:.1f}" if r.get("dist_52w_high") is not None else "-", _fmt(r.get("vol_20"), 0), trend,
+                          _fmt(r.get("turnover_cr") or r.get("turnover_cr_20d"), 0))
+            console.print(t)
+            console.print("[dim]trend: A above SMA20, T SMA20>SMA50, R SMA50 rising. "
+                          f"saved: {res.get('saved_to', '-')}[/dim]")
+            if rejected:
+                rj = Table(title="rejected")
+                for c in ("symbol", "why", "last", "20d%"):
+                    rj.add_column(c, justify="right")
+                for r in res["rejected"]:
+                    rj.add_row(r["symbol"], escape(str(r["why"])[:40]), _fmt(r.get("last")), f"{r['ret_20']:+.1f}" if r.get("ret_20") is not None else "-")
+                console.print(rj)
+        _out({k: v for k, v in res.items() if k not in ("rows", "rejected")} | {"rows": shown} | ({"rejected": res["rejected"]} if rejected else {}), table)
+    _handle(run)
+
+
 universe_app = typer.Typer(help="Build and inspect liquidity-screened universes.", no_args_is_help=True)
 app.add_typer(universe_app, name="universe")
 

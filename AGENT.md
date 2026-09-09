@@ -49,6 +49,7 @@ tradebot --json thesis list | thesis check [--execute] | thesis enter <id> | the
 tradebot --json universe build --market in | universe show --market in --limit 30   # turnover-ranked names
 tradebot --json news --match "Adani,sugar,NSE IPO" --hours 36 | news -q "Jio IPO date"      # feeds / Google News India
 tradebot --json themes | themes -n adani -n sugar_ethanol --members                       # basket returns and volume
+tradebot --json screen --top 30 [--beta-bucket low|mid|high] [--rejected] [-s NSE:X]        # factor screen: alpha/beta, momentum, RSI
 ```
 
 Equivalent HTTP calls exist for every command (see README). Use the API when running the agent as a
@@ -119,10 +120,15 @@ Run these every morning and before each intraday check. All are public informati
    find the lagging member of a moving basket (the better entry) and the name carrying unusual volume.
 3. `tradebot universe show --limit 40` for the day's turnover leaders: unusual volume is where information is
    being acted on. Find the reason before trading it.
-4. Macro map: what is stressed (crude, rupee, FII flows, rates) and who is on the right side of it.
+4. `tradebot screen --top 30` for the factor view of the whole universe: positive 1y alpha, 60d/20d momentum
+   that is real but not parabolic, RSI in the 50s and 60s, volume above average, near the 52 week high, trend
+   intact. Use `--beta-bucket low` for names that can hold up in a risk-off tape and `high` for the
+   beneficiaries of a rebound. A high score is a candidate list, not a thesis: check the news for each
+   name before sizing it, and prefer the ones whose move has a named reason.
+5. Macro map: what is stressed (crude, rupee, FII flows, rates) and who is on the right side of it.
    Crude up and rupee weak: upstream oil, tanker shipping, exporters with dollar revenue (textiles, pharma,
    IT), commodity exchanges; losers are OMCs, aviation, paints, tyres, importers.
-5. Verify every premise from a primary or two independent sources before it becomes a thesis. Claims about
+6. Verify every premise from a primary or two independent sources before it becomes a thesis. Claims about
    politically connected businesses need documentary evidence (filings, notifications); if it cannot be
    verified, it is not a thesis. Trading on non-public information is illegal; only act on published facts.
 

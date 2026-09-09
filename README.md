@@ -198,6 +198,19 @@ sugar/ethanol, toll roads, textile exporters, pharma, IT, upstream oil, tankers,
 NSE IPO stakeholders, defence, PSU banks); `--members` lists every constituent. Baskets can be extended
 with a `themes.yaml` at the project root.
 
+## Factor screen
+
+`tradebot screen` computes, from one year of daily candles, the numbers factor sites such as Tickertape
+show: 1y beta and annualised alpha versus the index (NIFTYBEES as the tradeable proxy), 5/20/60/120 day
+momentum, RSI(14), 20 day realised volatility, 60 day Sharpe, volume surge (5d/20d), distance from the 52
+week high, ATR% and 60 day drawdown. It runs over the whole `data/universe/in.json` universe (Kite historical
+data, cached per day under `data/cache/screen/`), drops names that fail hard filters (price, turnover,
+parabolic 20 day move, extension above SMA20, RSI above 78, thin history) and ranks the rest with a
+percentile-weighted short-term score (60d and 20d momentum, alpha, Sharpe, RSI near 60, volume surge,
+proximity to the 52 week high, trend flags). Results are written to `data/screens/<date>.json`.
+`--beta-bucket low|mid|high` filters by market sensitivity; `--rejected` lists what was dropped and why;
+`-s NSE:X -s NSE:Y` screens a hand-picked set. The screen finds candidates; a thesis still needs a catalyst.
+
 ## Theses (discretionary positions)
 
 News- and event-driven positions are recorded as theses so the app, not memory, enforces the exit:
@@ -258,6 +271,7 @@ tradebot/
   universe.py      liquidity-screened universes (file-based symbol lists)
   news.py          RSS news retrieval (Indian market feeds, Google News India)
   themes.py        actor / policy / macro basket tracker
+  screener.py      factor screen (alpha/beta, momentum, RSI, volume) ranked for short-term trades
   engine.py        TradingEngine: the one entry point used by CLI and API
   cli.py           Typer CLI
   data/            market data providers + registry with fallback
