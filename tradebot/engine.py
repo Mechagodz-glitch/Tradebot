@@ -420,6 +420,19 @@ class TradingEngine:
                 continue
             self.store.save_fill(f)
             added_f += 1
+        added_e = 0
+        for key, pts in (data.get("equity") or {}).items():
+            if not pts:
+                continue
+            venue, market = key.split("/", 1)
+            have = {e.ts.isoformat() for e in self.store.equity_curve(venue, Market(market), limit=100_000)}
+            for raw in pts:
+                e = EquityPoint.model_validate(raw)
+                if e.ts.isoformat() in have:
+                    continue
+                self.store.add_equity_point(e)
+                have.add(e.ts.isoformat())
+                added_e += 1
         existing = {(j.ts.isoformat(), j.text) for j in self.store.list_journal(limit=100_000)}
         added_j = 0
         for raw in data.get("journal", []):
@@ -429,7 +442,7 @@ class TradingEngine:
             j.id = None
             self.store.journal(j)
             added_j += 1
-        return {"theses_added": added_t, "theses_updated": updated_t, "orders_added": added_o, "fills_added": added_f,
+        return {"theses_added": added_t, "theses_updated": updated_t, "orders_added": added_o, "fills_added": added_f, "equity_added": added_e,
                 "journal_added": added_j, "exported_at": data.get("exported_at")}
 
     def set_kill_switch(self, on: bool) -> bool:

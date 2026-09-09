@@ -97,9 +97,9 @@ async function refresh() {
     const labels = equity.map(e => e.ts.slice(0,16).replace('T',' ')), data = equity.map(e => e.equity);
     if (typeof Chart === 'undefined') { /* chart library unavailable; tables still work */ }
     else if (!equityChart) {
-      equityChart = new Chart($('#equity'), {type:'line', data:{labels, datasets:[{label:'equity', data, borderColor:'#58a6ff', backgroundColor:'rgba(88,166,255,.12)', fill:true, tension:.2, pointRadius:0}]},
+      equityChart = new Chart($('#equity'), {type:'line', data:{labels, datasets:[{label:'equity', data, borderColor:'#58a6ff', backgroundColor:'rgba(88,166,255,.12)', fill:true, tension:.2, pointRadius: data.length < 30 ? 3 : 0}]},
         options:{responsive:true, plugins:{legend:{display:false}}, scales:{x:{ticks:{color:'#8b93a7', maxTicksLimit:8}, grid:{color:'#262b36'}}, y:{ticks:{color:'#8b93a7'}, grid:{color:'#262b36'}}}}});
-    } else if (equityChart) { equityChart.data.labels = labels; equityChart.data.datasets[0].data = data; equityChart.update(); }
+    } else if (equityChart) { equityChart.data.labels = labels; equityChart.data.datasets[0].data = data; equityChart.data.datasets[0].pointRadius = data.length < 30 ? 3 : 0; equityChart.update(); }
     $('#status').textContent = 'updated ' + new Date().toLocaleTimeString() + (equity.length ? '' : ' (run sync to record equity points)');
   } catch (e) { $('#status').textContent = 'error: ' + e.message; }
 }

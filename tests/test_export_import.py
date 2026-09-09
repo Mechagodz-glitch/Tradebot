@@ -78,3 +78,19 @@ def test_import_preserves_timestamps_so_replay_order_does_not_matter(engine, set
     res = eng2.import_state(older, force=True)                 # unless explicitly forced
     assert res["theses_updated"] == 1
     assert eng2.store.get_thesis(t.id).status == ThesisStatus.PLANNED
+
+
+def test_import_restores_equity_history_once(engine, settings, tmp_path):
+    from datetime import datetime, timezone
+    from tests.conftest import FakeMarketData
+    from tradebot.models import EquityPoint
+    for i in range(3):
+        engine.store.add_equity_point(EquityPoint(venue="paper", market=Market.IN, ts=datetime(2026, 9, 1 + i, 10, tzinfo=timezone.utc),
+                                                  cash=10_000 - i, positions_value=i, equity=10_000))
+    snap = engine.export_state()
+    assert len(snap["equity"]["paper/in"]) == 3
+    s2 = Settings(db_path=str(tmp_path / "eq.db")); s2.root = str(tmp_path)
+    eng2 = TradingEngine(s2, Store(s2.resolve(s2.db_path)), FakeMarketData(s2))
+    assert eng2.import_state(snap)["equity_added"] == 3
+    assert eng2.import_state(snap)["equity_added"] == 0
+    assert len(eng2.store.equity_curve("paper", Market.IN)) == 3
