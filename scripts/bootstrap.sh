@@ -24,10 +24,13 @@ if [ ! -f .env ]; then
 fi
 mkdir -p data/cache
 
+# Snapshots are date-named, so sort by name (a fresh clone gives every file the same mtime). Import them
+# all in order: import is an upsert that keeps the newest record of each thesis, so this replays history.
 if [ -d data/snapshots ] && ls data/snapshots/*.json >/dev/null 2>&1; then
-  latest=$(ls -t data/snapshots/*.json | head -1)
-  echo "importing journal and theses from $latest"
-  tradebot import "$latest" || true
+  for snap in $(ls data/snapshots/*.json | sort); do
+    echo "importing $snap"
+    tradebot --json import "$snap" >/dev/null || true
+  done
 fi
 
 # make `tradebot` available in any shell without activating the virtualenv

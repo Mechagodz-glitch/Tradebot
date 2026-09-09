@@ -3,7 +3,7 @@
 set -uo pipefail
 cd "$(dirname "$(readlink -f "$0")")/.."
 git pull -q --rebase || echo "git pull failed (continuing)"
-latest=$(ls -t data/snapshots/*.json 2>/dev/null | head -1)
+latest=$(ls data/snapshots/*.json 2>/dev/null | sort | tail -1)   # date-named files: newest by name, not mtime
 if [ -n "$latest" ]; then
   ./scripts/tradebot --json import "$latest"
 fi
