@@ -1,5 +1,5 @@
 {
- "exported_at": "2026-09-09T09:42:31.955684+00:00",
+ "exported_at": "2026-09-09T15:26:43.514468+00:00",
  "version": "0.1.0",
  "journal": [
   {
@@ -35,6 +35,25 @@
     "qty": 6.0,
     "entry_price": 377.5,
     "manual": true
+   }
+  },
+  {
+   "id": 63,
+   "ts": "2026-09-09T06:03:55.485076Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:REDINGTON",
+   "order_id": "0b0321060d6e",
+   "text": "filled: buy 6 NSE:REDINGTON limit @ 378.1 | reason: [thesis 8c5ef2a59595] Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+   "data": {
+    "reason": "[thesis 8c5ef2a59595] Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 2268.6000000000004,
+     "reference_price": 378.1,
+     "reduces_position": false
+    },
+    "live": true
    }
   },
   {
@@ -1029,7 +1048,7 @@
   {
    "id": "d8b5e718e9dd",
    "created_at": "2026-09-09T05:22:54.256832Z",
-   "updated_at": "2026-09-09T05:22:54.256852Z",
+   "updated_at": "2026-09-09T11:51:24.557647Z",
    "venue": "kite",
    "symbol": "NSE:CHENNPETRO",
    "market": "in",
@@ -1059,7 +1078,7 @@
   {
    "id": "cab0d0e8410c",
    "created_at": "2026-09-08T03:35:31.308849Z",
-   "updated_at": "2026-09-08T08:53:55.675495Z",
+   "updated_at": "2026-09-09T11:51:24.564530Z",
    "venue": "kite",
    "symbol": "NSE:GESHIP",
    "market": "in",
@@ -1088,7 +1107,7 @@
   {
    "id": "9bfaa74c2640",
    "created_at": "2026-09-04T22:46:43.847738Z",
-   "updated_at": "2026-09-08T09:50:01.919915Z",
+   "updated_at": "2026-09-09T11:51:24.566268Z",
    "venue": "kite",
    "symbol": "NSE:OIL",
    "market": "in",
@@ -1117,7 +1136,7 @@
   {
    "id": "849f600df9e3",
    "created_at": "2026-09-04T22:46:43.189514Z",
-   "updated_at": "2026-09-08T08:51:36.444019Z",
+   "updated_at": "2026-09-09T11:51:24.568030Z",
    "venue": "kite",
    "symbol": "NSE:GICRE",
    "market": "in",
@@ -1146,7 +1165,7 @@
   {
    "id": "90f5f2db97a0",
    "created_at": "2026-09-04T22:46:42.504901Z",
-   "updated_at": "2026-09-08T09:50:01.931907Z",
+   "updated_at": "2026-09-09T11:51:24.570384Z",
    "venue": "kite",
    "symbol": "NSE:SWIGGY",
    "market": "in",
@@ -1175,7 +1194,7 @@
   {
    "id": "ba38ba98fb33",
    "created_at": "2026-09-04T22:20:11.737995Z",
-   "updated_at": "2026-09-08T09:50:01.934195Z",
+   "updated_at": "2026-09-09T11:51:24.572002Z",
    "venue": "kite",
    "symbol": "NSE:GICRE",
    "market": "in",
@@ -1204,7 +1223,7 @@
   {
    "id": "3510983924c4",
    "created_at": "2026-09-04T22:20:11.038430Z",
-   "updated_at": "2026-09-08T09:50:01.936590Z",
+   "updated_at": "2026-09-09T11:51:24.573609Z",
    "venue": "kite",
    "symbol": "NSE:SWIGGY",
    "market": "in",
@@ -1232,6 +1251,30 @@
   }
  ],
  "orders": [
+  {
+   "id": "0b0321060d6e",
+   "venue": "kite",
+   "venue_order_id": "260909220700431",
+   "symbol": "NSE:REDINGTON",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 6.0,
+   "filled_qty": 6.0,
+   "order_type": "limit",
+   "limit_price": 378.1,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 377.5,
+   "fees": 0.0,
+   "reason": "[thesis 8c5ef2a59595] Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-09T06:03:55.379295Z",
+   "updated_at": "2026-09-09T11:51:24.578937Z"
+  },
   {
    "id": "80dfc3d3b4a7",
    "venue": "kite",
