@@ -72,7 +72,7 @@ in `.env`, and installs the systemd units:
 |---|---|---|
 | `tradebot-dashboard.service` | always | Dashboard and API on 127.0.0.1:8787 (not public) |
 | `tradebot-morning.timer` | 09:05 | `git pull`, import the newest snapshot, Kite equity sync |
-| `tradebot-check.timer` | every 10 min, 09:20 to 15:25 | `thesis check --execute`: stops, targets, expiries |
+| `tradebot-check.timer` | every 10 min, 09:20 to 15:25 | `thesis check --execute`: stops, targets, expiries. Installed but **not started** until the IP is whitelisted |
 | `tradebot-eod.timer` | 15:45 | sync, export `data/snapshots/<date>-vps.json`, commit, push |
 
 Then add the keys:
@@ -88,6 +88,15 @@ curl -4 -s https://ifconfig.me   # must print the droplet IP from step 2
 https://developers.kite.trade -> your app -> static IP settings. Add the droplet's IPv4. Keep the
 laptop's IPv4 in the second slot as a fallback. Changes are limited to one per calendar week, so do
 this on Monday 14 September or the next open window. Leave the redirect URL as it is.
+
+Once the whitelist is active, hand execution to the droplet and take it away from the laptop:
+
+```bash
+sudo systemctl start tradebot-check.timer      # on the droplet
+```
+
+From then on do not run `tradebot thesis check --execute` on the laptop. Two machines enforcing the
+same exits can sell the same shares twice; one executor at a time.
 
 ## 7. Every trading morning (2 minutes)
 

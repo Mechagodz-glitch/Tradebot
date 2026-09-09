@@ -109,7 +109,9 @@ phase_app() {
   say "systemd services and timers"
   sudo cp deploy/systemd/*.service deploy/systemd/*.timer /etc/systemd/system/
   sudo systemctl daemon-reload
-  sudo systemctl enable --now tradebot-dashboard.service tradebot-check.timer tradebot-morning.timer tradebot-eod.timer
+  # the executor timer (tradebot-check) is installed but NOT started: start it only after this IP is whitelisted in Kite
+  sudo systemctl enable --now tradebot-dashboard.service tradebot-morning.timer tradebot-eod.timer
+  sudo systemctl enable tradebot-check.timer
   systemctl list-timers --no-pager | grep tradebot || true
 
   echo
@@ -118,7 +120,8 @@ phase_app() {
   echo "  1. nano $APP_DIR/.env   -> KITE_API_KEY, KITE_API_SECRET (Alpaca keys optional)"
   echo "  2. tradebot doctor       -> everything except broker:kite should be green until a token is saved"
   echo "  3. whitelist this IPv4 in the Kite developer console: $(curl -4 -s https://ifconfig.me || true)"
-  echo "  4. each trading morning: tradebot kite-login -> log in -> tradebot kite-login <request_token> --save"
+  echo "  4. AFTER the whitelist is active:  sudo systemctl start tradebot-check.timer   (stops/targets then run from here; stop running thesis check --execute on the laptop)"
+  echo "  5. each trading morning: tradebot kite-login -> log in -> tradebot kite-login <request_token> --save"
   echo "  logs: journalctl -u tradebot-check -n 50    pause: sudo systemctl stop tradebot-check.timer  or  tradebot kill"
   echo "=================================================================================="
 }

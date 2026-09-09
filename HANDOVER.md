@@ -120,6 +120,8 @@ Entries after about 14:00 IST are not worth making; roll to Tuesday instead.
 See `docs/VPS.md`: a $6/month DigitalOcean droplet in Bangalore with a fixed IPv4, set up by
 `scripts/vps-setup.sh`, enforces stops and targets on a timer and pushes the day's snapshot itself.
 The laptop stays whitelisted as the fallback.
+Current state (9 Sep): droplet `tradebot-blr` at 168.144.86.125 is installed; its executor timer stays stopped
+until the IP is whitelisted on Monday 14 September. Until then the laptop remains the only executor.
 
 ## Division of labour
 
