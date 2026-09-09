@@ -750,12 +750,12 @@ def export_state(out: Optional[str] = typer.Option(None, "--out", help="file pat
 
 
 @app.command("import")
-def import_state(path: str):
-    """Restore journal entries and theses from an export (idempotent)."""
+def import_state(path: str, force: bool = typer.Option(False, "--force", help="Replace every thesis in the snapshot even if ours is newer")):
+    """Restore theses, order history and journal from an export (idempotent; newer thesis record wins)."""
     def run():
         from pathlib import Path
         data = json.loads(Path(path).read_text())
-        _out(_engine().import_state(data))
+        _out(_engine().import_state(data, force=force))
     _handle(run)
 
 

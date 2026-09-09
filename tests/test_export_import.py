@@ -54,3 +54,27 @@ def test_attach_from_venue_position(engine, settings, prices):
     t = engine.open_thesis(ThesisRequest(symbol="NSE:OIL", text="crude", size_notional=2_400), execute=False)
     t = engine.attach_thesis(t.id)  # no qty / price: read from the paper position
     assert t.status.value == "open" and t.qty == 4 and t.entry_price == pytest.approx(486.0 * 1.0005)
+
+
+def test_import_preserves_timestamps_so_replay_order_does_not_matter(engine, settings, prices, tmp_path):
+    from tests.conftest import FakeMarketData
+    from tradebot.models import ThesisStatus
+    t = engine.open_thesis(ThesisRequest(symbol="NSE:RELIANCE", text="planned", size_notional=2_000), execute=False)
+    older = engine.export_state()
+    engine.settings.paper.starting_cash["in"] = 10_000
+    engine.settings.risk.max_order_notional["INR"] = 4_000
+    engine.settings.risk.max_position_notional["INR"] = 4_500
+    engine.enter_thesis(engine.store.get_thesis(t.id))
+    newer = engine.export_state()
+    newer_ts = engine.store.get_thesis(t.id).updated_at
+
+    s2 = Settings(db_path=str(tmp_path / "replay.db")); s2.root = str(tmp_path)
+    eng2 = TradingEngine(s2, Store(s2.resolve(s2.db_path)), FakeMarketData(s2))
+    eng2.import_state(newer)                                   # newest first
+    assert eng2.store.get_thesis(t.id).updated_at == newer_ts  # snapshot timestamp kept, not stamped "now"
+    res = eng2.import_state(older)                             # an older snapshot must not regress the record
+    assert res["theses_updated"] == 0
+    assert eng2.store.get_thesis(t.id).status == ThesisStatus.OPEN
+    res = eng2.import_state(older, force=True)                 # unless explicitly forced
+    assert res["theses_updated"] == 1
+    assert eng2.store.get_thesis(t.id).status == ThesisStatus.PLANNED

@@ -397,8 +397,10 @@ class Store:
             return [r.to_model() for r in s.scalars(q)]
 
     # ---- theses -----------------------------------------------------------
-    def save_thesis(self, t: Thesis) -> Thesis:
-        t.updated_at = utcnow()
+    def save_thesis(self, t: Thesis, preserve_updated_at: bool = False) -> Thesis:
+        """Upsert. ``preserve_updated_at`` keeps the record's own timestamp (snapshot imports); otherwise stamp now."""
+        if not preserve_updated_at or t.updated_at is None:
+            t.updated_at = utcnow()
         with self.session() as s:
             row = s.get(ThesisRow, t.id)
             if row is None:

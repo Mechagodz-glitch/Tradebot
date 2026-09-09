@@ -389,20 +389,20 @@ class TradingEngine:
                        for v in self.brokers.names() for m in Market},
         }
 
-    def import_state(self, data: dict) -> dict:
-        """Restore journal entries and theses (idempotent: existing ids / identical entries are skipped).
-        Orders and fills are venue history and are not re-created."""
+    def import_state(self, data: dict, force: bool = False) -> dict:
+        """Restore theses, order/fill history and journal entries from a snapshot. Idempotent: a thesis is
+        replaced only when the snapshot's record is newer than ours (timestamps are preserved on import, so
+        replaying snapshots in any order converges on the latest state); ``force`` replaces unconditionally."""
         existing_theses = {t.id: t for t in self.store.list_theses(limit=100_000)}
         added_t = updated_t = 0
         for raw in data.get("theses", []):
             t = Thesis.model_validate(raw)
             cur = existing_theses.get(t.id)
             if cur is None:
-                self.store.save_thesis(t)
+                self.store.save_thesis(t, preserve_updated_at=True)
                 added_t += 1
-            elif t.updated_at and cur.updated_at and t.updated_at > cur.updated_at:
-                t.updated_at = t.updated_at  # keep the incoming timestamp semantics; save_thesis stamps now
-                self.store.save_thesis(t)
+            elif force or (t.updated_at and cur.updated_at and t.updated_at > cur.updated_at):
+                self.store.save_thesis(t, preserve_updated_at=True)
                 updated_t += 1
         existing_orders = {o.id for o in self.store.list_orders(limit=100_000)}
         added_o = 0
