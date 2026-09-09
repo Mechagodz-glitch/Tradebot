@@ -2,7 +2,7 @@
 Description=Run tradebot-check every 10 minutes during NSE hours (server clock must be Asia/Kolkata)
 
 [Timer]
-OnCalendar=Mon..Fri *-*-* 09..15:*/10:00
+OnCalendar=Mon..Fri *-*-* 09..15:00/10:00
 AccuracySec=30s
 Persistent=false
 
