@@ -1,7 +1,42 @@
 {
- "exported_at": "2026-09-09T05:22:55.783451+00:00",
+ "exported_at": "2026-09-09T09:42:31.955684+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 62,
+   "ts": "2026-09-09T09:42:31.392077Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "15:10 IST pre-close, Wed 9 Sep (day 3). Hold everything: Oil India 498.15 (+2.9%, below the 515 early-exit line, Brent >100, no ceasefire), Redington 378.35 (+0.2%, entered 11:33 at 377.50 x6), GE Shipping 1394.4 (+0.7%), Swiggy 283.1 (+2.2%, bounce under way). Equity 10,079 (day +72, unrealized +125), cash 1,873. CPCL closed near 1,596 (+9.5%) without a pullback: not chased, stays planned. Gland 3,025 (+2.2%). Tape: Nifty -0.7%, IT 6th down day, rupee past 95, Brent above 100 first time in 3 months. NSE IPO: band likely 1,700-1,800, OFS trimmed, issue may shrink to 25-27k cr. Thu 10 Sep wake-up trigger set. Fri: US CPI 18:00 IST, NSE band.",
+   "data": null
+  },
+  {
+   "id": 61,
+   "ts": "2026-09-09T08:02:21.069633Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Wed 9 Sep. Book: Redington 376.6 (-0.2%), GE Shipping 1392.4 (+0.5%), Oil India 497.75 (+2.9%), Swiggy 283.5 (+2.3%, mean reversion started, +2.8% today). Nothing within 1.5% of a stop or target. CPCL ran to 1585 (+8.7% intraday, high 1604) without the pullback; rule held, not chased, thesis d8b5e718e9dd stays planned for a pullback entry. Tape: Nifty ~23,550 (-0.35%), IT -4% (6th down day), realty -4 days, metals +2%, rupee slipped past 95 with RBI intervention slowing, Brent ~99-100, no ceasefire headline. NSE IPO: reports of a LOWER price band (~Rs 1,700 vs 1,800-2,200 talk); IFCI -4%. Read-across for an exchange re-rating (MCX idea) is weaker: MCX downgraded from third pick to watch only. CANDIDATE for the rest of the week: Gland Pharma (NSE:GLAND, 2,941; beta 0.65, 1y alpha +47%, 3% below 52w high, vol 1.7x). Catalysts: rupee through 95 (USD revenue), USFDA Vizag inspection closed 1 Sep with zero observations, new supply agreement. Needs ~3,000 INR: fund the account or wait for Oil India to hit target. Entry only if Nifty stabilises; stop 5%, target 8%, 2 weeks. Fri 11 Sep: US CPI 18:00 IST, NSE IPO price band; FOMC Wed 16 Sep.",
+   "data": null
+  },
+  {
+   "id": 60,
+   "ts": "2026-09-09T06:05:01.453178Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:REDINGTON",
+   "order_id": null,
+   "text": "thesis 8c5ef2a59595 opened manually: 6 @ 377.5 (venue-position)",
+   "data": {
+    "thesis_id": "8c5ef2a59595",
+    "qty": 6.0,
+    "entry_price": 377.5,
+    "manual": true
+   }
+  },
   {
    "id": 59,
    "ts": "2026-09-09T05:22:54.994686Z",
@@ -965,7 +1000,7 @@
   {
    "id": "8c5ef2a59595",
    "created_at": "2026-09-09T05:22:54.978741Z",
-   "updated_at": "2026-09-09T05:22:54.978766Z",
+   "updated_at": "2026-09-09T06:05:01.458246Z",
    "venue": "kite",
    "symbol": "NSE:REDINGTON",
    "market": "in",
@@ -977,10 +1012,10 @@
    "stop_pct": 5.0,
    "target_pct": 10.0,
    "expires_at": "2026-09-23T00:00:00Z",
-   "status": "planned",
-   "entry_order_id": null,
-   "qty": 0.0,
-   "entry_price": null,
+   "status": "open",
+   "entry_order_id": "venue-position",
+   "qty": 6.0,
+   "entry_price": 377.5,
    "exit_order_id": null,
    "exit_price": null,
    "closed_at": null,
@@ -1734,6 +1769,22 @@
     "cash": 4138.4,
     "positions_value": 5870.1,
     "equity": 10008.5
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-09T06:04:41.713461Z",
+    "cash": 1873.3999999999996,
+    "positions_value": 8116.05,
+    "equity": 9989.45
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-09T09:41:55.360284Z",
+    "cash": 1873.3999999999996,
+    "positions_value": 8205.650000000001,
+    "equity": 10079.050000000001
    }
   ],
   "kite/crypto": [],
