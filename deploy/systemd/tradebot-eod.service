@@ -1,0 +1,8 @@
+[Unit]
+Description=Tradebot: end-of-day sync, snapshot export and git push
+
+[Service]
+Type=oneshot
+User=trader
+WorkingDirectory=/home/trader/Tradebot
+ExecStart=/home/trader/Tradebot/scripts/vps-eod.sh

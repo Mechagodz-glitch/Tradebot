@@ -1,0 +1,9 @@
+[Unit]
+Description=Run tradebot-eod at 15:45 IST on weekdays
+
+[Timer]
+OnCalendar=Mon..Fri *-*-* 15:45:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

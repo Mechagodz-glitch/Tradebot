@@ -115,6 +115,12 @@ At 10:29 IST prices the entries would be about 8 Swiggy @ 279, 5 GIC Re @ 353, 4
 `tradebot thesis enter <id>` recomputes quantity and limit from the live ask when you run it.
 Entries after about 14:00 IST are not worth making; roll to Tuesday instead.
 
+## Running it on a VPS instead of the laptop
+
+See `docs/VPS.md`: a $6/month DigitalOcean droplet in Bangalore with a fixed IPv4, set up by
+`scripts/vps-setup.sh`, enforces stops and targets on a timer and pushes the day's snapshot itself.
+The laptop stays whitelisted as the fallback.
+
 ## Division of labour
 
 | Cloud session (Claude) | Your machine |

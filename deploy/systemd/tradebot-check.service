@@ -1,0 +1,8 @@
+[Unit]
+Description=Tradebot: enforce thesis stops, targets and expiries on Kite (market hours only)
+
+[Service]
+Type=oneshot
+User=trader
+WorkingDirectory=/home/trader/Tradebot
+ExecStart=/home/trader/Tradebot/scripts/vps-market-check.sh

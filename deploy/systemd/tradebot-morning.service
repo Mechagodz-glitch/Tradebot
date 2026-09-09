@@ -1,0 +1,8 @@
+[Unit]
+Description=Tradebot: pull the latest research snapshot, import it, sync Kite equity
+
+[Service]
+Type=oneshot
+User=trader
+WorkingDirectory=/home/trader/Tradebot
+ExecStart=/home/trader/Tradebot/scripts/vps-morning.sh

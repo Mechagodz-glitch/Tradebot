@@ -1,0 +1,17 @@
+[Unit]
+Description=Tradebot dashboard and API on 127.0.0.1:8787 (reach it through an SSH tunnel)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=trader
+WorkingDirectory=/home/trader/Tradebot
+ExecStart=/home/trader/Tradebot/.venv/bin/tradebot serve
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
