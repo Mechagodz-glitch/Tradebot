@@ -1,7 +1,61 @@
 {
- "exported_at": "2026-09-09T03:39:09.746399+00:00",
+ "exported_at": "2026-09-09T05:22:55.783451+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 59,
+   "ts": "2026-09-09T05:22:54.994686Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:REDINGTON",
+   "order_id": null,
+   "text": "thesis 8c5ef2a59595 planned: Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+   "data": {
+    "thesis_id": "8c5ef2a59595",
+    "size": 2300.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-23T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 58,
+   "ts": "2026-09-09T05:22:54.274384Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:CHENNPETRO",
+   "order_id": null,
+   "text": "thesis d8b5e718e9dd planned: Factor screen rank 23, beta 0.34, 1y alpha +100%, at 52w high, RSI 70. Standalone refiner: crude near USD 100 gives inventory gains, Navratna status (Jun 2026), Rs 54 dividend paid Aug. Low beta suits a risk-off tape. Correlated with Oil India (both long crude): a ceasefire hits both. ENTRY RULE: it is +4.7% today after opening at 1,466; do not chase. Buy a pullback at 1,490-1,505, or at 14:00 if it still holds above 1,500. Skip today if it fades below 1,480.",
+   "data": {
+    "thesis_id": "d8b5e718e9dd",
+    "size": 1600.0,
+    "stop_pct": 5.0,
+    "target_pct": 8.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-23T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 57,
+   "ts": "2026-09-09T05:19:26.235900Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Factor screen run Wed 9 Sep (tradebot screen, 552 names, 454 eligible, benchmark NIFTYBEES). Curated shortlist for a ~1L book (catalyst-checked): GLAND (b0.65 a47 USFDA Vizag zero-483 1 Sep, new supply agreement), LAURUSLABS (b0.92 a84 CDMO +29%, near high), CHENNPETRO (b0.34 a100 Navratna, at high, long-crude proxy), REDINGTON (b1.52 a62 Q1 PAT +77%, Apple launch season), MCX (b1.10 a84 exchanges re-rate into NSE IPO price band Fri), PAYTM (b1.73 a45 Q1 PAT +79%, at high, AGM 15 Sep), SYRMA (b1.41 a91 vol 2.2x, new hi-rel plant 2 Sep, RSI 73 so smaller). Screen-only alternates: AVALON, APLAPOLLO, CGCL, ACMESOLAR. Avoid for now: SHREEJISPG (rank 2 but promoter 2% open-market sale 31 Aug-30 Sep). Staging: low-beta half first, mid/high-beta half only after Fri CPI or with Nifty above prior close. Sizing ~12k each, stops 1.5x ATR (4-5%), targets 8-12% over 2-3 weeks.",
+   "data": null
+  },
+  {
+   "id": 56,
+   "ts": "2026-09-09T05:00:47.602548Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Swiggy 90f5f2db97a0 reviewed 10:40 IST Wed 9 Sep at user's request: no new negative information since entry (MSCI deletion executed 4 Sep, downgrades predate entry). User decision: HOLD with tightened exits - exit on any close below 270 (4 Sep block level) or if not above 280 by Fri 11 Sep close (time stop). Original 5% stop 263.29 remains the hard floor.",
+   "data": null
+  },
   {
    "id": 55,
    "ts": "2026-09-09T03:39:09.243806Z",
@@ -909,6 +963,65 @@
  ],
  "theses": [
   {
+   "id": "8c5ef2a59595",
+   "created_at": "2026-09-09T05:22:54.978741Z",
+   "updated_at": "2026-09-09T05:22:54.978766Z",
+   "venue": "kite",
+   "symbol": "NSE:REDINGTON",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+   "confidence": 0.55,
+   "size_notional": 2300.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-23T00:00:00Z",
+   "status": "planned",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": null,
+   "close_reason": null,
+   "realized_pnl": null,
+   "tags": [
+    "screen",
+    "momentum"
+   ]
+  },
+  {
+   "id": "d8b5e718e9dd",
+   "created_at": "2026-09-09T05:22:54.256832Z",
+   "updated_at": "2026-09-09T05:22:54.256852Z",
+   "venue": "kite",
+   "symbol": "NSE:CHENNPETRO",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "Factor screen rank 23, beta 0.34, 1y alpha +100%, at 52w high, RSI 70. Standalone refiner: crude near USD 100 gives inventory gains, Navratna status (Jun 2026), Rs 54 dividend paid Aug. Low beta suits a risk-off tape. Correlated with Oil India (both long crude): a ceasefire hits both. ENTRY RULE: it is +4.7% today after opening at 1,466; do not chase. Buy a pullback at 1,490-1,505, or at 14:00 if it still holds above 1,500. Skip today if it fades below 1,480.",
+   "confidence": 0.55,
+   "size_notional": 1600.0,
+   "stop_pct": 5.0,
+   "target_pct": 8.0,
+   "expires_at": "2026-09-23T00:00:00Z",
+   "status": "planned",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": null,
+   "close_reason": null,
+   "realized_pnl": null,
+   "tags": [
+    "screen",
+    "crude",
+    "low-beta"
+   ]
+  },
+  {
    "id": "cab0d0e8410c",
    "created_at": "2026-09-08T03:35:31.308849Z",
    "updated_at": "2026-09-08T08:53:55.675495Z",
@@ -1613,6 +1726,14 @@
     "cash": 4156.9,
     "positions_value": 5849.95,
     "equity": 10006.849999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-09T04:55:22.707365Z",
+    "cash": 4138.4,
+    "positions_value": 5870.1,
+    "equity": 10008.5
    }
   ],
   "kite/crypto": [],
