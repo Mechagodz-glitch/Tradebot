@@ -127,12 +127,16 @@ until the IP is whitelisted on Monday 14 September. Until then the laptop remain
 
 ## Division of labour
 
-| Cloud session (Claude) | Your machine |
+From 10 September the droplet `tradebot-blr` (168.144.86.125) is the execution machine and the laptop is a
+fallback only. Until the droplet's IP is whitelisted (Monday 14 September) no machine can place API orders,
+so any stop or target hit that week is executed by hand in the Kite app on the cloud session's instruction.
+
+| Cloud session (Claude) | Droplet (timers) / you |
 |---|---|
 | Morning research: news, themes, factor screen (`tradebot screen`), unusual volume, macro | Kite login, funds check |
-| Writes/updates theses and journal, pushes snapshot | Pulls snapshot, enters theses, runs the strategy sleeve |
-| Read-only monitoring at 11:30, 13:30, 15:10; alerts you | Runs `thesis check --execute` at those times |
-| End-of-day summary and next-day plan | Exports and pushes the day's snapshot |
+| Writes/updates theses and journal, pushes snapshot and the encrypted token drop | 09:05 timer pulls and imports; token timer applies the drop; you run `tradebot thesis enter <id>` over SSH |
+| Read-only monitoring at 11:30, 13:30, 15:10; alerts you | `tradebot-check.timer` enforces stops/targets every 10 min (from Monday 14 Sep) |
+| End-of-day summary and next-day plan | 15:45 timer exports and pushes `<date>-vps.json` |
 
 The permanent fix is a small always-on machine with a static IP (any cloud VM in Mumbai) running
 `tradebot serve` behind a bearer token; the cloud session can then drive it over HTTP and the daily
