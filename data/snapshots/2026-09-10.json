@@ -1,7 +1,27 @@
 {
- "exported_at": "2026-09-10T03:34:06.985583+00:00",
+ "exported_at": "2026-09-10T10:26:50.389543+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 66,
+   "ts": "2026-09-10T10:26:49.816135Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Thu 10 Sep (day 4). Close: Redington 392.0 (+3.8%, Apple foldable launch), Oil India 500.3 (+3.4%), GE Shipping 1400.2 (+1.1%), Swiggy 279.0 (+0.7%, just under the 280 time-stop line; decision at Fri close). Equity 10,138 (day +59, total +138 since 7 Sep), cash 1,871. CPCL stayed planned (no dip to 1,500-1,520). Ops: first automated token hand-off worked (drop pushed 13:07, applied on droplet 13:10); droplet EOD timer pushed 2026-09-10-vps.json at 15:45 and it imported cleanly. Fri: US CPI 18:00 IST (after close), NSE IPO band next week, Swiggy time stop. Mon 14 Sep: whitelist droplet IP, start tradebot-check.timer.",
+   "data": null
+  },
+  {
+   "id": 65,
+   "ts": "2026-09-10T08:02:26.362365Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Thu 10 Sep (day 4). Book: Redington 393.35 (+4.2%, Apple foldable iPhone launch confirmed the catalyst; target 415.25 is 5.6% away), Oil India 501.45 (+3.6%, eased from 511; 515 exit line still armed via Kite-app GTT if placed), Swiggy 282.6 (+2.0%), GE Shipping 1400.9 (+1.1%). Nothing within 1.5% of stop/target. CPCL 1,576 (-1.8%), still above the 1,500-1,520 entry zone; stays planned. Nifty flat ~23,450, Brent >100, no ceasefire, IT down a 7th session, rupee 95.3. Friday read-across: US Aug CPI 18:00 IST, consensus headline +0.4% m/m / 3.4% y/y, core +0.4% / 2.4%; markets price ~60% odds of a 25 bp Fed hike on 16 Sep. A hot print lands after the NSE close, so the reaction hits Monday's open: high-beta Redington (beta 1.5) is the exposed name; plan is to hold into Friday and reassess at Monday 09:00 before the droplet executor starts. NSE IPO band 1,700-1,785 expected next week. Token drop pushed 13:07 and applied on the droplet 13:10 (first automated hand-off).",
+   "data": null
+  },
   {
    "id": 64,
    "ts": "2026-09-10T03:34:06.286678Z",
@@ -1838,6 +1858,46 @@
     "cash": 1873.3999999999996,
     "positions_value": 8205.650000000001,
     "equity": 10079.050000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-09T15:25:07.259668Z",
+    "cash": 1873.3999999999996,
+    "positions_value": 8202.0,
+    "equity": 10075.4
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-10T03:53:49.152222Z",
+    "cash": 1871.3,
+    "positions_value": 8289.35,
+    "equity": 10160.65
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-10T07:40:35.803481Z",
+    "cash": 1871.3,
+    "positions_value": 8308.2,
+    "equity": 10179.5
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-10T09:41:27.461737Z",
+    "cash": 1871.3,
+    "positions_value": 8261.8,
+    "equity": 10133.099999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-10T10:15:28.232804Z",
+    "cash": 1871.3,
+    "positions_value": 8270.0,
+    "equity": 10141.3
    }
   ],
   "kite/crypto": [],
