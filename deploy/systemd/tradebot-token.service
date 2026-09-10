@@ -1,0 +1,8 @@
+[Unit]
+Description=Tradebot: pull the encrypted Kite token drop and apply it to .env
+
+[Service]
+Type=oneshot
+User=trader
+WorkingDirectory=/home/trader/Tradebot
+ExecStart=/home/trader/Tradebot/scripts/vps-token-sync.sh

@@ -74,6 +74,7 @@ in `.env`, and installs the systemd units:
 | `tradebot-morning.timer` | 09:05 | `git pull`, import the newest snapshot, Kite equity sync |
 | `tradebot-check.timer` | every 10 min, 09:20 to 15:25 | `thesis check --execute`: stops, targets, expiries. Installed but **not started** until the IP is whitelisted |
 | `tradebot-eod.timer` | 15:45 | sync, export `data/snapshots/<date>-vps.json`, commit, push |
+| `tradebot-token.timer` | every 5 min | pull and apply the encrypted Kite token drop (section 7a) |
 
 Then add the keys:
 
@@ -114,6 +115,29 @@ tradebot doctor && tradebot positions --venue kite
 Nothing else is manual. The 09:05 timer picks up the cloud session's research snapshot; the check
 timer enforces exits; the 15:45 timer pushes the day's state. Entering a new thesis is still a
 deliberate command: `tradebot thesis enter <id>` over SSH.
+
+## 7a. Daily token without copy-paste (encrypted hand-off through git)
+
+The cloud research session can reach GitHub but cannot SSH anywhere, and the droplet can pull the repo.
+So the day's access token travels as an `age` ciphertext, `data/secrets/kite_token.age`, encrypted to
+the SSH public keys in `deploy/keys/*.pub`. Only those private keys can read it, and the token expires
+the next morning anyway. Plaintext never enters the repository.
+
+One-time, on each machine that should receive tokens:
+
+```bash
+# droplet (uses its deploy key ~/.ssh/id_ed25519; also installs the 5-minute timer)
+cd ~/Tradebot && git pull && bash scripts/vps-token-sync.sh init
+
+# laptop (uses the key you log in to the droplet with)
+cd ~/personal/Tradebot && git pull && bash scripts/vps-token-sync.sh init ~/.ssh/id_tradebot
+```
+
+Each morning, whoever exchanges the request token runs `tradebot kite-login <request_token> --save --drop`
+(or `tradebot token drop` afterwards) and pushes. The droplet's `tradebot-token.timer` pulls every five
+minutes, decrypts, updates `.env`, restarts the dashboard and syncs. On the laptop run
+`bash scripts/vps-token-sync.sh` (or `tradebot token apply --identity ~/.ssh/id_tradebot`) when you want
+the token there.
 
 ## 8. Operating it
 

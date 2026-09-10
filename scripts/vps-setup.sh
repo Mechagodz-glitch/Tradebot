@@ -110,7 +110,7 @@ phase_app() {
   sudo cp deploy/systemd/*.service deploy/systemd/*.timer /etc/systemd/system/
   sudo systemctl daemon-reload
   # the executor timer (tradebot-check) is installed but NOT started: start it only after this IP is whitelisted in Kite
-  sudo systemctl enable --now tradebot-dashboard.service tradebot-morning.timer tradebot-eod.timer
+  sudo systemctl enable --now tradebot-dashboard.service tradebot-morning.timer tradebot-eod.timer tradebot-token.timer
   sudo systemctl enable tradebot-check.timer
   systemctl list-timers --no-pager | grep tradebot || true
 

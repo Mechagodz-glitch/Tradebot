@@ -41,6 +41,8 @@ Read-only calls work from any IP; only order placement is restricted.
 git pull && tradebot import data/snapshots/$(ls data/snapshots | tail -1)   # research + theses from the cloud session
 tradebot kite-login                         # open the URL, log in with TOTP
 tradebot kite-login <request_token> --save  # request_token from the redirect URL; single use, valid minutes
+# If the cloud session exchanged the token instead, fetch it (see docs/VPS.md 7a):
+#   git pull && tradebot token apply --identity ~/.ssh/id_tradebot
 tradebot doctor --no-data                   # broker:kite ok, session:in open from 09:15
 tradebot account --venue kite               # funds
 tradebot thesis list                        # what is planned for today, with size, stop, target, expiry, confidence

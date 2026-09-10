@@ -370,22 +370,14 @@ def reset_paper(market: Optional[Market] = typer.Option(None), yes: bool = typer
 
 
 def _upsert_env(path, key: str, value: str) -> None:
-    """Set KEY=value in a dotenv file, replacing an existing line or appending. Mode 600."""
-    from pathlib import Path
-    p = Path(path)
-    lines = p.read_text().splitlines() if p.exists() else []
-    lines = [ln for ln in lines if not ln.startswith(f"{key}=")]
-    lines.append(f"{key}={value}")
-    p.write_text("\n".join(lines) + "\n")
-    try:
-        p.chmod(0o600)
-    except OSError:
-        pass
+    from .envfile import upsert_env
+    upsert_env(path, key, value)
 
 
 @app.command("kite-login")
 def kite_login(request_token: Optional[str] = typer.Argument(None),
-               save: bool = typer.Option(False, "--save", help="Write KITE_ACCESS_TOKEN into .env instead of printing it")):
+               save: bool = typer.Option(False, "--save", help="Write KITE_ACCESS_TOKEN into .env instead of printing it"),
+               drop: bool = typer.Option(False, "--drop", help="With --save: also write the encrypted hand-off file for the other machines")):
     """Zerodha login: print the login URL, then exchange the request_token for an access token."""
     def run():
         eng = _engine()
@@ -399,10 +391,41 @@ def kite_login(request_token: Optional[str] = typer.Argument(None),
             from pathlib import Path
             env_path = Path(eng.settings.root) / ".env"
             _upsert_env(env_path, "KITE_ACCESS_TOKEN", tok)
-            _out({"access_token": "<saved>", "saved_to": str(env_path),
-                  "next": "run: tradebot doctor --no-data   (token is valid until about 6am IST tomorrow)"})
+            res = {"access_token": "<saved>", "saved_to": str(env_path),
+                   "next": "run: tradebot doctor --no-data   (token is valid until about 6am IST tomorrow)"}
+            if drop:
+                from .tokendrop import write_drop
+                res["drop"] = write_drop(eng.settings.root, tok)
+                res["next"] = "git add data/secrets && git commit -m 'token drop' && git push   (the other machines apply it within minutes)"
+            _out(res)
         else:
             _out({"access_token": tok, "next": "export KITE_ACCESS_TOKEN=<token> (valid until ~6am IST next day)"})
+    _handle(run)
+
+
+token_app = typer.Typer(help="Encrypted hand-off of the daily Kite token through the repo (see docs/VPS.md).", no_args_is_help=True)
+app.add_typer(token_app, name="token")
+
+
+@token_app.command("drop")
+def token_drop():
+    """Encrypt KITE_ACCESS_TOKEN from .env to every key in deploy/keys/*.pub and write data/secrets/kite_token.age."""
+    def run():
+        from .tokendrop import write_drop
+        eng = _engine()
+        res = write_drop(eng.settings.root)
+        res["next"] = "git add data/secrets && git commit -m 'token drop' && git push"
+        _out(res)
+    _handle(run)
+
+
+@token_app.command("apply")
+def token_apply(identity: str = typer.Option("~/.ssh/id_ed25519", "--identity", help="SSH private key that matches one of deploy/keys/*.pub")):
+    """Decrypt data/secrets/kite_token.age with your SSH key and write the token into .env (no-op if unchanged)."""
+    def run():
+        from .tokendrop import apply_drop
+        eng = _engine()
+        _out(apply_drop(eng.settings.root, identity))
     _handle(run)
 
 
