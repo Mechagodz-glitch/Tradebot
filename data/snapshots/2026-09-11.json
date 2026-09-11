@@ -1,7 +1,37 @@
 {
- "exported_at": "2026-09-11T03:34:21.396496+00:00",
+ "exported_at": "2026-09-11T10:26:57.488154+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 70,
+   "ts": "2026-09-11T10:26:56.903760Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "WEEK 1 EOD, Fri 11 Sep (days 1-5, live book from Mon 7 Sep, start 10,000). Close: equity ~10,092 (+0.9%), cash ~3,360 after the Swiggy exit settles (875 + 2,497). Realized: GIC Re -20.50 (thesis broke: NSE IPO band cut), Swiggy +2.25 (time stop, flat). Open: Redington 6 @377.50 (393.6, +4.3%, Apple foldable catalyst confirmed), Oil India 4 @483.95 (486.55, +0.5%, gave back most of the week's gain on Friday despite Brent 108), GE Shipping 1 @1385.20 (1411.5, +1.9%), GOLDBEES 8 @124.55 (core, user-initiated). Planned: CPCL (never offered the pullback; screen still flags it extended). What worked: catalyst-driven entries with pre-set exits (Redington, GE Shipping), refusing to chase (CPCL +9.5% day, Adani Ent), the daily screen as a sanity check, the operational stack (droplet, token hand-off, automated EOD snapshots). What did not: the MSCI-bounce thesis (Swiggy) and the NSE-IPO read-across (GIC Re) both assumed flows that did not arrive; at 10k the frictions (DP charges) matter. Weekend: CPI print review for Monday, dividend-ladder + portfolio module build. Monday: whitelist droplet IP 168.144.86.125, start tradebot-check.timer, droplet becomes executor.",
+   "data": null
+  },
+  {
+   "id": 69,
+   "ts": "2026-09-11T08:02:10.854637Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Fri 11 Sep (day 5). Book: Redington 389.65 (+3.2%), GE Shipping 1407 (+1.6%), Oil India 495.85 (+2.5%), Swiggy 276.85 (-0.1%, below the 280 time-stop line). Nifty -1% intraday then -0.2%, Brent 108 with 20 calls (Mirae) and RBI-hike talk (Emkay), rupee 95.8, dollar index 99 ahead of US CPI 18:00 IST. CPCL 1,569 (-3.5%) approaching the 1,500-1,520 zone but NO entry today: Friday + CPI + weekend + cash 875 (a Swiggy exit would fund it but chasing crude into a binary event is the wrong trade); revisit Monday when the droplet executor is live. Pre-decided close (15:10 instructions): (1) Swiggy: if below 280 at 15:10, exit all 9 at market via Kite app (time stop, thesis premise of a 1-2 week MSCI bounce did not deliver; ~flat P&L, frees ~2,490); if >=280 hold into next week with the 270 hard line. (2) Redington: sell all 6 only if >=400 (lock ~6% pre-CPI); otherwise hold, stop 358.62 gives room for a 5% gap-down. (3) Oil India hold, 515 line; no GTT on the account. (4) GE Shipping hold. (5) GOLDBEES is a core holding, untouched.",
+   "data": null
+  },
+  {
+   "id": 68,
+   "ts": "2026-09-11T04:51:23.911673Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": "NSE:GOLDBEES",
+   "order_id": null,
+   "text": "User bought 8 GOLDBEES (gold ETF) at 124.55 = Rs 996.40 via the Kite app at 09:08 IST Fri 11 Sep, outside the thesis framework. Treated as a long-term core holding (gold is in the proposed portfolio core), not a trade: no stop, not managed by thesis check. Cash after purchase Rs 875. No Oil India GTT exists on the account as of 10:20 IST.",
+   "data": null
+  },
   {
    "id": 67,
    "ts": "2026-09-11T03:34:20.614983Z",
@@ -1205,7 +1235,7 @@
   {
    "id": "90f5f2db97a0",
    "created_at": "2026-09-04T22:46:42.504901Z",
-   "updated_at": "2026-09-09T11:51:24.570384Z",
+   "updated_at": "2026-09-11T09:44:10.243224Z",
    "venue": "kite",
    "symbol": "NSE:SWIGGY",
    "market": "in",
@@ -1217,15 +1247,15 @@
    "stop_pct": 5.0,
    "target_pct": 10.0,
    "expires_at": "2026-09-18T00:00:00Z",
-   "status": "open",
+   "status": "closed",
    "entry_order_id": "venue-position",
    "qty": 9.0,
    "entry_price": 277.15,
    "exit_order_id": null,
-   "exit_price": null,
-   "closed_at": null,
-   "close_reason": null,
-   "realized_pnl": null,
+   "exit_price": 277.4,
+   "closed_at": "2026-09-11T09:44:10.237675Z",
+   "close_reason": "time stop: below 280 at Fri close; MSCI-deletion bounce did not sustain; sold 9 @ 277.40 via Kite app",
+   "realized_pnl": 2.25,
    "tags": [
     "event",
     "index-flow"
@@ -1908,6 +1938,38 @@
     "cash": 1871.3,
     "positions_value": 8270.0,
     "equity": 10141.3
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-11T04:50:34.865095Z",
+    "cash": 874.9,
+    "positions_value": 9238.710000000001,
+    "equity": 10113.61
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-11T04:55:28.819025Z",
+    "cash": 874.9,
+    "positions_value": 9260.36,
+    "equity": 10135.26
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-11T09:41:39.084175Z",
+    "cash": 874.9,
+    "positions_value": 9216.939999999999,
+    "equity": 10091.839999999998
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-11T10:15:22.016697Z",
+    "cash": 5880.700000000001,
+    "positions_value": 6736.16,
+    "equity": 12616.86
    }
   ],
   "kite/crypto": [],
