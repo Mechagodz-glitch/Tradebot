@@ -75,5 +75,13 @@ def test_sold_holding_is_not_a_short_and_proceeds_count_as_cash(engine, monkeypa
     assert a.cash == 3804.6 + 1737.5
     assert a.equity == a.cash + 4 * 498.3 + 9 * 276.0     # ~10,019, not ~6,543
     assert a.starting_cash is None                        # not configured: no total P&L claim
+
+    class ReportedSaleKite(SoldHoldingKite):
+        """Later in the day Zerodha folds the sale into net and reports it under utilised.holding_sales."""
+        def margins(self, segment):
+            return {"net": 3804.6 + 1737.5, "available": {"cash": 3804.6}, "utilised": {"debits": 0, "holding_sales": 1737.5}}
+    b._kite = ReportedSaleKite()
+    a2 = b.account(Market.IN)
+    assert a2.cash == 3804.6 + 1737.5                      # counted once, not twice
     engine.settings.kite.starting_capital = 10_000
     assert b.account(Market.IN).starting_cash == 10_000   # dashboard shows total P&L = equity - deposits

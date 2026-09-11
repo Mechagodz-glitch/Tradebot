@@ -424,15 +424,10 @@ class TradingEngine:
         for key, pts in (data.get("equity") or {}).items():
             if not pts:
                 continue
-            venue, market = key.split("/", 1)
-            have = {e.ts.isoformat() for e in self.store.equity_curve(venue, Market(market), limit=100_000)}
             for raw in pts:
                 e = EquityPoint.model_validate(raw)
-                if e.ts.isoformat() in have:
-                    continue
-                self.store.add_equity_point(e)
-                have.add(e.ts.isoformat())
-                added_e += 1
+                if self.store.upsert_equity_point(e) != "same":   # new point, or a corrected value for an existing timestamp
+                    added_e += 1
         existing = {(j.ts.isoformat(), j.text) for j in self.store.list_journal(limit=100_000)}
         added_j = 0
         for raw in data.get("journal", []):

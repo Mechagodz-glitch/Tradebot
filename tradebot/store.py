@@ -352,6 +352,22 @@ class Store:
                             positions_value=p.positions_value, equity=p.equity))
             s.commit()
 
+    def upsert_equity_point(self, p: EquityPoint) -> str:
+        """Insert, or overwrite the point with the same (venue, market, ts). Returns 'added' | 'updated' | 'same'."""
+        with self.session() as s:
+            row = s.scalar(select(EquityRow).where(EquityRow.venue == p.venue, EquityRow.market == p.market.value,
+                                                   EquityRow.ts == p.ts))
+            if row is None:
+                s.add(EquityRow(venue=p.venue, market=p.market.value, ts=p.ts, cash=p.cash,
+                                positions_value=p.positions_value, equity=p.equity))
+                s.commit()
+                return "added"
+            if (round(row.equity, 4), round(row.cash, 4), round(row.positions_value, 4)) == (round(p.equity, 4), round(p.cash, 4), round(p.positions_value, 4)):
+                return "same"
+            row.cash, row.positions_value, row.equity = p.cash, p.positions_value, p.equity
+            s.commit()
+            return "updated"
+
     def equity_curve(self, venue: str, market: Market, limit: int = 2000) -> list[EquityPoint]:
         with self.session() as s:
             q = select(EquityRow).where(EquityRow.venue == venue, EquityRow.market == market.value) \

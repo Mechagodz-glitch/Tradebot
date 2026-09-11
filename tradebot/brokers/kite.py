@@ -74,9 +74,12 @@ class KiteBroker(Broker):
 
     def account(self, market: Market) -> Account:
         m = self.kite.margins("equity")
-        proceeds = self._holding_sale_proceeds()
+        # Zerodha reports same-day delivery sale proceeds under utilised.holding_sales and already folds them
+        # into ``net`` on most days; on days it does not, reconstruct them from the negative CNC positions.
+        reported = float((m.get("utilised") or {}).get("holding_sales") or 0.0)
+        proceeds = max(0.0, self._holding_sale_proceeds() - reported)
         cash = float(m.get("net", 0.0)) + proceeds
-        avail = float((m.get("available") or {}).get("cash", cash)) + proceeds
+        avail = float((m.get("available") or {}).get("cash", cash)) + proceeds + reported
         positions = self.positions(market, mark=False)
         pv = sum(p.market_value or 0.0 for p in positions)
         return Account(venue=self.name, market=Market.IN, currency="INR", cash=cash, positions_value=pv, equity=cash + pv,
