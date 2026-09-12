@@ -50,6 +50,7 @@ tradebot --json universe build --market in | universe show --market in --limit 3
 tradebot --json news --match "Adani,sugar,NSE IPO" --hours 36 | news -q "Jio IPO date"      # feeds / Google News India
 tradebot --json themes | themes -n adani -n sugar_ethanol --members                       # basket returns and volume
 tradebot --json screen --top 30 [--beta-bucket low|mid|high] [--rejected] [-s NSE:X]        # factor screen: alpha/beta, momentum, RSI
+tradebot --json portfolio status | portfolio plan -c 10000 [--execute] | portfolio calendar   # long-term sleeve (portfolio.yaml)
 ```
 
 Equivalent HTTP calls exist for every command (see README). Use the API when running the agent as a
@@ -158,6 +159,20 @@ ethanol policy, then down 60% from the high. Public information made it findable
   IPO story in September 2026 despite having sold its NSE stake in 2019.
 - Stops are 4 to 6% for large caps and 6 to 8% for volatile mid caps; targets 1.5 to 2 times the stop.
 - Expiry is the catalyst date plus a day or two, never open ended.
+
+## Portfolio sleeve: rules
+
+1. `portfolio.yaml` is the contract. Change weights deliberately and journal why; never drift into a name
+   because it looks good this week (that is what the satellite sleeve and the theses are for).
+2. Contributions do the rebalancing. `portfolio plan -c <amount>` buys the largest gaps; sell only when a
+   name's dividend is cut, its business breaks, or a position drifts more than 25 percentage points over
+   target, and do it on the monthly date, not intraday.
+3. Income names are chosen for sustainable payout, not headline yield: check profit, cash flow, debt and
+   payout history at every results date, and re-verify `data/dividends/in.yaml` then. A name whose
+   payout capacity is threatened (IOC while crude is above 100) gets weight 0, not a smaller number.
+4. Dividends land in the bank account. `portfolio calendar` says how much to add back next month.
+5. Portfolio holdings are never theses and theses never buy portfolio names; the planner enforces the
+   second half, the agent enforces the first.
 
 ## Never
 

@@ -1,0 +1,55 @@
+# Dividend calendar for the income sleeve. Per share amounts are the FY2025-26 totals as verified in
+# September 2026 (company / exchange disclosures); `payments` lists the typical payout months and the
+# usual split. Record dates precede payment by two to four weeks. Future dividends can be cut: this file
+# is an estimate for planning, not a promise. Re-verify each name at its results date.
+NSE:COALINDIA:
+  dps_fy26: 26.50
+  payments: [{month: 11, amount: 10.25, note: "1st interim"}, {month: 2, amount: 5.50, note: "2nd interim"},
+             {month: 3, amount: 5.50, note: "3rd interim"}, {month: 8, amount: 5.25, note: "final"}]
+NSE:PFC:
+  dps_fy26: 18.55
+  payments: [{month: 11, amount: 3.70}, {month: 2, amount: 3.65}, {month: 3, amount: 4.00}, {month: 6, amount: 3.25}, {month: 8, amount: 3.95, note: "final"}]
+NSE:RECLTD:
+  dps_fy26: 18.55
+  payments: [{month: 11, amount: 4.50}, {month: 2, amount: 4.30}, {month: 3, amount: 4.10}, {month: 8, amount: 4.10}, {month: 9, amount: 1.55, note: "final"}]
+NSE:ITC:
+  dps_fy26: 14.50
+  payments: [{month: 2, amount: 6.50, note: "interim"}, {month: 6, amount: 8.00, note: "final, record ~27 May"}]
+NSE:HCLTECH:
+  dps_fy26: 60.00
+  payments: [{month: 1, amount: 12}, {month: 5, amount: 24, note: "record ~25 Apr"}, {month: 7, amount: 12}, {month: 10, amount: 12}]
+NSE:TCS:
+  dps_fy26: 110.00
+  note: "includes a 46/share special in Jan 2026; recurring run-rate is ~64"
+  payments: [{month: 1, amount: 57, note: "3rd interim 11 + special 46"}, {month: 6, amount: 31, note: "final"}, {month: 7, amount: 11}, {month: 10, amount: 11}]
+NSE:ONGC:
+  dps_fy26: 12.30
+  note: "FY25 total; FY26 interims not yet verified"
+  payments: [{month: 11, amount: 6.00}, {month: 2, amount: 4.00}, {month: 8, amount: 2.30, note: "final"}]
+NSE:POWERGRID:
+  dps_fy26: 12.00
+  note: "1st interim FY26 = 4.50 verified; remainder estimated from FY25"
+  payments: [{month: 11, amount: 4.50}, {month: 2, amount: 3.25}, {month: 3, amount: 1.25}, {month: 8, amount: 3.00, note: "final"}]
+NSE:CASTROLIND:
+  dps_fy26: 12.00
+  note: "calendar-year company; final 6.25 record 11 Aug 2026 verified, interim estimated"
+  payments: [{month: 5, amount: 5.75, note: "interim"}, {month: 8, amount: 6.25, note: "final"}]
+NSE:IOC:
+  dps_fy26: 8.25
+  note: "deferred in portfolio.yaml while crude > 100"
+  payments: [{month: 11, amount: 5.00}, {month: 2, amount: 2.00}, {month: 8, amount: 1.25, note: "final"}]
+NSE:GOLDBEES:
+  dps_fy26: 0
+  payments: []
+NSE:NIFTYBEES:
+  dps_fy26: 0
+  payments: []
+NSE:JUNIORBEES:
+  dps_fy26: 0
+  payments: []
+NSE:MID150BEES:
+  dps_fy26: 0
+  payments: []
+NSE:MON100:
+  dps_fy26: 0
+  payments: []

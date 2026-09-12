@@ -719,6 +719,113 @@ def screen(market: Market = typer.Option(Market.IN), top: int = typer.Option(25,
     _handle(run)
 
 
+portfolio_app = typer.Typer(help="Long-term portfolio: target weights, monthly contribution plan, dividend calendar (portfolio.yaml).",
+                            no_args_is_help=True)
+app.add_typer(portfolio_app, name="portfolio")
+
+
+def _pf(model_path):
+    from .portfolio import load_model
+    eng = _engine()
+    return eng, load_model(eng.settings.root, model_path)
+
+
+@portfolio_app.command("model")
+def portfolio_model(model: Optional[str] = typer.Option(None, "--model", help="path to portfolio.yaml")):
+    """Show the effective target weight of every holding."""
+    def run():
+        _eng, m = _pf(model)
+        rows = [{"symbol": s, "sleeve": m.sleeve_of(s), "target_w": w} for s, w in sorted(m.targets().items(), key=lambda kv: -kv[1])]
+        def table(rows):
+            t = Table(title=f"portfolio model ({m.venue}/{m.market.value}); cash buffer {m.cash_buffer:,.0f} {m.currency}")
+            for c in ("symbol", "sleeve", "target %"):
+                t.add_column(c, justify="right")
+            for r in rows:
+                t.add_row(r["symbol"], str(r["sleeve"]), f"{r['target_w']*100:.1f}")
+            console.print(t)
+        _out(rows, table)
+    _handle(run)
+
+
+@portfolio_app.command("status")
+def portfolio_status(model: Optional[str] = typer.Option(None, "--model")):
+    """Holdings versus targets, drift, and projected dividends by month."""
+    def run():
+        from .portfolio import status
+        eng, m = _pf(model)
+        res = status(eng, m)
+        def table(res):
+            t = Table(title=f"portfolio {res['venue']}: value {res['portfolio_value']:,.0f} {res['currency']}, cash {res['cash']:,.0f}, "
+                            f"projected dividend {res['annual_dividend']:,.0f}/yr")
+            for c in ("symbol", "sleeve", "qty", "price", "value", "cur %", "tgt %", "drift pp", "yield %", "div/yr"):
+                t.add_column(c, justify="right")
+            for r in res["rows"]:
+                t.add_row(r["symbol"] + (" *" if r["thesis_managed"] else ""), str(r["sleeve"]), _fmt(r["qty"], 0), _fmt(r["price"]), _fmt(r["value"], 0),
+                          f"{r['current_w']*100:.1f}", f"{r['target_w']*100:.1f}", f"{r['drift_pp']:+.1f}",
+                          f"{r['yield_pct']:.1f}" if r.get("yield_pct") is not None else "-", _fmt(r["annual_dividend"], 0))
+            console.print(t)
+            months = res["dividends_by_month"]
+            console.print("[dim]dividends by month: " + "  ".join(f"{k}:{v:,.0f}" for k, v in months.items() if v) + "   (* = open thesis, not managed here)[/dim]")
+            if res.get("not_in_model"):
+                console.print(f"[dim]held but not in the model: {', '.join(res['not_in_model'])}[/dim]")
+        _out(res, table)
+    _handle(run)
+
+
+@portfolio_app.command("plan")
+def portfolio_plan(contribution: float = typer.Option(..., "--contribution", "-c", help="new money to deploy, in the model currency"),
+                   model: Optional[str] = typer.Option(None, "--model"),
+                   execute: bool = typer.Option(False, "--execute", help="place the buys as limit orders (risk-checked)"),
+                   dry_run: bool = typer.Option(False, "--dry-run", help="with --execute: risk checks only")):
+    """Turn a contribution into a buy list that fills the largest gaps to target first (never sells)."""
+    def run():
+        from .portfolio import execute_plan, plan
+        eng, m = _pf(model)
+        res = plan(eng, m, contribution)
+        if execute:
+            res["orders"] = execute_plan(eng, m, res, dry_run=dry_run)
+        def table(res):
+            t = Table(title=f"portfolio plan {res['as_of']}: contribution {res['contribution']:,.0f} + idle {max(0, res['idle_cash']-res['cash_buffer']):,.0f} "
+                            f"= budget {res['budget']:,.0f} {res['currency']}; spend {res['spend']:,.0f}, unspent {res['unspent']:,.0f}")
+            for c in ("symbol", "sleeve", "qty", "limit", "notional", "gap before", "record soon", "risk"):
+                t.add_column(c, justify="right")
+            for b in res["buys"]:
+                t.add_row(b["symbol"], str(b["sleeve"]), str(b["qty"]), _fmt(b["limit"]), _fmt(b["notional"], 0), _fmt(b["gap_before"], 0),
+                          "yes" if b["record_soon"] else "", escape("; ".join(b["risk_flags"])) if b["risk_flags"] else "")
+            console.print(t)
+            if res["skipped"]:
+                console.print("[dim]skipped: " + "; ".join(f"{s['symbol']} ({s['why']})" for s in res["skipped"]) + "[/dim]")
+            if res.get("orders"):
+                o = Table(title="orders")
+                for c in ("symbol", "qty", "limit", "status", "detail"):
+                    o.add_column(c, justify="right")
+                for r in res["orders"]:
+                    o.add_row(r["symbol"], str(r["qty"]), _fmt(r["limit"]), r["status"], escape(str(r.get("error") or r.get("order_id") or "")))
+                console.print(o)
+        _out(res, table)
+    _handle(run)
+
+
+@portfolio_app.command("calendar")
+def portfolio_calendar(months: int = typer.Option(3, "--months"), model: Optional[str] = typer.Option(None, "--model")):
+    """Upcoming payouts for held names: expected credits and the amount to add back next month."""
+    def run():
+        from .portfolio import calendar
+        eng, m = _pf(model)
+        res = calendar(eng, m, months=months)
+        def table(res):
+            t = Table(title=f"dividend calendar from {res['as_of']}, next {res['months']} months: expected {res['expected_total']:,.0f}")
+            for c in ("symbol", "pay month", "record month", "dps", "qty held", "expected", "note"):
+                t.add_column(c, justify="right")
+            for e in res["events"]:
+                t.add_row(e["symbol"], str(e["pay_month"]), str(e["record_month"]), _fmt(e["dps"]), _fmt(e["qty_held"], 0), _fmt(e["expected"], 0),
+                          escape(str(e.get("note") or e.get("buy_before") or "")))
+            console.print(t)
+            console.print(f"[dim]{res['reinvest_note']}[/dim]")
+        _out(res, table)
+    _handle(run)
+
+
 universe_app = typer.Typer(help="Build and inspect liquidity-screened universes.", no_args_is_help=True)
 app.add_typer(universe_app, name="universe")
 

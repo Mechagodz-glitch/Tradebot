@@ -1,0 +1,33 @@
+# Long-term portfolio model for `tradebot portfolio` (see README "Portfolio"). Weights are targets; the
+# monthly `portfolio plan --contribution N` buys whatever is furthest below target, so most rebalancing
+# happens with new money and never triggers a sale. Holdings here are NOT theses: no stop-loss, and
+# `thesis check` never touches them. Symbols that currently have an open thesis are skipped by the planner.
+market: in
+venue: kite
+currency: INR
+cash_buffer: 500              # keep this much idle after each plan
+sleeves:
+  core:                       # index and asset-class exposure, held indefinitely
+    weight: 0.40
+    holdings:
+      NSE:NIFTYBEES: 0.35     # Nifty 50
+      NSE:JUNIORBEES: 0.20    # Nifty Next 50
+      NSE:MID150BEES: 0.15    # Nifty Midcap 150
+      NSE:GOLDBEES: 0.20      # gold (the 8 units bought on 11 Sep count towards this)
+      NSE:MON100: 0.10        # Nasdaq 100, dollar exposure
+  income:                     # dividend ladder: payers with staggered months, see data/dividends/in.yaml
+    weight: 0.45
+    holdings:
+      NSE:COALINDIA: 1
+      NSE:PFC: 1
+      NSE:RECLTD: 1
+      NSE:ITC: 1
+      NSE:HCLTECH: 1
+      NSE:TCS: 1
+      NSE:ONGC: 1
+      NSE:POWERGRID: 1
+      NSE:CASTROLIND: 1
+      NSE:IOC: 0              # deferred while Brent > USD 100 (under-recoveries threaten the payout); set to 1 to re-enable
+  satellite:                  # momentum names from `tradebot screen`, refreshed monthly by hand
+    weight: 0.15
+    holdings: {}              # empty until funded; e.g. NSE:GLAND: 1, NSE:LAURUSLABS: 1

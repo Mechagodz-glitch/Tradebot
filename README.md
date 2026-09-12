@@ -211,6 +211,26 @@ proximity to the 52 week high, trend flags). Results are written to `data/screen
 `--beta-bucket low|mid|high` filters by market sensitivity; `--rejected` lists what was dropped and why;
 `-s NSE:X -s NSE:Y` screens a hand-picked set. The screen finds candidates; a thesis still needs a catalyst.
 
+## Portfolio (long-term sleeve)
+
+`portfolio.yaml` holds a target-weight model in three sleeves: **core** (index and gold ETFs, held
+indefinitely), **income** (a dividend ladder of payers with staggered payout months, see
+`data/dividends/in.yaml`) and **satellite** (momentum names from the screen, refreshed by hand). A sleeve
+with no live holdings lends its weight to the others, so an unfunded satellite never leaves cash idle.
+
+`tradebot portfolio model` shows the effective weight of every holding. `tradebot portfolio status` compares
+venue positions with the targets (drift in percentage points, yield, projected dividend per name and by
+month). `tradebot portfolio plan --contribution 10000` turns new money plus idle cash above the buffer into a
+buy list: largest gap to target first, whole shares, tick-aligned marketable limits, a priority boost for
+names whose record date falls this month or next, and a flag when a buy would breach a risk limit. It never
+sells; rebalancing happens with contributions. `--execute` places the buys through the risk engine.
+`tradebot portfolio calendar --months 3` lists the payouts due on held names and the amount to add back
+with the next contribution, since Indian dividends are paid to the bank account, not to the broker.
+
+Portfolio holdings are not theses: no stop-loss, `thesis check` never touches them, and the planner skips
+any symbol that currently has an open thesis. Raise `risk.max_order_notional` / `max_position_notional`
+in `config.yaml` before funding this sleeve; the defaults are sized for the 10k trading book.
+
 ## Theses (discretionary positions)
 
 News- and event-driven positions are recorded as theses so the app, not memory, enforces the exit:
@@ -272,6 +292,7 @@ tradebot/
   news.py          RSS news retrieval (Indian market feeds, Google News India)
   themes.py        actor / policy / macro basket tracker
   screener.py      factor screen (alpha/beta, momentum, RSI, volume) ranked for short-term trades
+  portfolio.py     long-term sleeve: target weights, contribution plan, dividend calendar
   engine.py        TradingEngine: the one entry point used by CLI and API
   cli.py           Typer CLI
   data/            market data providers + registry with fallback
