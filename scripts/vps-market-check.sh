@@ -4,8 +4,12 @@
 set -uo pipefail
 cd "$(dirname "$(readlink -f "$0")")/.."
 export TZ=Asia/Kolkata
-dow=$(date +%u); hhmm=$(date +%H%M)
-if [ "$dow" -gt 5 ] || [ "$hhmm" -lt 0920 ] || [ "$hhmm" -gt 1525 ]; then
+hhmm=$(date +%H%M)
+# session calendar (weekdays minus exchange holidays); plus a 5-minute margin at both ends of the day
+if ! ./scripts/tradebot --json hours 2>/dev/null | python3 -c "import json,sys; sys.exit(0 if any(r.get('market')=='in' and r.get('open') for r in json.load(sys.stdin)) else 1)"; then
+  exit 0
+fi
+if [ "$hhmm" -lt 0920 ] || [ "$hhmm" -gt 1525 ]; then
   exit 0
 fi
 if [ -f data/KILL ]; then

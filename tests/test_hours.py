@@ -43,3 +43,16 @@ def test_per_market_allowed_symbols(engine, settings):
         engine.place_order(OrderRequest(symbol="NSE:RELIANCE", side=Side.BUY, qty=1))
     assert e.value.code == "symbol_not_allowed"
     assert engine.place_order(OrderRequest(symbol="AAPL", side=Side.BUY, qty=1)).status.value == "filled"  # us unrestricted
+
+
+def test_exchange_holidays_close_the_session():
+    from tradebot.hours import holiday_name, is_trading_day
+    from datetime import date
+    assert holiday_name(Market.IN, date(2026, 9, 14)) == "Ganesh Chaturthi"
+    assert is_trading_day(Market.IN, date(2026, 9, 14)) is False and is_trading_day(Market.IN, date(2026, 9, 15)) is True
+    s = market_session(Market.IN, utc(2026, 9, 14, 5, 0))            # Mon 10:30 IST on the holiday
+    assert s["open"] is False and s["holiday"] == "Ganesh Chaturthi" and s["next_open"].startswith("2026-09-15T09:15")
+    s = market_session(Market.IN, utc(2026, 9, 11, 12, 0))           # Fri after close -> skips the holiday Monday
+    assert s["next_open"].startswith("2026-09-15T09:15")
+    assert is_open(Market.US, utc(2026, 11, 26, 15, 0)) is False    # Thanksgiving, 10:00 ET
+    assert market_session(Market.US, utc(2026, 11, 26, 15, 0))["next_open"].startswith("2026-11-27T09:30")
