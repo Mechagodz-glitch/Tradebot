@@ -1,7 +1,25 @@
 {
- "exported_at": "2026-09-15T07:38:09.404209+00:00",
+ "exported_at": "2026-09-15T08:01:56.534147+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 75,
+   "ts": "2026-09-15T08:01:38.824458Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Tue 15 Sep (day 7). Nothing near a stop or target: Redington 378.20 (+0.2%), CPCL 1487.70 (-0.3%), GE Shipping 1400.00 (+1.1%), Oil India 488.70 (+1.0%). Brent ~107.5 on the Saudi East-West pipeline shutdown and Red Sea attacks; Nifty -0.4% at 13:00 with Nifty IT +5% the only strong sector; DXY firm, Fed hike Wed 23:30 IST ~85-90% priced. Decisions: (1) Redington is HELD through FOMC on its existing 358.62 stop; the hike is priced, the position is ~2,270 INR and the IT-distribution tape is supportive today; no pre-FOMC trim. (2) The Wednesday cancel-if-unfilled decision on CPCL is moot: the entry was filled by the user (2 @ 1492.30), so CPCL is now managed on stop 1417.68 / target 1611.68 / expiry 23 Sep. (3) Kite refused the droplet IP 168.144.86.125 as linked to another account; a DigitalOcean Reserved IP is the fix (docs/VPS.md 6a); exits stay manual until the egress check passes. Crude exposure (CPCL + Oil India) still ~49% of equity; no adds in energy.",
+   "data": {
+    "brent": 107.5,
+    "nifty_chg_pct": -0.4,
+    "fomc_ist": "2026-09-16T23:30",
+    "redington_last": 378.2,
+    "cpcl_last": 1487.7,
+    "geship_last": 1400.0,
+    "oil_last": 488.7
+   }
+  },
   {
    "id": 74,
    "ts": "2026-09-15T07:37:59.846853Z",
@@ -1158,7 +1176,10 @@
    "tags": [
     "screen",
     "momentum"
-   ]
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
   },
   {
    "id": "d8b5e718e9dd",
@@ -1188,7 +1209,10 @@
     "screen",
     "crude",
     "low-beta"
-   ]
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
   },
   {
    "id": "cab0d0e8410c",
@@ -1217,7 +1241,10 @@
    "tags": [
     "macro",
     "tankers"
-   ]
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
   },
   {
    "id": "9bfaa74c2640",
@@ -1246,7 +1273,10 @@
    "tags": [
     "macro",
     "crude"
-   ]
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
   },
   {
    "id": "849f600df9e3",
@@ -1275,7 +1305,10 @@
    "tags": [
     "event",
     "nse-ipo"
-   ]
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
   },
   {
    "id": "90f5f2db97a0",
@@ -1304,7 +1337,10 @@
    "tags": [
     "event",
     "index-flow"
-   ]
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
   },
   {
    "id": "ba38ba98fb33",
@@ -1333,7 +1369,10 @@
    "tags": [
     "event",
     "nse-ipo"
-   ]
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
   },
   {
    "id": "3510983924c4",
@@ -1362,7 +1401,10 @@
    "tags": [
     "event",
     "index-flow"
-   ]
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
   }
  ],
  "orders": [
