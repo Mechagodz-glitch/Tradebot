@@ -528,16 +528,31 @@ def thesis_open(symbol: str, text: str = typer.Option(..., "--text", help="The t
                 confidence: float = typer.Option(0.5, "--confidence", min=0.0, max=1.0),
                 venue: Optional[str] = typer.Option(None), market: Optional[Market] = typer.Option(None),
                 tag: list[str] = typer.Option([], "--tag"),
+                auto_enter: bool = typer.Option(False, "--auto-enter", help="Let the executor enter it when the price is inside the band"),
+                entry_min: Optional[float] = typer.Option(None, "--entry-min", help="Armed entry: lowest acceptable price"),
+                entry_max: Optional[float] = typer.Option(None, "--entry-max", help="Armed entry: highest acceptable price"),
                 execute: bool = typer.Option(False, "--execute", help="Place the entry order now (default: record only)")):
-    """Record a thesis and optionally enter it with a marketable limit order."""
+    """Record a thesis; optionally enter it now (--execute) or arm it for the executor (--auto-enter)."""
     def run():
         from .models import ThesisRequest
         from datetime import timezone
         exp = expires.replace(tzinfo=timezone.utc) if expires and expires.tzinfo is None else expires
         req = ThesisRequest(symbol=symbol, text=text, size_notional=size, stop_pct=stop, target_pct=target, expires_at=exp,
-                            confidence=confidence, venue=venue, market=market, tags=tag)
+                            confidence=confidence, venue=venue, market=market, tags=tag,
+                            auto_enter=auto_enter, entry_min=entry_min, entry_max=entry_max)
         t = _engine().open_thesis(req, execute=execute)
         _out(t.model_dump(mode="json"), lambda d: _thesis_table([d]))
+    _handle(run)
+
+
+@thesis_app.command("arm")
+def thesis_arm(thesis_id: str, entry_min: Optional[float] = typer.Option(None, "--entry-min", help="lowest acceptable entry price"),
+               entry_max: Optional[float] = typer.Option(None, "--entry-max", help="highest acceptable entry price"),
+               disarm: bool = typer.Option(False, "--disarm", help="switch automatic entry off")):
+    """Arm a planned thesis: the executor (thesis check --execute) enters it when the price is inside the band."""
+    def run():
+        eng = _engine()
+        _out(eng.arm_thesis(thesis_id, entry_min, entry_max, auto_enter=not disarm).model_dump(mode="json"), lambda d: _thesis_table([d]))
     _handle(run)
 
 

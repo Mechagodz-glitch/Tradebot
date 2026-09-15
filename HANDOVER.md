@@ -122,8 +122,9 @@ Entries after about 14:00 IST are not worth making; roll to Tuesday instead.
 See `docs/VPS.md`: a $6/month DigitalOcean droplet in Bangalore with a fixed IPv4, set up by
 `scripts/vps-setup.sh`, enforces stops and targets on a timer and pushes the day's snapshot itself.
 The laptop stays whitelisted as the fallback.
-Current state (9 Sep): droplet `tradebot-blr` at 168.144.86.125 is installed; its executor timer stays stopped
-until the IP is whitelisted on Monday 14 September. Until then the laptop remains the only executor.
+Current state (15 Sep): droplet `tradebot-blr` at 168.144.86.125 is installed and imports the cloud
+snapshot every 5 minutes. Its executor timer (`tradebot-check.timer`) must be started once the IP is
+whitelisted on Kite; from then on it enters armed theses and enforces exits on its own.
 
 ## Division of labour
 
@@ -134,8 +135,8 @@ so any stop or target hit that week is executed by hand in the Kite app on the c
 | Cloud session (Claude) | Droplet (timers) / you |
 |---|---|
 | Morning research: news, themes, factor screen (`tradebot screen`), unusual volume, macro | Kite login, funds check |
-| Writes/updates theses and journal, pushes snapshot and the encrypted token drop | 09:05 timer pulls and imports; token timer applies the drop; you run `tradebot thesis enter <id>` over SSH |
-| Read-only monitoring at 11:30, 13:30, 15:10; alerts you | `tradebot-check.timer` enforces stops/targets every 10 min (from Monday 14 Sep) |
+| Writes/updates theses (armed with an entry band) and journal, pushes snapshot and the encrypted token drop | token timer (every 5 min) pulls, imports the snapshot and applies the drop; `tradebot-check.timer` enters armed theses on its next tick |
+| Read-only monitoring at 11:30, 13:30, 15:10; alerts you | `tradebot-check.timer` enforces stops/targets every 10 min; nothing to run by hand |
 | End-of-day summary and next-day plan | 15:45 timer exports and pushes `<date>-vps.json` |
 
 The permanent fix is a small always-on machine with a static IP (any cloud VM in Mumbai) running

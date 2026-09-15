@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from enum import Enum
 from typing import Optional
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 
 def utcnow() -> datetime:
@@ -243,6 +243,19 @@ class ThesisRequest(BaseModel):
     direction: str = "long"
     entry_limit_offset_bps: float = 15.0
     tags: list[str] = Field(default_factory=list)
+    # armed entry: the executor enters a PLANNED thesis on its own when the market is open and the last
+    # price is inside [entry_min, entry_max] (either bound may be omitted)
+    auto_enter: bool = False
+    entry_min: Optional[float] = Field(default=None, gt=0)
+    entry_max: Optional[float] = Field(default=None, gt=0)
+
+    @model_validator(mode="after")
+    def _band_implies_armed(self) -> "ThesisRequest":
+        if self.entry_min is not None and self.entry_max is not None and self.entry_min > self.entry_max:
+            raise ValueError("entry_min must not exceed entry_max")
+        if self.entry_min is not None or self.entry_max is not None:
+            self.auto_enter = True          # a price band only makes sense for an armed entry
+        return self
 
 
 class Thesis(BaseModel):
@@ -270,6 +283,17 @@ class Thesis(BaseModel):
     close_reason: Optional[str] = None
     realized_pnl: Optional[float] = None
     tags: list[str] = Field(default_factory=list)
+    auto_enter: bool = False
+    entry_min: Optional[float] = None
+    entry_max: Optional[float] = None
+
+    def entry_allowed(self, last: float) -> bool:
+        """Armed-entry price band check (open bounds pass)."""
+        if self.entry_min is not None and last < self.entry_min:
+            return False
+        if self.entry_max is not None and last > self.entry_max:
+            return False
+        return True
 
     def stop_price(self) -> Optional[float]:
         return self.entry_price * (1 - self.stop_pct / 100) if self.entry_price else None

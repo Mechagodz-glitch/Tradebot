@@ -46,6 +46,7 @@ tradebot --json strategy run --market in --venue kite    # risk-checked dry run
 tradebot --json strategy run --market in --venue kite --execute   # places the plan
 tradebot --json thesis open NSE:X --venue kite --size 3000 --stop 5 --target 10 --expires 2026-09-16 --text "..." [--execute]
 tradebot --json thesis list | thesis check [--execute] | thesis enter <id> | thesis close <id> --reason "..."
+tradebot --json thesis arm <id> --entry-min L --entry-max H [--disarm]   # executor enters it inside the band
 tradebot --json universe build --market in | universe show --market in --limit 30   # turnover-ranked names
 tradebot --json news --match "Adani,sugar,NSE IPO" --hours 36 | news -q "Jio IPO date"      # feeds / Google News India
 tradebot --json themes | themes -n adani -n sugar_ethanol --members                       # basket returns and volume
@@ -102,8 +103,13 @@ symbols in `risk.allowed_symbols.in` and to the NSE session (09:15 to 15:30 IST,
    stop, a target, an expiry and a confidence: `thesis open SYMBOL --venue kite --size N --stop S --target T
    --expires DATE --confidence C --text "..."`. Size by confidence: roughly 15% of equity at 0.5, up to 30%
    at 0.65+. Never more than `risk.max_position_notional`.
-4. From about 09:30 IST: `thesis check --execute` (resolves pending entries), `thesis enter <id>` for planned
-   theses, then `strategy plan --market in --venue kite`, review, `strategy run ... --execute`.
+   Arm it (`--entry-min L --entry-max H`, or `thesis arm <id>` later) when the entry should happen without a
+   human: the droplet's check timer (every 10 min, 09:20 to 15:25 IST) enters an armed thesis on its first
+   tick with the price inside the band, and cancels it once expired. Leave it un-armed only when the entry
+   needs a judgement call at the time; then someone must run `thesis enter <id>`.
+4. From about 09:30 IST: `thesis check --execute` (enters armed theses, resolves pending entries),
+   `thesis enter <id>` for un-armed planned theses, then `strategy plan --market in --venue kite`, review,
+   `strategy run ... --execute`.
 5. Every 1 to 2 hours and around 15:10 IST: `thesis check --execute` and `strategy run --execute`.
    Re-read the news between checks; a thesis whose premise broke is closed with `thesis close <id> --reason`.
 6. End of day: `account`, `positions`, `thesis list`, `journal`; summarise for the human with every order's reason.

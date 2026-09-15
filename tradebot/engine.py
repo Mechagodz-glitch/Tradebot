@@ -234,7 +234,8 @@ class TradingEngine:
         inst = self.instrument(req.symbol, req.market)
         t = Thesis(id=self.store.new_id(), venue=venue.name, symbol=inst.symbol, market=inst.market, currency=inst.currency,
                    text=req.text, confidence=req.confidence, size_notional=req.size_notional, stop_pct=req.stop_pct,
-                   target_pct=req.target_pct, expires_at=req.expires_at, tags=req.tags)
+                   target_pct=req.target_pct, expires_at=req.expires_at, tags=req.tags,
+                   auto_enter=req.auto_enter, entry_min=req.entry_min, entry_max=req.entry_max)
         self.store.save_thesis(t)
         self.store.journal(JournalEntry(kind="thesis", venue=venue.name, symbol=inst.symbol,
                                         text=f"thesis {t.id} {'opened' if execute else 'planned'}: {req.text}",
@@ -297,8 +298,65 @@ class TradingEngine:
                                         data={"thesis_id": t.id, "qty": qty, "entry_price": entry_price, "manual": True}))
         return self.store.save_thesis(t)
 
-    def check_theses(self, execute: bool = False, venue: Optional[str] = None) -> list[dict]:
+    def arm_thesis(self, thesis_id: str, entry_min: Optional[float] = None, entry_max: Optional[float] = None,
+                   auto_enter: bool = True) -> Thesis:
+        """Flag a PLANNED thesis for automatic entry by the executor, optionally within a price band."""
+        t = self.store.get_thesis(thesis_id)
+        if not t:
+            raise NotFound(f"thesis {thesis_id} not found")
+        if t.status != ThesisStatus.PLANNED:
+            raise BrokerError(f"thesis {t.id} is {t.status.value}; only planned theses can be armed", code="invalid")
+        t.auto_enter, t.entry_min, t.entry_max = auto_enter, entry_min, entry_max
+        self.store.save_thesis(t)
+        band = f" in [{entry_min or '-'}, {entry_max or '-'}]" if (entry_min or entry_max) else ""
+        self.store.journal(JournalEntry(kind="thesis", venue=t.venue, symbol=t.symbol,
+                                        text=f"thesis {t.id} {'armed for auto entry' + band if auto_enter else 'disarmed'}",
+                                        data={"thesis_id": t.id, "entry_min": entry_min, "entry_max": entry_max}))
+        return t
+
+    def _check_armed_entries(self, execute: bool, venue: Optional[str]) -> list[dict]:
         out = []
+        for t in self.store.list_theses(statuses=[ThesisStatus.PLANNED.value], venue=venue):
+            if not t.auto_enter:
+                continue
+            row = {"id": t.id, "symbol": t.symbol, "venue": t.venue, "status": t.status.value, "action": None, "detail": "",
+                   "entry_min": t.entry_min, "entry_max": t.entry_max}
+            if t.expires_at and utcnow() >= t.expires_at:
+                row["detail"] = "armed thesis expired before entry"
+                if execute:
+                    t.status, t.closed_at, t.close_reason = ThesisStatus.CANCELED, utcnow(), "expired before entry"
+                    self.store.save_thesis(t)
+                    row["status"] = t.status.value
+                out.append(row)
+                continue
+            try:
+                q = self.data.quote(self.instrument(t.symbol, t.market), use_cache=False)
+            except Exception as e:  # noqa: BLE001
+                row["detail"] = f"no quote: {e}"
+                out.append(row)
+                continue
+            row["last"] = q.last
+            if not t.entry_allowed(q.last):
+                row["detail"] = "waiting: price outside the entry band"
+                out.append(row)
+                continue
+            row["action"] = "enter" if execute else "would enter"
+            row["detail"] = "price inside the entry band"
+            if execute:
+                try:
+                    t2 = self.enter_thesis(t)
+                    row["status"] = t2.status.value
+                    row["detail"] = f"entered: {t2.qty:g} @ {t2.entry_price}" if t2.entry_price else f"entry order {t2.status.value}"
+                except TradebotError as e:
+                    row["action"] = "entry failed"
+                    row["detail"] = f"entry failed: {e.message}"
+                    self.store.journal(JournalEntry(kind="risk", venue=t.venue, symbol=t.symbol,
+                                                    text=f"thesis {t.id} auto entry FAILED: {e.message}", data={"thesis_id": t.id}))
+            out.append(row)
+        return out
+
+    def check_theses(self, execute: bool = False, venue: Optional[str] = None) -> list[dict]:
+        out = self._check_armed_entries(execute, venue)
         for t in self.store.list_theses(statuses=[ThesisStatus.PENDING.value, ThesisStatus.OPEN.value], venue=venue):
             row = {"id": t.id, "symbol": t.symbol, "venue": t.venue, "status": t.status.value, "action": None, "detail": ""}
             if t.status == ThesisStatus.PENDING and t.entry_order_id:

@@ -240,12 +240,19 @@ tradebot thesis open NSE:SWIGGY --venue kite --size 3000 --stop 5 --target 10 --
     --confidence 0.58 --text "MSCI deletion selling done; expect rebound" [--execute]
 tradebot thesis list [--all]        # planned / pending / open, or everything
 tradebot thesis enter <id>          # send the entry for a planned thesis (marketable limit)
-tradebot thesis check [--execute]   # close theses whose stop, target or expiry is hit
+tradebot thesis arm <id> --entry-min 1500 --entry-max 1540   # let the executor enter it inside this band
+tradebot thesis arm <id> --disarm   # back to a manual entry
+tradebot thesis check [--execute]   # enter armed theses, close theses whose stop, target or expiry is hit
 tradebot thesis close <id> --reason "..."
 ```
 
 Sizing is a notional in the market currency, rounded down to whole shares. Entry is a marketable limit
 at last + 15 bps. Only long theses are supported. Every step is journaled with kind `thesis`.
+
+A planned thesis can be **armed** (`--entry-min` / `--entry-max` on `thesis open`, or `thesis arm` later).
+The executor's `thesis check --execute` then places the entry itself the first time the market is open and
+the last price is inside the band (either bound may be left open). An armed thesis past its expiry is
+canceled instead. Un-armed planned theses are never entered automatically.
 
 Equity of 10,000 INR therefore means at most three positions of roughly 3,000 INR each, with a
 per-name stop of about 90 INR and a daily loss limit (`risk.max_daily_loss`) of 400 INR.
@@ -259,8 +266,9 @@ Zerodha's access token expires every morning, so each trading day starts with a 
 2. `tradebot doctor --no-data` must show `broker:kite` ok and `session:in` open (from 09:15 IST).
 3. `tradebot account --venue kite` to confirm funds.
 4. Morning research: scan the news for scheduled catalysts and unusual-volume names, then record or
-   update theses (`tradebot thesis open ...`). Planned theses are entered after the opening auction
-   settles (about 09:30 IST) with `tradebot thesis enter <id>`.
+   update theses (`tradebot thesis open ...`). Armed theses are entered by the executor's next
+   `thesis check --execute` once the price is inside their band; un-armed planned theses are entered
+   after the opening auction settles (about 09:30 IST) with `tradebot thesis enter <id>`.
 5. Systematic sleeve: `tradebot strategy plan --market in --venue kite` to review, then
    `tradebot strategy run --market in --venue kite --execute` to place.
 6. During the session and around 15:10 IST: `tradebot thesis check --execute` and

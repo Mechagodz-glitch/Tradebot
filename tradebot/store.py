@@ -12,6 +12,7 @@ from typing import Iterable, Optional
 
 from sqlalchemy import (
     JSON,
+    Boolean,
     DateTime,
     Float,
     Integer,
@@ -199,6 +200,9 @@ class ThesisRow(Base):
     close_reason: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     realized_pnl: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
     tags: Mapped[Optional[list]] = mapped_column(JSON, nullable=True)
+    auto_enter: Mapped[Optional[bool]] = mapped_column(Boolean, nullable=True, default=False)
+    entry_min: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
+    entry_max: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
 
     def to_model(self) -> Thesis:
         return Thesis(id=self.id, created_at=_aware(self.created_at), updated_at=_aware(self.updated_at), venue=self.venue,
@@ -207,7 +211,8 @@ class ThesisRow(Base):
                       target_pct=self.target_pct, expires_at=_aware(self.expires_at), status=ThesisStatus(self.status),
                       entry_order_id=self.entry_order_id, qty=self.qty, entry_price=self.entry_price,
                       exit_order_id=self.exit_order_id, exit_price=self.exit_price, closed_at=_aware(self.closed_at),
-                      close_reason=self.close_reason, realized_pnl=self.realized_pnl, tags=self.tags or [])
+                      close_reason=self.close_reason, realized_pnl=self.realized_pnl, tags=self.tags or [],
+                      auto_enter=bool(self.auto_enter), entry_min=self.entry_min, entry_max=self.entry_max)
 
 
 class Store:
@@ -222,7 +227,19 @@ class Store:
         with self.engine.connect() as conn:
             conn.execute(text("PRAGMA journal_mode=WAL")) if self.db_path != ":memory:" else None
         Base.metadata.create_all(self.engine)
+        self._migrate()
         self._session = sessionmaker(self.engine, expire_on_commit=False, future=True)
+
+    # columns added after the first release; create_all never alters existing tables
+    _ADDED_COLUMNS = {"theses": {"auto_enter": "BOOLEAN DEFAULT 0", "entry_min": "FLOAT", "entry_max": "FLOAT"}}
+
+    def _migrate(self) -> None:
+        with self.engine.begin() as conn:
+            for table, cols in self._ADDED_COLUMNS.items():
+                have = {r[1] for r in conn.execute(text(f"PRAGMA table_info({table})"))}
+                for col, ddl in cols.items():
+                    if col not in have:
+                        conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {col} {ddl}"))
 
     def session(self) -> Session:
         return self._session()
@@ -424,7 +441,7 @@ class Store:
                 s.add(row)
             for k in ("updated_at", "venue", "symbol", "currency", "direction", "text", "confidence", "size_notional", "stop_pct",
                       "target_pct", "expires_at", "entry_order_id", "qty", "entry_price", "exit_order_id", "exit_price",
-                      "closed_at", "close_reason", "realized_pnl", "tags"):
+                      "closed_at", "close_reason", "realized_pnl", "tags", "auto_enter", "entry_min", "entry_max"):
                 setattr(row, k, getattr(t, k))
             row.market = t.market.value
             row.status = t.status.value

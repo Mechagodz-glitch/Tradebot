@@ -72,7 +72,7 @@ in `.env`, and installs the systemd units:
 |---|---|---|
 | `tradebot-dashboard.service` | always | Dashboard and API on 127.0.0.1:8787 (not public) |
 | `tradebot-morning.timer` | 09:05 | `git pull`, import the newest snapshot, Kite equity sync |
-| `tradebot-check.timer` | every 10 min, 09:20 to 15:25 | `thesis check --execute`: stops, targets, expiries. Installed but **not started** until the IP is whitelisted |
+| `tradebot-check.timer` | every 10 min, 09:20 to 15:25 | `thesis check --execute`: armed entries, stops, targets, expiries. Installed but **not started** until the IP is whitelisted |
 | `tradebot-eod.timer` | 15:45 | sync, export `data/snapshots/<date>-vps.json`, commit, push |
 | `tradebot-token.timer` | every 5 min | pull, import the newest research snapshot (theses), apply the encrypted Kite token drop (section 7a) |
 
@@ -112,9 +112,10 @@ tradebot kite-login <request_token> --save
 tradebot doctor && tradebot positions --venue kite
 ```
 
-Nothing else is manual. The 09:05 timer picks up the cloud session's research snapshot; the check
-timer enforces exits; the 15:45 timer pushes the day's state. Entering a new thesis is still a
-deliberate command: `tradebot thesis enter <id>` over SSH.
+Nothing else is manual. The token timer (every 5 minutes) pulls the cloud session's research snapshot
+and the token drop; the check timer enters armed theses and enforces exits; the 15:45 timer pushes the
+day's state. A thesis the cloud session left un-armed (no entry band) still needs a deliberate
+`tradebot thesis enter <id>` over SSH.
 
 ## 7a. Daily token without copy-paste (encrypted hand-off through git)
 
