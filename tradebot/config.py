@@ -53,6 +53,7 @@ class KiteConfig(BaseModel):
     product: str = "CNC"  # CNC delivery, MIS intraday
     exchange: str = "NSE"
     starting_capital: Optional[float] = None  # net deposits, INR: lets the account report total P&L since start
+    whitelisted_ip: Optional[str] = None      # the static IPv4 on the Kite app's whitelist; doctor compares egress to it
 
 
 class StrategyConfig(BaseModel):

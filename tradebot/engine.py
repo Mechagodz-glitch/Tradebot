@@ -13,6 +13,7 @@ from .config import Settings, load_settings
 from .data import MarketData
 from .errors import BrokerError, NotFound, RiskRejected, TradebotError
 from .hours import market_session
+from .netcheck import egress_check
 from .models import (
     Account, Candle, CheckResult, EquityPoint, Fill, Instrument, JournalEntry, Market, Order, OrderRequest, OrderStatus, OrderType,
     Position, Quote, Side, Thesis, ThesisRequest, ThesisStatus, TimeInForce, utcnow,
@@ -527,5 +528,9 @@ class TradingEngine:
                 checks.append(CheckResult(name=f"broker:{name}", ok=False, detail="credentials not configured (skipped)"))
             else:
                 checks.append(b.check())
+                if name == "kite":
+                    # the address Zerodha sees must be the whitelisted one wherever orders are placed
+                    checks.append(CheckResult(**egress_check(self.settings.kite.whitelisted_ip,
+                                                             enforce=self.settings.live_trading_enabled)))
         return {"version": __version__, "checks": [c.model_dump() for c in checks],
                 "ok": all(c.ok for c in checks if not c.detail.startswith("credentials not configured"))}

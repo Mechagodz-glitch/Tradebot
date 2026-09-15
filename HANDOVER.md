@@ -123,8 +123,10 @@ See `docs/VPS.md`: a $6/month DigitalOcean droplet in Bangalore with a fixed IPv
 `scripts/vps-setup.sh`, enforces stops and targets on a timer and pushes the day's snapshot itself.
 The laptop stays whitelisted as the fallback.
 Current state (15 Sep): droplet `tradebot-blr` at 168.144.86.125 is installed and imports the cloud
-snapshot every 5 minutes. Its executor timer (`tradebot-check.timer`) must be started once the IP is
-whitelisted on Kite; from then on it enters armed theses and enforces exits on its own.
+snapshot every 5 minutes. Kite refused 168.144.86.125 as "already linked to another account" (a recycled
+DigitalOcean address), so the droplet is getting a Reserved IP instead (docs/VPS.md 6a). Once Kite accepts
+that address and `scripts/vps-reserved-ip.sh` has moved the droplet's egress to it, start
+`tradebot-check.timer`; from then on it enters armed theses and enforces exits on its own.
 
 ## Division of labour
 

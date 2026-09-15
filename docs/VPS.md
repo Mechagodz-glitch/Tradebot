@@ -36,6 +36,8 @@ Rules for keeping that IP:
 - Never use Destroy. Power off, resize, reboot and "Rebuild from snapshot" all keep the IP.
 - Restoring a backup to a *new* droplet gives a new IP; use Rebuild on the existing droplet instead.
 - Kite allows one whitelist change per calendar week. Treat the droplet as permanent.
+- If Kite refuses the address as "already linked to another account", do not destroy the droplet:
+  assign a Reserved IP instead (section 6a).
 
 ## 3. Phase 1 on the droplet (as root, about 5 minutes)
 
@@ -98,6 +100,37 @@ sudo systemctl start tradebot-check.timer      # on the droplet
 
 From then on do not run `tradebot thesis check --execute` on the laptop. Two machines enforcing the
 same exits can sell the same shares twice; one executor at a time.
+
+Record the accepted address in `config.yaml` as `kite.whitelisted_ip`. `tradebot doctor` then shows an
+`egress:ipv4` row: on the droplet (live trading enabled) it fails when the address the internet sees is
+not the whitelisted one, which is exactly the state in which Kite rejects every order.
+
+### 6a. Kite answers "already linked to another account"
+
+The message `The IP address(es) you are trying to add are already linked to another account` means a
+previous tenant of that DigitalOcean address whitelisted it on their own Zerodha account. Zerodha does
+not unlink it for you (a support ticket may take days and usually fails when the other account still
+uses it), so give the droplet a different address instead of rebuilding it:
+
+1. DigitalOcean console -> **Networking** -> **Reserved IPs** -> assign a new Reserved IP to
+   `tradebot-server`. It is free while assigned (unassigned ones bill hourly, so release what you do
+   not use). Note the address.
+2. Try it in the Kite console. Rejected again? Release that Reserved IP and reserve another; a
+   rejected attempt does not count as a whitelist change. Repeat until Kite accepts one.
+3. Inbound traffic to the Reserved IP reaches the droplet immediately, but the droplet still *leaves*
+   from its old address until the default route is moved. On the droplet:
+
+   ```bash
+   cd ~/Tradebot && git pull -q
+   sudo bash scripts/vps-reserved-ip.sh
+   ```
+
+   The script moves the default route to the anchor gateway, checks with an echo service that the
+   egress address is now the Reserved IP, persists the change in netplan (and stops cloud-init from
+   rewriting it), and reverts itself if any step does not verify. `--revert` undoes it.
+4. `tradebot doctor --no-data` must show `egress:ipv4 ... matches the Kite whitelist`, then start the
+   executor timer as above. From now on SSH to the Reserved IP; the old address keeps working but has
+   no further role.
 
 ## 7. Every trading morning (2 minutes)
 
@@ -169,3 +202,5 @@ route is `TRADEBOT_API_TOKEN` in `.env` plus Caddy with HTTPS, and that is a sep
   in the Kite app.
 - Lost the droplet: create a new one, repeat steps 3 to 5 (about 15 minutes), then whitelist the new
   IP in the next weekly window. State comes back from the latest snapshot in `data/snapshots/`.
+  With a Reserved IP, reassign it to the new droplet and rerun `scripts/vps-reserved-ip.sh`; the
+  whitelist entry stays valid.
