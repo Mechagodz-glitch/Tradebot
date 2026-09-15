@@ -1,7 +1,24 @@
 {
- "exported_at": "2026-09-15T08:01:56.534147+00:00",
+ "exported_at": "2026-09-15T10:27:29.798057+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 76,
+   "ts": "2026-09-15T10:27:29.002046Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Tue 15 Sep (day 7). Close: equity 9,913.84 (cash 374.70), day -200.12 (-2.0%) against Friday's 10,113.96, total -86.16 since start (-0.9%). Attribution: Swiggy exit at 277.40 (realized +2.25 vs entry, but ~-105 vs Friday's mark), CPCL -41.00 (2 @ 1492.30, last 1471.80), GOLDBEES -7.36, Redington +8.70, GE Shipping +5.20, Oil India +6.60. Open theses unchanged: Redington 378.95, CPCL 1471.80 (3.7% above stop), GE Shipping 1390.40, Oil India 485.60; no stop or target within 1.5%. Market: Nifty reversed a 0.8% opening gain to close near 23,200 (about -0.8%), Sensex ~1,300 pts off the high, India VIX +9-10%, metals and realty -2%, Nifty IT +5%; Brent ~107 (Saudi East-West pipeline shut, Red Sea attacks), US 10y at 5%, Fed hike Wed 23:30 IST 85-90% priced, October RBI hike bets rising. Droplet: 2026-09-15-vps.json imported (2 equity points, no orders; executor timer still stopped). Kite refused 168.144.86.125 as linked to another account; Reserved IP procedure sent to the user (docs/VPS.md 6a); until the egress check passes, exits are manual. Shipped today: armed auto-entry (thesis arm / --entry-min/--entry-max), egress:ipv4 doctor check, scripts/vps-reserved-ip.sh. Plan Wed: hold all four through FOMC on existing stops, no new entries before the decision, CPCL cancel decision is moot (filled by the user); Thu: NSE IPO opens (1,700-1,785), Oil India shareholder meeting.",
+   "data": {
+    "equity": 9913.84,
+    "cash": 374.7,
+    "day_pnl": -200.12,
+    "total_pnl": -86.16,
+    "brent": 107,
+    "nifty_close_approx": 23200
+   }
+  },
   {
    "id": 75,
    "ts": "2026-09-15T08:01:38.824458Z",
@@ -2065,6 +2082,22 @@
     "cash": 3359.3,
     "positions_value": 6634.98,
     "equity": 9994.279999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-15T06:05:18.328865Z",
+    "cash": 3359.3,
+    "positions_value": 6638.16,
+    "equity": 9997.46
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-15T10:15:22.857352Z",
+    "cash": 374.7000000000003,
+    "positions_value": 9541.699999999999,
+    "equity": 9916.4
    }
   ],
   "kite/crypto": [],
