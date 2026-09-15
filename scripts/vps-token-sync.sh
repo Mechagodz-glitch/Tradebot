@@ -31,6 +31,11 @@ if [ "${1:-}" = "init" ]; then
 fi
 
 git pull -q --rebase 2>/dev/null || true
+# state sync: theses opened/closed by the research session reach this machine within one timer tick
+latest="$(ls data/snapshots/*.json 2>/dev/null | grep -v -- '-vps.json' | sort | tail -1)"
+if [ -n "$latest" ]; then
+  ./scripts/tradebot --json import "$latest" >/dev/null 2>&1 || true
+fi
 out="$(./scripts/tradebot --json token apply --identity "$IDENTITY" 2>&1)" || { echo "$out" | tail -2; exit 0; }
 if echo "$out" | grep -q '"updated": true'; then
   echo "token updated from drop"

@@ -74,7 +74,7 @@ in `.env`, and installs the systemd units:
 | `tradebot-morning.timer` | 09:05 | `git pull`, import the newest snapshot, Kite equity sync |
 | `tradebot-check.timer` | every 10 min, 09:20 to 15:25 | `thesis check --execute`: stops, targets, expiries. Installed but **not started** until the IP is whitelisted |
 | `tradebot-eod.timer` | 15:45 | sync, export `data/snapshots/<date>-vps.json`, commit, push |
-| `tradebot-token.timer` | every 5 min | pull and apply the encrypted Kite token drop (section 7a) |
+| `tradebot-token.timer` | every 5 min | pull, import the newest research snapshot (theses), apply the encrypted Kite token drop (section 7a) |
 
 Then add the keys:
 
