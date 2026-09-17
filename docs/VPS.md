@@ -74,7 +74,7 @@ in `.env`, and installs the systemd units:
 |---|---|---|
 | `tradebot-dashboard.service` | always | Dashboard and API on 127.0.0.1:8787 (not public) |
 | `tradebot-morning.timer` | 09:05 | `git pull`, import the newest snapshot, Kite equity sync |
-| `tradebot-check.timer` | every 10 min, 09:20 to 15:25 | `thesis check --execute`: armed entries, stops, targets, expiries. Installed but **not started** until the IP is whitelisted |
+| `tradebot-check.timer` | every 10 min, 09:20 to 15:25 | `thesis check --execute`: armed entries, stops, targets, expiries; pushes an intraday `-vps` snapshot whenever it acted. Started on 17 Sep once the Reserved IP was whitelisted |
 | `tradebot-eod.timer` | 15:45 | sync, export `data/snapshots/<date>-vps.json`, commit, push |
 | `tradebot-token.timer` | every 5 min | pull, import the newest research snapshot (theses), apply the encrypted Kite token drop (section 7a) |
 
