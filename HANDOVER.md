@@ -122,11 +122,14 @@ Entries after about 14:00 IST are not worth making; roll to Tuesday instead.
 See `docs/VPS.md`: a $6/month DigitalOcean droplet in Bangalore with a fixed IPv4, set up by
 `scripts/vps-setup.sh`, enforces stops and targets on a timer and pushes the day's snapshot itself.
 The laptop stays whitelisted as the fallback.
-Current state (15 Sep): droplet `tradebot-blr` at 168.144.86.125 is installed and imports the cloud
-snapshot every 5 minutes. Kite refused 168.144.86.125 as "already linked to another account" (a recycled
-DigitalOcean address), so the droplet is getting a Reserved IP instead (docs/VPS.md 6a). Once Kite accepts
-that address and `scripts/vps-reserved-ip.sh` has moved the droplet's egress to it, start
-`tradebot-check.timer`; from then on it enters armed theses and enforces exits on its own.
+Current state (17 Sep): droplet `tradebot-blr` (droplet address 168.144.86.125, Reserved IP
+**209.38.124.131**) imports the cloud snapshot every 5 minutes. Kite refused the droplet address as
+"already linked to another account" (a recycled DigitalOcean address); the Reserved IP 209.38.124.131 was
+whitelisted on 17 Sep and is recorded as `kite.whitelisted_ip` in `config.yaml`. Go-live sequence on the
+droplet: `sudo bash scripts/vps-reserved-ip.sh` (egress via the Reserved IP), `tradebot doctor --no-data`
+(`egress:ipv4 ... matches`), `sudo systemctl start tradebot-check.timer`. From then on the droplet enters
+armed theses and enforces exits on its own; any Kite GTT orders placed as a stopgap must be deleted first.
+SSH to 209.38.124.131.
 
 ## Division of labour
 

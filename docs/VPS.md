@@ -131,6 +131,16 @@ uses it), so give the droplet a different address instead of rebuilding it:
 4. `tradebot doctor --no-data` must show `egress:ipv4 ... matches the Kite whitelist`, then start the
    executor timer as above. From now on SSH to the Reserved IP; the old address keeps working but has
    no further role.
+5. Delete any Kite GTT orders that were placed as a stopgap while the executor was offline, otherwise the
+   exchange and the droplet can both try to sell the same shares.
+
+There is no dry-run for the whitelist: Kite checks the static IP only when an order is placed, and
+`broker:kite` in doctor passes on profile calls alone. The first real exit or armed entry is the proof;
+its result is journaled (`thesis check --execute` writes `exit FAILED ... No IPs` if the whitelist is
+wrong).
+
+This deployment: droplet address 168.144.86.125 (refused by Kite), Reserved IP 209.38.124.131
+(whitelisted 17 Sep 2026, `kite.whitelisted_ip` in `config.yaml`).
 
 ## 7. Every trading morning (2 minutes)
 
