@@ -46,7 +46,7 @@ kite:
   product: CNC               # CNC (delivery) or MIS (intraday)
   exchange: NSE
   starting_capital: 10000    # INR deposited so far; raise it when you add funds (total P&L = equity - this)
-  whitelisted_ip: null       # static IPv4 accepted by Kite for API orders; doctor flags an executor whose egress differs
+  whitelisted_ip: 209.38.124.131   # DigitalOcean Reserved IP on the droplet; Kite accepted it on 17 Sep
 
 strategy:
   name: trend                 # long-only trend following on daily candles (see README "Strategy")
