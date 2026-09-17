@@ -1,0 +1,2604 @@
+{
+ "exported_at": "2026-09-17T10:28:29.544564+00:00",
+ "version": "0.1.0",
+ "journal": [
+  {
+   "id": 89,
+   "ts": "2026-09-17T10:28:28.998585Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Thu 17 Sep (day 9). First day with the droplet as executor (live from 10:31 via Reserved IP 209.38.124.131). Its 14:00 tick sold CPCL 2 @ 1414.30 market (stop: -5.18%), realized -156.00; the intraday -vps snapshot arrived within the minute and reconciled cleanly (1 order, 1 thesis update). Close: equity 9,929.00 (cash 3,200.20 after the exit), day +12.60, total -71.00 since start; unrealized +146.40: Redington 400.10 (+6.0%, 3.8% from the 415.25 target), GE Shipping 1425.00 (+2.9%), Oil India 477.00 (-1.4%), GOLDBEES 124.40. Realized to date: GIC Re -20.50, Swiggy +2.25, CPCL -156.00. Market: Sensex flat at 74,314.59, Nifty +0.23% at 23,270.60 after the Fed hike; midcaps +0.9%, smallcaps +0.8%; realty, pharma and autos led; Brent ~105 as Saudi reroutes via Oman; rupee ~96. Two intraday stop pierces on CPCL (1416.50 and 1413.10) fell between the droplet's 10-minute ticks before the 14:00 exit: sampling limitation noted, exchange-side GTT stops proposed to the user as an option. Friday: research one new ~3,000 INR position (non-energy) and open it armed; week-2 review at EOD.",
+   "data": {
+    "equity": 9929.0,
+    "cash": 3200.2,
+    "day_pnl": 12.6,
+    "total_pnl": -71.0,
+    "cpcl_exit": 1414.3,
+    "cpcl_realized": -156.0,
+    "nifty_close": 23270.6,
+    "sensex_close": 74314.59
+   }
+  },
+  {
+   "id": 87,
+   "ts": "2026-09-17T08:30:24.017334Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:CHENNPETRO",
+   "order_id": "b9a0a752d900",
+   "text": "thesis d8b5e718e9dd closed: stop: -5.18% <= -5.0%",
+   "data": {
+    "thesis_id": "d8b5e718e9dd",
+    "pnl": -156.0
+   }
+  },
+  {
+   "id": 88,
+   "ts": "2026-09-17T08:30:24.007487Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:CHENNPETRO",
+   "order_id": "b9a0a752d900",
+   "text": "filled: sell 2 NSE:CHENNPETRO market | reason: [thesis d8b5e718e9dd] exit: stop: -5.18% <= -5.0%",
+   "data": {
+    "reason": "[thesis d8b5e718e9dd] exit: stop: -5.18% <= -5.0%",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 2830.0,
+     "reference_price": 1415.0,
+     "reduces_position": true
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 86,
+   "ts": "2026-09-17T08:04:29.918135Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Thu 17 Sep (day 9), executor live since 10:31, no orders yet today. CPCL 1419.30 (-4.9% vs entry, 0.11% above the 1417.68 stop; day low 1413.10 printed between ticks and bounced): the droplet sells 2 at market on the first 10-min tick below the stop. Redington 398.90 (+5.7%, 4.1% from the 415.25 target, high 403.20), GE Shipping 1414.10 (+2.1%, high 1418.00), Oil India 476.55 (-1.5%, 3.5% above the 459.75 stop; WTI ~102 as Saudi reroutes crude via Oman). Equity 9,920.18, cash 371.60, day +3.78, total -79.82. Market: Sensex at day's high +300, Nifty ~23,350 (+0.7%), metals up, banks lag after the Fed hike; NSE IPO day 1 booked 0.26x by 13:06, GMP 8-9%; Oil India 67th AGM held 11:00 by VC, no outcome headline. No new entries (cash 372).",
+   "data": {
+    "cpcl_last": 1419.3,
+    "cpcl_stop": 1417.68,
+    "redington_last": 398.9,
+    "oil_last": 476.55,
+    "equity": 9920.18,
+    "nifty_approx": 23350,
+    "wti": 102
+   }
+  },
+  {
+   "id": 85,
+   "ts": "2026-09-17T06:02:15.575476Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:30 IST check, Thu 17 Sep (day 9), first check with the droplet executor live (since 10:31). CPCL 1417.40 at 11:31 (-5.0% vs entry, day low 1416.50): AT/BELOW the 1417.68 stop; the droplet's 11:30 tick saw it above and placed nothing (0 venue orders today); its 11:40 tick will sell 2 at market if the price is still below the stop; no manual order to avoid a double sell; self check scheduled 11:45. Redington 395.40 (+4.7%, high 403.20, 5.0% from the 415.25 target), GE Shipping 1406.10 (+1.5%, high 1407.00), Oil India 479.00 (-1.0%, low 478.60). Equity 9,893.92, cash 371.60, day -22.48. Market: Nifty ~23,290 (+0.5%) despite the Fed hike, IT -1%, realty and autos up; rupee through 96; Brent flat ~105.8 as Saudi offers cargoes via Oman; NSE IPO day 1 booked 15% by 08:24, exchange-ecosystem names (IFCI, New India Assurance) up to 9%. No new entries possible (cash 372).",
+   "data": {
+    "cpcl_last": 1417.4,
+    "cpcl_stop": 1417.68,
+    "redington_last": 395.4,
+    "equity": 9893.92,
+    "nifty_approx": 23290,
+    "brent": 105.8
+   }
+  },
+  {
+   "id": 84,
+   "ts": "2026-09-17T05:02:24.967846Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:36 IST Thu 17 Sep: DROPLET EXECUTOR LIVE. scripts/vps-reserved-ip.sh moved egress to 209.38.124.131 (anchor 10.47.0.5 via 10.47.0.1), doctor on the droplet: live_trading ENABLED, broker:kite LIVE, egress:ipv4 matches the Kite whitelist; tradebot-check.timer started (first run 10:31:10). From now on the droplet enforces stops/targets/expiries every 10 min and enters armed theses; the check wrapper now pushes an intraday -vps snapshot whenever it acts. Manual Kite-app exits are no longer needed; any stopgap GTTs must be deleted.",
+   "data": {
+    "egress": "209.38.124.131",
+    "executor_live_at": "2026-09-17T10:31:10+05:30"
+   }
+  },
+  {
+   "id": 83,
+   "ts": "2026-09-17T04:58:20.946702Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:27 IST Thu 17 Sep: Kite token applied (drop pushed 94a4daa; the droplet applies within 5 min). Kite reads: equity 9,904.30, cash 371.60, day -12.10, total -95.70. CPCL 1429.90 (-4.2% vs entry) is 0.85% above the 1417.68 stop: ALERT sent; instruction: sell 2 at market on any print below 1417.68 until the droplet executor is confirmed (Reserved IP 209.38.124.131 whitelisted and committed as kite.whitelisted_ip; the user still has to run scripts/vps-reserved-ip.sh and start tradebot-check.timer). Redington 394.30 (+4.5%), GE Shipping 1397.10 (+0.9%), Oil India 479.75 (-0.9%, crude below 105).",
+   "data": {
+    "equity": 9904.3,
+    "cash": 371.6,
+    "cpcl_last": 1429.9,
+    "cpcl_stop": 1417.68,
+    "redington_last": 394.3
+   }
+  },
+  {
+   "id": 82,
+   "ts": "2026-09-17T03:35:38.640544Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Morning Thu 17 Sep (day 9). FOMC: 25 bp hike to 3.75-4.00%, 12-0, first since July 2023; statement 'inflation remains elevated'; dot plot 16 of 18 see another hike this year (4 see two), cuts only from 2028; Warsh: summer inflation readings show no meaningful improvement. Reaction: Dow -1.21% (-631), S&P -0.45%, Nasdaq flat; 2y ~4.65%, 30y 5.35%; dollar at a 7-week high; gold -1%+ to near a six-week low; Brent below 105 as Saudi restores cargoes and works on the pipeline. GIFT Nifty negative; Asia mixed; rupee 95.95. Kite: second day without a login (token drop still 15 Sep); executor not live. Book at Wed close: Redington 388.15 (+2.8%), CPCL 1456.00 (-2.4%, 2.6% above the 1417.68 stop, gap risk), GE Shipping 1391.60, Oil India 487.60; cash 374.70, so there is no capacity for new entries regardless of the post-FOMC tape; the only decisions today are exits. Instruction to the user: if CPCL opens or prints below 1417.68, sell 2 at market; otherwise hold; the GTT OCO set (11:30 Wed) remains the recommended enforcement. Screen 2026-09-17: Paytm #1, Shreeji Shipping #2, Redington #3 (alpha +63, 20d +19%), GCSL #4, Morepen #5, Welspun Ent #6; CPCL dropped out of the top 15. Today: NSE IPO opens (GMP 7-9%, anchor 6,746 cr), Oil India shareholder meeting. Check-ins 11:30, 13:30, 15:10, 15:55.",
+   "data": {
+    "fed_rate": "3.75-4.00",
+    "dow_chg_pct": -1.21,
+    "brent": 104.5,
+    "usdinr": 95.95,
+    "cpcl_close": 1456.0,
+    "cpcl_stop": 1417.68,
+    "cash": 374.7
+   }
+  },
+  {
+   "id": 81,
+   "ts": "2026-09-16T10:26:59.508254Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Wed 16 Sep (day 8). No Kite login today, so no venue equity reading; estimated from closing quotes: equity 9,956.88 (cash 374.70), +43.04 on the day vs 9,913.84, unrealized +15.18, total about -43 since start. Closes: Redington 388.15 (+2.4%, high 389.90), CPCL 1456.00 (-1.1%; morning low 1412.00 pierced the 1417.68 stop, now 2.6% above it), GE Shipping 1391.60 (+0.1%), Oil India 487.60 (+0.4%), GOLDBEES 124.91 (+1.0%), NIFTYBEES 265.02 (+0.2%). Market: Nifty recovered ~0.3-0.5% to the 23,200-23,250 area after Tuesday's 1.2% fall; SMIDs still lagging; Brent ~105 after Saudi cargo cancellations and Libya outages; US 10y near 5%. Droplet 2026-09-16-vps.json imported: 0 orders, 0 journal entries, no equity points (its token expired too); executor still stopped, IP still refused by Kite. Decision carried into the FOMC (23:30 IST): hold all four on existing stops, no entries; the Kite GTT OCO set recommended at 11:30 is the only overnight stop enforcement (unconfirmed). Thursday: read the Fed outcome and overnight tape before the open; NSE IPO opens; Oil India shareholder meeting; post-FOMC entries allowed if orderly, armed for the droplet.",
+   "data": {
+    "equity_est": 9956.88,
+    "cash": 374.7,
+    "day_pnl_est": 43.04,
+    "unrealized": 15.18,
+    "cpcl_close": 1456.0,
+    "redington_close": 388.15,
+    "brent": 105
+   }
+  },
+  {
+   "id": 80,
+   "ts": "2026-09-16T09:41:59.171051Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "15:10 IST pre-close, Wed 16 Sep (day 8). Kite token never applied today (no login), so no venue equity point; executor not live. Redington 388.05 (+2.8%, high 389.90), CPCL 1457.50 (-2.3%, 2.7% above the 1417.68 stop after the 1412.00 morning pierce), GE Shipping 1391.90 (+0.5%), Oil India 488.45 (+0.9%), GOLDBEES 124.93 (+1.1%). Nothing within 2% of a stop, so DECISION: hold all four through the FOMC (23:30 IST, 25 bp hike expected under Warsh) on existing stops; no tightening, no exits, no entries. Estimated equity from quotes: 9,963 (cash 374.70), about +49 on the day versus 9,913.84. Market: Nifty ~23,250 (+0.5%), a narrow-range rebound; European shares recovering as the oil rally pauses; Brent ~105. Risk into the decision: four small/mid caps ~9,590, crude ~49% of equity; a 5% gap costs ~480. The only exit enforcement available overnight is the Kite GTT OCO set recommended at 11:30; a hawkish surprise is handled at Thursday's 09:00 wake-up before the open.",
+   "data": {
+    "equity_est": 9963,
+    "cpcl_last": 1457.5,
+    "redington_last": 388.05,
+    "decision": "hold all through FOMC",
+    "nifty_approx": 23250
+   }
+  },
+  {
+   "id": 79,
+   "ts": "2026-09-16T08:02:00.439508Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Wed 16 Sep (day 8). Kite token still not applied (no login today). Redington 385.20 (+2.0%, high 389.90), CPCL 1462.60 (-2.0%; recovered from the 1412.00 low that pierced the stop, now 3.1% above 1417.68), GE Shipping 1390.50 (+0.4%, low 1358.80), Oil India 487.75 (+0.8%). Nothing within 1.5% of a level. Market: Nifty ~23,250 (+0.5%) in a narrow-range rebound after Tuesday's 23,118.60 close (-1.19%; Smallcap 100 -2.43%, steepest since 12 May); SMIDs still underperform, FMCG +2%, IT -1%; Nifty below its 200-DMA. Brent eased to ~104.7 (-1.1%, technical) while Saudi cancelled some September European cargoes and Libya outages persist; US issued a Level-3 travel advisory for Saudi Arabia. Fed (Warsh) decision 23:30 IST, 25 bp hike expected. Positioning into the decision: four small/mid caps worth ~9,560 (96% of equity), crude names CPCL + Oil India ~4,880 (~49%), stops 3.1% to 6.9% away, cash 375; a 5% adverse gap costs ~480, accepted on the existing stops; the recommended Kite GTT OCO orders (11:30 message) are the only exit enforcement available while the token and the droplet whitelist are missing. No new entries before the FOMC.",
+   "data": {
+    "nifty_approx": 23250,
+    "nifty_prev_close": 23118.6,
+    "brent": 104.7,
+    "cpcl_last": 1462.6,
+    "redington_last": 385.2
+   }
+  },
+  {
+   "id": 78,
+   "ts": "2026-09-16T06:02:32.140255Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:30 IST check, Wed 16 Sep (day 8). Kite token still not applied today (no login yet); quotes via the fallback source. Redington 382.90 (+1.4%), CPCL 1447.20 (-3.0%; day low 1412.00 pierced the 1417.68 stop intraday, now 2.0% above it), GE Shipping 1379.40 (-0.4%), Oil India 483.10 (-0.2%). Nifty ~23,250 (+0.3%) in a cautious rebound, PSU banks up, Nifty Smallcap 100 down a 5th straight day; rupee 95.91; US futures soft; Brent paused near 107-109 after the US inventory build; Fed decision 23:30 IST, chair Warsh, hike expected. Executor not live and no token, so a print below 1417.68 cannot be acted on automatically: recommended the user place a Kite GTT sell (2 CPCL, trigger 1417.68, limit ~1410) and GTT stops for the other three as the stopgap until the droplet is whitelisted. No new entries before the FOMC.",
+   "data": {
+    "cpcl_last": 1447.2,
+    "cpcl_low": 1412.0,
+    "cpcl_stop": 1417.68,
+    "nifty_approx": 23250,
+    "brent_approx": 108
+   }
+  },
+  {
+   "id": 77,
+   "ts": "2026-09-16T03:36:32.446723Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Morning Wed 16 Sep (day 8). Kite token expired at 06:00; no token drop yet for today (last drop 15 Sep), so the day starts without live Kite data until the user logs in. Book at Tuesday's close: Redington 378.95 (+0.4%), CPCL 1471.80 (-1.4%, 3.7% above stop), GE Shipping 1390.40 (+0.4%), Oil India 485.60 (+0.3%); nothing within 1.5% of a level. Overnight: Brent topped 109 on the Saudi export halt and Libya outages, then eased in Asia on a US crude inventory build; US 10y at a 19-year high above 5%; US stocks closed lower; Nifty fell 1.2% Tuesday (worse than the 0.8% estimated at 15:16), rupee near 96, RBI intervening; GIFT Nifty muted, Asia slightly higher into the FOMC (23:30 IST, hike 85-90% priced). Screen 2026-09-16: 474 eligible of 552; Redington ranks #5 (alpha +64, 60d +35%) and CPCL #13 (alpha +95, beta 0.34), so both holds still pass the factor filter; top new names Shreeji Shipping, Cyient DLM, Man Industries, Paytm, Welspun Enterprises: noted, no entries before the Fed. Plan: hold all four on existing stops, no energy adds, no new entries today; droplet execution still blocked on the Reserved IP whitelist. Check-ins created for 11:30, 13:30, 15:10, 15:55 IST.",
+   "data": {
+    "brent": 109,
+    "us10y": 5.0,
+    "nifty_prev_chg_pct": -1.2,
+    "fomc_ist": "2026-09-16T23:30",
+    "screen_rank_redington": 5,
+    "screen_rank_cpcl": 13
+   }
+  },
+  {
+   "id": 76,
+   "ts": "2026-09-15T10:27:29.002046Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Tue 15 Sep (day 7). Close: equity 9,913.84 (cash 374.70), day -200.12 (-2.0%) against Friday's 10,113.96, total -86.16 since start (-0.9%). Attribution: Swiggy exit at 277.40 (realized +2.25 vs entry, but ~-105 vs Friday's mark), CPCL -41.00 (2 @ 1492.30, last 1471.80), GOLDBEES -7.36, Redington +8.70, GE Shipping +5.20, Oil India +6.60. Open theses unchanged: Redington 378.95, CPCL 1471.80 (3.7% above stop), GE Shipping 1390.40, Oil India 485.60; no stop or target within 1.5%. Market: Nifty reversed a 0.8% opening gain to close near 23,200 (about -0.8%), Sensex ~1,300 pts off the high, India VIX +9-10%, metals and realty -2%, Nifty IT +5%; Brent ~107 (Saudi East-West pipeline shut, Red Sea attacks), US 10y at 5%, Fed hike Wed 23:30 IST 85-90% priced, October RBI hike bets rising. Droplet: 2026-09-15-vps.json imported (2 equity points, no orders; executor timer still stopped). Kite refused 168.144.86.125 as linked to another account; Reserved IP procedure sent to the user (docs/VPS.md 6a); until the egress check passes, exits are manual. Shipped today: armed auto-entry (thesis arm / --entry-min/--entry-max), egress:ipv4 doctor check, scripts/vps-reserved-ip.sh. Plan Wed: hold all four through FOMC on existing stops, no new entries before the decision, CPCL cancel decision is moot (filled by the user); Thu: NSE IPO opens (1,700-1,785), Oil India shareholder meeting.",
+   "data": {
+    "equity": 9913.84,
+    "cash": 374.7,
+    "day_pnl": -200.12,
+    "total_pnl": -86.16,
+    "brent": 107,
+    "nifty_close_approx": 23200
+   }
+  },
+  {
+   "id": 75,
+   "ts": "2026-09-15T08:01:38.824458Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Tue 15 Sep (day 7). Nothing near a stop or target: Redington 378.20 (+0.2%), CPCL 1487.70 (-0.3%), GE Shipping 1400.00 (+1.1%), Oil India 488.70 (+1.0%). Brent ~107.5 on the Saudi East-West pipeline shutdown and Red Sea attacks; Nifty -0.4% at 13:00 with Nifty IT +5% the only strong sector; DXY firm, Fed hike Wed 23:30 IST ~85-90% priced. Decisions: (1) Redington is HELD through FOMC on its existing 358.62 stop; the hike is priced, the position is ~2,270 INR and the IT-distribution tape is supportive today; no pre-FOMC trim. (2) The Wednesday cancel-if-unfilled decision on CPCL is moot: the entry was filled by the user (2 @ 1492.30), so CPCL is now managed on stop 1417.68 / target 1611.68 / expiry 23 Sep. (3) Kite refused the droplet IP 168.144.86.125 as linked to another account; a DigitalOcean Reserved IP is the fix (docs/VPS.md 6a); exits stay manual until the egress check passes. Crude exposure (CPCL + Oil India) still ~49% of equity; no adds in energy.",
+   "data": {
+    "brent": 107.5,
+    "nifty_chg_pct": -0.4,
+    "fomc_ist": "2026-09-16T23:30",
+    "redington_last": 378.2,
+    "cpcl_last": 1487.7,
+    "geship_last": 1400.0,
+    "oil_last": 488.7
+   }
+  },
+  {
+   "id": 74,
+   "ts": "2026-09-15T07:37:59.846853Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:CHENNPETRO",
+   "order_id": null,
+   "text": "thesis d8b5e718e9dd opened manually: 2 @ 1492.3 (venue-position)",
+   "data": {
+    "thesis_id": "d8b5e718e9dd",
+    "qty": 2.0,
+    "entry_price": 1492.3,
+    "manual": true
+   }
+  },
+  {
+   "id": 73,
+   "ts": "2026-09-15T03:32:58.782192Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Tue 15 Sep 09:05 IST brief (day 7, first session after the holiday). Two sessions of global news to absorb: Brent ~107 (Saudi East-West pipeline outage + fresh attacks; Trump: oil will 'drop like a rock' when the conflict ends; Iran: no talks until conditions met), US 10y ~5%, dollar at a 2-week high, Fed 2-day meeting starts today (85-90% hike priced for Wed ~23:30 IST), US stocks lower Mon on an AI-slowdown chip selloff (Nvidia/Intel -9.5%), gold -2% Mon. India: GIFT Nifty +80 -> positive open; support 23,000-23,200; BofA turned bullish (12% upside by Dec); SBI Research/IDFC First now expect an RBI hike in Oct; FII selling continues. Book at Fri close: Redington 393.7 (+4.3%), GE Shipping 1412.2 (+2.0%), Oil India 489.8 (+1.2%), GOLDBEES 125.12; CPCL planned (1,573, zone 1,500-1,520, cancel Wed). Plan: hold all; Oil India target 522.67 and Redington stop 358.62 / target 415.25 enforced by the droplet executor if the whitelist + timer are confirmed (unconfirmed as of 09:05); GOLDBEES may open lower on the gold drop, core hold; no new entries into FOMC; cash 3,378 reserved for the portfolio sleeve pending the monthly amount. Droplet EOD timer pushed a snapshot on the holiday (harmless, imported).",
+   "data": null
+  },
+  {
+   "id": 72,
+   "ts": "2026-09-14T03:35:35.048926Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Mon 14 Sep: NSE/BSE closed (Ganesh Chaturthi); the session calendar did not model exchange holidays, so the 09:00 routine fired as a trading day. Fixed: hours.py now carries the 2026 NSE/BSE and NYSE holiday lists (next IN holiday 2 Oct), the droplet executor wrapper consults it, today's five check-ins were cancelled and the Tuesday 09:00 wake-up created. Global today: Brent ~108 (+3%) after the Saudi East-West pipeline shutdown and fresh Hormuz strikes; Hormuz traffic ~1 tanker/day; Iran-Gulf talks in Oman postponed; Fed hike odds 85-90% for Wed. India reopens Tue with a two-session gap to absorb. Book unchanged: Redington 393.7, GE Shipping 1412.2, Oil India 489.8 (Fri closes); CPCL planned; GOLDBEES core. Whitelist window: user to add 168.144.86.125 and start tradebot-check.timer today (console works on holidays); no Kite login needed today.",
+   "data": null
+  },
+  {
+   "id": 71,
+   "ts": "2026-09-12T04:35:47.099383Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "SAT 12 Sep weekend review -> MONDAY 14 Sep plan. CPI: headline +0.4% m/m, 3.4% y/y (in line); core +0.3% m/m (0.1 above), 2.4% y/y; Fed-hike odds for Wed 16-17 Sep ~85-90%. US stocks still rallied Fri (Dow +600) as oil eased intraday. Weekend: US hit 3 Iranian tankers Sat, IRGC struck tankers/US-linked vessels; Saudi SUSPENDED the East-West pipeline (only Hormuz bypass) after attacks; Hormuz traffic ~6 vessels/day; Goldman: Brent >120 in 2027 if Gulf output stays 4 mb/d below prewar. Expect Brent to gap up Monday. India: Nifty 23,398, 5th weekly loss (-2.1%), lowest since June, FII selling 12,912 cr in Sep, rupee 95.55; NSE IPO opens 17 Sep (band 1,700-1,785, GMP ~220 = 12%). Book plan: (1) Oil India: drop the manual 515 early-exit; with ceasefire odds down and Saudi supply hit, let the droplet executor take the thesis target 522.67 (stop 459.75). (2) GE Shipping: hold, target 1,496 (tanker war + pipeline suspension). (3) Redington: hold; Fed hike is priced (85-90%); executor stop 358.62, target 415.25; if Nifty gaps down >1.5% and Redington <380 at 09:45, consider manual exit before the executor stop. (4) CPCL: planned, zone 1,500-1,520 only; likely gaps away on crude; cancel Wed if untouched. (5) GOLDBEES core hold. (6) No new trade entries Monday; cash ~3,378 reserved for the portfolio sleeve's first buys once the monthly amount is set (HCL/TCS before mid-Oct record dates). (7) Ops: 08:30 reminder -> whitelist 168.144.86.125 + start tradebot-check.timer; from then the droplet enforces exits every 10 min.",
+   "data": null
+  },
+  {
+   "id": 70,
+   "ts": "2026-09-11T10:26:56.903760Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "WEEK 1 EOD, Fri 11 Sep (days 1-5, live book from Mon 7 Sep, start 10,000). Close: equity ~10,092 (+0.9%), cash ~3,360 after the Swiggy exit settles (875 + 2,497). Realized: GIC Re -20.50 (thesis broke: NSE IPO band cut), Swiggy +2.25 (time stop, flat). Open: Redington 6 @377.50 (393.6, +4.3%, Apple foldable catalyst confirmed), Oil India 4 @483.95 (486.55, +0.5%, gave back most of the week's gain on Friday despite Brent 108), GE Shipping 1 @1385.20 (1411.5, +1.9%), GOLDBEES 8 @124.55 (core, user-initiated). Planned: CPCL (never offered the pullback; screen still flags it extended). What worked: catalyst-driven entries with pre-set exits (Redington, GE Shipping), refusing to chase (CPCL +9.5% day, Adani Ent), the daily screen as a sanity check, the operational stack (droplet, token hand-off, automated EOD snapshots). What did not: the MSCI-bounce thesis (Swiggy) and the NSE-IPO read-across (GIC Re) both assumed flows that did not arrive; at 10k the frictions (DP charges) matter. Weekend: CPI print review for Monday, dividend-ladder + portfolio module build. Monday: whitelist droplet IP 168.144.86.125, start tradebot-check.timer, droplet becomes executor.",
+   "data": null
+  },
+  {
+   "id": 69,
+   "ts": "2026-09-11T08:02:10.854637Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Fri 11 Sep (day 5). Book: Redington 389.65 (+3.2%), GE Shipping 1407 (+1.6%), Oil India 495.85 (+2.5%), Swiggy 276.85 (-0.1%, below the 280 time-stop line). Nifty -1% intraday then -0.2%, Brent 108 with 20 calls (Mirae) and RBI-hike talk (Emkay), rupee 95.8, dollar index 99 ahead of US CPI 18:00 IST. CPCL 1,569 (-3.5%) approaching the 1,500-1,520 zone but NO entry today: Friday + CPI + weekend + cash 875 (a Swiggy exit would fund it but chasing crude into a binary event is the wrong trade); revisit Monday when the droplet executor is live. Pre-decided close (15:10 instructions): (1) Swiggy: if below 280 at 15:10, exit all 9 at market via Kite app (time stop, thesis premise of a 1-2 week MSCI bounce did not deliver; ~flat P&L, frees ~2,490); if >=280 hold into next week with the 270 hard line. (2) Redington: sell all 6 only if >=400 (lock ~6% pre-CPI); otherwise hold, stop 358.62 gives room for a 5% gap-down. (3) Oil India hold, 515 line; no GTT on the account. (4) GE Shipping hold. (5) GOLDBEES is a core holding, untouched.",
+   "data": null
+  },
+  {
+   "id": 68,
+   "ts": "2026-09-11T04:51:23.911673Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": "NSE:GOLDBEES",
+   "order_id": null,
+   "text": "User bought 8 GOLDBEES (gold ETF) at 124.55 = Rs 996.40 via the Kite app at 09:08 IST Fri 11 Sep, outside the thesis framework. Treated as a long-term core holding (gold is in the proposed portfolio core), not a trade: no stop, not managed by thesis check. Cash after purchase Rs 875. No Oil India GTT exists on the account as of 10:20 IST.",
+   "data": null
+  },
+  {
+   "id": 67,
+   "ts": "2026-09-11T03:34:20.614983Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Fri 11 Sep 09:05 IST morning brief (day 5). Overnight: Brent spiked to 105-110 (now ~107, +13% on the week, first weekly close >100 in 4 months) on more US-Iran tanker attacks and a WSJ report of slumping Saudi output; Trump said the conflict will not end before the November midterms (ceasefire odds down). US PPI hot, Treasury yields at multi-year highs, ECB hiked, Fed-hike bets up ahead of US CPI 18:00 IST tonight (consensus +0.4% m/m, 3.4% y/y). Asia sharply lower (Nikkei -3%, Kospi -2.6%), GIFT Nifty 23,348 (-137) -> gap-down open. NSE IPO price band SET today at 1,700-1,785, issue Rs 22,561 cr, bidding from 17 Sep. Redington: Siemens industrial-AI collaboration for Africa (positive). Book at Thu close: Redington 392 (+3.8%), Oil India 500.3 (+3.4%), GE Shipping 1400.2 (+1.1%), Swiggy 279 (+0.7%). Plan: Oil India likely gaps up on Brent 107; 515 Kite-app GTT stands (thesis premise Brent 95->100 delivered; discipline over greed on 4 shares). GE Shipping hold (tanker war + Saudi disruption). Swiggy time stop at close if below 280 (gap-down day makes an exit likely; frees ~2,500). Redington: hold through the day; at 15:10 sell all 6 if >=400 (lock ~6% before CPI + weekend with hike odds rising), else hold with stop 358.6. CPCL planned, no chase. Screen after token.",
+   "data": null
+  },
+  {
+   "id": 66,
+   "ts": "2026-09-10T10:26:49.816135Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Thu 10 Sep (day 4). Close: Redington 392.0 (+3.8%, Apple foldable launch), Oil India 500.3 (+3.4%), GE Shipping 1400.2 (+1.1%), Swiggy 279.0 (+0.7%, just under the 280 time-stop line; decision at Fri close). Equity 10,138 (day +59, total +138 since 7 Sep), cash 1,871. CPCL stayed planned (no dip to 1,500-1,520). Ops: first automated token hand-off worked (drop pushed 13:07, applied on droplet 13:10); droplet EOD timer pushed 2026-09-10-vps.json at 15:45 and it imported cleanly. Fri: US CPI 18:00 IST (after close), NSE IPO band next week, Swiggy time stop. Mon 14 Sep: whitelist droplet IP, start tradebot-check.timer.",
+   "data": null
+  },
+  {
+   "id": 65,
+   "ts": "2026-09-10T08:02:26.362365Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Thu 10 Sep (day 4). Book: Redington 393.35 (+4.2%, Apple foldable iPhone launch confirmed the catalyst; target 415.25 is 5.6% away), Oil India 501.45 (+3.6%, eased from 511; 515 exit line still armed via Kite-app GTT if placed), Swiggy 282.6 (+2.0%), GE Shipping 1400.9 (+1.1%). Nothing within 1.5% of stop/target. CPCL 1,576 (-1.8%), still above the 1,500-1,520 entry zone; stays planned. Nifty flat ~23,450, Brent >100, no ceasefire, IT down a 7th session, rupee 95.3. Friday read-across: US Aug CPI 18:00 IST, consensus headline +0.4% m/m / 3.4% y/y, core +0.4% / 2.4%; markets price ~60% odds of a 25 bp Fed hike on 16 Sep. A hot print lands after the NSE close, so the reaction hits Monday's open: high-beta Redington (beta 1.5) is the exposed name; plan is to hold into Friday and reassess at Monday 09:00 before the droplet executor starts. NSE IPO band 1,700-1,785 expected next week. Token drop pushed 13:07 and applied on the droplet 13:10 (first automated hand-off).",
+   "data": null
+  },
+  {
+   "id": 64,
+   "ts": "2026-09-10T03:34:06.286678Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Thu 10 Sep 09:05 IST morning brief (day 4). Overnight: Iran attacked 10 ships, Brent 101-102 (first >100 since June), US/Asia equities lower (Kospi -1.7%, Nikkei -1%), GIFT Nifty 23,480 (-72), Nifty down 3 sessions, IT -3.2% Wed (worst in 3 months), rupee 95.11. OMCs losing Rs 5/l petrol and Rs 23/l diesel at Brent >100 (negative for IOC/BPCL/HPCL earnings and dividend capacity: deprioritise IOC in the dividend ladder while crude >100). NSE IPO: band seen 1,700-1,785, OFS trimmed to 5.25-5.5%, valuation ~4.4 trn, pricing next week, list ~25 Sep; ISIN freeze from 11 Sep; Indian Bank to sell 17.91% of its NSE stake in the OFS. Adani plans international airports push (FT). Swiggy on a broker buy list today. Book at Wed close: Oil India 498.95 (+3.1%), Swiggy 282.75 (+2.0%), GE Shipping 1393.4 (+0.6%), Redington 378.05 (+0.2%); nothing near a stop/target. Decisions: hold all four; Oil India early exit still 515 or a ceasefire headline; CPCL (closed 1,604, +9.5%) stays planned, entry only on a dip holding 1,500-1,520; Gland candidate needs capital. Token pending (laptop + droplet). Screen to run once a token is saved.",
+   "data": null
+  },
+  {
+   "id": 62,
+   "ts": "2026-09-09T09:42:31.392077Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "15:10 IST pre-close, Wed 9 Sep (day 3). Hold everything: Oil India 498.15 (+2.9%, below the 515 early-exit line, Brent >100, no ceasefire), Redington 378.35 (+0.2%, entered 11:33 at 377.50 x6), GE Shipping 1394.4 (+0.7%), Swiggy 283.1 (+2.2%, bounce under way). Equity 10,079 (day +72, unrealized +125), cash 1,873. CPCL closed near 1,596 (+9.5%) without a pullback: not chased, stays planned. Gland 3,025 (+2.2%). Tape: Nifty -0.7%, IT 6th down day, rupee past 95, Brent above 100 first time in 3 months. NSE IPO: band likely 1,700-1,800, OFS trimmed, issue may shrink to 25-27k cr. Thu 10 Sep wake-up trigger set. Fri: US CPI 18:00 IST, NSE band.",
+   "data": null
+  },
+  {
+   "id": 61,
+   "ts": "2026-09-09T08:02:21.069633Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Wed 9 Sep. Book: Redington 376.6 (-0.2%), GE Shipping 1392.4 (+0.5%), Oil India 497.75 (+2.9%), Swiggy 283.5 (+2.3%, mean reversion started, +2.8% today). Nothing within 1.5% of a stop or target. CPCL ran to 1585 (+8.7% intraday, high 1604) without the pullback; rule held, not chased, thesis d8b5e718e9dd stays planned for a pullback entry. Tape: Nifty ~23,550 (-0.35%), IT -4% (6th down day), realty -4 days, metals +2%, rupee slipped past 95 with RBI intervention slowing, Brent ~99-100, no ceasefire headline. NSE IPO: reports of a LOWER price band (~Rs 1,700 vs 1,800-2,200 talk); IFCI -4%. Read-across for an exchange re-rating (MCX idea) is weaker: MCX downgraded from third pick to watch only. CANDIDATE for the rest of the week: Gland Pharma (NSE:GLAND, 2,941; beta 0.65, 1y alpha +47%, 3% below 52w high, vol 1.7x). Catalysts: rupee through 95 (USD revenue), USFDA Vizag inspection closed 1 Sep with zero observations, new supply agreement. Needs ~3,000 INR: fund the account or wait for Oil India to hit target. Entry only if Nifty stabilises; stop 5%, target 8%, 2 weeks. Fri 11 Sep: US CPI 18:00 IST, NSE IPO price band; FOMC Wed 16 Sep.",
+   "data": null
+  },
+  {
+   "id": 60,
+   "ts": "2026-09-09T06:05:01.453178Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:REDINGTON",
+   "order_id": null,
+   "text": "thesis 8c5ef2a59595 opened manually: 6 @ 377.5 (venue-position)",
+   "data": {
+    "thesis_id": "8c5ef2a59595",
+    "qty": 6.0,
+    "entry_price": 377.5,
+    "manual": true
+   }
+  },
+  {
+   "id": 63,
+   "ts": "2026-09-09T06:03:55.485076Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:REDINGTON",
+   "order_id": "0b0321060d6e",
+   "text": "filled: buy 6 NSE:REDINGTON limit @ 378.1 | reason: [thesis 8c5ef2a59595] Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+   "data": {
+    "reason": "[thesis 8c5ef2a59595] Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 2268.6000000000004,
+     "reference_price": 378.1,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 59,
+   "ts": "2026-09-09T05:22:54.994686Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:REDINGTON",
+   "order_id": null,
+   "text": "thesis 8c5ef2a59595 planned: Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+   "data": {
+    "thesis_id": "8c5ef2a59595",
+    "size": 2300.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-23T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 58,
+   "ts": "2026-09-09T05:22:54.274384Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:CHENNPETRO",
+   "order_id": null,
+   "text": "thesis d8b5e718e9dd planned: Factor screen rank 23, beta 0.34, 1y alpha +100%, at 52w high, RSI 70. Standalone refiner: crude near USD 100 gives inventory gains, Navratna status (Jun 2026), Rs 54 dividend paid Aug. Low beta suits a risk-off tape. Correlated with Oil India (both long crude): a ceasefire hits both. ENTRY RULE: it is +4.7% today after opening at 1,466; do not chase. Buy a pullback at 1,490-1,505, or at 14:00 if it still holds above 1,500. Skip today if it fades below 1,480.",
+   "data": {
+    "thesis_id": "d8b5e718e9dd",
+    "size": 1600.0,
+    "stop_pct": 5.0,
+    "target_pct": 8.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-23T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 57,
+   "ts": "2026-09-09T05:19:26.235900Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Factor screen run Wed 9 Sep (tradebot screen, 552 names, 454 eligible, benchmark NIFTYBEES). Curated shortlist for a ~1L book (catalyst-checked): GLAND (b0.65 a47 USFDA Vizag zero-483 1 Sep, new supply agreement), LAURUSLABS (b0.92 a84 CDMO +29%, near high), CHENNPETRO (b0.34 a100 Navratna, at high, long-crude proxy), REDINGTON (b1.52 a62 Q1 PAT +77%, Apple launch season), MCX (b1.10 a84 exchanges re-rate into NSE IPO price band Fri), PAYTM (b1.73 a45 Q1 PAT +79%, at high, AGM 15 Sep), SYRMA (b1.41 a91 vol 2.2x, new hi-rel plant 2 Sep, RSI 73 so smaller). Screen-only alternates: AVALON, APLAPOLLO, CGCL, ACMESOLAR. Avoid for now: SHREEJISPG (rank 2 but promoter 2% open-market sale 31 Aug-30 Sep). Staging: low-beta half first, mid/high-beta half only after Fri CPI or with Nifty above prior close. Sizing ~12k each, stops 1.5x ATR (4-5%), targets 8-12% over 2-3 weeks.",
+   "data": null
+  },
+  {
+   "id": 56,
+   "ts": "2026-09-09T05:00:47.602548Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Swiggy 90f5f2db97a0 reviewed 10:40 IST Wed 9 Sep at user's request: no new negative information since entry (MSCI deletion executed 4 Sep, downgrades predate entry). User decision: HOLD with tightened exits - exit on any close below 270 (4 Sep block level) or if not above 280 by Fri 11 Sep close (time stop). Original 5% stop 263.29 remains the hard floor.",
+   "data": null
+  },
+  {
+   "id": 55,
+   "ts": "2026-09-09T03:39:09.243806Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Wed 9 Sep 09:10 IST morning brief. Overnight: US destroyed five Iranian tankers (Gulf of Oman/Kharg), Iran fired ~20 ballistic missiles at US base at Al Azraq, Jordan (18 intercepted, no casualties). Brent >99, six-week high, heading for 100. US close: S&P -0.58%, Dow -1.18%; rate-hike odds rising into Fri 11 Sep US CPI (18:00 IST) and FOMC 16 Sep. GIFT Nifty -89 (23,660) -> gap-down open expected; Tue Nifty -0.61%, financials and Reliance dragged; rupee held by RBI. Corporate: Adani Airports raising Rs 9,825 cr primary at USD 18 bn pre-money from Temasek/BlackRock/Alpha Wave/Premji (5.54% by Jul 2027) - validates AEL airport SOTP but announced 7 Sep and AEL flat Mon; Coforge chairman resigned after audit concerns; six mainboard IPOs open today (record), NSE IPO price band targeted Fri 11 Sep (Rs 1,800-2,200 talk). Book: hold Oil India (last 495.4, +2.4%, target 522.67; escalation supportive; take profit early on any ceasefire headline), hold GE Shipping (1383.8, -0.1%; tanker losses + war-risk premia supportive), hold Swiggy (275.7, -0.5%; MSCI flow done, stop 263.29). No new entry today: 3-position cap reached, cash ~4,157, gap-down tape; AEL kept on watch.",
+   "data": null
+  },
+  {
+   "id": 45,
+   "ts": "2026-09-08T09:42:42.042575Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Tue 8 Sep 2026 (15:12 IST), day 2. Actions from the user's machine: GIC Re SELL 5 @ 347.50 (-20.50 realised; NSE-stake trade unwinding, NIACL/IFCI -8 to -14%), GE Shipping BUY 1 @ 1,385.20 (thesis cab0d0e8410c). Close: Oil India 494.60 (+2.20%), Swiggy 276.30 (-0.31%), GE Shipping 1,383.40 (-0.13%); cash 4,156.90; equity 10,006.85 (+30.35 today, +6.85 since start). Nifty 23,654 (-0.52%), Sensex -550 intraday; Brent near 100; Goldman: 120 possible if Hormuz attacks continue; PSU OMCs skid. Incidents fixed today: Kite market protection now mandatory (added), BSE-labelled holdings, false daily-loss trip from negative CNC net position + unsettled sale proceeds (fixed). Carry: 3 theses; Oil India ~5.7% below target.",
+   "data": {
+    "day": 2,
+    "equity_close": 10006.85,
+    "pnl_today": 30.35,
+    "realized_gicre": -20.5
+   }
+  },
+  {
+   "id": 44,
+   "ts": "2026-09-08T08:54:19.358249Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "14:23 IST: GE Shipping entered from the user's machine: BUY 1 @ 1,385.20 (size 2,700 bought 1 share; thesis cab0d0e8410c attached, stop 1,315.94, target 1,496.02, expires 18 Sep). Book: Oil India 4 @ 483.95 (498.70, +3.05%), Swiggy 9 @ 277.15 (276.00, -0.41%), GE Shipping 1 @ 1,385.20; cash 4,156.90 incl. GIC Re proceeds; equity 10,019.10 (+42.60 today).",
+   "data": {
+    "fill": {
+     "NSE:GESHIP": [
+      1,
+      1385.2
+     ]
+    },
+    "equity": 10019.1
+   }
+  },
+  {
+   "id": 43,
+   "ts": "2026-09-08T08:53:55.670598Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GESHIP",
+   "order_id": null,
+   "text": "thesis cab0d0e8410c opened manually: 1 @ 1385.2 (venue-position)",
+   "data": {
+    "thesis_id": "cab0d0e8410c",
+    "qty": 1.0,
+    "entry_price": 1385.2,
+    "manual": true
+   }
+  },
+  {
+   "id": 46,
+   "ts": "2026-09-08T08:52:40.647171Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:GESHIP",
+   "order_id": "80dfc3d3b4a7",
+   "text": "filled: buy 1 NSE:GESHIP limit @ 1386.7 | reason: [thesis cab0d0e8410c] Tanker rates at record highs (TradeWinds) as Hormuz disruption persists; US struck three Iranian tankers at the weekend, Iran threatens a wider restricted zone and the Iran-Oman shipping deal failed. GE Shipping (crude and product tankers, USD freight, weak rupee) lagged for a month and the tanker basket is now +3.6% on the week: money arriving. Enter after 09:30 only if Nifty holds above 23,600 and GESHIP is not more than 3% above Monday's close; cancel if a ceasefire drops Brent below 90.",
+   "data": {
+    "reason": "[thesis cab0d0e8410c] Tanker rates at record highs (TradeWinds) as Hormuz disruption persists; US struck three Iranian tankers at the weekend, Iran threatens a wider restricted zone and the Iran-Oman shipping deal failed. GE Shipping (crude and product tankers, USD freight, weak rupee) lagged for a month and the tanker basket is now +3.6% on the week: money arriving. Enter after 09:30 only if Nifty holds above 23,600 and GESHIP is not more than 3% above Monday's close; cancel if a ceasefire drops Brent below 90.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1386.7,
+     "reference_price": 1386.7,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 42,
+   "ts": "2026-09-08T08:51:37.009318Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "14:20 IST: GIC Re closed from the user's machine: SELL 5 @ 347.50 (-20.50 INR). GE Shipping entry then wrongly rejected by the daily-loss check: Kite adapter counted the -5 CNC net position as a short (-1,738) and the sale proceeds (1,737.5) were not in margins.net until settlement -> equity looked 6,543 vs 9,976 day start. Fixed (skip negative CNC net positions; add same-day CNC sale proceeds to cash). Real equity ~10,019.",
+   "data": {
+    "incident": "false_daily_loss",
+    "fixed": true
+   }
+  },
+  {
+   "id": 47,
+   "ts": "2026-09-08T08:49:09.219289Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:GESHIP",
+   "order_id": null,
+   "text": "REJECTED buy 1 NSE:GESHIP: daily loss 3,453.00 INR >= max_daily_loss 400.00; only position-reducing orders allowed",
+   "data": {
+    "code": "daily_loss_limit",
+    "reason": "[thesis cab0d0e8410c] Tanker rates at record highs (TradeWinds) as Hormuz disruption persists; US struck three Iranian tankers at the weekend, Iran threatens a wider restricted zone and the Iran-Oman shipping deal failed. GE Shipping (crude and product tankers, USD freight, weak rupee) lagged for a month and the tanker basket is now +3.6% on the week: money arriving. Enter after 09:30 only if Nifty holds above 23,600 and GESHIP is not more than 3% above Monday's close; cancel if a ceasefire drops Brent below 90."
+   }
+  },
+  {
+   "id": 48,
+   "ts": "2026-09-08T08:48:56.980088Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": "5d5784100e48",
+   "text": "thesis 849f600df9e3 closed: NSE-stake trade unwinding before the price band; premise weakened",
+   "data": {
+    "thesis_id": "849f600df9e3",
+    "pnl": -20.500000000000114
+   }
+  },
+  {
+   "id": 49,
+   "ts": "2026-09-08T08:48:56.976833Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": "5d5784100e48",
+   "text": "filled: sell 5 NSE:GICRE market | reason: [thesis 849f600df9e3] exit: NSE-stake trade unwinding before the price band; premise weakened",
+   "data": {
+    "reason": "[thesis 849f600df9e3] exit: NSE-stake trade unwinding before the price band; premise weakened",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1738.5,
+     "reference_price": 347.7,
+     "reduces_position": true
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 41,
+   "ts": "2026-09-08T08:02:28.219511Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check-in (live): equity 10,019.15 (+42.65 today). Oil India 496.45 (+2.58%), Swiggy 276.45 (-0.25%), GIC Re 347.25 (-1.24%). Nifty 23,649 (-0.55%), Sensex -500 at lows, SMIDs outperform; NIACL/IFCI down up to 14% on NSE IPO GMP dip (BS). User's requested actions (close GIC Re, enter GE Shipping) not yet executed on their machine: GIC Re still held, no GESHIP position. GESHIP 1,381.00; entry condition (Nifty > 23,600) holds by ~50 pts. No stop/target hit.",
+   "data": {
+    "checkin": "13:30",
+    "equity": 10019.15,
+    "pending_user_actions": [
+     "close 849f600df9e3",
+     "enter cab0d0e8410c"
+    ]
+   }
+  },
+  {
+   "id": 40,
+   "ts": "2026-09-08T07:33:47.421482Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:03 IST Tue 8 Sep: Kite token received (session-side). Live: equity 10,010.10 (+33.60 today, +10.10 since start), cash 3,804.60. Oil India 492.00 (+1.66%), Swiggy 277.45 (+0.11%), GIC Re 349.05 (-0.73%). Nifty 23,659.55 (-0.50%), just above the 23,600 line; GESHIP 1,381.60 (+0.36%): GE Shipping entry conditions hold marginally. NIACL -8.6% (off -11% lows); GIC Re close recommendation stands. Fixed: Zerodha holdings reported under BSE for NSE-bought stocks; positions now canonicalised to NSE.",
+   "data": {
+    "equity": 10010.1,
+    "nifty": 23659.55,
+    "geship": 1381.6
+   }
+  },
+  {
+   "id": 39,
+   "ts": "2026-09-08T06:02:01.158173Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:30 IST check-in (public quotes; no Kite token today). Nifty below 23,700, Sensex -300/-400, 1,000 pts off the August high; rupee 94.66; Goldman lifted Brent/WTI forecasts on Hormuz risk. Positions: Oil India 487.60 (+0.75%), GIC Re 347.75 (-1.09%), Swiggy 276.70 (-0.16%); total ~-9 INR. No stop/target hit. Premise watch: the NSE-stake speculation is unwinding (NIACL -11.4%, IFCI -7% after +30% month) and Mint quotes an expert saying the price band cannot exceed ~1,750, below the 1,800-2,200 chatter. GIC Re's edge has fallen below coin-flip: recommend closing at market today (small loss) rather than waiting for the 334 stop. GE Shipping entry (cab0d0e8410c) still valid on price (1,379) but only if Nifty holds 23,600; user not logged in yet.",
+   "data": {
+    "checkin": "11:30",
+    "recommend_close": [
+     "849f600df9e3"
+    ],
+    "niacl_1d": -11.43,
+    "ifci_1d": -7
+   }
+  },
+  {
+   "id": 38,
+   "ts": "2026-09-08T04:16:38.640205Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "09:45 IST Tue 8 Sep: no Kite token yet; monitoring the three carried positions from public quotes (Groww/Upstox). GE Shipping thesis cab0d0e8410c stays planned; nothing can be entered until the user logs in and imports the 2026-09-08 snapshot on their machine.",
+   "data": {
+    "event": "standby_no_token",
+    "day": 2
+   }
+  },
+  {
+   "id": 37,
+   "ts": "2026-09-08T03:35:31.321338Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GESHIP",
+   "order_id": null,
+   "text": "thesis cab0d0e8410c planned: Tanker rates at record highs (TradeWinds) as Hormuz disruption persists; US struck three Iranian tankers at the weekend, Iran threatens a wider restricted zone and the Iran-Oman shipping deal failed. GE Shipping (crude and product tankers, USD freight, weak rupee) lagged for a month and the tanker basket is now +3.6% on the week: money arriving. Enter after 09:30 only if Nifty holds above 23,600 and GESHIP is not more than 3% above Monday's close; cancel if a ceasefire drops Brent below 90.",
+   "data": {
+    "thesis_id": "cab0d0e8410c",
+    "size": 2700.0,
+    "stop_pct": 5.0,
+    "target_pct": 8.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-18T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 36,
+   "ts": "2026-09-08T03:35:30.750428Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Pre-market Tue 8 Sep 2026 09:05 IST. GIFT Nifty -30/-40: cautious open; Nifty below 23,800 with FIIs selling index futures; weekly expiry day, 23,600 is the level to defend. Yen at a 7-month high (carry unwind risk), dollar soft ahead of US CPI (Thu 11 Sep); Fed hike odds for 16 Sep ~50-65%; UBS sees two hikes in 2026. Brent ~97 and 'near 100 again': US struck three Iranian tankers at the weekend, Iran threatens a new restricted zone, Iran-Oman Hormuz deal failed; RBI sold ~USD 8bn last week to anchor the rupee. Jio Platforms IPO: roadshows from next week, November listing targeted (Bloomberg) -> Reliance on watch, not a thesis yet. NSE IPO price band still expected Thu 11 Sep; GMP hot; NIACL +21% 5d (avoid), GIC Re -1.4% 5d (lagging, thesis intact). Swiggy closed 276.45 Mon (range 274.65-280.50), in today's stocks-to-watch lists; premise intact. Themes 5d: tankers +3.6%, NSE stakeholders +2.4%, exporters +1.6%; crude importers -4%, IT -3.5%, sugar -3.3%. Carried: Swiggy/GIC Re/Oil India all inside stops. New thesis: GE Shipping (record VLCC rates, basket inflows starting).",
+   "data": {
+    "nifty_prev": 23744,
+    "brent": 97,
+    "carried": 3
+   }
+  },
+  {
+   "id": 50,
+   "ts": "2026-09-07T10:06:59.094596Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Mon 7 Sep 2026, first live day on Zerodha (10,000 INR). Entries placed by the user from the laptop at 10:53 IST via 'tradebot thesis enter' over the company OpenVPN (IPv4 egress 3.108.145.229 whitelisted; TRADEBOT_FORCE_IPV4=1). First Swiggy attempt at 10:50 rejected for an off-tick limit (277.27); fixed by commit 1c75c5f (tick rounding), re-entered. Fills (CNC, marketable limit): Swiggy 9 @ 277.15, GIC Re 5 @ 351.60, Oil India 4 @ 483.95; total deployed 5,971 INR, cash 3,811.85. Closes: Swiggy 276.45 (-6.30), GIC Re 349.80 (-9.00), Oil India 487.00 (+12.20); equity 9,996.90, day P&L -3.10, no fees booked yet. Systematic sleeve skipped by user decision. Read-only checks at 11:32/13:32/15:07 IST: no stop/target/expiry hit, no ceasefire, Brent held ~97-100. All three theses open into Tue 8 Sep: Swiggy stop 263.29 / target 304.87 / exp 18 Sep; GIC Re stop 334.02 / target 386.76 / exp 16 Sep; Oil India stop 459.75 / target 522.67 / exp 18 Sep. Tomorrow: Kite login ~09:00 IST (token expires ~6am), VPN up before any order, thesis check at 11:30/13:30/15:10.",
+   "data": null
+  },
+  {
+   "id": 35,
+   "ts": "2026-09-07T09:41:50.736753Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Mon 7 Sep 2026 (15:11 IST): first live day. Entries from the user's whitelisted machine at ~10:55 IST: Swiggy 9 @ 277.15, GIC Re 5 @ 351.60, Oil India 4 @ 483.95 (6,188 INR deployed, 3,812 cash). Close: Swiggy 276.50 (-0.23%), GIC Re 349.60 (-0.57%), Oil India 482.10 (-0.38%); equity 9,976.50 (-23.50 INR, -0.24%). Nifty 23,744 (-0.65%), IT -3% on Fed hike bets, US-Iran tension, Brent ~97; NSE IPO GMP ~285; Morgan Stanley sees a multi-quarter upcycle (Sensex 89,000 by Jun 2027). No stop/target hit; all three theses carry to Tuesday. Lessons: (1) Zerodha static-IP rule blocks API orders from the cloud session; execution moved to the user's machine (IPv4 pinned, whitelisted); (2) NSE tick size 0.05 must be respected on limits (fixed); (3) live-venue equity snapshots now recorded so the daily-loss cap applies. Pending: static-IP VPS for API execution; user to push their EOD snapshot.",
+   "data": {
+    "day": 1,
+    "equity_close": 9976.5,
+    "pnl_inr": -23.5,
+    "positions": 3,
+    "cash": 3811.85
+   }
+  },
+  {
+   "id": 34,
+   "ts": "2026-09-07T08:02:18.462225Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check-in: Nifty 23,757 (-0.59%), Sensex -400 at day's low, IT weakest, US-Iran cited; Brent elevated (Julius Baer: crude may take 12 months to normalise). NSE IPO GMP jumped to ~285 without a price band; IFCI +6% again (avoided, no NSE stake); GIC Re lagging the theme at 349.35. Positions: Oil India 486.40 (+0.51%), GIC Re -0.64%, Swiggy -0.40%; total -14 INR (from -27 at 11:30). No stop/target/expiry hit; no premise broken. No action.",
+   "data": {
+    "checkin": "13:30",
+    "pnl_inr": -13.7,
+    "nifty": 23757
+   }
+  },
+  {
+   "id": 33,
+   "ts": "2026-09-07T06:02:02.048128Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:30 IST check-in: Nifty 23,766 (-0.55%), below the 23,800 support flagged this morning; IT -2% on Fed hike bets; Brent ~97; rupee 94.39. Positions: Swiggy 275.25 (-0.69%), GIC Re 350.30 (-0.37%), Oil India 483.40 (-0.11%); total -27 INR. No stop/target/expiry hit; no premise broken. No action.",
+   "data": {
+    "checkin": "11:30",
+    "pnl_inr": -26.7,
+    "nifty": 23766
+   }
+  },
+  {
+   "id": 51,
+   "ts": "2026-09-07T05:43:10.440676Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:10 IST Mon 7 Sep: systematic trend sleeve skipped today by user decision (plan proposed 34 NSE:MANALIPETC @ 86.85, ~2,953 INR, 14.5% above SMA20; not taken). Day is theses-only: Swiggy 9 @ 277.15, GIC Re 5 @ 351.60, Oil India 4 @ 483.95, all open. Read-only checks scheduled 11:32 / 13:32 / 15:07 IST, EOD 15:36.",
+   "data": null
+  },
+  {
+   "id": 32,
+   "ts": "2026-09-07T05:25:19.912686Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:58 IST: all three theses entered from the user's machine (IPv4 whitelist working): Swiggy 9 @ 277.15 (2,494), GIC Re 5 @ 351.60 (1,758), Oil India 4 @ 483.95 (1,936); ~6,190 INR deployed, ~3,810 cash. Attached here from Kite positions for monitoring.",
+   "data": {
+    "fills": {
+     "NSE:SWIGGY": [
+      9,
+      277.15
+     ],
+     "NSE:GICRE": [
+      5,
+      351.6
+     ],
+     "NSE:OIL": [
+      4,
+      483.95
+     ]
+    }
+   }
+  },
+  {
+   "id": 31,
+   "ts": "2026-09-07T05:25:17.182126Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": null,
+   "text": "thesis 9bfaa74c2640 opened manually: 4 @ 483.95 (venue-position)",
+   "data": {
+    "thesis_id": "9bfaa74c2640",
+    "qty": 4.0,
+    "entry_price": 483.95,
+    "manual": true
+   }
+  },
+  {
+   "id": 30,
+   "ts": "2026-09-07T05:25:15.400732Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": null,
+   "text": "thesis 849f600df9e3 opened manually: 5 @ 351.6 (venue-position)",
+   "data": {
+    "thesis_id": "849f600df9e3",
+    "qty": 5.0,
+    "entry_price": 351.6,
+    "manual": true
+   }
+  },
+  {
+   "id": 29,
+   "ts": "2026-09-07T05:25:13.551730Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "order_id": null,
+   "text": "thesis 90f5f2db97a0 opened manually: 9 @ 277.15 (venue-position)",
+   "data": {
+    "thesis_id": "90f5f2db97a0",
+    "qty": 9.0,
+    "entry_price": 277.15,
+    "manual": true
+   }
+  },
+  {
+   "id": 52,
+   "ts": "2026-09-07T05:24:05.026538Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": "790fb9942759",
+   "text": "filled: buy 4 NSE:OIL limit @ 484.7 | reason: [thesis 9bfaa74c2640] US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "data": {
+    "reason": "[thesis 9bfaa74c2640] US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1938.8,
+     "reference_price": 484.7,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 53,
+   "ts": "2026-09-07T05:23:51.049854Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": "b80389981164",
+   "text": "filled: buy 5 NSE:GICRE limit @ 351.95 | reason: [thesis 849f600df9e3] SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "data": {
+    "reason": "[thesis 849f600df9e3] SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1759.75,
+     "reference_price": 351.95,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 54,
+   "ts": "2026-09-07T05:23:18.367489Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "order_id": "f4310c999354",
+   "text": "filled: buy 9 NSE:SWIGGY limit @ 277.6 | reason: [thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "data": {
+    "reason": "[thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 2498.4,
+     "reference_price": 277.6,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 28,
+   "ts": "2026-09-07T04:58:29.964232Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:35 IST: egress IP of this environment rotates across a pool (160.79.106.128-143, 7+ addresses seen in 20 requests); Zerodha allows 2 whitelisted IPs and one change per week, so API order placement from this cloud session is not viable. Decision: today the user places entries manually in the Kite app from exact instructions (CNC, limit at ask +15 bps) and I attach the fills to the theses; stops/targets/expiry monitored here with alerts to the user; exits also manual today. Fix this week: run Tradebot's API on a static-IP VPS and whitelist that IP. Do NOT whitelist the sandbox IPs.",
+   "data": {
+    "event": "execution_model_change",
+    "egress_pool": "160.79.106.128-143"
+   }
+  },
+  {
+   "id": 27,
+   "ts": "2026-09-07T04:56:37.484126Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:25 IST: Kite rejected all three thesis entries: 'No IPs configured for this app. Add allowed IPs on the Kite developer console' (static IP requirement for order placement). No orders reached the exchange; theses remain planned; live switch on. Waiting for the user to whitelist this environment's egress IP in the Kite developer console.",
+   "data": {
+    "event": "kite_ip_whitelist_required"
+   }
+  },
+  {
+   "id": 26,
+   "ts": "2026-09-07T04:16:39.219267Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "09:45 IST Mon 7 Sep 2026: no Kite request token received; live day standing down. Live switch off, no orders sent, theses Swiggy/GIC Re/Oil India remain planned. Will start same-day if a token arrives before ~14:00 IST; otherwise Tuesday.",
+   "data": {
+    "event": "stand_down",
+    "reason": "no_kite_token"
+   }
+  },
+  {
+   "id": 25,
+   "ts": "2026-09-07T03:34:41.961137Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Pre-market Mon 7 Sep 2026 09:00 IST. Brent ~USD 97 (+9% last week) after US and Iran struck each other's tankers in Hormuz over the weekend; Iran says Hormuz can reopen if US halts attacks (two-way headline risk). GIFT Nifty 23,978 (-71) signals a weak open; Nikkei +2.2%, Kospi +3%. Fed hike odds for 16 Sep above 50%; gold soft. FIIs reported as net buyers in late Aug/early Sep (ET), a change from the H1 exodus. NSE IPO: SEBI nod, price band expected 11 Sep; ET reports ~7,200 cr gains for state insurers (GIC Re, NIACL); GIC Re/SBI/BoB 'in focus' today, so gap risk at the open. Swiggy: MSCI deletion effective today; Nuvama estimated ~USD 330m passive outflow, executed into Friday's close (13x volume). Oil-linked stocks flagged in every 'stocks to watch' list. Thesis premises intact: Swiggy 90f5f2db97a0, GIC Re 849f600df9e3, Oil India 9bfaa74c2640. Kite token expired; login URL sent to the user; live switch remains off until funds are confirmed.",
+   "data": {
+    "brent": 97,
+    "gift_nifty": 23978,
+    "fallback_check": "09:45 IST"
+   }
+  },
+  {
+   "id": 24,
+   "ts": "2026-09-04T23:00:02.158908Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": "BSE:CIANAGRO",
+   "order_id": null,
+   "text": "CIAN Agro Industries & Infrastructure (BSE:CIANAGRO, code 519477; not on NSE). Promoter/MD Nikhil Gadkari (son of MoRTH minister Nitin Gadkari); Manas Agro (run by Sarang Gadkari) is a subsidiary. Verified 5 Sep 2026: last 1,375.95 (-2.8% Fri), 6-month high 2,079.85 (-34%), 52w high 3,633 (-62%), below SMA20 (-3.5%) and SMA50 (-6.9%), 20d +1.2%, 60d -6%. Turnover ~8 cr/day (below 25 cr floor), 5% circuit band (1,307/1,445). Mcap ~3,763 cr, P/E 11.7. FY26 consolidated revenue 2,234 cr (+122%, mostly acquisitions incl. Manas Agro and a sugar/molasses trader), consolidated PAT 65 cr, standalone PAT 0.7 cr. Red flags: 44% of promoter stake pledged, profit reliant on other income, negative operating cash flow, institutional holding <0.2%, long-term ASM stage 4 (Sep 2025). Politics: Congress alleges conflict of interest and demands a Lokpal probe; Gadkari denies. Policy: E100 rules cleared 13 Jun 2026, E85 launched; E20 consumer backlash growing. Decision: NO position. Watch triggers: ethanol price/tender for ESY 2026-27 (Oct-Nov), any E27/E30 roadmap, reclaim of SMA50 on >3x volume, pledge reduction. Would only ever be a tiny, limit-order-only position because of the circuit band.",
+   "data": {
+    "exchange": "BSE",
+    "turnover_cr": 8,
+    "circuit_pct": 5,
+    "pledge_pct": 44,
+    "decision": "watch",
+    "triggers": [
+     "ESY 2026-27 ethanol price",
+     "E27/E30 roadmap",
+     "reclaim SMA50 on volume"
+    ]
+   }
+  },
+  {
+   "id": 23,
+   "ts": "2026-09-04T22:46:54.742625Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Macro diagnosis Sat 5 Sep 2026: (1) US-Iran strikes resumed this week after the July pause; Iran hit US bases, Jordan, Bahrain; Kuwait engaged missiles. Brent ~95; Hormuz disruption expected to persist into year-end (MOL). VLCC rates at record highs (TradeWinds 2 Sep). (2) FII outflows ~2.4 lakh cr YTD (record), DIIs absorbing ~90%; rupee 94.49 after RBI intervention + dollar deposits; forex reserves record USD 740.8 bn. (3) US Aug payrolls +162k vs +55k: Fed hike odds for 15-16 Sep above 50%; US CPI 11 Sep pivotal. (4) Domestic growth fine (FY26 GDP 7.6%, CPI 4.45%). Where money moved Fri: NSE-stake basket +4.1% (NIACL 17x vol), textile exporters +1.3% (Welspun Living +3.9%, +27% 20d, US 60% of revenue, 18% tariff vs 20% for Bangladesh/Vietnam), capital-market names (Angel One +4.8% on 5.5x, MCX +3.3%, BSE +3.1%), Reliance +1.8% (Jio Platforms IPO has SEBI nod; FE: Jio and NSE top a 4.66 lakh cr pipeline). Money leaving: Adani (-5% 20d; SEBI hearings target Hindenburg-linked short sellers, not Adani), toll roads/infra (-6% 20d), crude importers (paints, OMCs, aviation -5% 20d), sugar (-2.7% 5d after the 1 MT duty-free raw sugar import TRQ capped domestic prices; Renuka is the refiner beneficiary but at Rs 24 with thin volume; export ban to 30 Sep; ethanol price for ESY 2026-27 is a later catalyst). Unverified and NOT used: claim that Amit Shah's son owns an ethanol company (no filing or report found; only 2017 Temple Enterprise stories). Decisions: theses Swiggy 2,500 / GIC Re 2,000 / Oil India 2,400 (planned on kite); systematic sleeve 2 slots max, filtered scan leaders KRN, Jyoti CNC, Welspun Living, Shilpa Medicare, MCX; watch GE Shipping (laggard vs record tanker rates) and Reliance (Jio IPO date). Big IPO supply mid-Sep (NSE, Jio) may drain secondary liquidity: keep the 5% cash buffer.",
+   "data": {
+    "brent": 95,
+    "usdinr": 94.49,
+    "fed_hike_odds_pct": 55,
+    "fii_ytd_outflow_lakh_cr": 2.4,
+    "watch": [
+     "NSE:GESHIP",
+     "NSE:RELIANCE",
+     "NSE:RENUKA",
+     "NSE:MCX"
+    ],
+    "avoid": [
+     "NSE:IFCI",
+     "NSE:NIACL",
+     "sugar mills this week",
+     "Adani this week"
+    ]
+   }
+  },
+  {
+   "id": 22,
+   "ts": "2026-09-04T22:46:43.863914Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": null,
+   "text": "thesis 9bfaa74c2640 planned: US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "data": {
+    "thesis_id": "9bfaa74c2640",
+    "size": 2400.0,
+    "stop_pct": 5.0,
+    "target_pct": 8.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-18T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 21,
+   "ts": "2026-09-04T22:46:43.203829Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": null,
+   "text": "thesis 849f600df9e3 planned: SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "data": {
+    "thesis_id": "849f600df9e3",
+    "size": 2000.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.52,
+    "expires_at": "2026-09-16T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 20,
+   "ts": "2026-09-04T22:46:42.520100Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "order_id": null,
+   "text": "thesis 90f5f2db97a0 planned: MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "data": {
+    "thesis_id": "90f5f2db97a0",
+    "size": 2500.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.58,
+    "expires_at": "2026-09-18T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 19,
+   "ts": "2026-09-04T22:22:54.534273Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Research pass Sat 5 Sep 2026 (for Mon 7 Sep). Market: Nifty 23,898 (support 23,800/23,700, resistance 24,000), FPIs net sellers, US-Iran tension and crude in focus; US CPI 11 Sep, India CPI 12 Sep, FOMC 16 Sep. Catalysts: (1) NSE IPO cleared by SEBI 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep; ~30,000 cr OFS at ~5 lakh cr implied valuation. Stakeholders: LIC 10.72%, SBI 3.23% (+4.33% via SBI Caps), GIC Re 1.64% (selling shareholder), NIACL 1.42%, Bank of Baroda small. IFCI sold its stake in 2019 yet ran +23% in a week: avoid. NIACL +17.7% Fri on 17x volume: blow-off risk, avoid chasing. GIC Re +4.5% on 5.5x: preferred vehicle (thesis ba38ba98fb33). LIC flat: low-beta alternative. (2) Swiggy MSCI deletion effective 7 Sep; passive selling absorbed Fri (13x volume, closed +2.5%); Indian-owned status lets Instamart own inventory: rebound thesis 3510983924c4. (3) Tejas Networks +8% Fri on 7x volume, +20% in 20d, catalyst unidentified: leave to the systematic scan. (4) Ather Energy extended after +130% YTD; -3.3% Fri: skip. Systematic scan of 552 liquid names with quality filters: top eligible KRN, JYOTICNC, WELSPUNLIV, SHILPAMED, AEROFLEX, URBANCO, CYIENTDLM, BALAMINES, MCX, LENSKART; recompute Monday on live prices.",
+   "data": {
+    "nse_ipo": {
+     "price_band": "2026-09-11",
+     "opens": "2026-09-15",
+     "listing": "2026-09-25"
+    },
+    "avoid": [
+     "NSE:IFCI",
+     "NSE:NIACL"
+    ],
+    "theses": [
+     "3510983924c4",
+     "ba38ba98fb33"
+    ],
+    "scan_top": [
+     "NSE:KRN",
+     "NSE:JYOTICNC",
+     "NSE:WELSPUNLIV",
+     "NSE:SHILPAMED",
+     "NSE:MCX",
+     "NSE:LENSKART"
+    ]
+   }
+  },
+  {
+   "id": 18,
+   "ts": "2026-09-04T22:20:11.752306Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "order_id": null,
+   "text": "thesis ba38ba98fb33 planned: SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue opens ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied valuation) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with only +4.5% on 5.5x volume; less blow-off risk. Ride the news flow into the price band.",
+   "data": {
+    "thesis_id": "ba38ba98fb33",
+    "size": 2500.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.55,
+    "expires_at": "2026-09-16T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 17,
+   "ts": "2026-09-04T22:20:11.052912Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "order_id": null,
+   "text": "thesis 3510983924c4 planned: MSCI Global Standard deletion effective Mon 7 Sep; forced passive selling (~USD 500m) executed into Fri 4 Sep close, absorbed by domestic block buyers (4% of equity), stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks.",
+   "data": {
+    "thesis_id": "3510983924c4",
+    "size": 3000.0,
+    "stop_pct": 5.0,
+    "target_pct": 10.0,
+    "confidence": 0.58,
+    "expires_at": "2026-09-18T00:00:00+00:00"
+   }
+  },
+  {
+   "id": 16,
+   "ts": "2026-09-04T21:59:41.978485Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Plan agreed with Aravind on Fri 2026-09-04 for the first live day, Mon 2026-09-07 on Zerodha (10,000 INR): trend strategy, max 3 positions x ~30% equity, 3% stop, 400 INR daily loss cap, 10-name Nifty universe, CNC delivery, marketable limit entries. Wake-up 09:00 IST for the Kite token; live switch stays off until funds are confirmed that morning. On Friday's data the plan would buy 7 NSE:KOTAKBANK (~2,976 INR) and hold the rest in cash.",
+   "data": null
+  },
+  {
+   "id": 15,
+   "ts": "2026-09-04T21:55:30.417457Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "[trend] dry run on paper/in: 1 orders, 1 accepted",
+   "data": {
+    "results": [
+     {
+      "symbol": "NSE:KOTAKBANK",
+      "side": "buy",
+      "qty": 7.0,
+      "status": "new",
+      "order_id": "dry-run",
+      "avg_fill_price": null,
+      "detail": "dry_run ok: notional 2975.98 INR @ ref 425.14"
+     }
+    ],
+    "notes": []
+   }
+  },
+  {
+   "id": 14,
+   "ts": "2026-09-04T21:41:58.700741Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:RELIANCE",
+   "order_id": null,
+   "text": "REJECTED buy 1 NSE:RELIANCE: live trading is disabled; set live_trading_enabled: true in config.yaml or TRADEBOT_LIVE=1",
+   "data": {
+    "code": "live_trading_disabled",
+    "reason": "gate check"
+   }
+  },
+  {
+   "id": 13,
+   "ts": "2026-09-04T21:30:59.566448Z",
+   "kind": "order",
+   "venue": "alpaca",
+   "symbol": "BTC-USD",
+   "order_id": "dd863a50d74f",
+   "text": "new: sell 0.0009975 BTC-USD market | reason: end of adapter test",
+   "data": {
+    "reason": "end of adapter test",
+    "strategy": null,
+    "risk": {
+     "notional": 79.62370184999999,
+     "reference_price": 79823.26,
+     "reduces_position": true
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 12,
+   "ts": "2026-09-04T21:30:13.340630Z",
+   "kind": "order",
+   "venue": "alpaca",
+   "symbol": "BTC-USD",
+   "order_id": "e781dbcaabb2",
+   "text": "new: buy 0.001 BTC-USD market | reason: validate alpaca paper adapter end to end",
+   "data": {
+    "reason": "validate alpaca paper adapter end to end",
+    "strategy": null,
+    "risk": {
+     "notional": 79.79711,
+     "reference_price": 79797.11,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 11,
+   "ts": "2026-09-04T20:58:23.311447Z",
+   "kind": "risk",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "order_id": null,
+   "text": "REJECTED buy 2 BTC-USD: order notional 159,427.54 USD exceeds max_order_notional 5,000.00",
+   "data": {
+    "code": "order_too_large",
+    "reason": null
+   }
+  },
+  {
+   "id": 10,
+   "ts": "2026-09-04T20:57:07.198354Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "order_id": "bd540089ab65",
+   "text": "filled: sell 2 AAPL market | reason: partial exit",
+   "data": {
+    "reason": "partial exit",
+    "strategy": null,
+    "risk": {
+     "notional": 639.54,
+     "reference_price": 319.77,
+     "reduces_position": true
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 9,
+   "ts": "2026-09-04T20:57:07.196388Z",
+   "kind": "fill",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "order_id": "bd540089ab65",
+   "text": "filled sell 2 AAPL @ 319.6201 USD (fee 0.00)",
+   "data": {
+    "qty": 2.0,
+    "price": 319.62011,
+    "fee": 0.0,
+    "realized": -0.6795799999999872,
+    "source": "nasdaq"
+   }
+  },
+  {
+   "id": 8,
+   "ts": "2026-09-04T20:56:45.171220Z",
+   "kind": "risk",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "order_id": null,
+   "text": "REJECTED buy 1 BTC-USD: order notional 79,709.42 USD exceeds max_order_notional 5,000.00",
+   "data": {
+    "code": "order_too_large",
+    "reason": "should be rejected by risk"
+   }
+  },
+  {
+   "id": 7,
+   "ts": "2026-09-04T20:56:43.953296Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "ETH-USD",
+   "order_id": "56e254729f80",
+   "text": "accepted: buy 0.5 ETH-USD limit @ 2000.0 | reason: resting limit below market",
+   "data": {
+    "reason": "resting limit below market",
+    "strategy": null,
+    "risk": {
+     "notional": 1000.0,
+     "reference_price": 2000.0,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 6,
+   "ts": "2026-09-04T20:56:42.569754Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "NSE:RELIANCE",
+   "order_id": "5c4225271613",
+   "text": "filled: buy 10 NSE:RELIANCE market | reason: smoke test: NSE market buy",
+   "data": {
+    "reason": "smoke test: NSE market buy",
+    "strategy": null,
+    "risk": {
+     "notional": 13220.0,
+     "reference_price": 1322.0,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 5,
+   "ts": "2026-09-04T20:56:42.567706Z",
+   "kind": "fill",
+   "venue": "paper",
+   "symbol": "NSE:RELIANCE",
+   "order_id": "5c4225271613",
+   "text": "filled buy 10 NSE:RELIANCE @ 1322.6610 INR (fee 3.97)",
+   "data": {
+    "qty": 10.0,
+    "price": 1322.6609999999998,
+    "fee": 3.9679829999999994,
+    "realized": 0.0,
+    "source": "groww"
+   }
+  },
+  {
+   "id": 4,
+   "ts": "2026-09-04T20:56:40.862406Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "order_id": "0efcd03735ca",
+   "text": "filled: buy 5 AAPL market | reason: smoke test: US market buy",
+   "data": {
+    "reason": "smoke test: US market buy",
+    "strategy": null,
+    "risk": {
+     "notional": 1658.9134999999999,
+     "reference_price": 331.7827,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 3,
+   "ts": "2026-09-04T20:56:40.860409Z",
+   "kind": "fill",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "order_id": "0efcd03735ca",
+   "text": "filled buy 5 AAPL @ 319.9599 USD (fee 0.00)",
+   "data": {
+    "qty": 5.0,
+    "price": 319.9599,
+    "fee": 0.0,
+    "realized": 0.0,
+    "source": "nasdaq"
+   }
+  },
+  {
+   "id": 2,
+   "ts": "2026-09-04T20:56:37.541028Z",
+   "kind": "order",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "order_id": "4e02bbfc5b4f",
+   "text": "filled: buy 0.02 BTC-USD market | reason: smoke test: crypto market buy",
+   "data": {
+    "reason": "smoke test: crypto market buy",
+    "strategy": null,
+    "risk": {
+     "notional": 1594.4426,
+     "reference_price": 79722.13,
+     "reduces_position": false
+    },
+    "live": false
+   }
+  },
+  {
+   "id": 1,
+   "ts": "2026-09-04T20:56:37.539032Z",
+   "kind": "fill",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "order_id": "4e02bbfc5b4f",
+   "text": "filled buy 0.02 BTC-USD @ 79761.9911 USD (fee 6.38)",
+   "data": {
+    "qty": 0.02,
+    "price": 79761.991065,
+    "fee": 6.380959285199999,
+    "realized": 0.0,
+    "source": "coinbase"
+   }
+  }
+ ],
+ "theses": [
+  {
+   "id": "8c5ef2a59595",
+   "created_at": "2026-09-09T05:22:54.978741Z",
+   "updated_at": "2026-09-09T06:05:01.458246Z",
+   "venue": "kite",
+   "symbol": "NSE:REDINGTON",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+   "confidence": 0.55,
+   "size_notional": 2300.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-23T00:00:00Z",
+   "status": "open",
+   "entry_order_id": "venue-position",
+   "qty": 6.0,
+   "entry_price": 377.5,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": null,
+   "close_reason": null,
+   "realized_pnl": null,
+   "tags": [
+    "screen",
+    "momentum"
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
+  },
+  {
+   "id": "d8b5e718e9dd",
+   "created_at": "2026-09-09T05:22:54.256832Z",
+   "updated_at": "2026-09-17T08:30:24.022313Z",
+   "venue": "kite",
+   "symbol": "NSE:CHENNPETRO",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "Factor screen rank 23, beta 0.34, 1y alpha +100%, at 52w high, RSI 70. Standalone refiner: crude near USD 100 gives inventory gains, Navratna status (Jun 2026), Rs 54 dividend paid Aug. Low beta suits a risk-off tape. Correlated with Oil India (both long crude): a ceasefire hits both. ENTRY RULE: it is +4.7% today after opening at 1,466; do not chase. Buy a pullback at 1,490-1,505, or at 14:00 if it still holds above 1,500. Skip today if it fades below 1,480.",
+   "confidence": 0.55,
+   "size_notional": 1600.0,
+   "stop_pct": 5.0,
+   "target_pct": 8.0,
+   "expires_at": "2026-09-23T00:00:00Z",
+   "status": "closed",
+   "entry_order_id": "venue-position",
+   "qty": 2.0,
+   "entry_price": 1492.3,
+   "exit_order_id": "b9a0a752d900",
+   "exit_price": 1414.3,
+   "closed_at": "2026-09-17T08:30:24.017277Z",
+   "close_reason": "stop: -5.18% <= -5.0%",
+   "realized_pnl": -156.0,
+   "tags": [
+    "screen",
+    "crude",
+    "low-beta"
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
+  },
+  {
+   "id": "cab0d0e8410c",
+   "created_at": "2026-09-08T03:35:31.308849Z",
+   "updated_at": "2026-09-09T11:51:24.564530Z",
+   "venue": "kite",
+   "symbol": "NSE:GESHIP",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "Tanker rates at record highs (TradeWinds) as Hormuz disruption persists; US struck three Iranian tankers at the weekend, Iran threatens a wider restricted zone and the Iran-Oman shipping deal failed. GE Shipping (crude and product tankers, USD freight, weak rupee) lagged for a month and the tanker basket is now +3.6% on the week: money arriving. Enter after 09:30 only if Nifty holds above 23,600 and GESHIP is not more than 3% above Monday's close; cancel if a ceasefire drops Brent below 90.",
+   "confidence": 0.55,
+   "size_notional": 2700.0,
+   "stop_pct": 5.0,
+   "target_pct": 8.0,
+   "expires_at": "2026-09-18T00:00:00Z",
+   "status": "open",
+   "entry_order_id": "venue-position",
+   "qty": 1.0,
+   "entry_price": 1385.2,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": null,
+   "close_reason": null,
+   "realized_pnl": null,
+   "tags": [
+    "macro",
+    "tankers"
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
+  },
+  {
+   "id": "9bfaa74c2640",
+   "created_at": "2026-09-04T22:46:43.847738Z",
+   "updated_at": "2026-09-09T11:51:24.566268Z",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "confidence": 0.55,
+   "size_notional": 2400.0,
+   "stop_pct": 5.0,
+   "target_pct": 8.0,
+   "expires_at": "2026-09-18T00:00:00Z",
+   "status": "open",
+   "entry_order_id": "venue-position",
+   "qty": 4.0,
+   "entry_price": 483.95,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": null,
+   "close_reason": null,
+   "realized_pnl": null,
+   "tags": [
+    "macro",
+    "crude"
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
+  },
+  {
+   "id": "849f600df9e3",
+   "created_at": "2026-09-04T22:46:43.189514Z",
+   "updated_at": "2026-09-09T11:51:24.568030Z",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "confidence": 0.52,
+   "size_notional": 2000.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-16T00:00:00Z",
+   "status": "closed",
+   "entry_order_id": "venue-position",
+   "qty": 5.0,
+   "entry_price": 351.6,
+   "exit_order_id": null,
+   "exit_price": 347.5,
+   "closed_at": "2026-09-08T08:51:36.366324Z",
+   "close_reason": "NSE-stake trade unwinding before the price band; premise weakened (sold 5 @ 347.50 from the user's machine, 14:18 IST)",
+   "realized_pnl": -20.500000000000114,
+   "tags": [
+    "event",
+    "nse-ipo"
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
+  },
+  {
+   "id": "90f5f2db97a0",
+   "created_at": "2026-09-04T22:46:42.504901Z",
+   "updated_at": "2026-09-11T09:44:10.243224Z",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "confidence": 0.58,
+   "size_notional": 2500.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-18T00:00:00Z",
+   "status": "closed",
+   "entry_order_id": "venue-position",
+   "qty": 9.0,
+   "entry_price": 277.15,
+   "exit_order_id": null,
+   "exit_price": 277.4,
+   "closed_at": "2026-09-11T09:44:10.237675Z",
+   "close_reason": "time stop: below 280 at Fri close; MSCI-deletion bounce did not sustain; sold 9 @ 277.40 via Kite app",
+   "realized_pnl": 2.25,
+   "tags": [
+    "event",
+    "index-flow"
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
+  },
+  {
+   "id": "ba38ba98fb33",
+   "created_at": "2026-09-04T22:20:11.737995Z",
+   "updated_at": "2026-09-09T11:51:24.572002Z",
+   "venue": "kite",
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue opens ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied valuation) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with only +4.5% on 5.5x volume; less blow-off risk. Ride the news flow into the price band.",
+   "confidence": 0.55,
+   "size_notional": 2500.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-16T00:00:00Z",
+   "status": "canceled",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": "2026-09-04T22:46:41.824033Z",
+   "close_reason": "re-sized after Saturday research pass",
+   "realized_pnl": null,
+   "tags": [
+    "event",
+    "nse-ipo"
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
+  },
+  {
+   "id": "3510983924c4",
+   "created_at": "2026-09-04T22:20:11.038430Z",
+   "updated_at": "2026-09-09T11:51:24.573609Z",
+   "venue": "kite",
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "direction": "long",
+   "text": "MSCI Global Standard deletion effective Mon 7 Sep; forced passive selling (~USD 500m) executed into Fri 4 Sep close, absorbed by domestic block buyers (4% of equity), stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks.",
+   "confidence": 0.58,
+   "size_notional": 3000.0,
+   "stop_pct": 5.0,
+   "target_pct": 10.0,
+   "expires_at": "2026-09-18T00:00:00Z",
+   "status": "canceled",
+   "entry_order_id": null,
+   "qty": 0.0,
+   "entry_price": null,
+   "exit_order_id": null,
+   "exit_price": null,
+   "closed_at": "2026-09-04T22:46:41.166937Z",
+   "close_reason": "re-sized after Saturday research pass",
+   "realized_pnl": null,
+   "tags": [
+    "event",
+    "index-flow"
+   ],
+   "auto_enter": false,
+   "entry_min": null,
+   "entry_max": null
+  }
+ ],
+ "orders": [
+  {
+   "id": "b9a0a752d900",
+   "venue": "kite",
+   "venue_order_id": "260917221166893",
+   "symbol": "NSE:CHENNPETRO",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 2.0,
+   "filled_qty": 2.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 1414.3,
+   "fees": 0.0,
+   "reason": "[thesis d8b5e718e9dd] exit: stop: -5.18% <= -5.0%",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-17T08:30:23.886594Z",
+   "updated_at": "2026-09-17T09:41:38.155873Z"
+  },
+  {
+   "id": "0b0321060d6e",
+   "venue": "kite",
+   "venue_order_id": "260909220700431",
+   "symbol": "NSE:REDINGTON",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 6.0,
+   "filled_qty": 6.0,
+   "order_type": "limit",
+   "limit_price": 378.1,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 377.5,
+   "fees": 0.0,
+   "reason": "[thesis 8c5ef2a59595] Factor screen rank 10, beta 1.52, 1y alpha +62%, +58% in 60d, 1% below 52w high, RSI 66, turnover 132 cr. Q1 FY27 PAT +77%; Apple India distributor into the September iPhone launch; London investor NDR 9 Sep. Mid/high beta: enter with a limit at 379-381 today only if Nifty is not below -0.75%; otherwise Monday after Friday US CPI. Stop 5%, target 10%, two weeks.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-09T06:03:55.379295Z",
+   "updated_at": "2026-09-09T11:51:24.578937Z"
+  },
+  {
+   "id": "80dfc3d3b4a7",
+   "venue": "kite",
+   "venue_order_id": "260908221180680",
+   "symbol": "NSE:GESHIP",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 1.0,
+   "filled_qty": 1.0,
+   "order_type": "limit",
+   "limit_price": 1386.7,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 1385.2,
+   "fees": 0.0,
+   "reason": "[thesis cab0d0e8410c] Tanker rates at record highs (TradeWinds) as Hormuz disruption persists; US struck three Iranian tankers at the weekend, Iran threatens a wider restricted zone and the Iran-Oman shipping deal failed. GE Shipping (crude and product tankers, USD freight, weak rupee) lagged for a month and the tanker basket is now +3.6% on the week: money arriving. Enter after 09:30 only if Nifty holds above 23,600 and GESHIP is not more than 3% above Monday's close; cancel if a ceasefire drops Brent below 90.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-08T08:52:40.528088Z",
+   "updated_at": "2026-09-08T09:50:01.941440Z"
+  },
+  {
+   "id": "5d5784100e48",
+   "venue": "kite",
+   "venue_order_id": "260908221171838",
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 5.0,
+   "filled_qty": 5.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 347.5,
+   "fees": 0.0,
+   "reason": "[thesis 849f600df9e3] exit: NSE-stake trade unwinding before the price band; premise weakened",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-08T08:48:56.867238Z",
+   "updated_at": "2026-09-08T09:50:01.946019Z"
+  },
+  {
+   "id": "d6e3e4939c43",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 5.0,
+   "filled_qty": 0.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 849f600df9e3] exit: NSE-stake trade unwinding before the price band; premise weakened",
+   "strategy": "thesis",
+   "reject_reason": "Market orders without market protection are not allowed via API. Please set market protection or use a Limit order.",
+   "client_order_id": null,
+   "created_at": "2026-09-08T08:46:47.301346Z",
+   "updated_at": "2026-09-08T09:50:01.948114Z"
+  },
+  {
+   "id": "f353d8680c79",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 5.0,
+   "filled_qty": 0.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 849f600df9e3] exit: NSE-stake trade unwinding before the price band; premise weakened",
+   "strategy": "thesis",
+   "reject_reason": "IP (122.164.87.143) is not allowed to place orders for this app. Update allowed IPs on the Kite developer console. Learn more - https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/static-ip",
+   "client_order_id": null,
+   "created_at": "2026-09-08T08:46:27.805717Z",
+   "updated_at": "2026-09-08T09:50:01.949763Z"
+  },
+  {
+   "id": "790fb9942759",
+   "venue": "kite",
+   "venue_order_id": "260907220543060",
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 4.0,
+   "filled_qty": 4.0,
+   "order_type": "limit",
+   "limit_price": 484.7,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 483.95,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-07T05:24:04.911551Z",
+   "updated_at": "2026-09-08T09:50:01.951295Z"
+  },
+  {
+   "id": "b80389981164",
+   "venue": "kite",
+   "venue_order_id": "260907220542264",
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 5.0,
+   "filled_qty": 5.0,
+   "order_type": "limit",
+   "limit_price": 351.95,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 351.6,
+   "fees": 0.0,
+   "reason": "[thesis 849f600df9e3] SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-07T05:23:50.948815Z",
+   "updated_at": "2026-09-08T09:50:01.952911Z"
+  },
+  {
+   "id": "f4310c999354",
+   "venue": "kite",
+   "venue_order_id": "260907220540745",
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 9.0,
+   "filled_qty": 9.0,
+   "order_type": "limit",
+   "limit_price": 277.6,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 277.15,
+   "fees": 0.0,
+   "reason": "[thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-07T05:23:18.261345Z",
+   "updated_at": "2026-09-08T09:50:01.954899Z"
+  },
+  {
+   "id": "89cd8eb22737",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 9.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 277.27,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "strategy": "thesis",
+   "reject_reason": "Tick size for this script is 0.05. Kindly enter price in the multiple of tick size for this script",
+   "client_order_id": null,
+   "created_at": "2026-09-07T05:20:57.939824Z",
+   "updated_at": "2026-09-08T09:50:01.956861Z"
+  },
+  {
+   "id": "9ec5ef6718e7",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 4.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 486.58,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] US-Iran strikes resumed this week after the July pause; Brent ~USD 95 with Hormuz disruption expected to persist into year-end (MOL); brokers (Mirae/Sharekhan) call for USD 100. Oil India is a pure upstream beneficiary (no downstream drag unlike ONGC/HPCL), +10% in 20d on quiet volume, 62 cr/day turnover. Risk: a renewed ceasefire drops Brent below 90 as in July; stop 5%.",
+   "strategy": "thesis",
+   "reject_reason": "No IPs configured for this app. Add allowed IPs on the Kite developer console. Learn more - https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/static-ip",
+   "client_order_id": null,
+   "created_at": "2026-09-07T04:55:14.100935Z",
+   "updated_at": "2026-09-07T04:55:14.348651Z"
+  },
+  {
+   "id": "0214d6c9a930",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:GICRE",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 5.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 352.43,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 849f600df9e3] SEBI cleared the NSE IPO on 4 Sep; price band ~11 Sep, issue ~15 Sep, listing ~25 Sep. GIC Re holds 1.64% of NSE (~13% of its own market cap at the ~5 lakh cr implied value) and is a selling shareholder. Lagged NIACL (+17.7% on 17x volume) with +4.5% on 5.5x. Theme is now mainstream (Mint 'five stocks holding NSE shares'), so size reduced; skip if it gaps >3% at the open.",
+   "strategy": "thesis",
+   "reject_reason": "No IPs configured for this app. Add allowed IPs on the Kite developer console. Learn more - https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/static-ip",
+   "client_order_id": null,
+   "created_at": "2026-09-07T04:55:10.606009Z",
+   "updated_at": "2026-09-07T04:55:10.851633Z"
+  },
+  {
+   "id": "b277e3a56844",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:SWIGGY",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 8.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 278.67,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 90f5f2db97a0] MSCI Global Standard deletion effective Mon 7 Sep; ~USD 500m passive selling executed into Fri 4 Sep close and absorbed by domestic block buyers (4% of equity); stock closed +2.5% on 13x volume. Overhang removed; Indian-owned status lets Instamart own inventory (mgmt: ~80 bps margin). Expect mean reversion over 1-2 weeks. Do not chase a >3% gap up at Monday open.",
+   "strategy": "thesis",
+   "reject_reason": "No IPs configured for this app. Add allowed IPs on the Kite developer console. Learn more - https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/static-ip",
+   "client_order_id": null,
+   "created_at": "2026-09-07T04:55:07.128498Z",
+   "updated_at": "2026-09-07T04:55:07.366172Z"
+  },
+  {
+   "id": "dd863a50d74f",
+   "venue": "alpaca",
+   "venue_order_id": "4549c7d1-8d5f-4328-a253-ab90ba910ca8",
+   "symbol": "BTC-USD",
+   "market": "crypto",
+   "currency": "USD",
+   "side": "sell",
+   "qty": 0.0009975,
+   "filled_qty": 0.0009975,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "gtc",
+   "status": "filled",
+   "avg_fill_price": 79799.8,
+   "fees": 0.0,
+   "reason": "end of adapter test",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T21:30:59.510322Z",
+   "updated_at": "2026-09-04T21:31:06.067962Z"
+  },
+  {
+   "id": "e781dbcaabb2",
+   "venue": "alpaca",
+   "venue_order_id": "e27fd226-cfbc-4b8f-9050-3c858cc68ad4",
+   "symbol": "BTC-USD",
+   "market": "crypto",
+   "currency": "USD",
+   "side": "buy",
+   "qty": 0.001,
+   "filled_qty": 0.001,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "gtc",
+   "status": "filled",
+   "avg_fill_price": 79826.023,
+   "fees": 0.0,
+   "reason": "validate alpaca paper adapter end to end",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T21:30:13.288035Z",
+   "updated_at": "2026-09-04T21:30:18.091799Z"
+  },
+  {
+   "id": "bd540089ab65",
+   "venue": "paper",
+   "venue_order_id": null,
+   "symbol": "AAPL",
+   "market": "us",
+   "currency": "USD",
+   "side": "sell",
+   "qty": 2.0,
+   "filled_qty": 2.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 319.62011,
+   "fees": 0.0,
+   "reason": "partial exit",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T20:57:07.177423Z",
+   "updated_at": "2026-09-04T20:57:07.194436Z"
+  },
+  {
+   "id": "56e254729f80",
+   "venue": "paper",
+   "venue_order_id": null,
+   "symbol": "ETH-USD",
+   "market": "crypto",
+   "currency": "USD",
+   "side": "buy",
+   "qty": 0.5,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 2000.0,
+   "stop_price": null,
+   "tif": "gtc",
+   "status": "accepted",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "resting limit below market",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T20:56:43.945974Z",
+   "updated_at": "2026-09-04T20:56:43.945983Z"
+  },
+  {
+   "id": "0efcd03735ca",
+   "venue": "paper",
+   "venue_order_id": null,
+   "symbol": "AAPL",
+   "market": "us",
+   "currency": "USD",
+   "side": "buy",
+   "qty": 5.0,
+   "filled_qty": 5.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 319.9599,
+   "fees": 0.0,
+   "reason": "smoke test: US market buy",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T20:56:40.845402Z",
+   "updated_at": "2026-09-04T20:56:40.858560Z"
+  },
+  {
+   "id": "4e02bbfc5b4f",
+   "venue": "paper",
+   "venue_order_id": null,
+   "symbol": "BTC-USD",
+   "market": "crypto",
+   "currency": "USD",
+   "side": "buy",
+   "qty": 0.02,
+   "filled_qty": 0.02,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 79761.991065,
+   "fees": 6.380959285199999,
+   "reason": "smoke test: crypto market buy",
+   "strategy": null,
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-04T20:56:37.523337Z",
+   "updated_at": "2026-09-04T20:56:37.537142Z"
+  }
+ ],
+ "fills": [
+  {
+   "id": "11e82c413b5c",
+   "order_id": "bd540089ab65",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "market": "us",
+   "side": "sell",
+   "qty": 2.0,
+   "price": 319.62011,
+   "fee": 0.0,
+   "ts": "2026-09-04T20:57:07.192417Z"
+  },
+  {
+   "id": "c1bbdc288dde",
+   "order_id": "0efcd03735ca",
+   "venue": "paper",
+   "symbol": "AAPL",
+   "market": "us",
+   "side": "buy",
+   "qty": 5.0,
+   "price": 319.9599,
+   "fee": 0.0,
+   "ts": "2026-09-04T20:56:40.856714Z"
+  },
+  {
+   "id": "a3007805298c",
+   "order_id": "4e02bbfc5b4f",
+   "venue": "paper",
+   "symbol": "BTC-USD",
+   "market": "crypto",
+   "side": "buy",
+   "qty": 0.02,
+   "price": 79761.991065,
+   "fee": 6.380959285199999,
+   "ts": "2026-09-04T20:56:37.535196Z"
+  }
+ ],
+ "equity": {
+  "paper/us": [
+   {
+    "venue": "paper",
+    "market": "us",
+    "ts": "2026-09-04T20:57:03.822709Z",
+    "cash": 98400.2005,
+    "positions_value": 1599.0,
+    "equity": 99999.2005
+   },
+   {
+    "venue": "paper",
+    "market": "us",
+    "ts": "2026-09-04T20:58:24.429661Z",
+    "cash": 99039.44072000001,
+    "positions_value": 959.3955,
+    "equity": 99998.83622000001
+   }
+  ],
+  "paper/in": [],
+  "paper/crypto": [
+   {
+    "venue": "paper",
+    "market": "crypto",
+    "ts": "2026-09-04T20:57:04.841215Z",
+    "cash": 98398.3792194148,
+    "positions_value": 1594.4768,
+    "equity": 99992.8560194148
+   },
+   {
+    "venue": "paper",
+    "market": "crypto",
+    "ts": "2026-09-04T20:58:24.863380Z",
+    "cash": 98398.3792194148,
+    "positions_value": 1594.2754000000002,
+    "equity": 99992.6546194148
+   }
+  ],
+  "alpaca/us": [],
+  "alpaca/in": [],
+  "alpaca/crypto": [],
+  "kite/us": [],
+  "kite/in": [
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-07T04:55:01.572736Z",
+    "cash": 10000.0,
+    "positions_value": 0.0,
+    "equity": 10000.0
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-07T09:41:18.810212Z",
+    "cash": 3811.8500000000004,
+    "positions_value": 6164.65,
+    "equity": 9976.5
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-08T07:32:48.585265Z",
+    "cash": 3804.6,
+    "positions_value": 6205.5,
+    "equity": 10010.1
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-08T08:54:00.607214Z",
+    "cash": 4156.9,
+    "positions_value": 5862.2,
+    "equity": 10019.099999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-08T09:42:03.368415Z",
+    "cash": 4156.9,
+    "positions_value": 5849.95,
+    "equity": 10006.849999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-09T04:55:22.707365Z",
+    "cash": 4138.4,
+    "positions_value": 5870.1,
+    "equity": 10008.5
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-09T06:04:41.713461Z",
+    "cash": 1873.3999999999996,
+    "positions_value": 8116.05,
+    "equity": 9989.45
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-09T09:41:55.360284Z",
+    "cash": 1873.3999999999996,
+    "positions_value": 8205.650000000001,
+    "equity": 10079.050000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-09T15:25:07.259668Z",
+    "cash": 1873.3999999999996,
+    "positions_value": 8202.0,
+    "equity": 10075.4
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-10T03:53:49.152222Z",
+    "cash": 1871.3,
+    "positions_value": 8289.35,
+    "equity": 10160.65
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-10T07:40:35.803481Z",
+    "cash": 1871.3,
+    "positions_value": 8308.2,
+    "equity": 10179.5
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-10T09:41:27.461737Z",
+    "cash": 1871.3,
+    "positions_value": 8261.8,
+    "equity": 10133.099999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-10T10:15:28.232804Z",
+    "cash": 1871.3,
+    "positions_value": 8270.0,
+    "equity": 10141.3
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-11T04:50:34.865095Z",
+    "cash": 874.9,
+    "positions_value": 9238.710000000001,
+    "equity": 10113.61
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-11T04:55:28.819025Z",
+    "cash": 874.9,
+    "positions_value": 9260.36,
+    "equity": 10135.26
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-11T09:41:39.084175Z",
+    "cash": 874.9,
+    "positions_value": 9216.939999999999,
+    "equity": 10091.839999999998
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-11T10:15:22.016697Z",
+    "cash": 3377.8,
+    "positions_value": 6736.16,
+    "equity": 10113.96
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-15T06:02:13.935105Z",
+    "cash": 3359.3,
+    "positions_value": 6634.98,
+    "equity": 9994.279999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-15T06:05:18.328865Z",
+    "cash": 3359.3,
+    "positions_value": 6638.16,
+    "equity": 9997.46
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-15T10:15:22.857352Z",
+    "cash": 374.7000000000003,
+    "positions_value": 9541.699999999999,
+    "equity": 9916.4
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T05:00:16.148149Z",
+    "cash": 371.6,
+    "positions_value": 9534.82,
+    "equity": 9906.42
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T05:01:15.422951Z",
+    "cash": 371.6,
+    "positions_value": 9536.42,
+    "equity": 9908.02
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T05:10:28.272592Z",
+    "cash": 371.6,
+    "positions_value": 9557.869999999999,
+    "equity": 9929.47
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T05:20:12.244864Z",
+    "cash": 371.6,
+    "positions_value": 9549.779999999999,
+    "equity": 9921.38
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T05:30:26.486704Z",
+    "cash": 371.6,
+    "positions_value": 9551.55,
+    "equity": 9923.15
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T05:40:13.569487Z",
+    "cash": 371.6,
+    "positions_value": 9528.24,
+    "equity": 9899.84
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T05:50:12.762234Z",
+    "cash": 371.6,
+    "positions_value": 9534.46,
+    "equity": 9906.06
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T06:00:11.357041Z",
+    "cash": 371.6,
+    "positions_value": 9523.52,
+    "equity": 9895.12
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T06:10:33.616524Z",
+    "cash": 371.6,
+    "positions_value": 9544.04,
+    "equity": 9915.640000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T06:20:11.524582Z",
+    "cash": 371.6,
+    "positions_value": 9561.75,
+    "equity": 9933.35
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T06:30:27.250436Z",
+    "cash": 371.6,
+    "positions_value": 9566.0,
+    "equity": 9937.6
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T06:40:10.443665Z",
+    "cash": 371.6,
+    "positions_value": 9555.2,
+    "equity": 9926.800000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T06:50:20.437533Z",
+    "cash": 371.6,
+    "positions_value": 9557.98,
+    "equity": 9929.58
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T07:00:30.405656Z",
+    "cash": 371.6,
+    "positions_value": 9557.76,
+    "equity": 9929.36
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T07:10:26.157415Z",
+    "cash": 371.6,
+    "positions_value": 9563.69,
+    "equity": 9935.29
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T07:20:33.637981Z",
+    "cash": 371.6,
+    "positions_value": 9556.9,
+    "equity": 9928.5
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T07:30:10.931862Z",
+    "cash": 371.6,
+    "positions_value": 9573.630000000001,
+    "equity": 9945.230000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T07:40:09.907704Z",
+    "cash": 371.6,
+    "positions_value": 9580.33,
+    "equity": 9951.93
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T07:50:15.046253Z",
+    "cash": 371.6,
+    "positions_value": 9574.04,
+    "equity": 9945.640000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T08:00:27.754912Z",
+    "cash": 371.6,
+    "positions_value": 9553.81,
+    "equity": 9925.41
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T08:10:28.680809Z",
+    "cash": 371.6,
+    "positions_value": 9525.419999999998,
+    "equity": 9897.019999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T08:20:10.242595Z",
+    "cash": 371.6,
+    "positions_value": 9537.29,
+    "equity": 9908.890000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T08:30:28.450020Z",
+    "cash": 3200.2,
+    "positions_value": 6699.61,
+    "equity": 9899.81
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T08:40:27.544569Z",
+    "cash": 3200.2,
+    "positions_value": 6715.49,
+    "equity": 9915.689999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T08:50:33.330465Z",
+    "cash": 3200.2,
+    "positions_value": 6720.55,
+    "equity": 9920.75
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T09:00:10.963880Z",
+    "cash": 3200.2,
+    "positions_value": 6723.380000000001,
+    "equity": 9923.580000000002
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T09:10:09.449717Z",
+    "cash": 3200.2,
+    "positions_value": 6735.04,
+    "equity": 9935.24
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T09:20:24.897848Z",
+    "cash": 3200.2,
+    "positions_value": 6726.799999999999,
+    "equity": 9927.0
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T09:30:19.095802Z",
+    "cash": 3200.2,
+    "positions_value": 6724.26,
+    "equity": 9924.46
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T09:40:10.164856Z",
+    "cash": 3200.2,
+    "positions_value": 6728.5599999999995,
+    "equity": 9928.759999999998
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T09:50:12.289930Z",
+    "cash": 3200.2,
+    "positions_value": 6735.56,
+    "equity": 9935.76
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-17T10:15:15.043692Z",
+    "cash": 3200.2,
+    "positions_value": 6728.8,
+    "equity": 9929.0
+   }
+  ],
+  "kite/crypto": [],
+  "ccxt/us": [],
+  "ccxt/in": [],
+  "ccxt/crypto": []
+ }
+}
