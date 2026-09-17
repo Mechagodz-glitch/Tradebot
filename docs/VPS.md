@@ -126,8 +126,10 @@ uses it), so give the droplet a different address instead of rebuilding it:
    ```
 
    The script moves the default route to the anchor gateway, checks with an echo service that the
-   egress address is now the Reserved IP, persists the change in netplan (and stops cloud-init from
-   rewriting it), and reverts itself if any step does not verify. `--revert` undoes it.
+   egress address is now the Reserved IP, persists the route with a systemd oneshot unit
+   (`tradebot-egress.service`, runs after the network is up on every boot), and reverts itself if the
+   egress does not verify. Pass the Reserved IP as an argument if the metadata service does not report
+   it. `--revert` undoes everything.
 4. `tradebot doctor --no-data` must show `egress:ipv4 ... matches the Kite whitelist`, then start the
    executor timer as above. From now on SSH to the Reserved IP; the old address keeps working but has
    no further role.
