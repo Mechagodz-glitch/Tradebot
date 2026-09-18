@@ -139,3 +139,18 @@ def test_store_migration_adds_new_thesis_columns(tmp_path):
     with s2.engine.connect() as conn:
         cols = {r[1] for r in conn.execute(text("PRAGMA table_info(theses)"))}
     assert {"auto_enter", "entry_min", "entry_max"} <= cols
+
+
+def test_edit_thesis_changes_exit_rules_and_journals(engine, settings, prices):
+    settings.paper.starting_cash["in"] = 10_000
+    prices["NSE:OIL"] = 486.0
+    t = engine.open_thesis(ThesisRequest(symbol="NSE:OIL", text="crude", size_notional=2_400, stop_pct=5, target_pct=8), execute=True)
+    new_exp = utcnow() + timedelta(days=7)
+    t2 = engine.edit_thesis(t.id, expires_at=new_exp, stop_pct=4, target_pct=10)
+    assert t2.expires_at == new_exp and t2.stop_pct == 4 and t2.target_pct == 10
+    assert engine.store.get_thesis(t.id).stop_pct == 4
+    assert any("edited" in j.text and "stop_pct 5" in j.text for j in engine.journal(limit=5))
+    assert engine.edit_thesis(t.id, clear_target=True).target_pct is None
+    with pytest.raises(BrokerError):
+        engine.edit_thesis(t.id)                      # nothing to change
+    engine.close_thesis(t.id, reason="done") if hasattr(engine, "close_thesis") else None

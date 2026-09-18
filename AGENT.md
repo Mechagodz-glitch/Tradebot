@@ -47,6 +47,7 @@ tradebot --json strategy run --market in --venue kite --execute   # places the p
 tradebot --json thesis open NSE:X --venue kite --size 3000 --stop 5 --target 10 --expires 2026-09-16 --text "..." [--execute]
 tradebot --json thesis list | thesis check [--execute] | thesis enter <id> | thesis close <id> --reason "..."
 tradebot --json thesis arm <id> --entry-min L --entry-max H [--disarm]   # executor enters it inside the band
+tradebot --json thesis edit <id> [--expires DATE] [--stop S] [--target T | --no-target]   # then export + push; the droplet applies it
 tradebot --json universe build --market in | universe show --market in --limit 30   # turnover-ranked names
 tradebot --json news --match "Adani,sugar,NSE IPO" --hours 36 | news -q "Jio IPO date"      # feeds / Google News India
 tradebot --json themes | themes -n adani -n sugar_ethanol --members                       # basket returns and volume

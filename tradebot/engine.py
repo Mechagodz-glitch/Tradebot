@@ -315,6 +315,38 @@ class TradingEngine:
                                         data={"thesis_id": t.id, "entry_min": entry_min, "entry_max": entry_max}))
         return t
 
+    def edit_thesis(self, thesis_id: str, expires_at: Optional[datetime] = None, stop_pct: Optional[float] = None,
+                    target_pct: Optional[float] = None, clear_target: bool = False) -> Thesis:
+        """Change the exit rules of a live thesis (planned, pending or open): expiry, stop %, target %.
+        The executor picks the change up from the next imported snapshot."""
+        t = self.store.get_thesis(thesis_id)
+        if not t:
+            raise NotFound(f"thesis {thesis_id} not found")
+        if t.status not in (ThesisStatus.PLANNED, ThesisStatus.PENDING, ThesisStatus.OPEN):
+            raise BrokerError(f"thesis {t.id} is {t.status.value}; only live theses can be edited", code="invalid")
+        changes: dict[str, tuple] = {}
+        if expires_at is not None:
+            changes["expires_at"] = (t.expires_at.isoformat() if t.expires_at else None, expires_at.isoformat())
+            t.expires_at = expires_at
+        if stop_pct is not None:
+            if stop_pct <= 0:
+                raise BrokerError("stop must be a positive percentage", code="invalid")
+            changes["stop_pct"] = (t.stop_pct, stop_pct)
+            t.stop_pct = stop_pct
+        if clear_target:
+            changes["target_pct"] = (t.target_pct, None)
+            t.target_pct = None
+        elif target_pct is not None:
+            changes["target_pct"] = (t.target_pct, target_pct)
+            t.target_pct = target_pct
+        if not changes:
+            raise BrokerError("nothing to change: pass an expiry, a stop or a target", code="invalid")
+        self.store.save_thesis(t)
+        self.store.journal(JournalEntry(kind="thesis", venue=t.venue, symbol=t.symbol,
+                                        text=f"thesis {t.id} edited: " + ", ".join(f"{k} {a} -> {b}" for k, (a, b) in changes.items()),
+                                        data={"thesis_id": t.id, "changes": {k: [a, b] for k, (a, b) in changes.items()}}))
+        return t
+
     def _check_armed_entries(self, execute: bool, venue: Optional[str]) -> list[dict]:
         out = []
         for t in self.store.list_theses(statuses=[ThesisStatus.PLANNED.value], venue=venue):

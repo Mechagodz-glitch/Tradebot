@@ -545,6 +545,22 @@ def thesis_open(symbol: str, text: str = typer.Option(..., "--text", help="The t
     _handle(run)
 
 
+@thesis_app.command("edit")
+def thesis_edit(thesis_id: str,
+                expires: Optional[datetime] = typer.Option(None, "--expires", help="New expiry (UTC), e.g. 2026-09-25 or 2026-09-25T10:00"),
+                stop: Optional[float] = typer.Option(None, "--stop", help="New stop, % below entry"),
+                target: Optional[float] = typer.Option(None, "--target", help="New target, % above entry"),
+                no_target: bool = typer.Option(False, "--no-target", help="Remove the target (exit on stop or expiry only)")):
+    """Change the exit rules of a live thesis: expiry, stop %, target %. Export and push afterwards so the executor
+    picks the change up from the snapshot."""
+    def run():
+        eng = _engine()
+        exp = expires.replace(tzinfo=timezone.utc) if expires and expires.tzinfo is None else expires
+        _out(eng.edit_thesis(thesis_id, expires_at=exp, stop_pct=stop, target_pct=target, clear_target=no_target).model_dump(mode="json"),
+             lambda d: _thesis_table([d]))
+    _handle(run)
+
+
 @thesis_app.command("arm")
 def thesis_arm(thesis_id: str, entry_min: Optional[float] = typer.Option(None, "--entry-min", help="lowest acceptable entry price"),
                entry_max: Optional[float] = typer.Option(None, "--entry-max", help="highest acceptable entry price"),
