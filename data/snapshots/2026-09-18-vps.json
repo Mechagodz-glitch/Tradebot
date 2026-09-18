@@ -1,7 +1,39 @@
 {
- "exported_at": "2026-09-18T04:10:20.707240+00:00",
+ "exported_at": "2026-09-18T05:20:30.732999+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 99,
+   "ts": "2026-09-18T05:20:26.786819Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": "057c0ac4b53d",
+   "text": "thesis 9bfaa74c2640 closed: expired 2026-09-18 (pnl -2.06%)",
+   "data": {
+    "thesis_id": "9bfaa74c2640",
+    "pnl": -40.59999999999991
+   }
+  },
+  {
+   "id": 98,
+   "ts": "2026-09-18T05:20:26.778633Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": "057c0ac4b53d",
+   "text": "filled: sell 4 NSE:OIL market | reason: [thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -2.06%)",
+   "data": {
+    "reason": "[thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -2.06%)",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1896.0,
+     "reference_price": 474.0,
+     "reduces_position": true
+    },
+    "live": true
+   }
+  },
   {
    "id": 97,
    "ts": "2026-09-18T04:10:15.009239Z",
@@ -1613,7 +1645,7 @@
   {
    "id": "9bfaa74c2640",
    "created_at": "2026-09-04T22:46:43.847738Z",
-   "updated_at": "2026-09-09T11:51:24.566268Z",
+   "updated_at": "2026-09-18T05:20:26.793110Z",
    "venue": "kite",
    "symbol": "NSE:OIL",
    "market": "in",
@@ -1625,15 +1657,15 @@
    "stop_pct": 5.0,
    "target_pct": 8.0,
    "expires_at": "2026-09-18T00:00:00Z",
-   "status": "open",
+   "status": "closed",
    "entry_order_id": "venue-position",
    "qty": 4.0,
    "entry_price": 483.95,
-   "exit_order_id": null,
-   "exit_price": null,
-   "closed_at": null,
-   "close_reason": null,
-   "realized_pnl": null,
+   "exit_order_id": "057c0ac4b53d",
+   "exit_price": 473.8,
+   "closed_at": "2026-09-18T05:20:26.786770Z",
+   "close_reason": "expired 2026-09-18 (pnl -2.06%)",
+   "realized_pnl": -40.59999999999991,
    "tags": [
     "macro",
     "crude"
@@ -1772,6 +1804,30 @@
   }
  ],
  "orders": [
+  {
+   "id": "057c0ac4b53d",
+   "venue": "kite",
+   "venue_order_id": "260918220456177",
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 4.0,
+   "filled_qty": 4.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 473.8,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -2.06%)",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-18T05:20:26.676549Z",
+   "updated_at": "2026-09-18T05:20:26.768212Z"
+  },
   {
    "id": "e795e9c92dc7",
    "venue": "kite",
@@ -2869,6 +2925,22 @@
     "cash": 3200.2,
     "positions_value": 6728.8,
     "equity": 9929.0
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T05:15:28.151930Z",
+    "cash": 3181.8,
+    "positions_value": 6791.64,
+    "equity": 9973.44
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T05:20:29.324130Z",
+    "cash": 5077.0,
+    "positions_value": 4900.74,
+    "equity": 9977.74
    }
   ],
   "kite/crypto": [],
