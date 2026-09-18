@@ -1,7 +1,237 @@
 {
- "exported_at": "2026-09-18T03:42:23.029867+00:00",
+ "exported_at": "2026-09-18T10:29:35.041879+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 107,
+   "ts": "2026-09-18T10:29:34.508529Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Fri 18 Sep (day 10) + WEEK-2 REVIEW. Close: equity 9,920.04 (cash 5,077.00), day -8.96, week -193.92 (-1.9%) vs Fri 11 Sep 10,113.96, since start -79.96 (-0.8%). Daily closes: Tue 9,916.40; Wed ~9,957 (no venue reading, no login); Thu 9,929.00; Fri 9,920.04. Realized this week: Swiggy +2.25 (Tue, manual), CPCL -156.00 (Thu, droplet stop), Oil India -40.60 (Fri, droplet expiry) = -194.35; realized to date incl. GIC Re -20.50 = -214.85. Unrealized Fri: Redington +134.10 (399.85, +5.9%), GE Shipping +46.90 (1432.10, +3.4%), GOLDBEES +15.44 (126.48) = +196.44. Hit rate on 4 closed thesis trades: 1 win / 3 losses (25%); avg win +2.25, avg loss -72.37; the two open theses are both winners. Executor: live from Thu 10:31; executed the CPCL stop (Thu 14:00 @ 1414.30) and the Oil India expiry (Fri 10:50 @ 473.80); Fri 09:20-10:10 attempts rejected for a missing token (wrapper now skips ticks without a session); Shilpa armed entry correctly withheld above 975 (closed ~1020). Lessons: (1) 10-min sampling let CPCL pierce its stop twice intraday before the exit tick: exchange-side GTT stops are the fix if tighter enforcement is wanted; (2) expiry discipline worked: Oil India exited before crude fell further, GE Shipping extended deliberately via thesis edit; (3) energy concentration (49% of equity at the peak) produced correlated losses (-196.60 on CPCL + Oil India): cap any sector at ~25%; (4) the daily login is the single manual dependency and two missed days cost the Shilpa entry (+6% away); (5) armed price bands beat chasing (CPCL was bought 2% below its high; Shilpa's band refused a 6% up-day). Market week: Nifty ~23,350 (about -0.2% w/w, fifth-sixth weekly loss), Sensex ~74,500; Fed +25 bp to 3.75-4.00% with a hawkish dot plot; Brent 107 -> ~104 as Saudi reroutes via Oman and repairs the pipeline; rupee ~95.7-96; FPI selling >20,000 cr in Sep; NSE IPO near full subscription day 2. Monday: token first, Redington expiry decision (Wed 23 Sep), one more armed thesis, keep 3,000 for Shilpa.",
+   "data": {
+    "equity": 9920.04,
+    "cash": 5077.0,
+    "week_pnl": -193.92,
+    "total_pnl": -79.96,
+    "realized_week": -194.35,
+    "realized_total": -214.85,
+    "unrealized": 196.44,
+    "hit_rate": 0.25
+   }
+  },
+  {
+   "id": 106,
+   "ts": "2026-09-18T09:42:51.480690Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "15:10 IST pre-close, Fri 18 Sep (day 10). No droplet action since the 10:50 Oil India exit. Redington 400.00 (+6.0%, target 415.25 3.8% away, high 413.20 today), GE Shipping 1430.60 (+3.3%, high 1439.70, target 1496 4.6% away, expires 25 Sep), Shilpa Medicare 1020.15 (+6.5% today, high 1025; armed 930-975 still waiting), GOLDBEES 126.46 (+1.6%). Equity 9,918.30, cash 5,077.00, day -10.70, total -81.70. WEEKEND DECISION: carry Redington and GE Shipping on existing stops (10% and 8% of room; both theses intact: iPhone 18 launch flows for Redington, buyback + elevated freight for GE Shipping); Shilpa stays armed (setup intact, price extended, no chase); cash 5,077 held for Monday's second armed thesis. Weekend risks: Iran war headlines, Saudi pipeline repair progress (half capacity within days per Saudi), RBI hike chatter after the 50,000 cr OMO drain. Market: Nifty ~23,350 (+0.3%), metals up a 3rd day, TCS -3.3%; Sensex +200; Brent ~104.",
+   "data": {
+    "equity": 9918.3,
+    "cash": 5077.0,
+    "redington_last": 400.0,
+    "geship_last": 1430.6,
+    "shilpa_last": 1020.15,
+    "decision": "hold both over the weekend; Shilpa stays armed"
+   }
+  },
+  {
+   "id": 105,
+   "ts": "2026-09-18T08:05:26.877089Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Fri 18 Sep (day 10). No droplet action since 10:50. Redington 402.30 (+6.6%, 3.2% from the 415.25 target; iPhone 18 sales opened today, Apple-distribution names up to 8% intraday), GE Shipping 1427.00 (+3.0%), Shilpa Medicare 1016.00 (+6.0% on the day, high 1023.50; armed entry still above the 975 ceiling), GOLDBEES 126.86 (+2.0%). Equity 9,932.76, cash 5,077.00, day +3.76, total -67.24. Market: Sensex at day's high +200, Nifty ~23,330 (+0.25%), mid/smallcaps up, defence +1%; RBI drained 50,000 cr via OMO sale (hawkish); rupee 95.7; WTI ~101, Brent ~104 as Saudi runs ship-to-ship transfers off Sohar and says half the East-West pipeline capacity returns within days, full in six weeks (supports the Oil India exit); NSE IPO near full subscription on day 2, GMP ~6%.",
+   "data": {
+    "equity": 9932.76,
+    "redington_last": 402.3,
+    "geship_last": 1427.0,
+    "shilpa_last": 1016.0,
+    "wti": 101,
+    "nifty_approx": 23330
+   }
+  },
+  {
+   "id": 104,
+   "ts": "2026-09-18T06:01:30.391987Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:30 IST check, Fri 18 Sep (day 10). Droplet: no action since the 10:50 Oil India exit. Redington 398.85 (+5.6%; faded from a 413.20 high, 4.1% from the 415.25 target), GE Shipping 1420.00 (+2.5%), Shilpa Medicare 999.35 (+4.3% on the day, above the 975 ceiling; armed entry waiting), GOLDBEES 126.22 (+1.4%). Equity 9,899.56, cash 5,077.00, day -29.44 (Oil India realized -40.60 booked today), total -100.44. Market: Nifty flat around 23,300 after a small rebound as oil cools; Brent ~104-106, JPMorgan says oil is unmodellable while the Iran war crosses red lines; rupee 95.73 (+16p); FPI selling above 20,000 cr in September; NSE IPO 51% booked on day 2, GMP ~8%. No new entries: 5,077 cash is reserved for the Shilpa entry (3,000) plus one more armed thesis on Monday.",
+   "data": {
+    "equity": 9899.56,
+    "cash": 5077.0,
+    "redington_last": 398.85,
+    "shilpa_last": 999.35,
+    "nifty_approx": 23300
+   }
+  },
+  {
+   "id": 103,
+   "ts": "2026-09-18T05:28:19.443616Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:58 IST Fri 18 Sep: droplet 10:50 tick (first with today's token) SOLD 4 OIL @ 473.80 market on thesis expiry: realized -40.60 (entry 483.95). Shilpa Medicare armed entry correctly skipped: price 992 above the 975 ceiling (ran +3.5% while the token was missing); stays armed 930-975 to 25 Sep. Book: Redington 405.60 (+7.4%, target 415.25), GE Shipping 1420.30 (+2.5%), GOLDBEES 125.95; cash 5,077.00, equity 9,938.50, day +9.50, total -61.50. Realized to date: GIC Re -20.50, Swiggy +2.25, CPCL -156.00, Oil India -40.60 = -214.85.",
+   "data": {
+    "oil_exit": 473.8,
+    "oil_realized": -40.6,
+    "cash": 5077.0,
+    "equity": 9938.5
+   }
+  },
+  {
+   "id": 99,
+   "ts": "2026-09-18T05:20:26.786819Z",
+   "kind": "thesis",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": "057c0ac4b53d",
+   "text": "thesis 9bfaa74c2640 closed: expired 2026-09-18 (pnl -2.06%)",
+   "data": {
+    "thesis_id": "9bfaa74c2640",
+    "pnl": -40.59999999999991
+   }
+  },
+  {
+   "id": 100,
+   "ts": "2026-09-18T05:20:26.778633Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": "057c0ac4b53d",
+   "text": "filled: sell 4 NSE:OIL market | reason: [thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -2.06%)",
+   "data": {
+    "reason": "[thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -2.06%)",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1896.0,
+     "reference_price": 474.0,
+     "reduces_position": true
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 98,
+   "ts": "2026-09-18T05:13:39.127499Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:43 IST Fri 18 Sep: Kite token for today applied and drop pushed (451cfcc); droplet applies at its 10:45 sync, next check tick 10:50 places the pending SELL 4 OIL (expired) and BUY 3 SHILPAMED (if inside 930-975). Kite reads: equity 9,948.96, cash 3,181.80, day +19.96, unrealized +184.76.",
+   "data": {
+    "equity": 9948.96,
+    "cash": 3181.8
+   }
+  },
+  {
+   "id": 101,
+   "ts": "2026-09-18T04:10:15.009239Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": null,
+   "text": "thesis 9bfaa74c2640 exit FAILED (expired 2026-09-18 (pnl -1.54%)): kite rejected order: Incorrect `api_key` or `access_token`.",
+   "data": {
+    "thesis_id": "9bfaa74c2640"
+   }
+  },
+  {
+   "id": 102,
+   "ts": "2026-09-18T04:10:14.686392Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:SHILPAMED",
+   "order_id": null,
+   "text": "thesis cd40bab22a97 auto entry FAILED: kite rejected order: Incorrect `api_key` or `access_token`.",
+   "data": {
+    "thesis_id": "cd40bab22a97"
+   }
+  },
+  {
+   "id": 97,
+   "ts": "2026-09-18T04:05:57.516202Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "09:35 IST Fri 18 Sep: droplet ticks at 09:20 and 09:30 attempted BUY 3 SHILPAMED (price inside 930-975) and SELL 4 OIL (expired); all four orders rejected by Kite: TokenException (no login today). Pipeline verified end to end apart from the token; the executor retries every 10 min once the token lands. Wrapper patched to skip ticks while the Kite session is invalid. Prices: Shilpa 961.45 (in band), Oil India 476.20, Redington 400.45 (high 410.75), GE Shipping 1417.20. User reminded to paste the request_token.",
+   "data": {
+    "rejected_orders": 4,
+    "reason": "TokenException"
+   }
+  },
+  {
+   "id": 93,
+   "ts": "2026-09-18T04:00:28.109631Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": null,
+   "text": "thesis 9bfaa74c2640 exit FAILED (expired 2026-09-18 (pnl -1.74%)): kite rejected order: Incorrect `api_key` or `access_token`.",
+   "data": {
+    "thesis_id": "9bfaa74c2640"
+   }
+  },
+  {
+   "id": 94,
+   "ts": "2026-09-18T04:00:27.730001Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:SHILPAMED",
+   "order_id": null,
+   "text": "thesis cd40bab22a97 auto entry FAILED: kite rejected order: Incorrect `api_key` or `access_token`.",
+   "data": {
+    "thesis_id": "cd40bab22a97"
+   }
+  },
+  {
+   "id": 95,
+   "ts": "2026-09-18T03:50:05.260888Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": null,
+   "text": "thesis 9bfaa74c2640 exit FAILED (expired 2026-09-18 (pnl -1.75%)): kite rejected order: Incorrect `api_key` or `access_token`.",
+   "data": {
+    "thesis_id": "9bfaa74c2640"
+   }
+  },
+  {
+   "id": 96,
+   "ts": "2026-09-18T03:50:04.864145Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:SHILPAMED",
+   "order_id": null,
+   "text": "thesis cd40bab22a97 auto entry FAILED: kite rejected order: Incorrect `api_key` or `access_token`.",
+   "data": {
+    "thesis_id": "cd40bab22a97"
+   }
+  },
+  {
+   "id": 92,
+   "ts": "2026-09-18T03:42:56.460801Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "Morning Fri 18 Sep (day 10). Overnight: Wall St rebounded (S&P +1%, chips +3%) as the 10y fell to 4.93% and Brent dropped 2.7% to 105.83 (third down session, ~104 in Asia) on Saudi rerouting via Oman; dollar flat; GIFT Nifty muted/slightly positive; rupee ~96 with RBI hike chatter; NSE IPO day 1 booked 0.43x. Kite token NOT yet applied today (drop still 17 Sep): the droplet cannot trade until the user logs in. Expiries: GE Shipping and Oil India both expired today; GESHIP extended to 25 Sep (+2.9%, target 5% away, buyback bid), Oil India left to expire (crude falling, -1.4% over the hold) so the droplet sells 4 at market on its first tick with a valid token. New armed thesis cd40bab22a97 NSE:SHILPAMED size 3000, stop 5%, target 9%, exp 25 Sep, band 930-975 (last 958.35): pharma leadership, CDSCO OERIS approval 11 Sep, Q1 rev +45%, PAT doubled, 2% below 52w high, RSI 64, mdd60 -6.6%. Screen 2026-09-18 top: Ratnaveer, Shreeji Shipping, Prime Focus, Man Inds, Morepen, Redington #6 (+6.0%, 3.8% from target), Paytm, GCSL, SETL, Welspun Ent; Shilpa #11. Shipped: thesis edit command. Check-ins 11:30, 13:30, 15:10, 15:55 (week-2 review).",
+   "data": {
+    "brent": 105.83,
+    "us10y": 4.93,
+    "shilpa_last": 958.35,
+    "geship_new_expiry": "2026-09-25",
+    "oil_expiring": true
+   }
+  },
   {
    "id": 91,
    "ts": "2026-09-18T03:42:22.507806Z",
@@ -1541,7 +1771,7 @@
   {
    "id": "9bfaa74c2640",
    "created_at": "2026-09-04T22:46:43.847738Z",
-   "updated_at": "2026-09-09T11:51:24.566268Z",
+   "updated_at": "2026-09-18T05:20:26.793110Z",
    "venue": "kite",
    "symbol": "NSE:OIL",
    "market": "in",
@@ -1553,15 +1783,15 @@
    "stop_pct": 5.0,
    "target_pct": 8.0,
    "expires_at": "2026-09-18T00:00:00Z",
-   "status": "open",
+   "status": "closed",
    "entry_order_id": "venue-position",
    "qty": 4.0,
    "entry_price": 483.95,
-   "exit_order_id": null,
-   "exit_price": null,
-   "closed_at": null,
-   "close_reason": null,
-   "realized_pnl": null,
+   "exit_order_id": "057c0ac4b53d",
+   "exit_price": 473.8,
+   "closed_at": "2026-09-18T05:20:26.786770Z",
+   "close_reason": "expired 2026-09-18 (pnl -2.06%)",
+   "realized_pnl": -40.59999999999991,
    "tags": [
     "macro",
     "crude"
@@ -1700,6 +1930,174 @@
   }
  ],
  "orders": [
+  {
+   "id": "057c0ac4b53d",
+   "venue": "kite",
+   "venue_order_id": "260918220456177",
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 4.0,
+   "filled_qty": 4.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 473.8,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -2.06%)",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-18T05:20:26.676549Z",
+   "updated_at": "2026-09-18T05:27:53.414555Z"
+  },
+  {
+   "id": "e795e9c92dc7",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 4.0,
+   "filled_qty": 0.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -1.54%)",
+   "strategy": "thesis",
+   "reject_reason": "Incorrect `api_key` or `access_token`.",
+   "client_order_id": null,
+   "created_at": "2026-09-18T04:10:14.979003Z",
+   "updated_at": "2026-09-18T05:27:53.418866Z"
+  },
+  {
+   "id": "346c5d1e5a9f",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:SHILPAMED",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 3.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 966.15,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis cd40bab22a97] Pharma leadership post-Fed (Nifty Pharma +1.7% Thu); CDSCO approval of OERIS ondansetron ER injection 11 Sep; Q1 FY27 revenue +45%, PAT 101 cr vs 47; novel products doubling; 2% below 52w high, RSI 64, 60d drawdown only -6.6%. Armed 930-975: buy the pullback, do not chase above 975.",
+   "strategy": "thesis",
+   "reject_reason": "Incorrect `api_key` or `access_token`.",
+   "client_order_id": null,
+   "created_at": "2026-09-18T04:10:14.649153Z",
+   "updated_at": "2026-09-18T05:27:53.420612Z"
+  },
+  {
+   "id": "180921812da4",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 4.0,
+   "filled_qty": 0.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -1.74%)",
+   "strategy": "thesis",
+   "reject_reason": "Incorrect `api_key` or `access_token`.",
+   "client_order_id": null,
+   "created_at": "2026-09-18T04:00:28.062620Z",
+   "updated_at": "2026-09-18T04:05:15.882983Z"
+  },
+  {
+   "id": "516e08bfbf94",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:SHILPAMED",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 3.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 962.7,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis cd40bab22a97] Pharma leadership post-Fed (Nifty Pharma +1.7% Thu); CDSCO approval of OERIS ondansetron ER injection 11 Sep; Q1 FY27 revenue +45%, PAT 101 cr vs 47; novel products doubling; 2% below 52w high, RSI 64, 60d drawdown only -6.6%. Armed 930-975: buy the pullback, do not chase above 975.",
+   "strategy": "thesis",
+   "reject_reason": "Incorrect `api_key` or `access_token`.",
+   "client_order_id": null,
+   "created_at": "2026-09-18T04:00:27.683978Z",
+   "updated_at": "2026-09-18T04:05:15.888983Z"
+  },
+  {
+   "id": "6421c3bf4e7a",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 4.0,
+   "filled_qty": 0.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -1.75%)",
+   "strategy": "thesis",
+   "reject_reason": "Incorrect `api_key` or `access_token`.",
+   "client_order_id": null,
+   "created_at": "2026-09-18T03:50:05.214266Z",
+   "updated_at": "2026-09-18T04:05:15.890398Z"
+  },
+  {
+   "id": "907691ab320c",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:SHILPAMED",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 3.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 955.3,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis cd40bab22a97] Pharma leadership post-Fed (Nifty Pharma +1.7% Thu); CDSCO approval of OERIS ondansetron ER injection 11 Sep; Q1 FY27 revenue +45%, PAT 101 cr vs 47; novel products doubling; 2% below 52w high, RSI 64, 60d drawdown only -6.6%. Armed 930-975: buy the pullback, do not chase above 975.",
+   "strategy": "thesis",
+   "reject_reason": "Incorrect `api_key` or `access_token`.",
+   "client_order_id": null,
+   "created_at": "2026-09-18T03:50:04.820190Z",
+   "updated_at": "2026-09-18T04:05:15.891898Z"
+  },
   {
    "id": "b9a0a752d900",
    "venue": "kite",
@@ -2653,6 +3051,246 @@
     "cash": 3200.2,
     "positions_value": 6728.8,
     "equity": 9929.0
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T05:15:28.151930Z",
+    "cash": 3181.8,
+    "positions_value": 6791.64,
+    "equity": 9973.44
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T05:20:29.324130Z",
+    "cash": 5077.0,
+    "positions_value": 4900.74,
+    "equity": 9977.74
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T05:30:21.484894Z",
+    "cash": 5077.0,
+    "positions_value": 4859.5199999999995,
+    "equity": 9936.52
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T05:40:34.866802Z",
+    "cash": 5077.0,
+    "positions_value": 4857.18,
+    "equity": 9934.18
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T05:50:21.890487Z",
+    "cash": 5077.0,
+    "positions_value": 4853.74,
+    "equity": 9930.74
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T06:00:11.505586Z",
+    "cash": 5077.0,
+    "positions_value": 4824.24,
+    "equity": 9901.24
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T06:10:12.123710Z",
+    "cash": 5077.0,
+    "positions_value": 4837.88,
+    "equity": 9914.880000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T06:20:34.449793Z",
+    "cash": 5077.0,
+    "positions_value": 4838.360000000001,
+    "equity": 9915.36
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T06:30:13.832501Z",
+    "cash": 5077.0,
+    "positions_value": 4829.88,
+    "equity": 9906.880000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T06:40:19.012701Z",
+    "cash": 5077.0,
+    "positions_value": 4852.0,
+    "equity": 9929.0
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T06:50:12.349955Z",
+    "cash": 5077.0,
+    "positions_value": 4860.08,
+    "equity": 9937.08
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T07:00:33.390592Z",
+    "cash": 5077.0,
+    "positions_value": 4873.12,
+    "equity": 9950.119999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T07:10:13.086892Z",
+    "cash": 5077.0,
+    "positions_value": 4854.8,
+    "equity": 9931.8
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T07:20:25.434928Z",
+    "cash": 5077.0,
+    "positions_value": 4855.26,
+    "equity": 9932.26
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T07:30:12.451967Z",
+    "cash": 5077.0,
+    "positions_value": 4856.08,
+    "equity": 9933.08
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T07:40:34.895637Z",
+    "cash": 5077.0,
+    "positions_value": 4855.2,
+    "equity": 9932.2
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T07:50:21.345122Z",
+    "cash": 5077.0,
+    "positions_value": 4853.84,
+    "equity": 9930.84
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T08:00:32.776752Z",
+    "cash": 5077.0,
+    "positions_value": 4856.2,
+    "equity": 9933.2
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T08:10:32.242656Z",
+    "cash": 5077.0,
+    "positions_value": 4854.36,
+    "equity": 9931.36
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T08:20:24.552508Z",
+    "cash": 5077.0,
+    "positions_value": 4839.639999999999,
+    "equity": 9916.64
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T08:30:13.209542Z",
+    "cash": 5077.0,
+    "positions_value": 4840.5,
+    "equity": 9917.5
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T08:40:22.623779Z",
+    "cash": 5077.0,
+    "positions_value": 4844.04,
+    "equity": 9921.04
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T08:50:10.912102Z",
+    "cash": 5077.0,
+    "positions_value": 4842.84,
+    "equity": 9919.84
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T09:00:33.148360Z",
+    "cash": 5077.0,
+    "positions_value": 4838.28,
+    "equity": 9915.279999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T09:10:11.917030Z",
+    "cash": 5077.0,
+    "positions_value": 4842.6,
+    "equity": 9919.6
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T09:20:34.933502Z",
+    "cash": 5077.0,
+    "positions_value": 4847.040000000001,
+    "equity": 9924.04
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T09:30:21.930385Z",
+    "cash": 5077.0,
+    "positions_value": 4846.52,
+    "equity": 9923.52
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T09:40:35.160104Z",
+    "cash": 5077.0,
+    "positions_value": 4839.5199999999995,
+    "equity": 9916.52
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T09:50:31.338477Z",
+    "cash": 5077.0,
+    "positions_value": 4843.58,
+    "equity": 9920.58
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-18T10:15:20.650914Z",
+    "cash": 5077.0,
+    "positions_value": 4843.040000000001,
+    "equity": 9920.04
    }
   ],
   "kite/crypto": [],
