@@ -1,7 +1,31 @@
 {
- "exported_at": "2026-09-18T03:50:10.981468+00:00",
+ "exported_at": "2026-09-18T04:00:33.822031+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 95,
+   "ts": "2026-09-18T04:00:28.109631Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:OIL",
+   "order_id": null,
+   "text": "thesis 9bfaa74c2640 exit FAILED (expired 2026-09-18 (pnl -1.74%)): kite rejected order: Incorrect `api_key` or `access_token`.",
+   "data": {
+    "thesis_id": "9bfaa74c2640"
+   }
+  },
+  {
+   "id": 94,
+   "ts": "2026-09-18T04:00:27.730001Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:SHILPAMED",
+   "order_id": null,
+   "text": "thesis cd40bab22a97 auto entry FAILED: kite rejected order: Incorrect `api_key` or `access_token`.",
+   "data": {
+    "thesis_id": "cd40bab22a97"
+   }
+  },
   {
    "id": 93,
    "ts": "2026-09-18T03:50:05.260888Z",
@@ -1724,6 +1748,54 @@
   }
  ],
  "orders": [
+  {
+   "id": "180921812da4",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:OIL",
+   "market": "in",
+   "currency": "INR",
+   "side": "sell",
+   "qty": 4.0,
+   "filled_qty": 0.0,
+   "order_type": "market",
+   "limit_price": null,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis 9bfaa74c2640] exit: expired 2026-09-18 (pnl -1.74%)",
+   "strategy": "thesis",
+   "reject_reason": "Incorrect `api_key` or `access_token`.",
+   "client_order_id": null,
+   "created_at": "2026-09-18T04:00:28.062620Z",
+   "updated_at": "2026-09-18T04:00:28.100376Z"
+  },
+  {
+   "id": "516e08bfbf94",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:SHILPAMED",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 3.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 962.7,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis cd40bab22a97] Pharma leadership post-Fed (Nifty Pharma +1.7% Thu); CDSCO approval of OERIS ondansetron ER injection 11 Sep; Q1 FY27 revenue +45%, PAT 101 cr vs 47; novel products doubling; 2% below 52w high, RSI 64, 60d drawdown only -6.6%. Armed 930-975: buy the pullback, do not chase above 975.",
+   "strategy": "thesis",
+   "reject_reason": "Incorrect `api_key` or `access_token`.",
+   "client_order_id": null,
+   "created_at": "2026-09-18T04:00:27.683978Z",
+   "updated_at": "2026-09-18T04:00:27.718303Z"
+  },
   {
    "id": "6421c3bf4e7a",
    "venue": "kite",
