@@ -15,6 +15,11 @@ fi
 if [ -f data/KILL ]; then
   echo "kill switch active; skipping"; exit 0
 fi
+# no valid Kite session (the daily login has not happened yet, or the token expired): every order would be
+# rejected, so skip the tick instead of recording a rejected order and pushing a snapshot every 10 minutes
+if ! ./scripts/tradebot --json doctor --no-data 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); sys.exit(0 if any(c['name']=='broker:kite' and c['ok'] for c in d['checks']) else 1)"; then
+  echo "kite session not valid (no token for today yet); skipping this tick"; exit 0
+fi
 out="$(./scripts/tradebot --json thesis check --execute --venue kite)"
 echo "$out"
 ./scripts/tradebot --json sync --venue kite >/dev/null || true
