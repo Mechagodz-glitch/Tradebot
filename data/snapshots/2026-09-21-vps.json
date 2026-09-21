@@ -1,5 +1,5 @@
 {
- "exported_at": "2026-09-21T04:30:15.587697+00:00",
+ "exported_at": "2026-09-21T10:15:15.838374+00:00",
  "version": "0.1.0",
  "journal": [
   {
@@ -3543,6 +3543,270 @@
     "cash": 3456.6,
     "positions_value": 6446.700000000001,
     "equity": 9903.300000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:40:18.319470Z",
+    "cash": 3456.6,
+    "positions_value": 6433.820000000001,
+    "equity": 9890.42
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:50:22.246748Z",
+    "cash": 3456.6,
+    "positions_value": 6450.84,
+    "equity": 9907.44
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:00:36.359392Z",
+    "cash": 3456.6,
+    "positions_value": 6443.42,
+    "equity": 9900.02
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:10:22.203028Z",
+    "cash": 3456.6,
+    "positions_value": 6437.4400000000005,
+    "equity": 9894.04
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:20:26.036742Z",
+    "cash": 3456.6,
+    "positions_value": 6433.0199999999995,
+    "equity": 9889.619999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:30:14.113530Z",
+    "cash": 3456.6,
+    "positions_value": 6434.32,
+    "equity": 9890.92
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:40:35.008567Z",
+    "cash": 3456.6,
+    "positions_value": 6432.68,
+    "equity": 9889.28
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:50:22.319552Z",
+    "cash": 3456.6,
+    "positions_value": 6437.1,
+    "equity": 9893.7
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:00:36.116618Z",
+    "cash": 3456.6,
+    "positions_value": 6445.14,
+    "equity": 9901.74
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:10:28.292820Z",
+    "cash": 3456.6,
+    "positions_value": 6442.6,
+    "equity": 9899.2
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:20:26.128981Z",
+    "cash": 3456.6,
+    "positions_value": 6453.78,
+    "equity": 9910.38
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:30:22.874488Z",
+    "cash": 3456.6,
+    "positions_value": 6469.08,
+    "equity": 9925.68
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:40:35.708989Z",
+    "cash": 3456.6,
+    "positions_value": 6449.639999999999,
+    "equity": 9906.24
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:50:11.112124Z",
+    "cash": 3456.6,
+    "positions_value": 6443.700000000001,
+    "equity": 9900.300000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:00:29.951342Z",
+    "cash": 3456.6,
+    "positions_value": 6445.4,
+    "equity": 9902.0
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:10:22.970532Z",
+    "cash": 3456.6,
+    "positions_value": 6441.299999999999,
+    "equity": 9897.9
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:20:19.377404Z",
+    "cash": 3456.6,
+    "positions_value": 6442.46,
+    "equity": 9899.06
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:30:29.718079Z",
+    "cash": 3456.6,
+    "positions_value": 6429.599999999999,
+    "equity": 9886.199999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:40:18.560680Z",
+    "cash": 3456.6,
+    "positions_value": 6430.92,
+    "equity": 9887.52
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:50:20.646774Z",
+    "cash": 3456.6,
+    "positions_value": 6412.88,
+    "equity": 9869.48
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:00:30.316483Z",
+    "cash": 3456.6,
+    "positions_value": 6413.98,
+    "equity": 9870.58
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:10:18.024169Z",
+    "cash": 3456.6,
+    "positions_value": 6419.24,
+    "equity": 9875.84
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:20:34.777364Z",
+    "cash": 3456.6,
+    "positions_value": 6425.820000000001,
+    "equity": 9882.42
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:30:33.354345Z",
+    "cash": 3456.6,
+    "positions_value": 6426.0199999999995,
+    "equity": 9882.619999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:40:22.775559Z",
+    "cash": 3456.6,
+    "positions_value": 6421.76,
+    "equity": 9878.36
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:50:21.894380Z",
+    "cash": 3456.6,
+    "positions_value": 6426.040000000001,
+    "equity": 9882.640000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:00:32.768547Z",
+    "cash": 3456.6,
+    "positions_value": 6423.82,
+    "equity": 9880.42
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:10:12.791874Z",
+    "cash": 3456.6,
+    "positions_value": 6424.72,
+    "equity": 9881.32
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:20:35.364239Z",
+    "cash": 3456.6,
+    "positions_value": 6430.04,
+    "equity": 9886.64
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:30:23.660446Z",
+    "cash": 3456.6,
+    "positions_value": 6441.96,
+    "equity": 9898.56
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:40:27.730707Z",
+    "cash": 3456.6,
+    "positions_value": 6430.78,
+    "equity": 9887.38
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:50:10.884864Z",
+    "cash": 3456.6,
+    "positions_value": 6445.22,
+    "equity": 9901.82
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T10:15:14.246245Z",
+    "cash": 3456.6,
+    "positions_value": 6434.860000000001,
+    "equity": 9891.460000000001
    }
   ],
   "kite/crypto": [],
