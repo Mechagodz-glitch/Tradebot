@@ -15,10 +15,10 @@ def tick_for(market: Market) -> float:
     return float(TICKS[market])
 
 
-def round_to_tick(price: float, market: Market, side: Optional[Side] = None) -> float:
-    """Round ``price`` to the market's tick. Buys round up and sells round down (keeps a marketable
-    limit marketable); with no side, round to nearest."""
-    tick = TICKS[market]
+def round_to_tick(price: float, market: Market, side: Optional[Side] = None, tick: Optional[float] = None) -> float:
+    """Round ``price`` to the market's tick (or an explicit per-instrument ``tick``). Buys round up and
+    sells round down (keeps a marketable limit marketable); with no side, round to nearest."""
+    tick = Decimal(str(tick)) if tick else TICKS[market]
     p = Decimal(str(price))
     q = (p / tick)
     if side == Side.BUY:

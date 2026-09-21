@@ -85,3 +85,26 @@ def test_sold_holding_is_not_a_short_and_proceeds_count_as_cash(engine, monkeypa
     assert a2.cash == 3804.6 + 1737.5                      # counted once, not twice
     engine.settings.kite.starting_capital = 10_000
     assert b.account(Market.IN).starting_cash == 10_000   # dashboard shows total P&L = equity - deposits
+
+
+class TenPaiseTickKite(FakeKite):
+    """Rejects any limit price that is not a multiple of 0.10, like Kite does for some NSE scrips."""
+    def place_order(self, **kw):
+        self.calls.append(kw)
+        price = kw.get("price")
+        if price is not None and round(price * 100) % 10 != 0:
+            raise Exception("Tick size for this script is 0.10. Kindly enter price in the multiple of tick size")
+        return "260921000042"
+
+
+def test_limit_order_learns_the_instrument_tick_and_retries_once(engine, tmp_path, monkeypatch):
+    b = _broker(engine)
+    b._kite = TenPaiseTickKite()
+    monkeypatch.setattr(b, "_ticks_path", lambda: tmp_path / "kite_ticks.json")
+    inst = parse_symbol("NSE:ATHERENERG")
+    o = b.place_order(OrderRequest(symbol="NSE:ATHERENERG", side=Side.BUY, qty=1, venue="kite", order_type=OrderType.LIMIT, limit_price=1603.25), inst)
+    assert o.venue_order_id == "260921000042"
+    assert [c["price"] for c in b._kite.calls] == [1603.25, 1603.30]          # 0.05 rounding, then the learned 0.10 (buy rounds up)
+    assert b.tick_for("ATHERENERG") == 0.10
+    b.place_order(OrderRequest(symbol="NSE:ATHERENERG", side=Side.SELL, qty=1, venue="kite", order_type=OrderType.LIMIT, limit_price=1650.07), inst)
+    assert b._kite.calls[-1]["price"] == 1650.00 and len(b._kite.calls) == 3      # second order is on-tick first time

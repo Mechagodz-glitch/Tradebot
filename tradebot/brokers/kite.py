@@ -3,6 +3,9 @@ access token obtained through the login flow (``tradebot kite-login``)."""
 
 from __future__ import annotations
 
+import json
+import re
+from pathlib import Path
 from typing import Optional
 
 from ..errors import BrokerError
@@ -11,6 +14,8 @@ from ..models import (
 )
 from ..ticks import round_to_tick
 from .base import Broker
+
+TICK_ERROR = re.compile(r"[Tt]ick size for this scrip\w* is ([0-9]+(?:\.[0-9]+)?)")
 
 STATUS_MAP = {
     "COMPLETE": OrderStatus.FILLED, "REJECTED": OrderStatus.REJECTED, "CANCELLED": OrderStatus.CANCELED,
@@ -131,6 +136,27 @@ class KiteBroker(Broker):
                 out[sym] = pos
         return list(out.values())
 
+    # NSE tick sizes vary by instrument (0.05 for most, 0.10 or 1.00 for some); Kite rejects a price off-tick.
+    # Learned ticks are cached per tradingsymbol so the second order for a name is right the first time.
+    def _ticks_path(self) -> Path:
+        return Path(self.settings.resolve("data/cache/kite_ticks.json"))
+
+    def tick_for(self, tradingsymbol: str) -> Optional[float]:
+        try:
+            return json.loads(self._ticks_path().read_text()).get(tradingsymbol)
+        except Exception:  # noqa: BLE001
+            return None
+
+    def remember_tick(self, tradingsymbol: str, tick: float) -> None:
+        p = self._ticks_path()
+        try:
+            data = json.loads(p.read_text()) if p.exists() else {}
+        except Exception:  # noqa: BLE001
+            data = {}
+        data[tradingsymbol] = tick
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(data, indent=2, sort_keys=True))
+
     def place_order(self, req: OrderRequest, inst: Instrument) -> Order:
         k = self.kite
         otype = {OrderType.MARKET: k.ORDER_TYPE_MARKET, OrderType.LIMIT: k.ORDER_TYPE_LIMIT,
@@ -142,17 +168,30 @@ class KiteBroker(Broker):
                       side=req.side, qty=req.qty, order_type=req.order_type, limit_price=req.limit_price,
                       stop_price=req.stop_price, tif=req.tif, reason=req.reason, strategy=req.strategy,
                       client_order_id=req.client_order_id)
-        try:
-            oid = k.place_order(
+        tick = self.tick_for(inst.base)
+
+        def params(tick_size: Optional[float]) -> dict:
+            return dict(
                 variety=k.VARIETY_REGULAR, exchange=inst.exchange or self.settings.kite.exchange, tradingsymbol=inst.base,
                 transaction_type=k.TRANSACTION_TYPE_BUY if req.side == Side.BUY else k.TRANSACTION_TYPE_SELL,
                 quantity=int(req.qty), product=self.settings.kite.product, order_type=otype,
-                price=round_to_tick(req.limit_price, Market.IN, req.side) if req.order_type in (OrderType.LIMIT, OrderType.STOP_LIMIT) else None,
-                trigger_price=round_to_tick(req.stop_price, Market.IN) if req.order_type in (OrderType.STOP, OrderType.STOP_LIMIT) else None,
+                price=round_to_tick(req.limit_price, Market.IN, req.side, tick=tick_size) if req.order_type in (OrderType.LIMIT, OrderType.STOP_LIMIT) else None,
+                trigger_price=round_to_tick(req.stop_price, Market.IN, tick=tick_size) if req.order_type in (OrderType.STOP, OrderType.STOP_LIMIT) else None,
                 validity=validity, tag=(req.strategy or "tradebot")[:20],
                 # Zerodha requires market protection on API market / SL-M orders; -1 = exchange-guideline automatic
                 market_protection=-1 if req.order_type in (OrderType.MARKET, OrderType.STOP) else None,
             )
+
+        try:
+            try:
+                oid = k.place_order(**params(tick))
+            except Exception as e:  # noqa: BLE001
+                m = TICK_ERROR.search(str(e))
+                if not m:
+                    raise
+                learned = float(m.group(1))            # e.g. "Tick size for this script is 0.10"
+                self.remember_tick(inst.base, learned)
+                oid = k.place_order(**params(learned))
         except Exception as e:  # noqa: BLE001
             order.status = OrderStatus.REJECTED
             order.reject_reason = str(e)[:500]
