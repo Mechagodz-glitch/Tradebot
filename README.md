@@ -243,6 +243,7 @@ tradebot thesis enter <id>          # send the entry for a planned thesis (marke
 tradebot thesis arm <id> --entry-min 1500 --entry-max 1540   # let the executor enter it inside this band
 tradebot thesis arm <id> --disarm   # back to a manual entry
 tradebot thesis edit <id> --expires 2026-09-25 [--stop 4] [--target 10 | --no-target]   # change exit rules of a live thesis
+                                    # --stop 0 or negative (e.g. -2) locks in profit: the stop sits at/above entry
 tradebot thesis check [--execute]   # enter armed theses, close theses whose stop, target or expiry is hit
 tradebot doctor --no-data           # includes egress:ipv4 versus kite.whitelisted_ip on an executor machine
 tradebot thesis close <id> --reason "..."

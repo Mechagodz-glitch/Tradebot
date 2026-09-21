@@ -151,6 +151,13 @@ def test_edit_thesis_changes_exit_rules_and_journals(engine, settings, prices):
     assert engine.store.get_thesis(t.id).stop_pct == 4
     assert any("edited" in j.text and "stop_pct 5" in j.text for j in engine.journal(limit=5))
     assert engine.edit_thesis(t.id, clear_target=True).target_pct is None
+    locked = engine.edit_thesis(t.id, stop_pct=-1.0)            # stop above entry: lock in +1%
+    assert locked.stop_price() == pytest.approx(locked.entry_price * 1.01)
+    prices["NSE:OIL"] = locked.entry_price * 1.005                 # below the locked stop -> exit
+    rows = engine.check_theses(execute=False)
+    assert rows[0]["action"] == "would close" and "stop" in rows[0]["detail"]
+    with pytest.raises(BrokerError):
+        engine.edit_thesis(t.id, stop_pct=100)
     with pytest.raises(BrokerError):
         engine.edit_thesis(t.id)                      # nothing to change
     engine.close_thesis(t.id, reason="done") if hasattr(engine, "close_thesis") else None

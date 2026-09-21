@@ -329,8 +329,9 @@ class TradingEngine:
             changes["expires_at"] = (t.expires_at.isoformat() if t.expires_at else None, expires_at.isoformat())
             t.expires_at = expires_at
         if stop_pct is not None:
-            if stop_pct <= 0:
-                raise BrokerError("stop must be a positive percentage", code="invalid")
+            # a zero or negative stop % puts the stop at or above entry: a locked-in profit stop on a winner
+            if stop_pct >= 100:
+                raise BrokerError("stop must be below 100%", code="invalid")
             changes["stop_pct"] = (t.stop_pct, stop_pct)
             t.stop_pct = stop_pct
         if clear_target:
