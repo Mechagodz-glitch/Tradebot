@@ -1,7 +1,26 @@
 {
- "exported_at": "2026-09-21T04:20:15.074401+00:00",
+ "exported_at": "2026-09-21T04:30:15.587697+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 114,
+   "ts": "2026-09-21T04:30:11.504674Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:ATHERENERG",
+   "order_id": "98ada99010c9",
+   "text": "filled: buy 1 NSE:ATHERENERG limit @ 1605.35 | reason: [thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+   "data": {
+    "reason": "[thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1605.35,
+     "reference_price": 1605.35,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
   {
    "id": 113,
    "ts": "2026-09-21T04:20:11.320655Z",
@@ -1745,7 +1764,7 @@
   {
    "id": "b1c088bd95c7",
    "created_at": "2026-09-21T03:40:57.615419Z",
-   "updated_at": "2026-09-21T03:40:57.615441Z",
+   "updated_at": "2026-09-21T04:30:11.515450Z",
    "venue": "kite",
    "symbol": "NSE:ATHERENERG",
    "market": "in",
@@ -1757,10 +1776,10 @@
    "stop_pct": 5.0,
    "target_pct": 9.0,
    "expires_at": "2026-09-30T00:00:00Z",
-   "status": "planned",
-   "entry_order_id": null,
-   "qty": 0.0,
-   "entry_price": null,
+   "status": "open",
+   "entry_order_id": "98ada99010c9",
+   "qty": 1.0,
+   "entry_price": 1602.9,
    "exit_order_id": null,
    "exit_price": null,
    "closed_at": null,
@@ -2059,6 +2078,30 @@
   }
  ],
  "orders": [
+  {
+   "id": "98ada99010c9",
+   "venue": "kite",
+   "venue_order_id": "260921220317029",
+   "symbol": "NSE:ATHERENERG",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 1.0,
+   "filled_qty": 1.0,
+   "order_type": "limit",
+   "limit_price": 1605.35,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 1602.9,
+   "fees": 0.0,
+   "reason": "[thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-21T04:30:11.346855Z",
+   "updated_at": "2026-09-21T04:30:11.491999Z"
+  },
   {
    "id": "1a4e0e58cc2b",
    "venue": "kite",
@@ -3492,6 +3535,14 @@
     "cash": 5059.5,
     "positions_value": 4847.200000000001,
     "equity": 9906.7
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:30:14.242159Z",
+    "cash": 3456.6,
+    "positions_value": 6446.700000000001,
+    "equity": 9903.300000000001
    }
   ],
   "kite/crypto": [],
