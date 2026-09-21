@@ -1,7 +1,19 @@
 {
- "exported_at": "2026-09-21T04:10:23.372660+00:00",
+ "exported_at": "2026-09-21T04:20:15.074401+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 113,
+   "ts": "2026-09-21T04:20:11.320655Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:ATHERENERG",
+   "order_id": null,
+   "text": "thesis b1c088bd95c7 auto entry FAILED: kite rejected order: Tick size for this script is 0.10. Kindly enter price in the multiple of tick size for this script",
+   "data": {
+    "thesis_id": "b1c088bd95c7"
+   }
+  },
   {
    "id": 112,
    "ts": "2026-09-21T04:10:19.266725Z",
@@ -2048,6 +2060,30 @@
  ],
  "orders": [
   {
+   "id": "1a4e0e58cc2b",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:ATHERENERG",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 1.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 1605.05,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+   "strategy": "thesis",
+   "reject_reason": "Tick size for this script is 0.10. Kindly enter price in the multiple of tick size for this script",
+   "client_order_id": null,
+   "created_at": "2026-09-21T04:20:11.238630Z",
+   "updated_at": "2026-09-21T04:20:11.291911Z"
+  },
+  {
    "id": "540577289970",
    "venue": "kite",
    "venue_order_id": null,
@@ -3448,6 +3484,14 @@
     "cash": 5059.5,
     "positions_value": 4834.14,
     "equity": 9893.64
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:20:13.767484Z",
+    "cash": 5059.5,
+    "positions_value": 4847.200000000001,
+    "equity": 9906.7
    }
   ],
   "kite/crypto": [],
