@@ -1,7 +1,165 @@
 {
- "exported_at": "2026-09-21T03:42:14.123574+00:00",
+ "exported_at": "2026-09-21T10:29:58.050053+00:00",
  "version": "0.1.0",
  "journal": [
+  {
+   "id": 121,
+   "ts": "2026-09-21T10:29:57.504393Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "EOD Mon 21 Sep (day 11, week 3 day 1). Close: equity 9,891.46 (cash 3,456.60), day -28.58, total -108.54 since start; unrealized +185.36: GE Shipping 1485.00 (+99.80, +7.2%; target 1496.02 missed by 0.7% after a 1487.80 high), Redington 392.05 (+87.30, +3.9%; locked stop 381.27), Ather 1593.00 (-9.90 on the 1602.90 fill), GOLDBEES 125.57 (+8.16). Droplet: first automatic ENTRY (Ather 1 @ 1602.90 at 10:00 after two tick-size rejections; tick learning shipped), no exits; EOD snapshot imported (33 equity points). Shilpa stays armed 930-975 (closed ~1069, lapses Fri 25 Sep unless it pulls back). Market: Sensex +500-600, Nifty ~23,400 (+0.4%), pharma up a 3rd day, autos and IT weak; Brent ~101.6 (-2%) as Saudi restores exports despite weekend Houthi strikes; rupee 95.7; NSE IPO closed ~1.5x, GMP ~3%, listing ~24 Sep. Tuesday: token first; GE Shipping target watch; if it exits, consider re-arming a fresh non-shipping, non-energy thesis with the freed cash.",
+   "data": {
+    "equity": 9891.46,
+    "cash": 3456.6,
+    "day_pnl": -28.58,
+    "total_pnl": -108.54,
+    "unrealized": 185.36,
+    "geship_close": 1485.0,
+    "redington_close": 392.05,
+    "ather_close": 1593.0
+   }
+  },
+  {
+   "id": 120,
+   "ts": "2026-09-21T09:45:08.306632Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "15:10 IST pre-close, Mon 21 Sep (day 11). GE Shipping 1487.10 (+3.8% today, high 1487.80, +7.4% vs entry) is 0.6% from the 1496.02 target: the droplet takes it on any tick at/above the target (last tick 15:20), otherwise it carries with stop 1364.42 and expiry Fri 25 Sep. Redington 392.20 (-1.9% today, +3.9% vs entry, 2.8% above the locked 381.27 stop). Ather 1590.80 (-3.0% today, -0.7% vs fill, 4.4% above the 1522.76 stop; Nifty Auto ending a 5-month winning streak is the sector headwind). Shilpa 1069.00 (+4.7%, RSI ~72): DECISION keep the 930-975 band, do not widen/chase; the armed thesis lapses Fri 25 Sep if no pullback. Equity 9,892.48, cash 3,456.60, day -27.56, unrealized +186.38. Market: Sensex +600-690 intraday, Nifty >23,400 (+0.4%), pharma up a 3rd day, IT weak (OFSS -7%); Brent 101.6 (-2.2%) as Saudi restores exports; NSE IPO bidding closed ~1.5x; India's crude import bill +50% y/y in Apr-Aug.",
+   "data": {
+    "geship_last": 1487.1,
+    "geship_target": 1496.02,
+    "redington_last": 392.2,
+    "ather_last": 1590.8,
+    "shilpa_last": 1069.0,
+    "equity": 9892.48,
+    "decision": "keep Shilpa band; no changes"
+   }
+  },
+  {
+   "id": 119,
+   "ts": "2026-09-21T08:05:28.508860Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "13:30 IST check, Mon 21 Sep (day 11). No droplet action since the 10:00 Ather entry. GE Shipping 1471.50 (+2.8% today, high 1479.00, +6.2% vs entry, 1.7% from the 1496.02 target), Redington 391.10 (-2.2% today, low 390.80, +3.6% vs entry, 2.5% above the locked 381.27 stop), Ather 1594.00 (-2.8% today, low 1576.00, -0.6% vs the 1602.90 fill, 4.5% above the 1522.76 stop), Shilpa 1060.60 (+3.9%, above band), GOLDBEES 125.61. Equity 9,873.28, cash 3,456.60, day -46.76, unrealized +167.18. Market: Sensex at day's high +500, Nifty ~23,400 (+0.3%), realty and FMCG up, pharma at new highs (Laurus, Aurobindo); Brent 101.6 (-2.2%) as Saudi restores exports despite weekend Houthi strikes near Riyadh and Mecca; NSE IPO ~1.5x on the final day. Nifty is in a 6-week losing run.",
+   "data": {
+    "equity": 9873.28,
+    "geship_last": 1471.5,
+    "redington_last": 391.1,
+    "ather_last": 1594.0,
+    "brent": 101.6,
+    "nifty_approx": 23400
+   }
+  },
+  {
+   "id": 118,
+   "ts": "2026-09-21T06:04:53.608865Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "11:30 IST check, Mon 21 Sep (day 11). No droplet action since the 10:00 Ather entry. Redington 395.75 (-1.0% today, +4.9% vs entry; 3.7% above the locked 381.27 stop), GE Shipping 1452.80 (+1.5% today, high 1465.00, 3.0% from the 1496.02 target), Ather 1606.90 (+0.25% vs the 1602.90 fill; -2.0% on the day; F&O open interest rising, rare-earth-magnet theme headlines around the Trump-Xi summit), Shilpa 1051.95 (+3.0%, above band), GOLDBEES 125.56. Equity 9,895.44, cash 3,456.60, day -24.60, unrealized +189.34. Market: Sensex +400 / Nifty ~23,385 (+0.2%) as crude cools to ~102 despite weekend Houthi strikes; pharma and HDFC Life lead; rupee 95.72; NSE IPO 1.47x on the final day with retail lagging and GMP ~3%; Welspun Corp +5% on a 2,000 cr Aramco order.",
+   "data": {
+    "equity": 9895.44,
+    "cash": 3456.6,
+    "redington_last": 395.75,
+    "geship_last": 1452.8,
+    "ather_last": 1606.9,
+    "nifty_approx": 23385,
+    "brent": 102
+   }
+  },
+  {
+   "id": 117,
+   "ts": "2026-09-21T04:52:49.286674Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "10:22 IST Mon 21 Sep: FIRST AUTOMATIC ENTRY. Droplet 10:00 tick bought 1 ATHERENERG @ 1602.90 (marketable limit, 0.10-tick rounding learned from the earlier rejections and cached); thesis b1c088bd95c7 now OPEN: stop 1522.76 (5%), target 1747.16 (9%), expires 30 Sep. Book: Redington 396.40 (+5.0%, locked stop 381.27, target 415.25), GE Shipping 1458.60 (+5.3%, 2.6% from the 1496.02 target), Ather 1603.50, GOLDBEES 125.87; Shilpa still armed 930-975 (last 1047). Cash 3,456.60 (3,000 reserved for Shilpa), equity 9,904.56, day -15.48, unrealized +198.46. The research-to-execution loop is now closed end to end: cloud writes an armed thesis, droplet enters and exits, snapshots reconcile.",
+   "data": {
+    "ather_fill": 1602.9,
+    "ather_stop": 1522.76,
+    "ather_target": 1747.16,
+    "cash": 3456.6,
+    "equity": 9904.56
+   }
+  },
+  {
+   "id": 116,
+   "ts": "2026-09-21T04:30:11.504674Z",
+   "kind": "order",
+   "venue": "kite",
+   "symbol": "NSE:ATHERENERG",
+   "order_id": "98ada99010c9",
+   "text": "filled: buy 1 NSE:ATHERENERG limit @ 1605.35 | reason: [thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+   "data": {
+    "reason": "[thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+    "strategy": "thesis",
+    "risk": {
+     "notional": 1605.35,
+     "reference_price": 1605.35,
+     "reduces_position": false
+    },
+    "live": true
+   }
+  },
+  {
+   "id": 115,
+   "ts": "2026-09-21T04:21:34.524312Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "09:58 IST Mon 21 Sep: droplet ticks at 09:40 and 09:50 tried BUY 1 ATHERENERG at a 0.05-rounded limit; Kite rejected both: tick size for the scrip is 0.10. Fix pushed: the Kite broker learns the instrument tick from the rejection, caches it in data/cache/kite_ticks.json and retries once with the right rounding. The droplet reinstalls on its next 5-min sync; the armed thesis stays planned and re-attempts on the following tick while the price is inside 1580-1680 (last ~1602). Kite reads: equity 9,910.84, cash 5,059.50, day -9.20; Redington 397.75, GE Shipping 1457.40 (2.7% from target).",
+   "data": {
+    "ather_rejections": 2,
+    "reason": "tick size 0.10"
+   }
+  },
+  {
+   "id": 114,
+   "ts": "2026-09-21T04:20:11.320655Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:ATHERENERG",
+   "order_id": null,
+   "text": "thesis b1c088bd95c7 auto entry FAILED: kite rejected order: Tick size for this script is 0.10. Kindly enter price in the multiple of tick size for this script",
+   "data": {
+    "thesis_id": "b1c088bd95c7"
+   }
+  },
+  {
+   "id": 113,
+   "ts": "2026-09-21T04:10:19.266725Z",
+   "kind": "risk",
+   "venue": "kite",
+   "symbol": "NSE:ATHERENERG",
+   "order_id": null,
+   "text": "thesis b1c088bd95c7 auto entry FAILED: kite rejected order: Tick size for this script is 0.10. Kindly enter price in the multiple of tick size for this script",
+   "data": {
+    "thesis_id": "b1c088bd95c7"
+   }
+  },
+  {
+   "id": 112,
+   "ts": "2026-09-21T04:01:43.024868Z",
+   "kind": "note",
+   "venue": null,
+   "symbol": null,
+   "order_id": null,
+   "text": "09:31 IST Mon 21 Sep: Kite token applied and drop pushed (e2aa7f7); droplet applies at 09:35, first live tick 09:40 (Ather 1600.90 inside 1580-1680 -> expected BUY 1). Kite reads: equity 9,895.78, cash 5,059.50, day -24.26. Redington 396.10 (low 393.95; locked stop 381.27), GE Shipping 1453.20 (high 1454.60, target 1496.02 2.9% away), Shilpa 1043.50 (above band).",
+   "data": {
+    "equity": 9895.78,
+    "cash": 5059.5,
+    "ather_last": 1600.9
+   }
+  },
   {
    "id": 111,
    "ts": "2026-09-21T03:42:09.781818Z",
@@ -1721,7 +1879,7 @@
   {
    "id": "b1c088bd95c7",
    "created_at": "2026-09-21T03:40:57.615419Z",
-   "updated_at": "2026-09-21T03:40:57.615441Z",
+   "updated_at": "2026-09-21T04:30:11.515450Z",
    "venue": "kite",
    "symbol": "NSE:ATHERENERG",
    "market": "in",
@@ -1733,10 +1891,10 @@
    "stop_pct": 5.0,
    "target_pct": 9.0,
    "expires_at": "2026-09-30T00:00:00Z",
-   "status": "planned",
-   "entry_order_id": null,
-   "qty": 0.0,
-   "entry_price": null,
+   "status": "open",
+   "entry_order_id": "98ada99010c9",
+   "qty": 1.0,
+   "entry_price": 1602.9,
    "exit_order_id": null,
    "exit_price": null,
    "closed_at": null,
@@ -2035,6 +2193,78 @@
   }
  ],
  "orders": [
+  {
+   "id": "98ada99010c9",
+   "venue": "kite",
+   "venue_order_id": "260921220317029",
+   "symbol": "NSE:ATHERENERG",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 1.0,
+   "filled_qty": 1.0,
+   "order_type": "limit",
+   "limit_price": 1605.35,
+   "stop_price": null,
+   "tif": "day",
+   "status": "filled",
+   "avg_fill_price": 1602.9,
+   "fees": 0.0,
+   "reason": "[thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+   "strategy": "thesis",
+   "reject_reason": null,
+   "client_order_id": null,
+   "created_at": "2026-09-21T04:30:11.346855Z",
+   "updated_at": "2026-09-21T04:52:22.721789Z"
+  },
+  {
+   "id": "1a4e0e58cc2b",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:ATHERENERG",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 1.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 1605.05,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+   "strategy": "thesis",
+   "reject_reason": "Tick size for this script is 0.10. Kindly enter price in the multiple of tick size for this script",
+   "client_order_id": null,
+   "created_at": "2026-09-21T04:20:11.238630Z",
+   "updated_at": "2026-09-21T04:21:31.548443Z"
+  },
+  {
+   "id": "540577289970",
+   "venue": "kite",
+   "venue_order_id": null,
+   "symbol": "NSE:ATHERENERG",
+   "market": "in",
+   "currency": "INR",
+   "side": "buy",
+   "qty": 1.0,
+   "filled_qty": 0.0,
+   "order_type": "limit",
+   "limit_price": 1603.05,
+   "stop_price": null,
+   "tif": "day",
+   "status": "rejected",
+   "avg_fill_price": null,
+   "fees": 0.0,
+   "reason": "[thesis b1c088bd95c7] EV two-wheeler leader in a pullback: 6% below the 1 Sep high of 1744 after +130% YTD; record festive registrations (30.9k units, 20% share), Konarc mass-market launch on the new EL platform, Q1 FY27 revenue +89% with the loss narrowing to 51 cr, brokerage buy reiterated 10 Sep; beta 0.62 diversifies the book (IT distribution, shipping, pharma-armed). Armed 1580-1680: buy near the 20-day average, do not chase.",
+   "strategy": "thesis",
+   "reject_reason": "Tick size for this script is 0.10. Kindly enter price in the multiple of tick size for this script",
+   "client_order_id": null,
+   "created_at": "2026-09-21T04:10:19.205110Z",
+   "updated_at": "2026-09-21T04:19:14.398002Z"
+  },
   {
    "id": "057c0ac4b53d",
    "venue": "kite",
@@ -3396,6 +3626,302 @@
     "cash": 5077.0,
     "positions_value": 4843.040000000001,
     "equity": 9920.04
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:05:28.450890Z",
+    "cash": 5059.5,
+    "positions_value": 4839.5599999999995,
+    "equity": 9899.06
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:10:22.002825Z",
+    "cash": 5059.5,
+    "positions_value": 4834.14,
+    "equity": 9893.64
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:20:13.767484Z",
+    "cash": 5059.5,
+    "positions_value": 4847.200000000001,
+    "equity": 9906.7
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:30:14.242159Z",
+    "cash": 3456.6,
+    "positions_value": 6446.700000000001,
+    "equity": 9903.300000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:40:18.319470Z",
+    "cash": 3456.6,
+    "positions_value": 6433.820000000001,
+    "equity": 9890.42
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T04:50:22.246748Z",
+    "cash": 3456.6,
+    "positions_value": 6450.84,
+    "equity": 9907.44
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:00:36.359392Z",
+    "cash": 3456.6,
+    "positions_value": 6443.42,
+    "equity": 9900.02
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:10:22.203028Z",
+    "cash": 3456.6,
+    "positions_value": 6437.4400000000005,
+    "equity": 9894.04
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:20:26.036742Z",
+    "cash": 3456.6,
+    "positions_value": 6433.0199999999995,
+    "equity": 9889.619999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:30:14.113530Z",
+    "cash": 3456.6,
+    "positions_value": 6434.32,
+    "equity": 9890.92
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:40:35.008567Z",
+    "cash": 3456.6,
+    "positions_value": 6432.68,
+    "equity": 9889.28
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T05:50:22.319552Z",
+    "cash": 3456.6,
+    "positions_value": 6437.1,
+    "equity": 9893.7
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:00:36.116618Z",
+    "cash": 3456.6,
+    "positions_value": 6445.14,
+    "equity": 9901.74
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:10:28.292820Z",
+    "cash": 3456.6,
+    "positions_value": 6442.6,
+    "equity": 9899.2
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:20:26.128981Z",
+    "cash": 3456.6,
+    "positions_value": 6453.78,
+    "equity": 9910.38
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:30:22.874488Z",
+    "cash": 3456.6,
+    "positions_value": 6469.08,
+    "equity": 9925.68
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:40:35.708989Z",
+    "cash": 3456.6,
+    "positions_value": 6449.639999999999,
+    "equity": 9906.24
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T06:50:11.112124Z",
+    "cash": 3456.6,
+    "positions_value": 6443.700000000001,
+    "equity": 9900.300000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:00:29.951342Z",
+    "cash": 3456.6,
+    "positions_value": 6445.4,
+    "equity": 9902.0
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:10:22.970532Z",
+    "cash": 3456.6,
+    "positions_value": 6441.299999999999,
+    "equity": 9897.9
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:20:19.377404Z",
+    "cash": 3456.6,
+    "positions_value": 6442.46,
+    "equity": 9899.06
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:30:29.718079Z",
+    "cash": 3456.6,
+    "positions_value": 6429.599999999999,
+    "equity": 9886.199999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:40:18.560680Z",
+    "cash": 3456.6,
+    "positions_value": 6430.92,
+    "equity": 9887.52
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T07:50:20.646774Z",
+    "cash": 3456.6,
+    "positions_value": 6412.88,
+    "equity": 9869.48
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:00:30.316483Z",
+    "cash": 3456.6,
+    "positions_value": 6413.98,
+    "equity": 9870.58
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:10:18.024169Z",
+    "cash": 3456.6,
+    "positions_value": 6419.24,
+    "equity": 9875.84
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:20:34.777364Z",
+    "cash": 3456.6,
+    "positions_value": 6425.820000000001,
+    "equity": 9882.42
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:30:33.354345Z",
+    "cash": 3456.6,
+    "positions_value": 6426.0199999999995,
+    "equity": 9882.619999999999
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:40:22.775559Z",
+    "cash": 3456.6,
+    "positions_value": 6421.76,
+    "equity": 9878.36
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T08:50:21.894380Z",
+    "cash": 3456.6,
+    "positions_value": 6426.040000000001,
+    "equity": 9882.640000000001
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:00:32.768547Z",
+    "cash": 3456.6,
+    "positions_value": 6423.82,
+    "equity": 9880.42
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:10:12.791874Z",
+    "cash": 3456.6,
+    "positions_value": 6424.72,
+    "equity": 9881.32
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:20:35.364239Z",
+    "cash": 3456.6,
+    "positions_value": 6430.04,
+    "equity": 9886.64
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:30:23.660446Z",
+    "cash": 3456.6,
+    "positions_value": 6441.96,
+    "equity": 9898.56
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:40:27.730707Z",
+    "cash": 3456.6,
+    "positions_value": 6430.78,
+    "equity": 9887.38
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T09:50:10.884864Z",
+    "cash": 3456.6,
+    "positions_value": 6445.22,
+    "equity": 9901.82
+   },
+   {
+    "venue": "kite",
+    "market": "in",
+    "ts": "2026-09-21T10:15:14.246245Z",
+    "cash": 3456.6,
+    "positions_value": 6434.860000000001,
+    "equity": 9891.460000000001
    }
   ],
   "kite/crypto": [],
