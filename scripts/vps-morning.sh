@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# HALTED by the owner on 2026-09-21: all trading stopped, positions are being liquidated by hand.
+# Nothing below runs. Remove these lines only to restart the system deliberately.
+echo "tradebot halted by owner (2026-09-21); nothing to do"; exit 0
 # Timer target: bring the VPS database in line with the cloud session's morning research.
 set -uo pipefail
 cd "$(dirname "$(readlink -f "$0")")/.."

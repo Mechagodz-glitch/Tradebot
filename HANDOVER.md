@@ -1,3 +1,9 @@
+> **HALTED 21 September 2026.** The owner stopped all trading and is liquidating the holdings by hand.
+> The droplet's timers exit immediately (`scripts/vps-*.sh`), all scheduled check-ins were cancelled, the
+> Kite token drop was removed from the repository, and the droplet is being destroyed. Nothing here should
+> place an order. To restart deliberately: remove the HALT lines from the three `scripts/vps-*.sh` files,
+> re-create the droplet per `docs/VPS.md`, and re-whitelist a fresh static IP on Kite.
+
 # Handover: running the live book from your machine
 
 Zerodha requires API orders to come from a whitelisted static IP (exchange rule, effective
